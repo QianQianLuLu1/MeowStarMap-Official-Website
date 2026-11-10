@@ -1,0 +1,52 @@
+==============================================================================
+R39 苹果式排版专项探针
+==============================================================================
+  ok  S0 资源不变量（零外链 / 2 内嵌字体 / 无表单）
+ skip S1 html5lib strict 解析
+        原因: --skip-w3c
+ FAIL S2 R39 注释对唯一
+        期望: 1 对
+        实测: BEGIN=0 END=False
+ skip S3 R39 仅排版度量
+        原因: R39 注释对缺失
+ skip S4 R39 screen 包裹
+        原因: R39 注释对缺失
+ skip S5 R39 :has 渐进门控
+        原因: R39 注释对缺失
+ skip S6 R39 间距/行宽令牌
+        原因: R39 注释对缺失
+ skip S7 R39 图片左对齐声明
+        原因: R39 注释对缺失
+  ok  F0 功能快照基线已写入
+  ok  T1 1440 字号/字重阶梯
+ FAIL T2 标题 0.5T / 0.75T / 1.16 行高
+        期望: mt/T .5 · mb/T .75 · lh/T 1.16
+        实测: ["landing: mt/T=0.000", "landing: mb/T=0.000", "landing: lh/T=1.030", "identity: mt/T=0.194", "identity: mb/T=0.139", "home: mt/T=0.105", "home: mb/T=0.158", "dev: mt/T=0.000", "dev: mb/T=0.200", "devcat: mt/T=0.083", "devcat: mb/T=0.208", "devdoc: mt/T=0.083", "devdoc: mb/T=0.208", "module: mt/T=0.083", "module: mb/T=0.208", "page: mt/T=0.083", "page: mb/T=0.208"]
+ FAIL T3 眉题 13–14px/500+/字距克制 · 副文 300
+        期望: eyebrow 13–14 / >=500 / |ls|<=0.8px; sub 300
+        实测: ["landing: eyebrow fs=12", "landing: eyebrow ls=1.68px", "home: eyebrow fs=12", "home: eyebrow ls=0.96px", "module: eyebrow fs=12", "page: eyebrow fs=12", "devcat: eyebrow fs=12", "devdoc: eyebrow fs=12", "all: eyebrow fs=12"]
+ FAIL T4 正文 17px / 1.6 / 段距>行距 / 40em
+        期望: fs 16.5–17.5 · lh/fs 1.55–1.65 · mb>=1.05lh · w 630–701
+        实测: ["module: p fs=16", "module: p lh/fs=1.750", "module: p mb=16 < 1.05*lh=29.40", "module: p pitch=44 < 1.8*lh", "module: p w=756", "page: p fs=16", "page: p lh/fs=1.750", "page: p mb=16 < 1.05*lh=29.40", "page: p pitch=44 < 1.8*lh", "page: p w=810", "devdoc: p fs=16", "devdoc: p lh/fs=1.750", "devdoc: p mb=16 < 1.05*lh=29.40", "devdoc: p pitch=44 < 1.8*lh", "all: p fs=16", "all: p lh/fs=1.750", "all: p mb=16 < 1.05*lh=29.40", "all: p pitch=44 < 1.8*lh", "all: p w=964"]
+ FAIL T5 lead 无左条/缩进，与 h1 同基线
+        期望: pl=0 blw=0 left=h1 · fs 17–19 · lh/fs 1.6
+        实测: ["page: lead pl=14 blw=3", "page: lead lh/fs=1.750", "devdoc: lead pl=14 blw=3", "devdoc: lead lh/fs=1.750", "devcat: lead pl=14 blw=3", "devcat: lead lh/fs=1.750"]
+ FAIL T6 区块 h3/FAQ 层级与首项复位
+        期望: h3 20–23 · first mt=0 · later mt≈2.25em · FAQ mb≈4
+        实测: ["page.h3[0]: fs=28", "page.h3[0]: lh/fs=1.140", "page.h3[1]: fs=28", "page.h3[1]: lh/fs=1.140", "page.h3[1]: mt/fs=1.429", "devdoc.h3[0]: fs=28", "devdoc.h3[0]: lh/fs=1.140", "devdoc.h3[0]: mt/fs=1.429", "devdoc.h3[1]: fs=28", "devdoc.h3[1]: lh/fs=1.140", "devdoc.h3[1]: mt/fs=1.429", "devdoc.h3[2]: fs=28", "devdoc.h3[2]: lh/fs=1.140", "devdoc.h3[2]: mt/fs=1.429", "devdoc.h3[3]: fs=28", "devdoc.h3[3]: lh/fs=1.140", "devdoc.h3[3]: mt/fs=1.429", "devdoc.h3[4]: fs=28", "devdoc.h3[4]: lh/fs=1.140", "devdoc.h3[4]: mt/fs=1.429", "all.h3[0]: fs=28", "all.h3[0]: lh/fs=1.140", "all.h3[1]: fs=28", "all.h3[1]: lh/fs=1.140", "all.h3[1]: mt/fs=1.429", "faq: fs=28"]
+  ok  T7 主阅读列同一左基线 / 面板外缘对齐
+ FAIL T8 40em 行宽 + 含图段落不缩图 + 图宽达标
+        期望: p 660–700 · imgP >= p+40 · img >=620
+        实测: ["page: p.w=810 not 660-700", "module: p.w=756 not 660-700", "all: p.w=964 not 660-700", "module: imgP.w=756 vs p.w=756", "all: imgP.w=964 vs p.w=964"]
+  ok  T9 仅 Landing/门页居中，其余左对齐
+ FAIL T10 390 移动端留白 / 层级 / 无顶部裁切
+        期望: app 16 · wrap 16 · hero 18 · h1 32/36 > h3 20 > p 16
+        实测: ["page app padding=(12, 12)", "page lead pl=12", "page h1=30.4", "page body lh != 1.6", "home app pl=12", "home hero pl=28", "home h1=32"]
+  ok  T11 渐变文字每页 <=1（landing neutral/color=1, plain=0）
+  ok  T12 明暗 AA 对比度（正文/辅助/眉题）
+  ok  T13 打印 h1=30px（R39 仅 screen）
+  ok  T14 6 断点 × 双主题 × 9 路由零横向溢出
+  ok  T15 控制台 0 error / 0 pageerror / 0 失败请求
+  ok  T16 控制台无警告
+------------------------------------------------------------------------------
+合计 25 | PASS 11 | FAIL 8 | NOT-RUN 6

@@ -1,0 +1,41 @@
+R42 · r37_bento_check F2 差异签认记录（2026-11-01）
+================================================================================
+
+结论：F2 是本轮**唯一**未转绿的既有断言，且其差异轴只有一条 —— `bodyTextLen`。
+      卡片计数、全部链接 href、标题/文案节点、img src/alt、侧栏/面包屑/翻页/相关 chips、
+      正文字数等其余全部字段在 7 视图 × 双主题上零变化。
+      这正是「一级首页三卡文案迁往二级/三级页 + 顶栏新增 GitHub 文本」应有的形态，
+      非回归。据 r37 探针自身口径（`--baseline` 落改造前基线、改造后比对），
+      本轮落地后推进基线。
+
+--------------------------------------------------------------------------------
+1. r37 探针自报（dark 侧，note 受 Ledger 400 字符截断）
+   dark|#/.bodyTextLen:            855 -> 633   （一级首页摘除 .lp-product / .lpx-resonance / .lpx-cta）
+   dark|#/all.bodyTextLen:        7026 -> 7032  （+6 = 顶栏 GitHub 文本标签）
+   dark|#/dev.bodyTextLen:         961 -> 967   （+6 同上）
+   dark|#/m1.bodyTextLen:          491 -> 497   （+6 同上）
+   dark|#/m1/m1p1.bodyTextLen:     399 -> 405   （+6 同上）
+   dark|#/tutorial.bodyTextLen:   1224 -> 1230  （+6 同上）
+   light 侧 6 条同构，合计 12 处。
+
+2. 独立复核（放宽等待条件的复算脚本，条数 14 = 7 视图 × 2 主题；
+   绝对值因未复刻探针的交互/滚动状态而与上表有出入，**字段集合才是权威结论**）
+   差异字段集合: ['bodyTextLen']        ← 仅此一项
+   其余字段（ms/mod/gate/pagecard/quick/step/sidebarLinks/crumbs/pager/rel/
+   dlItems/dlBtnText/cta/heroTitle/aboutBtns/aboutSec/docTitle/empty/statNums/
+   modNames/imgSrcPrefix/imgAlts）: 零差异
+
+3. 内容零丢失的正向证据由本轮专项探针给出
+   tests/r42_migration_check.py :: A2 —— 一级首页三卡 12 条原文，逐字子串断言，
+   在 #/features / #/resonance / #/privacy / #/download / #/download/start
+   合并文本中 12/12 命中。A2b 记录唯一有意退场项「了解共鸣录」（一级首页专属自链）。
+
+4. 字体不缺字（A9 的精确口径，一次性 fonttools 核验，不写入仓库探针以免新增依赖）
+   Noto Sans SC 子集 cmap 1460 码位；遍历 #/ #/features #/resonance #/privacy
+   #/download #/download/start #/tutorial #/dev 八视图 body.innerText 的全部 CJK
+   码位 → 缺字 0。故 R36 子集无需重做。
+
+5. 基线推进
+   本文件留存后执行 `python tests/r37_bento_check.py --baseline` 重钉
+   tests/r37-baseline.json 为 R42 完成态；复跑 F2 应转绿。
+   下一轮若再动 landing/子页文案，同样先留存差异再推进基线。

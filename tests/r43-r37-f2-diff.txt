@@ -1,0 +1,40 @@
+R43 软件图标层 — r37 F2 功能快照差异签认
+========================================================================
+比对对象：C:/Users/45001/.qoder-cn/tmp/r43-icon/pre-r43.html（R42 基线副本）
+          vs Meow Star Map 官网.html（R43 改造后）
+比对方法：一次性脚本复用 tests/r37_bento_check.py 自身的 JS_FUNC 与 HASHES，
+          对 7 视图 x 2 主题 = 14 个快照点逐字段求差（非计数近似）。
+
+差异条目数：14
+差异轴集合：['bodyTextLen']  <-- 单一轴
+
+结论：差异只落在 bodyTextLen 一个字段上，其余 23 个字段（卡片计数、全部链接
+      href、标题/文案、img src+alt、侧栏/面包屑/翻页/相关 chips 计数、docTitle、
+      视图映射）14 个快照点全部逐位不变。
+
+应有形态解释：本轮把六处软件图标从 emoji 字形换成空 <span class="app-ic">（背景
+      图承载），每个 U+1F4F7 在 innerText 中占 2 个 UTF-16 单元，故每视图按可见
+      图标数 -2 的整数倍收缩：
+        #/dev      -6  = 顶栏 .lg-emoji + 侧栏 DEV_SB .sb-all + 快捷卡 .q-emoji
+        #/ 与 #/identity 各 -2 = 一级导航 .lp-brand-mark / 身份门 .gate-emoji
+        #/tutorial #/all #/m1 #/m1/m1p1 各 -2 = 顶栏 .lg-emoji
+      与纯图形替换的语义完全一致，无任何内容迁移或删减。
+
+完整差异清单：
+  dark|#/.bodyTextLen: 633 -> 631
+  dark|#/all.bodyTextLen: 7032 -> 7030
+  dark|#/dev.bodyTextLen: 967 -> 961
+  dark|#/identity.bodyTextLen: 136 -> 134
+  dark|#/m1.bodyTextLen: 497 -> 495
+  dark|#/m1/m1p1.bodyTextLen: 405 -> 403
+  dark|#/tutorial.bodyTextLen: 1230 -> 1228
+  light|#/.bodyTextLen: 633 -> 631
+  light|#/all.bodyTextLen: 7032 -> 7030
+  light|#/dev.bodyTextLen: 967 -> 961
+  light|#/identity.bodyTextLen: 136 -> 134
+  light|#/m1.bodyTextLen: 497 -> 495
+  light|#/m1/m1p1.bodyTextLen: 405 -> 403
+  light|#/tutorial.bodyTextLen: 1230 -> 1228
+
+处置：旧基线留存为 tests/r37-baseline.pre-r43.json；以 --baseline 重落后复跑
+      tests/r37_bento_check.py 须回到 33 PASS / 0 FAIL / 1 NOT-RUN。

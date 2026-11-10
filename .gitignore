@@ -1,0 +1,30 @@
+# Python 探针运行产物（tests/__pycache__ 实际存在）
+__pycache__/
+*.py[cod]
+
+# 父仓库口径的本地基线/结果（AGENTS.md 明言不入库）
+# 注意：tests/r37-baseline*.json、tests/r39-baseline.* 等轮次基线是有意入库的验收证据，不在此列
+tests/baseline.json
+tests/r14-*-results.json
+
+# 整文件快照与历史归档（AGENTS.md：存于父仓库/外部，本工作树未纳入）
+backups/
+*.backup-*.html
+gui-test-screenshots/
+
+# 本地一次性工具目录（AGENTS.md R36 字体子集化脚本等）
+.zcode/
+
+# 日志与本地私密配置
+*.log
+.env
+.env.*
+
+# 操作系统杂项
+.DS_Store
+Thumbs.db
+Desktop.ini
+
+# 编辑器
+.vscode/
+.idea/

@@ -1,0 +1,47 @@
+
+==============================================================================
+R42 专项探针 · 一级三卡迁移 + GitHub 常驻入口
+==============================================================================
+  PASS  A10a 零外链资源标签
+  PASS  A10b @font-face 计数保持 2（均 data:）
+  PASS  A10c GitHub 出链恰 2 处（lp-nav + topbar）
+  PASS  S1 R42 注释对成对平衡
+  PASS  S2 本层零新增 hex（颜色全走令牌）
+  PASS  A9b 新增汉字均为站点既有字符（R36 子集必要条件，stdlib 口径）
+        精确 cmap 命中另用 fonttools 一次性核验；探针不引入 fonttools 依赖
+  PASS  A1 一级首页三卡归零
+  PASS  A1b 一级首页其余区块完好（hero+stats+6 功能卡+3 优势卡+关于+页脚）
+  PASS  A2 三卡 12 条原文在四个 landing 页合并文本中逐字命中
+  PASS  A2b 一级首页专属自链「了解共鸣录」已随卡片退场（有意取舍，非丢失）
+  PASS  A4 四个 landing 子页 .lpx-banner/.lpx-art/.lpx-cta-card/.lp-product 全 0
+  PASS  A4b 子页卡片一律走 .pg-grid > .pg-card 小卡体系
+  PASS  A6 三级页 #/download/start 渲染为 landing 视图且标题正确
+  PASS  A6b 三级页返回链指回 #/download 且文案为「返回下载与支持」
+  PASS  A6c 既有四个二级页返回链零变化（默认尾参生效）
+  PASS  A6d 未知 hash 仍回落一级首页
+  PASS  A6e 深链锚点 #/download/start@faq 可达且定位到 FAQ
+  PASS  A7 nav 侧 GitHub 按钮 href/target/rel 逐字正确
+  PASS  A7 top 侧 GitHub 按钮 href/target/rel 逐字正确
+  PASS  A7b topbar GitHub 紧随「切换身份」之后（不破坏 THEME-UI insertBefore 锚点）
+  PASS  A7c #themebtn 与 .look-btn 仍插在「切换身份」之前（既有注入位序零变化）
+  PASS  A8 #/download 时「下载」导航项 active 状态正确（期望 active=True）
+  PASS  A8 #/download/start 时「下载」导航项 active 状态正确（期望 active=True）
+  PASS  A8 #/features 时「下载」导航项 active 状态正确（期望 active=False）
+  PASS  A3 一级首页首个 .about-sec 现为真正的关于板块（含社交行）
+  PASS  A3b 点「关于」后板块顶边落在导航之下（scroll-margin-top 生效）
+  PASS  B3 两枚 GitHub 按钮显式声明对齐方式（非默认 inline 基线）
+  PASS  B4 GitHub 圆钮 padding 复位为 0（未被 .lp-links a 的 6px 2px 顶偏心）
+  PASS  B1 GitHub 胶囊与相邻「切换身份」胶囊垂直中心对齐 ≤1px
+  PASS  B6 父容器居中而卡内文字显式左对齐
+  PASS  B7 卡片四周 padding 等值（28px）
+  PASS  B5 三级页首个内容块不被固定导航遮挡
+  PASS  C4 五断点 × 双主题 × 六视图零横向溢出且首块不被导航遮挡
+  PASS  C4b .lp-links 在 >640px 各档零溢出（≤900px 隐藏配色圆点生效）
+  PASS  C4c 390px 档 .lp-links 溢出不劣于改造前的 +46px
+  PASS  C4d 390px 档 .lp-brand 未被挤成超出栏高的三行
+  PASS  A5 #/features 新迁移三卡图标各不相同且未落到 pgIcon 的 spark 静默兜底
+  PASS  C6 全程 console / pageerror 零报错
+------------------------------------------------------------------------------
+合计 38 | PASS 38 | FAIL 0 | NOT-RUN 0
+
+快照: D:\Workbuddy 项目\NikkiGallery开发者网页\MeowStarMap-official-website\tests\r42-snapshot.json

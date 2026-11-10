@@ -1,0 +1,10 @@
+W3C Nu structural-copy validation (giant data/font/QR lines replaced, rest intact)
+bytes=412505 lines=4061 messages=7
+HTML errors=0 CSS-validator messages=5 info=2
+CSS-MSG line 1482: CSS: Unrecognized at-rule “@property”
+CSS-MSG line 1488: CSS: “background”: “var(--r31-a)” is not a “conic-gradient” value.
+CSS-MSG line 1488: CSS: “-webkit-mask”: too few values for the property “linear-gradient”.
+CSS-MSG line 1491: CSS: “background”: “var(--r31-a)” is not a “conic-gradient” value.
+CSS-MSG line 1491: CSS: “-webkit-mask”: too few values for the property “linear-gradient”.
+INFO line 4: Trailing slash on void elements has no effect and interacts badly with unquoted attribute values.
+INFO line 2131: Trailing slash on void elements has no effect and interacts badly with unquoted attribute values.
