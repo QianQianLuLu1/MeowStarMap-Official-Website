@@ -2561,14 +2561,26 @@ html[data-look="plain"] #lp-nav .lp-thdots-toggle{display:none}
 <script>
 (function(){
 "use strict";
-var DATA=JSON.parse(document.getElementById('tut-data').textContent);
-/* 开发者文档库数据（构建期注入，结构见 tools/build_dev_data.py） */
+/* ═══ R46:BEGIN 教程数据惰性解析（20261111）
+   改造前：脚本顶层无条件 JSON.parse(#tut-data) 30.9 MB —— 落地页 #/、身份门、开发者视图
+   同样要付一次约 59 MB 的 UTF-16 字符串与解析后的对象图，而它们一个字节都不使用。
+   改造后：仅教程路由（#/tutorial、#/all、#/mX、#/mX/mYpZ）与首次搜索时才解析，其余入口零解析。
+   MODS/ORDER/byId/modById 仍是同一批对象引用，只由 ensureTut() 填充，故所有下游闭包零改动。
+   回滚 = 删除本注释对之间的函数，并还原下列调用点（各带 R46 标记）与 USER_SB 惰性化。 ═══ */
+var DATA=null, MODS=null, ORDER=[], byId={}, modById={};
+function ensureTut(){
+  if(DATA) return DATA;
+  DATA=JSON.parse(document.getElementById('tut-data').textContent);
+  MODS=DATA.modules;
+  MODS.forEach(function(m){modById[m.id]=m;});
+  MODS.forEach(function(m){m.pages.forEach(function(pid){ORDER.push({m:m,pid:pid,p:DATA.pages.find(function(x){return x.id===pid;})});});});
+  ORDER.forEach(function(o){byId[o.pid]=o;});
+  return DATA;
+}
+/* ═══ R46:END ═══ */
+/* 开发者文档库数据（构建期注入，结构见 tools/build_dev_data.py）。仅 1.5 MB、解析约 3 ms，
+   本轮保持加载期解析不动；如需再提速，可按同一形态在后续轮次惰性化。 */
 var DEV=(function(){try{var d=JSON.parse(document.getElementById('dev-data').textContent);return (d&&d.cats&&d.cats.length)?d:null;}catch(e){return null;}})();
-var MODS=DATA.modules, byId={}, modById={};
-MODS.forEach(function(m){modById[m.id]=m;});
-var ORDER=[];
-MODS.forEach(function(m){m.pages.forEach(function(pid){ORDER.push({m:m,pid:pid,p:DATA.pages.find(function(x){return x.id===pid;})});});});
-ORDER.forEach(function(o){byId[o.pid]=o;});
 var lowCache={};
 function low(s){ if(!(s in lowCache)) lowCache[s]=s.toLowerCase(); return lowCache[s]; }
 function esc(s){return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;');}
@@ -2632,7 +2644,12 @@ function pick(r){
 }
 
 var sb=document.getElementById('sidebar');
-var USER_SB=(function(){
+/* R46：教程侧栏由加载期 IIFE 改为惰性构建 —— 它依赖 MODS/byId，原实现会在首帧强制解析 30.9 MB。
+   现在仅在教程视图首次渲染时构建一次并缓存为字符串；落地页/身份门不构建（该视图下侧栏本就隐藏）。 */
+var USER_SB=null;
+function buildUserSb(){
+  if(USER_SB!==null) return USER_SB;
+  ensureTut();
   var h='<a class="sb-home" href="#/tutorial">🏠 <span>首页总览</span></a>';
   h+='<a class="sb-all" href="#/all">📖 连续阅读完整教程</a><div class="sb-mods">';
   MODS.forEach(function(m){
@@ -2644,8 +2661,9 @@ var USER_SB=(function(){
     h+='</div></div>';
   });
   h+='</div>';
+  USER_SB=h;
   return h;
-})();
+}
 var DEV_SB=(function(){
   if(!DEV)return '';
   var h='<a class="sb-home" href="#/dev">🛠️ <span>开发者工作台</span></a>';
@@ -2671,7 +2689,8 @@ var sbFamily='';
 function syncSidebar(family){
   if(sbFamily===family)return;
   sbFamily=family;
-  sb.innerHTML=(family==='dev')?(DEV_SB||USER_SB):USER_SB;
+  /* R46：USER_SB 惰性化；dev 侧栏仍沿用加载期构建的 DEV_SB（dev-data 仅 1.5 MB） */
+  sb.innerHTML=(family==='dev')?(DEV_SB||buildUserSb()):buildUserSb();
 }
 
 function crumbs(items){
@@ -3126,6 +3145,8 @@ function render(){
   var h=location.hash||'#/'; h=h.slice(1);
   var anchor=null, qi=h.indexOf('@');
   if(qi>=0){anchor=h.slice(qi+1); try{anchor=decodeURIComponent(anchor);}catch(e){} h=h.slice(0,qi);}
+  /* R46：仅教程路由需要 #tut-data（连路由校验本身都依赖 byId/modById） */
+  if(h==='/all'||h==='/tutorial'||/^\/m\d+(\/|$)/.test(h)) ensureTut();
   var view='landing', mid=null, pid=null, landingPage=null;
   var role=getRole();
   if(h==='/features'||h==='/resonance'||h==='/privacy'||h==='/download'||h==='/download/start'){view='landing';landingPage=h.slice(1);}
@@ -3141,7 +3162,9 @@ function render(){
   }
   document.body.dataset.view=view;
   document.body.classList.remove('sb-open');
-  syncSidebar((view==='dev')?'dev':'user');
+  /* R46：落地页/身份门的侧栏恒为 display:none，不为它解析数据 */
+  if(view==='dev') syncSidebar('dev');
+  else if(view==='home'||view==='all'||view==='module'||view==='page') syncSidebar('user');
   var lg=document.querySelector('.logo');
   if(lg){
     lg.setAttribute('href',(view==='dev')?'#/dev':'#/');
@@ -3330,6 +3353,7 @@ function closeDrop(){drop.style.display='none';}
 box.addEventListener('input',function(){
   var q=box.value.trim();
   if(!q){closeDrop();return;}
+  ensureTut();  /* R46：搜索读 MODS/ORDER，首次输入时才解析数据 */
   var ql=low(q), res=[];
   MODS.forEach(function(m){ if(low(m.name).indexOf(ql)>=0){res.push({t:m.emoji+' '+m.name,s:'模块页',h:'#/'+m.id});} });
   var pages=[];
