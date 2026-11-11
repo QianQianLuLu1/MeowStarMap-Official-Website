@@ -2587,7 +2587,15 @@ function esc(s){return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;');}
 /* ── 图片骨架外壳：img 包入 .img-shell，load 后淡入，error 显示失败空态（#/all 不处理以控性能） ── */
 function wrapImgShells(html){
   if(!html||html.indexOf('<img')<0)return html;
-  return html.replace(/<img\b[^>]*>/g,function(m){return '<span class="img-shell">'+m+'</span>';});
+  /* R48：教程页截图补 loading="lazy" + decoding="async"。
+     改造前 48 张图注入即全部解码，每张 1400x900 解码后约 5 MB 位图（一页 3 张 ≈ 15 MB）；
+     惰性解码后视口外图片不再即时解码。已显式声明该属性的 img 不覆盖。 */
+  return html.replace(/<img\b[^>]*>/g,function(m){
+    var extra='';
+    if(!/\sloading\s*=/.test(m)) extra+=' loading="lazy"';
+    if(!/\sdecoding\s*=/.test(m)) extra+=' decoding="async"';
+    return '<span class="img-shell">'+m.replace(/\s*\/?>$/,extra+'>')+'</span>';
+  });
 }
 function hydrateShells(){
   app.querySelectorAll('.img-shell img').forEach(function(im){
@@ -2622,7 +2630,7 @@ function buildHomeGrid(){
     var src=null;
     try{src=firstCoverSrc(mid);}catch(e){}
     out+='<a class="ms-card" href="'+esc(href)+'">'
-      +(src?'<span class="img-shell ms-cover"><img src="'+esc(src)+'" alt="'+esc(txt('.mc-name'))+'" loading="lazy"></span>':'<span class="ms-cover ms-cover-ph" aria-hidden="true">'+esc(txt('.mc-emoji'))+'</span>')
+      +(src?'<span class="img-shell ms-cover"><img src="'+esc(src)+'" alt="'+esc(txt('.mc-name'))+'" loading="lazy" decoding="async"></span>':'<span class="ms-cover ms-cover-ph" aria-hidden="true">'+esc(txt('.mc-emoji'))+'</span>')
       +'<span class="ms-body"><span class="ms-head"><span class="ms-emoji">'+esc(txt('.mc-emoji'))+'</span><span class="ms-name">'+esc(txt('.mc-name'))+'</span></span>'
       +(txt('.mc-desc')?'<span class="ms-desc">'+esc(txt('.mc-desc'))+'</span>':'')
       +(txt('.mc-count')?'<span class="ms-count">'+esc(txt('.mc-count'))+'</span>':'')
