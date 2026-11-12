@@ -1,0 +1,98 @@
+R46–R49 差异签认（tests/r37-baseline.json 的 F2 功能快照）
+================================================================
+
+日期：        2026-11-11（20261112 用真实浏览器实测校正）
+基线文件：    tests/r37-baseline.json（R31/R37 时点建立，R42/R43 曾重落）
+旧基线留存：  tests/r37-baseline.pre-r46.json（= 重落前的原样副本）
+本轮改动：    R46 教程数据惰性解析 / R47 截图 PNG→WebP / R48 截图惰性解码 / R49 Inter 子集化
+
+结论
+----------------------------------------------------------------
+F2 受影响项：**只有 `sidebarLinks` 一个轴，只有 2 个单元格**
+（`light|#/` 与 `light|#/identity`，均为 47 → 0）。
+R47/R48/R49 对 F2 零影响；dark 遍不受影响。
+
+为什么只有 light 遍的两个单元格
+----------------------------------------------------------------
+r37 的 `snapshot()` 是 `page.goto(URL + h)` 逐视图循环，同文档 hash 导航**不会重载页面**：
+
+    light 遍： #/(全新加载) → #/identity → #/tutorial → #/dev → #/m1 → #/m1/m1p1 → #/all
+               0               0             47(此处建侧栏)   130     47      47          47
+    dark  遍： 同一文档继续，侧栏已建成并被缓存 → 全部 47，与基线一致
+
+实测佐证：从 `#/all` 直接回到 `#/`，`#sidebar a` 仍为 47（状态保留），
+与 dark 遍的行为一致。
+
+实测对照（light 遍，DSH 浏览器，1440×900，file:// 直开）
+----------------------------------------------------------------
+| 视图 | sidebarLinks 基线→实测 | 其余字段 |
+|------|----------------------|----------|
+| `#/`         | 47 → **0**  | 其余全等（dlItems 三链逐字一致） |
+| `#/identity` | 47 → **0**  | 其余全等（bodyTextLen 见下方「环境态」） |
+| `#/tutorial` | 47 → 47     | 全等（ms 9 / quick 5 / step 6） |
+| `#/dev`      | 130 → 130   | 全等（mod 12 / quick 2） |
+| `#/m1`       | 47 → 47     | 全等（pagecard 5 / crumbs 1 / pager 2 / rel 2） |
+| `#/m1/m1p1`  | 47 → 47     | 全等（crumbs 2 / pager 2 / rel 1） |
+| `#/all`      | 47 → 47     | 全等（bodyTextLen 7030） |
+
+另发现的环境态差异（**非本轮引入**，重落基线前需知）
+----------------------------------------------------------------
+`#/identity` 的 `bodyTextLen` 取决于 `localStorage.nikki_role`：
+
+    未设角色 → 134（无「当前身份：…」行）
+    role=user → 147（多一行「当前身份：用户 · 直接继续 →」）
+
+基线里记录的是 **147**（采集时机器的 file:// localStorage 留有 role），
+而 r37 每次用 `browser.new_context()` 全新上下文、不 seed role，
+所以现在跑探针会得到 **134**，从而在该单元格外多报一项 `bodyTextLen` 差异。
+这与 R46–R49 无关（identity 视图的渲染代码本轮零改动）。建议二选一：
+
+    ① 重落基线时接受该项，并在签认里注明它属环境态；
+    ② 在 snapshot() 前 `page.add_init_script("localStorage.setItem('nikki_role','user')")`
+       把角色固定下来，让该字段确定化（改探针，需单独评审）。
+
+R47/R48/R49 零影响的运行时证据（同一会话实测）
+----------------------------------------------------------------
+- 教程正文 3 张图实测：`src` 前缀 `data:image/webp;base64`、`complete=true`、`naturalWidth×Height = 1400×900`
+- 同一批 `<img>` 实测带 `loading="lazy"` 与 `decoding="async"`（R48）
+- 全站 `performance.getEntriesByType('resource')` **为空**（data: 内联不产生资源请求，零外链不变量在运行时成立）
+- `document.fonts.check('400 16px Inter')` 与 `Noto Sans SC` 均为 true（R49）
+- 依次访问 `#/m2/m2p4 → #/dev/m1 → #/all → #/` 期间 **零 pageerror / 零 unhandledrejection**
+- 首屏导航计时（file://）：domContentLoaded ≈ 292 ms、load ≈ 296 ms
+
+R47 为什么不可能影响 F2
+----------------------------------------------------------------
+- `imgSrcPrefix` 取 `src.slice(0, 11)` = `data:image/`，与 PNG 相同
+- `imgAlts`、`modNames`、`statNums`、`docTitle`、`dlItems`、`cta`、`heroTitle` 均不读图片载荷
+- `bodyTextLen` 取 `innerText`，base64 不进 `innerText`
+
+复跑与重落（需要 playwright 的环境）
+----------------------------------------------------------------
+    cp tests/r37-baseline.json tests/r37-baseline.pre-r46.json   # 已在本分支留存
+    python tests/r37_bento_check.py
+        # 预期：light|#/ 与 light|#/identity 的 sidebarLinks 47→0
+        #       另可能多报 light|#/identity 的 bodyTextLen（见「环境态」）
+    python tests/r37_bento_check.py --baseline                   # 重落
+    python tests/r37_bento_check.py                              # 复跑应全绿
+
+未采纳的替代方案
+----------------------------------------------------------------
+保留「加载期构建侧栏」可让 F2 完全零差异，但落地页仍要解析 30.9 MB，等于放弃 R46 的收益；
+代价是多维护一份由 `#tut-data` 派生、可能过期的侧栏副本。故选择重落基线。
+
+smoke.mjs 的 SHA 冻结（R47 引起，必须同轮一起改）
+----------------------------------------------------------------
+`#tut-data` 内容哈希（对 `<script id="tut-data">` 内 JSON 文本取 UTF-8 sha256）：
+
+    旧（R46 时点，PNG）：109f8f6c70827d72478fc9b8a8524b5b8b1072c00fc2898c30d5322a0808a81b
+    新（R47 后，WebP）： a15fbd324a9b9f381ade4332f1576f09cf8cd3c534dcf910c638c9a241429372
+
+`#dev-data` 不变：8f564a5d23ef0b99b71335054fc0baa0fe70f6852c520b51c34dddb34e347c76
+
+文件级（git blob，LF 归一化）大小：
+    原始 main 34,851,151 B / R46 后 34,852,979 B / R46–R49 后 8,994,704 B
+
+其余探针
+----------------------------------------------------------------
+r38 / r39 / r41 / r42 / r43 / r45 不读 `sidebarLinks`，也不读图片载荷，预期不受影响；
+需在有 playwright 的环境复跑确认（本工作树仍无 Python playwright，以上浏览器实测走 DSH 浏览器插件）。
