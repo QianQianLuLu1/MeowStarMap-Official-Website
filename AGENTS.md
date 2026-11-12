@@ -157,6 +157,43 @@ gui-test-screenshots/ ← 审计截图归档（按轮次/日期分目录；**本
 > **已知限制**：① `≤768px` 无 landing 配色入口（该档加圆钮即破版，与改前一致，非恶化）；② `.about-soc-btn`（L1909 白药丸）、`.about-pop`、`.ab-ic-dy`/`.ab-ic-gh`（L1150/L1525 写死 `#111827`）在暗底 `.about-sec` 上仍是白斑——属 R32 以前的**既有板块**，拉进本轮成套重绘须同时翻 `#111827` 字形，风险大于收益，按最小化改动不做；③ **发现但未修**的 R34 存量缺陷：L1592 `…:has(.lp-theme-energy) .lp-cta{color:var(--lp-ink-bright)}` 特异度 `(0,3,1)` 压过 L1341 `html[data-theme="dark"] .lp-cta{color:#0f1420}` `(0,2,1)`，致**深色模式 + energy/deep 下主 CTA 亮字叠亮蓝底约 2.6:1** 不达标；属既有板块且被 r20/r25 精确色值断言占用，本轮只在文档与探针口径中记录，未改动（要修须在 R34 块内加 `html[data-theme="dark"]` 分支，破其独立回滚能力）；④ 折叠档 `769–900px` 的可用性依赖 `.lp-links` 当前项数，若日后往导航再加控件须重跑 G1 的 `+58px` 预算；⑤ 本层依赖 `:has()` 与 `:is()`（Safari ≥15.4），不支持的引擎整层不生效 → 回落改前浅底，内容仍可读、不破版，与 R34 L1583 同一渐进口径；⑥ 父仓库 `r15/r19/r20/r24–r31` 探针与 `npm run vreg` 在本工作树不可用（工具链在父仓库）。
 > **回滚** = 删除 `/* ═══ R45:BEGIN … R45:END ═══ */` 与 `<!-- R45-UI:BEGIN … R45-UI:END -->` 两处注释对之间内容（**全为追加，无任何不可追加项**：未动 `.lp-root`/`:root` 令牌定义、未动任何模板行、未动任何既有选择器、未新增 hex、未新增文案、未重指派任何 `--lp-*-ink`/`--ac*`/`--card`）；并删除 `tests/r45_theme_scope_check.py` 与 `tests/r45-shots/`。**本工作树无 R44 整文件快照**（磁盘上只有 `backup-r40-20261030` / `backup-r41-20261031` / `backup-r42-20261101` 三份，R43/R44 两轮均未新建快照），故本轮**不可**用「还原整文件」方式回滚，只能删两处注释对；如需整文件回滚请先自行落一份 `backup-r45-*` 快照。
 
+> **R46–R49 勘误（20261111）**：当前文件 = R45 基线 + **R46 教程数据惰性解析** + **R47 教程截图 PNG→WebP q90** + **R48 注入截图惰性解码** + **R49 Inter 字体子集化**。整文件 34,856,177 → 8,999,762 字节（33.24 → 8.58 MiB，**−74.2%**），brotli q11 后 4.91 MiB。**这是本项目第一次有意修改 `#tut-data` 数据行内容**（R47），`smoke.mjs` 的 SHA 冻结必须随之重落。
+>
+> **R46 · 教程数据惰性解析**（主脚本 IIFE 6 处，+35/−11 行；无 R46 注释对以外的不可追加项）
+> ① 顶层 `var DATA=JSON.parse(#tut-data)` 与 `MODS/ORDER/byId/modById` 索引构建收进 `ensureTut()`：首次调用解析并缓存（`DATA` 作哨兵），三个派生对象保持**同一引用**、只在 `ensureTut()` 内填充，故下游闭包零改动。
+> ② `USER_SB` 从加载期 IIFE 改为 `buildUserSb()`（惰性 + 字符串缓存），`syncSidebar()` 改为消费该函数；dev 侧栏仍用加载期 `DEV_SB`（dev-data 仅 1.5 MB / 约 3 ms）。
+> ③ `render()` 仅在命中 `#/tutorial`、`#/all`、`#/mX`、`#/mX/mYpZ` 时调 `ensureTut()`——**必须前置于路由解析**，因为深链校验本身依赖 `byId/modById`。
+> ④ `render()` 仅为教程/开发者视图调 `syncSidebar()`：landing/identity 的 `#sidebar` 恒为 `display:none`，不再为它解析 30.9 MB。
+> ⑤ 搜索输入首次触发 `ensureTut()`。
+> 验证 19/19：两条数据块逐字节未变、零外链不变量全等（link 2 / script src 0 / iframe 0 / 外链 img 0 / url(http) 0 / @font-face 2 / img 53 / style 1）、22 个 JS 块 `node --check` 通过、CRLF 保留、5026 → 5050 行。
+> 已知限制：`#/m999` 这类非法深链会先解析数据再回落 landing（可接受，代价一次解析）。
+> 回滚 = 删 `R46:BEGIN/END` 之间新增的 `ensureTut()` + 还原 `USER_SB` 为 IIFE + 还原 4 处 R46 调用点。
+>
+> **R47 · 教程截图 PNG → WebP q90**（**只改 `#tut-data` 内容**，48 处等位置换）
+> ① 48 张 1400×900 截图：22.09 MiB PNG（base64 29.46 MiB）→ WebP q90 3.82 MiB（base64 5.09 MiB），整文件 33.24 → 8.88 MiB。
+> ② 在原始文本层按 `data:image/png;base64,` 单遍替换、按图片 sha256 映射目标载荷；`#tut-data` 之前与之后的内容逐字节不变，两侧 JSON 去掉图片载荷后深度等价（36 页 / 9 模块 / id 与顺序一致）。
+> ③ 画质：PSNR 均值 38.86 dB、最低 34.53 dB（`m6p1-02.png`，渐变游戏截图）；三联对照图见 `perf/reports/quality-compare-q90.png`；需要零损失可改 `--level lossless`（25.21 MiB，逐位相同）。
+> ④ **`smoke.mjs` SHA 冻结重落**：`#tut-data` 旧 `109f8f6c70827d72478fc9b8a8524b5b8b1072c00fc2898c30d5322a0808a81b` → 新 `a15fbd324a9b9f381ade4332f1576f09cf8cd3c534dcf910c638c9a241429372`；`#dev-data` 不变（`8f564a5d…7c76`）。
+> ⑤ 工具链（随本工作树新增、可复现）：`perf/tools/extract_shots.py` → `convert_webp.py` → `build_optimized.py` → `verify.py`（仅依赖 Pillow）；`verify.py` 26/26 PASS，`quality.py` 出 PSNR 报告，`bench.py` 出体积/带宽矩阵。
+> 回滚 = 从 git 历史取回 R46 版数据行（或 `git checkout 性能/数据惰性加载 -- "Meow Star Map 官网.html"`）。
+> 已知限制：WebP 需 Safari 14+，低于项目既有 `:has()`（Safari 15.4+）门槛，不新增兼容风险；`perf/assets/` 与 `perf/dist/` 为可重建产物，已 gitignore。
+>
+> **R48 · 注入截图的惰性解码**（`wrapImgShells()` 与封面卡各一处，+493 B）
+> ① 注入的 `<img>` 补 `loading="lazy"` 与 `decoding="async"`；已显式声明者不覆盖，自闭合标签归一化。
+> ② `#/all` 连续阅读仍不包裹，保持原有「控性能」口径。
+> 验证：22 个 JS 块 `node --check` 通过；属性注入单测 6 例（无重复属性 / 无漏包 / 已有不覆盖 / 自闭合归一化）。
+> 回滚 = 还原 `wrapImgShells()` 一行与封面卡的 `decoding="async"`。
+>
+> **R49 · Inter 可变字体按站点字符子集化**（只替换 Inter `@font-face` 的 base64 载荷）
+> ① Inter Variable 352,240 B（2937 glyphs / cmap 2852）→ 118,640 B（866 glyphs / cmap 381），保留 `opsz`+`wght` 变量轴、全部 layout features 与 name 表。
+> ② 目标码位 = 站点全文（剥掉 `data:` 载荷）中 Inter 可渲染的 126 个 ∪ 常用西文安全区间（ASCII / Latin-1 / 常规标点 / 货币 / 箭头 / 数学 / 几何，均与字体 cmap 求交）= 381。
+> ③ 校验：目标码位 0 缺失、ASCII 全覆盖、family 名与变量轴不变、`format("woff2")` 未动；全文件 diff 恰好 1 行。Noto Sans SC（366,732 B / 1500 glyphs）未触碰。
+> 工具链：fonttools 4.68.0 + brotli 1.2.1（与 R36 登记口径一致，装在工作区临时目录，未污染全局环境）。
+> 已知限制：新增西文文案超出这 381 码位范围时缺字回退系统字体；需要覆盖则按 R36 流程重跑子集化。
+> 回滚 = 从 git 历史还原 Inter 载荷。
+>
+> **探针待办**：`tests/r37-baseline.json` 需重落，差异为**单一轴 `sidebarLinks`**（**只落在 light 遍的 `#/` 与 `#/identity` 两个单元格**：47 → 0；dark 遍因同文档 hash 导航不重载、侧栏已缓存，数值不变。R47–R49 对 F2 零影响，已用浏览器实测确认：图片 `data:image/webp`、`loading=lazy`/`decoding=async`、零资源请求、两套字体均加载、全程零 pageerror。另注 `#/identity` 的 `bodyTextLen` 取决于 `localStorage.nikki_role`（未设 134 / role=user 147），基线记的是 147，属环境态、非本轮引入），旧基线已留存为 `tests/r37-baseline.pre-r46.json`，签认记录见 `tests/r46-r37-f2-diff.txt`；`smoke.mjs` 的 `#tut-data` SHA 冻结见 R47 ④；r38/r39/r41/r42/r43/r45 预期不受影响；本工作树无 Python playwright，探针复跑仍记 **NOT-RUN**，但已用 DSH 浏览器插件完成 F2 快照与运行时实测复核（上句数据即来自该实测）。
+
 当前文件 = R29 基线 + R31 卡片三项视效增量（`</style>` 前插入 R31 CSS 层 39 行 + 文件尾 `</body>` 前依次插入 R31C-UI / R31A-UI / R31B-UI 三个脚本块，**R21 状态机、R28 FLIP、R29 玻璃零改动**）。本轮**零新增依赖**（纯 CSS + 内联 JS，复用 MOTION 块内嵌 GSAP 3.13.0），**零外链不变量保持**（`<link>`/`<script src>`/`@font-face`/外链 img 均为 0，outbound href 与 R31 前逐字一致）。当前关键锚点：`<style>` 止于 L1513（R31 层 L1474–1512、R29 层 L1451–1473、R28 层 L1442–1450）；`<body>` L1515；R21-UI L2583–2707；R26-SVG L2708–2718；R26-UI L2719–2786；R28-UI L2787–2870；R29-UI L2871–2935；**R31C-UI L2936–2964（门卡 `.r31-ring` 注入）；R31A-UI L2965–3078（3D 倾斜 + 弹簧回正 + 指针离场归零）；R31B-UI L3079–3185（关于板块 Fluid Morph）**；`</body>` L3186；文件尾 L3187（总 3187 行）。下文旧表行号仅供历史参照。
 
 > **R31 三项视效要点**：① 3D 透视倾斜——`perspective(800px) rotateX/rotateY`，fine 指针 hover 跟随 / coarse 指针拖拽跟随，自写 rAF 弹簧积分器（`k=180,c=22` → ζ≈0.82）回正，交互期挂 `.r31-tilt` 摘掉 transform 过渡通道；触屏位移 >8px 抑制合成 click 防误触。② Fluid Morph——资源下载沿用 R28；**新增** R31B 参数化 `makeMorph` 工厂把同一机制扩面到「关于」QQ 面板 `#about-qq-panel`（居中基态 `xPercent:-50`，与 `lp-dl-menu` 同构）与微信弹窗（变形目标 `.about-wx-dialog`），开启 `expo.out` .52s / 关闭 `power3.in` .32s，关闭经 `.r31-ghost` 残影壳（QQ z71 / 微信 z91）。③ 旋转 conic 描边（`@property --r31-a` + `::before` mask 环形）+ 底部呼吸弥散背光（`filter:drop-shadow` 动画 5.5s；与 hover `box-shadow` 属性独立故叠加共存，且不受 `.ms-card{overflow:hidden}` 裁切）——`.gate-role` 因 `::before`(P11)/`::after`(P6) 均被占用，改由 R31C-UI 注入 `.r31-ring` 子元素承载。**注意**：`.cover-grid .ms-card` 的 `cardIn` 入场动画（L393，`fill:both` 会钉住 transform）在 `html.g-ok` 下本就被 L429 置为 `animation:none`；R31 背光规则按 L429 同特异度覆盖，GSAP 可用时零行为变化。调试钩子 `window.__r31`（`ver:'r31.0'`，`cfg.tilt`/`cfg.morph`，`stats.tilts/springs/morphQq/morphWx/ghost`）。
