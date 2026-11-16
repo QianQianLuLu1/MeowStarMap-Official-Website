@@ -1,0 +1,30 @@
+[
+  {
+    "target": "orig",
+    "case": "landing-1440",
+    "file": "perf\\assets\\shots-compare\\orig\\landing-1440.png",
+    "scrollHeight": 2773,
+    "viewport": [
+      1440,
+      900
+    ],
+    "dark": null,
+    "imgs": 0,
+    "broken": 0,
+    "errors": []
+  },
+  {
+    "target": "orig",
+    "case": "landing-dark-1440",
+    "file": "perf\\assets\\shots-compare\\orig\\landing-dark-1440.png",
+    "scrollHeight": 2773,
+    "viewport": [
+      1440,
+      900
+    ],
+    "dark": "dark",
+    "imgs": 0,
+    "broken": 0,
+    "errors": []
+  }
+]

@@ -1,0 +1,242 @@
+[
+  {
+    "same_size": true,
+    "diff_pixels": 0,
+    "max_channel": 0,
+    "bbox": null,
+    "case": "dev-1440",
+    "pair": [
+      "orig",
+      "lossless"
+    ],
+    "status": "PASS"
+  },
+  {
+    "same_size": true,
+    "diff_pixels": 1,
+    "total_pixels": 3519360,
+    "ratio": 2.8414257137661394e-07,
+    "max_channel": 1,
+    "bbox": [
+      117,
+      573,
+      118,
+      574
+    ],
+    "diff_file": "assets\\shots-compare\\diff\\dev-1440.orig-vs-site.png",
+    "case": "dev-1440",
+    "pair": [
+      "orig",
+      "site"
+    ],
+    "status": "PASS(noise)"
+  },
+  {
+    "same_size": true,
+    "diff_pixels": 0,
+    "max_channel": 0,
+    "bbox": null,
+    "case": "download-1440",
+    "pair": [
+      "orig",
+      "lossless"
+    ],
+    "status": "PASS"
+  },
+  {
+    "same_size": true,
+    "diff_pixels": 0,
+    "max_channel": 0,
+    "bbox": null,
+    "case": "download-1440",
+    "pair": [
+      "orig",
+      "site"
+    ],
+    "status": "PASS"
+  },
+  {
+    "same_size": true,
+    "diff_pixels": 0,
+    "max_channel": 0,
+    "bbox": null,
+    "case": "identity-1440",
+    "pair": [
+      "orig",
+      "lossless"
+    ],
+    "status": "PASS"
+  },
+  {
+    "same_size": true,
+    "diff_pixels": 0,
+    "max_channel": 0,
+    "bbox": null,
+    "case": "identity-1440",
+    "pair": [
+      "orig",
+      "site"
+    ],
+    "status": "PASS"
+  },
+  {
+    "same_size": true,
+    "diff_pixels": 68320,
+    "total_pixels": 3993120,
+    "ratio": 0.017109428216532437,
+    "max_channel": 2,
+    "bbox": [
+      0,
+      208,
+      1440,
+      899
+    ],
+    "diff_file": "assets\\shots-compare\\diff\\landing-1440.orig-vs-lossless.png",
+    "case": "landing-1440",
+    "pair": [
+      "orig",
+      "lossless"
+    ],
+    "status": "PASS(noise)"
+  },
+  {
+    "same_size": true,
+    "diff_pixels": 0,
+    "max_channel": 0,
+    "bbox": null,
+    "case": "landing-1440",
+    "pair": [
+      "orig",
+      "site"
+    ],
+    "status": "PASS"
+  },
+  {
+    "same_size": true,
+    "diff_pixels": 0,
+    "max_channel": 0,
+    "bbox": null,
+    "case": "landing-390",
+    "pair": [
+      "orig",
+      "lossless"
+    ],
+    "status": "PASS"
+  },
+  {
+    "same_size": true,
+    "diff_pixels": 0,
+    "max_channel": 0,
+    "bbox": null,
+    "case": "landing-390",
+    "pair": [
+      "orig",
+      "site"
+    ],
+    "status": "PASS"
+  },
+  {
+    "same_size": true,
+    "diff_pixels": 1,
+    "total_pixels": 3993120,
+    "ratio": 2.504307408743038e-07,
+    "max_channel": 1,
+    "bbox": [
+      927,
+      259,
+      1099,
+      440
+    ],
+    "diff_file": "assets\\shots-compare\\diff\\landing-dark-1440.orig-vs-lossless.png",
+    "case": "landing-dark-1440",
+    "pair": [
+      "orig",
+      "lossless"
+    ],
+    "status": "PASS(noise)"
+  },
+  {
+    "same_size": true,
+    "diff_pixels": 24383,
+    "total_pixels": 3993120,
+    "ratio": 0.00610625275473815,
+    "max_channel": 2,
+    "bbox": [
+      0,
+      202,
+      1440,
+      900
+    ],
+    "diff_file": "assets\\shots-compare\\diff\\landing-dark-1440.orig-vs-site.png",
+    "case": "landing-dark-1440",
+    "pair": [
+      "orig",
+      "site"
+    ],
+    "status": "PASS(noise)"
+  },
+  {
+    "same_size": true,
+    "diff_pixels": 0,
+    "max_channel": 0,
+    "bbox": null,
+    "case": "page-m1p2-1440",
+    "pair": [
+      "orig",
+      "lossless"
+    ],
+    "status": "PASS"
+  },
+  {
+    "same_size": true,
+    "diff_pixels": 0,
+    "max_channel": 0,
+    "bbox": null,
+    "case": "page-m1p2-1440",
+    "pair": [
+      "orig",
+      "site"
+    ],
+    "status": "PASS"
+  },
+  {
+    "same_size": true,
+    "diff_pixels": 1,
+    "total_pixels": 4556160,
+    "ratio": 2.1948307346537436e-07,
+    "max_channel": 1,
+    "bbox": [
+      722,
+      459,
+      723,
+      460
+    ],
+    "diff_file": "assets\\shots-compare\\diff\\tutorial-1440.orig-vs-lossless.png",
+    "case": "tutorial-1440",
+    "pair": [
+      "orig",
+      "lossless"
+    ],
+    "status": "PASS(noise)"
+  },
+  {
+    "same_size": true,
+    "diff_pixels": 1,
+    "total_pixels": 4556160,
+    "ratio": 2.1948307346537436e-07,
+    "max_channel": 1,
+    "bbox": [
+      722,
+      459,
+      723,
+      460
+    ],
+    "diff_file": "assets\\shots-compare\\diff\\tutorial-1440.orig-vs-site.png",
+    "case": "tutorial-1440",
+    "pair": [
+      "orig",
+      "site"
+    ],
+    "status": "PASS(noise)"
+  }
+]

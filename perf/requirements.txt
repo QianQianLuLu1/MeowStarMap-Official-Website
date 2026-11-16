@@ -1,0 +1,4 @@
+# perf 工具链唯一的第三方依赖（截图提取 / WebP 无损编码）。
+# 本目录不参与站点运行，不引入任何前端依赖。
+# 本机 Python 3.8 实测 Pillow 7.2.0 可用（含 WebP lossless + method=6）。
+Pillow>=7.2

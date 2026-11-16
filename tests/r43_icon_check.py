@@ -134,8 +134,12 @@ def source_checks(L):
     L.check("A5 三段 base64 载荷解码成功且魔数正确", not bad and len(magics) == 3,
             "png + png + webp 均通过", f"通过 {magics} 失败 {bad}")
 
+    # R50：教程截图也改为无损 WebP 内联，全文件不再只有 1 处 webp data URI。
+    # 本项的意图是「应用图标母图只内联一次」，因此改为按母图载荷本体计数。
+    app_b64 = m.group(1) if m else ""
+    n_app = raw.count(app_b64) if app_b64 else 0
     L.check("A6 母图 base64 全文仅内联一次（单点消费，无重复载荷）",
-            raw.count("data:image/webp;base64,") == 1, "1", raw.count("data:image/webp;base64,"))
+            bool(app_b64) and n_app == 1, "1", n_app)
     L.check("A7 R43 注释对成对平衡（CSS 层 + head link 对）",
             raw.count("R43:BEGIN") == raw.count("R43:END") == 1
             and raw.count("R43-ICON:BEGIN") == raw.count("R43-ICON:END") == 1,

@@ -2,6 +2,12 @@
 
 「喵星图（Meow Star Map）」的官方网站：产品介绍 + 全流程使用教程 + 开发者文档，三合一的**单文件静态站点**。喵星图是一款面向《无限暖暖》的桌面媒体管理工具，软件本体见 [QianQianLuLu1/MeowStarMap](https://github.com/QianQianLuLu1/MeowStarMap)。
 
+> **性能版（R50 · 20261116）**：本分支在保留单文件自包含交付的同时，提供两档优化产物：
+> ① 单文件版 `Meow Star Map 官网.html` 的教程截图改为**无损 WebP**（逐像素等同原 PNG），
+> 体积 34.85 MB → **24.98 MB**；② 线上部署用 [`site/`](site/)：落地页首屏 **1.19 MB**
+> （原单文件 34.85 MB），教程图片与开发者文档按需加载。详见 [perf/README.md](perf/README.md)。
+
+
 - 本仓库：<https://github.com/QianQianLuLu1/MeowStarMap-Official-Website>（已创建，待推送本工作树）
 - 线上地址：暂无公开线上地址；本地 HTML 文件即完整站点
 - 软件仓库：<https://github.com/QianQianLuLu1/MeowStarMap>
@@ -9,7 +15,11 @@
 
 ## 项目是什么
 
-整个站点只有一个源文件 `Meow Star Map 官网.html`（约 34.9 MB），包含全部 HTML / CSS / JS，以及内联的教程与开发者文档数据、字体子集、图标与封面图。**无构建工具、无框架、零外部资源请求**——所有资源以 `data:` 内联，离线双击即可完整运行。
+整个站点只有一个源文件 `Meow Star Map 官网.html`（约 25 MB），包含全部 HTML / CSS / JS，以及内联的教程与开发者文档数据、字体子集、图标与封面图。**无构建工具、无框架、零外部资源请求**——所有资源以 `data:` 内联，离线双击即可完整运行。
+
+`site/` 是同一份站点的**多文件线上版**（由 `perf/tools/build_site.py` 生成）：外壳 1.19 MB，
+教程数据、48 张截图、开发者文档拆成独立文件按需加载。它放弃「单文件」形态，换取首屏传输
+从 34.85 MB 降到 1.19 MB；单文件版仍保留作为离线交付。
 
 站点通过 hash 路由组织五级界面（详见 [AGENTS.md](AGENTS.md)「五级界面架构」与「路由速查」）：
 
@@ -28,14 +38,17 @@
 无需安装任何依赖、无需构建：
 
 1. 直接用浏览器打开 `Meow Star Map 官网.html` 即可（`file://` 协议完整可用，这是项目的验收契约之一）。
-2. 如需 HTTP 方式访问，在本目录任选一种静态服务器即可，例如：
+2. 线上部署请用多文件版 `site/`（落地页 1.19 MB，教程图片按需加载）：
+   `python perf/tools/build_site.py` 重新生成，或直接部署已入库的 `site/`。
+3. 如需 HTTP 方式访问单文件版，在本目录任选一种静态服务器即可，例如：
 
    ```bash
    python -m http.server 8080
-   # 然后浏览器访问 http://localhost:8080/Meow%20Star%20Map%20官网.html
+   # 单文件版：http://localhost:8080/Meow%20Star%20Map%20官网.html
+   # 多文件版：http://localhost:8080/site/index.html
    ```
 
-文件较大（约 34.9 MB），首次打开的解析耗时属正常现象。
+单文件版约 25 MB，首次打开的解析耗时属正常现象；多文件版首屏只下载 1.19 MB。
 
 ## 测试（回归探针）
 
@@ -70,7 +83,7 @@ playwright install chromium
 
 - **单文件自包含**：不新增外部资源文件与外链资源（`<link>`（非 `data:`）/ `<script src>` / 外链 img / `iframe` / `url(http)` 恒为 0，探针守护）。
 - **零外链不变量**：同上；图标 link 恰 2 枚且均 `data:`，`@font-face` 恰 2 处且均 `data:`。
-- **两条巨型数据行严禁触碰**：`#tut-data` / `#dev-data` 内嵌教程与开发者文档 JSON，路由内链与数据解耦。
+- **两条巨型数据行严禁随意触碰**：`#tut-data` / `#dev-data` 内嵌教程与开发者文档 JSON，路由内链与数据解耦。R50 只对 `#tut-data` 做图片载荷的等位置换（PNG → 无损 WebP），JSON 结构与其余字符不变。
 - **注释对回滚机制**：各轮改动以 `RNN:BEGIN/END` 注释对组织，可独立回滚；定位一律用 grep 锚点，行号随轮次漂移。
 - **中文字体子集**：内嵌 Noto Sans SC 按站点字符子集化，**新增可见中文文案须再子集化**（流程见 AGENTS.md「R36 勘误」）。
 - 主题偏好存于浏览器 `localStorage`（`nikki_theme` / `nikki_look` / `nikki_lp_theme` / `nikki_role`），站点不收集、不上传任何用户数据。
@@ -78,7 +91,9 @@ playwright install chromium
 ## 目录结构
 
 ```
-Meow Star Map 官网.html   唯一源文件（全部 HTML / CSS / JS / 数据 / 字体 / 图标）
+Meow Star Map 官网.html   单文件站点（全部 HTML / CSS / JS / 数据 / 字体 / 图标；R50 起图片为无损 WebP）
+site/                     多文件线上版（build_site.py 生成：外壳 + 按需加载的数据/图片）
+perf/                     性能工具链与实测报告（无损 WebP、site 构建、截图/网络取证）
 AGENTS.md                 常驻开发者文档：章节索引、逐轮勘误、开发约定、回滚方式
 README.md                 本文件
 LICENSE                   授权（MIT）
