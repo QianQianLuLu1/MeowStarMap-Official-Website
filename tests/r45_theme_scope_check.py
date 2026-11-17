@@ -189,8 +189,9 @@ def source_checks(L, raw):
     for name, marker in (("tut", 'id="tut-data"'), ("dev", 'id="dev-data"')):
         hit = [l for l in lines if marker in l and len(l) > 100000]
         sizes[name] = len(hit[0]) if hit else -1
-    L.check("A7 两条巨型数据行未被触碰", sizes == {"tut": 30924428, "dev": 1545974},
-            "tut 30924428 / dev 1545974", f"tut {sizes['tut']} / dev {sizes['dev']}")
+    # R50（性能/极速加载）：教程截图 PNG → 无损 WebP，tut-data 行长度随之变化；dev 行未动。
+    L.check("A7 两条巨型数据行未被触碰", sizes == {"tut": 21358276, "dev": 1545974},
+            "tut 21358276 / dev 1545974（R50 无损 WebP）", f"tut {sizes['tut']} / dev {sizes['dev']}")
     js = re.findall(r"<script(?![^>]*type=)[^>]*>(.*?)</script>", raw, re.S)
     bad = []
     with tempfile.TemporaryDirectory() as td:

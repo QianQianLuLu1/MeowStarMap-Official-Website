@@ -1,0 +1,92 @@
+{
+  "built_at": "2026-11-16T20:13:25+08:00",
+  "mode": "lossless",
+  "source": {
+    "bytes": 34547054,
+    "sha256": "8b257ecc3af37f3ac524feba3b275d0476d7c126917b124ea083c28999d9f6ee"
+  },
+  "output": {
+    "file": "Meow Star Map 官网.lossless.html",
+    "bytes": 24980902,
+    "sha256": "dfed318aca6efd7a0601fde275699e8e42b64d9cc99da8cd6db2db2eba83195e"
+  },
+  "images": {
+    "count": 48,
+    "png_bytes": 23165937,
+    "webp_bytes": 15991294
+  },
+  "checks": [
+    {
+      "name": "head 逐字节相同",
+      "pass": true
+    },
+    {
+      "name": "tail 逐字节相同",
+      "pass": true
+    },
+    {
+      "name": "JSON 结构等价（载荷占位后）",
+      "pass": true
+    },
+    {
+      "name": "PNG 载荷归零",
+      "pass": true
+    },
+    {
+      "name": "WebP 载荷 48 处",
+      "pass": true
+    },
+    {
+      "name": "替换处数 48",
+      "pass": true
+    },
+    {
+      "name": "不变量 外链 link: 0 == 0",
+      "pass": true
+    },
+    {
+      "name": "不变量 script src: 0 == 0",
+      "pass": true
+    },
+    {
+      "name": "不变量 iframe: 0 == 0",
+      "pass": true
+    },
+    {
+      "name": "不变量 外链 img: 0 == 0",
+      "pass": true
+    },
+    {
+      "name": "不变量 url(http): 0 == 0",
+      "pass": true
+    },
+    {
+      "name": "不变量 @font-face{: 2 == 2",
+      "pass": true
+    },
+    {
+      "name": "不变量 img: 53 == 53",
+      "pass": true
+    },
+    {
+      "name": "不变量 style: 1 == 1",
+      "pass": true
+    },
+    {
+      "name": "CRLF 计数 5058 == 5058",
+      "pass": true
+    },
+    {
+      "name": "48 张逐像素一致（失败 0）",
+      "pass": true
+    },
+    {
+      "name": "48 张唯一图全覆盖",
+      "pass": true
+    },
+    {
+      "name": "22 个 JS 块 node --check 通过",
+      "pass": true
+    }
+  ]
+}
