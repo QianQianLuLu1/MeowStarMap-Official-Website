@@ -32,7 +32,7 @@
 
 | 资产 | 体积 | 何时加载 |
 |---|---|---|
-| `site/index.html`（shell + CSS/JS + 字体 + 图标 + SEO 静态首屏） | **1,215,628 B（1.16 MiB）** | 首屏，唯一阻塞资源 |
+| `site/index.html`（shell + CSS/JS + 字体 + 图标 + SEO 静态首屏） | **1,216,622 B（1.16 MiB）** | 首屏，唯一阻塞资源 |
 | `site/data/tutorial.js` | 69,450 B | 进入教程路由；空闲时预取 |
 | `site/data/dev-docs.js` | 2,088,814 B | 首次进入 `#/dev` |
 | `site/assets/shots/*.webp`（48 张） | 15,991,294 B | 每页 1–3 张；`loading="lazy"` |
@@ -52,7 +52,7 @@
 ### 3. `site/` 的 SEO（R51）
 
 - **落地页静态化**：构建时用 Playwright 渲染一次 `#/`，把 `#app` 内容（约 27 KB）写回 HTML；无 JS 也能读到 719 字正文，有 JS 时 SPA 接管，视觉逐像素不变。
-- **head**：`title`（31 字）、`description`（81 字）、`robots`、`canonical`（默认相对 `./`）、Open Graph、Twitter、JSON-LD（WebSite + SoftwareApplication）；`lang=zh-CN`、`og:locale=zh_CN`。
+- **head**：`title`（31 字）、`description`（83 字）、`keywords`（15 个无限暖暖长尾词）、`robots`、`canonical`（默认相对 `./`）、Open Graph、Twitter、JSON-LD（WebSite + SoftwareApplication，含 keywords）；`lang=zh-CN`、`og:locale=zh_CN`。
 - **robots.txt** 允许全站抓取；`sitemap.xml` 只在配置 `SITE_ORIGIN` 时生成（sitemap 必须是绝对 URL）。
 - **分享图** `site/assets/og-cover.jpg`（1200×630，58 KB）；配置域名后自动写入 `og:image`。
 - **国际化判断**：当前只有简体中文，**不加 hreflang**（没有其他语言版本时是空标注）。以后做英文/繁体，按 `/en/`、`/zh-TW/` 独立路径 + 翻译后的 title/description + 双向 hreflang + x-default + 分语言 sitemap；hash 路由不适合承载多语言，需要静态页。
@@ -88,7 +88,7 @@
 
 | 文件 | 原始 | gzip -9 | brotli q11 |
 |---|---|---|---|
-| `site/index.html` | 1,215,628 | 693,670 | 647,315 |
+| `site/index.html` | 1,216,622 | 693,847 | 647,410 |
 | `site/data/tutorial.js` | 69,450 | 17,057 | 14,434 |
 | `site/data/dev-docs.js` | 2,088,814 | 479,740 | 330,422 |
 | 单文件版 | 24,980,902 | 17,554,904 | —（base64 + WebP 熵高，收益有限） |
@@ -110,7 +110,7 @@ perf/
     build_site.py         生成多文件版 site/（数据外置、按需加载、懒加载、预取；末尾自动跑 SEO）
     make_og.py            生成 1200×630 Open Graph 分享图（应用图标 + 中文字体合成）
     seo_optimize.mjs      落地页静态 prerender + title/description/OG/JSON-LD/robots（可选 sitemap）
-    seo_check.mjs         SEO 自检 18 项（无 JS 可读性 / head 标签 / 结构化数据 / robots / sitemap）
+    seo_check.mjs         SEO 自检 21 项（无 JS 可读性 / head 标签 / keywords / 结构化数据 / robots / sitemap）
     compare_shots.py      三份截图的逐像素对比（orig / lossless / site）
     smoke_site.mjs        10 路由功能签名对比（原文件 vs site，file://）
     interact_site.mjs     site/ 真实点击交互 + 390 移动端溢出
@@ -153,7 +153,7 @@ python -m http.server 8080
 | 22 个 JS 块 | `node --check` 全通过 |
 | html5lib strict | **NOT-RUN**：25 MB 文件上 strict 解析在本机 >20 分钟无结果；`--skip-w3c` 跳过。结构等价另由「head/tail 逐字节相同 + JSON 去载荷深比对 + 22 JS 块编译」三项覆盖 |
 | 10 路由功能签名（view / title / h1+h2 / links / imgs / textLen / sidebar / broken） | 原文件 vs `site/` **逐项相同**（仅 landing 的 `<title>` 按 SEO 有意改为长标题），console / pageerror / requestfailed 全 0（file://） |
-| `site/` SEO | `seo_check.mjs` **18/18 PASS**：无 JS 可读 719 字、1 个 h1、无重复 id、title 31 字、description 81 字、canonical、OG、JSON-LD（WebSite + SoftwareApplication）、robots、无 hreflang（单语）、控制台 0 报错 |
+| `site/` SEO | `seo_check.mjs` **21/21 PASS**：无 JS 可读 719 字、1 个 h1、无重复 id、title 31 字、description 83 字、meta keywords/JSON-LD keywords（15 个无限暖暖长尾词）、canonical、OG、JSON-LD（WebSite + SoftwareApplication）、robots、无 hreflang（单语）、控制台 0 报错 |
 | `site/` 视觉 | SEO 前后 landing 截图**逐像素完全相同**（静态 prerender 被 SPA 覆盖后无差异） |
 | `site/` 交互（真实点击） | 9/9：hero → 身份门 → 用户 → 教程首页（8 封面加载）→ 模块卡 → 详情页（截图懒加载）→ 搜索 → 资源下载面板 → 主题明暗切换（刷新持久化）→ 微信二维码懒加载；`file://` 与 HTTP 均通过 |
 | `site/` 移动端 | 7 路由 × 390px：文档级横向溢出 **0px**（`perf/tools/interact_site.mjs`） |

@@ -9,7 +9,7 @@
 
 | 文件 | 大小 | 加载时机 |
 |---|---|---|
-| `index.html` | 1,215,628 B（1.16 MiB） | 首屏，唯一阻塞资源 |
+| `index.html` | 1,216,622 B（1.16 MiB） | 首屏，唯一阻塞资源 |
 | `data/tutorial.js` | 69,450 B | 教程路由（空闲/悬停时预取） |
 | `data/dev-docs.js` | 2,088,814 B | 首次进入 `#/dev` |
 | `assets/shots/*.webp`（48 张） | 15,991,294 B | 每页 1–3 张，`loading="lazy"` |
@@ -22,7 +22,7 @@
 ## SEO
 
 - 落地页内容已**静态写入** `index.html`（构建时 Playwright 渲染一次），无 JS 也能读到 719 字正文；有 JS 时 SPA 接管，视觉逐像素不变。
-- head 已含：`title`（31 字）、`description`（81 字）、`robots`、`canonical`、Open Graph、Twitter、JSON-LD（WebSite + SoftwareApplication）。
+- head 已含：`title`（31 字）、`description`（83 字）、`keywords`（15 个无限暖暖长尾词）、`robots`、`canonical`、Open Graph、Twitter、JSON-LD（WebSite + SoftwareApplication，含 keywords）。
 - `robots.txt` 允许全站抓取；`assets/og-cover.jpg` 是 1200×630 分享图。
 - 配好正式域名后重建，会写绝对 canonical / `og:url` / `og:image` 并生成 `sitemap.xml`：
   `SITE_ORIGIN=https://your.domain python perf/tools/build_site.py`

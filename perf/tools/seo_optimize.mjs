@@ -44,7 +44,26 @@ if (origin) {
 }
 
 const NEW_TITLE = '喵星图 Meow Star Map 官网｜无限暖暖桌面相册工具';
-const DESC = '喵星图（Meow Star Map）是面向《无限暖暖》玩家的 Windows 桌面相册工具：自动扫描游戏截图与录屏，本地浏览、整理、编辑与分享，数据只保存在本机。';
+const DESC = '喵星图（Meow Star Map）是《无限暖暖》玩家的相册管理工具：把游戏截图与拍照作品整理成好找的相册，支持浏览、分类、查重、编辑与分享，Windows 桌面端。';
+const KEYWORDS = [
+  '无限暖暖',
+  '无限暖暖相册',
+  '无限暖暖截图',
+  '无限暖暖拍照',
+  '无限暖暖照片',
+  '无限暖暖图片',
+  '无限暖暖摄影',
+  '无限暖暖截图管理',
+  '无限暖暖相册管理',
+  '无限暖暖照片整理',
+  '无限暖暖图片管理',
+  '暖暖相册',
+  '喵星图',
+  'Meow Star Map',
+  '无限暖暖电脑工具',
+];
+const KEYWORDS_TEXT = KEYWORDS.join(',');
+const KEYWORDS_SCHEMA = KEYWORDS.join(', ');
 const GITHUB = 'https://github.com/QianQianLuLu1/MeowStarMap';
 
 const canonical = origin ? `${origin}/` : './';
@@ -82,6 +101,7 @@ function headBlock() {
         alternateName: 'Meow Star Map',
         inLanguage: 'zh-CN',
         description: DESC,
+        keywords: KEYWORDS_SCHEMA,
         publisher: { '@type': 'Organization', name: '喵星图 Meow Star Map' },
       },
       {
@@ -93,6 +113,7 @@ function headBlock() {
         softwareVersion: '2.5.6-beta',
         inLanguage: 'zh-CN',
         description: DESC,
+        keywords: KEYWORDS_SCHEMA,
         sameAs: [GITHUB],
         downloadUrl: 'https://github.com/QianQianLuLu1/MeowStarMap/releases',
         publisher: { '@type': 'Organization', name: '喵星图 Meow Star Map' },
@@ -105,6 +126,7 @@ function headBlock() {
     '<!-- SEO:BEGIN（由 perf/tools/seo_optimize.mjs 生成；重跑会整块替换） -->',
     `<title>${NEW_TITLE}</title>`,
     `<meta name="description" content="${DESC}">`,
+    `<meta name="keywords" content="${KEYWORDS_TEXT}">`,
     '<meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1">',
     `<link rel="canonical" href="${canonical}">`,
     '<meta name="theme-color" content="#F5F5F7" media="(prefers-color-scheme: light)">',
@@ -212,6 +234,8 @@ const report = {
   title: NEW_TITLE,
   title_len_chars: [...NEW_TITLE].length,
   description_len_chars: [...DESC].length,
+  keywords: KEYWORDS,
+  keywords_count: KEYWORDS.length,
   canonical,
   prerendered_chars: prerendered.html.length,
   prerendered_view: prerendered.view,

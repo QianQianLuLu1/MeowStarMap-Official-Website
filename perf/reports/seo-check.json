@@ -37,7 +37,22 @@
   {
     "name": "有 JS：description 非空且含产品词",
     "ok": true,
-    "detail": "81 字"
+    "detail": "83 字"
+  },
+  {
+    "name": "有 JS：meta keywords 覆盖无限暖暖且不含泛词",
+    "ok": true,
+    "detail": "15 个词"
+  },
+  {
+    "name": "有 JS：JSON-LD 带 keywords",
+    "ok": true,
+    "detail": "无限暖暖, 无限暖暖相册, 无限暖暖截图, 无限暖暖拍照, 无限暖暖照片, 无限暖暖图片, 无限暖暖摄影, 无限暖暖截图管理, 无限暖暖相册管理, 无限暖暖照片"
+  },
+  {
+    "name": "有 JS：description 不含泛词（自动扫描/本地浏览）",
+    "ok": true,
+    "detail": "喵星图（Meow Star Map）是《无限暖暖》玩家的相册管理工具：把游戏截图与拍照作品整理成好找的相册，支持浏览、分类、查重、编辑与分享，Windows 桌面端。"
   },
   {
     "name": "有 JS：robots 允许索引",

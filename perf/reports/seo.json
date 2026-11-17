@@ -1,14 +1,32 @@
 {
-  "generated_at": "2026-11-17T03:46:42.093Z",
+  "generated_at": "2026-11-17T12:07:55.881Z",
   "origin": null,
   "title": "喵星图 Meow Star Map 官网｜无限暖暖桌面相册工具",
   "title_len_chars": 31,
-  "description_len_chars": 81,
+  "description_len_chars": 83,
+  "keywords": [
+    "无限暖暖",
+    "无限暖暖相册",
+    "无限暖暖截图",
+    "无限暖暖拍照",
+    "无限暖暖照片",
+    "无限暖暖图片",
+    "无限暖暖摄影",
+    "无限暖暖截图管理",
+    "无限暖暖相册管理",
+    "无限暖暖照片整理",
+    "无限暖暖图片管理",
+    "暖暖相册",
+    "喵星图",
+    "Meow Star Map",
+    "无限暖暖电脑工具"
+  ],
+  "keywords_count": 15,
   "canonical": "./",
   "prerendered_chars": 27057,
   "prerendered_view": "landing",
   "prerender_inline_styles": 0,
   "og_image": null,
   "sitemap": null,
-  "html_bytes": 1215628
+  "html_bytes": 1216622
 }

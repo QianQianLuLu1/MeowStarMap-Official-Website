@@ -68,12 +68,14 @@ const browser = await chromium.launch({ executablePath: chromium.executablePath(
     return {
       title: document.title,
       desc: meta('description'),
+      keywords: meta('keywords'),
       robots: meta('robots'),
       ogTitle: og('og:title'),
       ogType: og('og:type'),
       ogLocale: og('og:locale'),
       canonical: canon ? canon.getAttribute('href') : null,
       ldTypes: ld.filter(Boolean).flatMap((x) => (x['@graph'] || [x]).map((n) => n['@type'])),
+      ldKeywords: ld.filter(Boolean).flatMap((x) => (x['@graph'] || [x]).map((n) => n.keywords || '')).join(' | '),
       h1: [...document.querySelectorAll('h1')].map((e) => e.textContent.trim()),
       hreflang: document.querySelectorAll('link[rel="alternate"][hreflang]').length,
       root: !!document.querySelector('#app .lp-root'),
@@ -82,6 +84,9 @@ const browser = await chromium.launch({ executablePath: chromium.executablePath(
   });
   add('有 JS：landing 运行时标题 = SEO 标题', s.title.includes('无限暖暖桌面相册工具') && s.title.includes('喵星图'), s.title);
   add('有 JS：description 非空且含产品词', s.desc.includes('无限暖暖') && s.desc.length >= 50, `${s.desc.length} 字`);
+  add('有 JS：meta keywords 覆盖无限暖暖且不含泛词', s.keywords.includes('无限暖暖') && !/自动扫描|本地浏览/.test(s.keywords), `${s.keywords.split(',').length} 个词`);
+  add('有 JS：JSON-LD 带 keywords', s.ldKeywords.includes('无限暖暖'), s.ldKeywords.slice(0, 80));
+  add('有 JS：description 不含泛词（自动扫描/本地浏览）', !/自动扫描|本地浏览/.test(s.desc), s.desc);
   add('有 JS：robots 允许索引', s.robots.includes('index') && s.robots.includes('follow'), s.robots);
   add('有 JS：OG 基础标签齐全', !!s.ogTitle && s.ogType === 'website' && s.ogLocale === 'zh_CN', `${s.ogTitle} / ${s.ogLocale}`);
   add('有 JS：canonical 使用相对口径', s.canonical === './' || /^https?:/.test(s.canonical || ''), s.canonical);
