@@ -81,8 +81,9 @@ def main() -> int:
 
     for d in (SITE, SHOTS, DATA):
         d.mkdir(parents=True, exist_ok=True)
-    for old in SHOTS.glob("*.webp"):
-        old.unlink()
+    # 不再批量删除旧截图：文件名由「内容 SHA → owner-NN」决定且稳定，重跑会直接覆盖；
+    # 批量 unlink 在受管/沙箱环境下会被 safe-delete 守卫拦截并超时（R52 实测）。
+    stale = 0
 
     by_sha: dict[str, str] = {}
     written = 0

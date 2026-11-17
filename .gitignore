@@ -28,3 +28,5 @@ Desktop.ini
 # 编辑器
 .vscode/
 .idea/
+# R52 一次性工作区（含改造前备份与探针日志），不入库
+.i18n-tmp/

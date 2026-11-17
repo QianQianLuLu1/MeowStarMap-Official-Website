@@ -29,6 +29,8 @@ import re
 import subprocess
 import sys
 import tempfile
+sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent))
+from i18n_pin import pin_browser  # noqa: E402  R52 语言引脚（默认 zh）
 
 HERE = pathlib.Path(__file__).resolve().parent
 ROOT = HERE.parent
@@ -264,8 +266,10 @@ def main():
     w3c(L, raw)
 
     from playwright.sync_api import sync_playwright
+
     with sync_playwright() as pw:
         b = pw.chromium.launch()
+        b = pin_browser(b)  # R52：同上，钉 zh
         p = b.new_page(viewport={"width": 1440, "height": 1000})
         console_err, reqfail = [], []
         p.on("console", lambda m: console_err.append(m.text) if m.type in ("error", "warning") else None)

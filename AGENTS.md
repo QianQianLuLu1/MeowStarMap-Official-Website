@@ -469,3 +469,75 @@ Meow Star Map 官网.backup-<标记>-<日期>.html   ← R25 起新源文件名�
 > **② 多文件版 `site/`（线上部署）**：首屏 `site/index.html` 1,186,206 B（1.13 MiB；字体与图标仍内联，保证 `file://` 可用），教程数据 69,450 B、开发者文档 2,088,814 B、48 张截图 15,991,294 B（按页 / `#/all` 也 lazy）、关于二维码 238,007 B（外置 + lazy）。教程/开发者数据改为 classic script 按需加载（非 fetch/module，file:// 不触发 CORS）；路由未就绪先渲染占位、加载完成自动重渲；入口 hover 与空闲时预取。实测（Chromium 147 headless，本地 HTTP，无压缩）：首屏传输 1.20 MiB vs 单文件 32.95 MiB（**27.5×**），FCP 112 vs 332 ms、DCL 226 vs 1036 ms；`#/all` 只请求 3/48 张图。工具链：`perf/tools/build_site.py`，报告 `perf/README.md`。
 > **③ 验证**：10 路由功能签名（view/title/h1+h2/links/imgs/textLen/sidebar/broken）与 console/pageerror/requestfailed 逐项与原文件相同（`file://`）；8 场景 × 3 产物截图对比 16/16 PASS（10 项逐像素相同，6 项 ≤2/255 文字抗锯齿抖动；证据 `perf/reports/shots-diff.json`）。仓库探针：r37 32P/1F/2N、r38 27P/1F/2N、r39 23P/0F/1N、r41 25P、r42 39P、r43 25P/0F/1N、r45(--skip-slow) 65P。仅两处探针口径随数据变更调整：`r45 A7` 冻结行长度 30924428 → **21358276**（dev 1545974 未动）、`r43 A6` 改为按**母图载荷本体**计数（原「全文件仅 1 处 webp data URI」在截图 WebP 化后必然为 49 处）。已知失败均非 R50 引入：r37 F2 的 `sidebarLinks` 两格（47→130，R46 惰性侧栏 + 同文档 hash 状态残留，沿 `tests/r46-r37-f2-diff.txt` 口径）、r38 U5 的 scroll 关闭（把 `main` 原件换回后同样 FAIL，`perf/reports/probes/r38-main-baseline.txt`，属 Chrome 147 时序）。html5lib strict 在 25 MB 文件上本机 >20 min 无结果，记 NOT-RUN。
 > 回滚：单文件 `git checkout main -- "Meow Star Map 官网.html"`；多文件删除 `site/` 与 `perf/`（`perf/assets`、`perf/dist` 本就不入库）；探针 `git checkout main -- tests/r45_theme_scope_check.py`。
+
+## R52 六语国际化（20261117）
+
+**范围**：营销侧（落地页 / 5 个二级页 / 页脚 / 关于 / `#lp-nav` / 下载面板 / 配色·外观·主题 / 卡片详情）
+提供 **zh en fr es ru ar** 六语；工作区侧（身份门 / 教程族 / 开发者页框）只做 **zh + en**；
+**开发者文档库正文永久不提供译文**（产品决定，写入 `locales/README.md`）。
+
+**依赖（唯一新增，内联）**：`i18next` **23.16.8** UMD（MIT，48,727 B，
+`sha256 f2e7de67e383d73a5dec769e0829ce3406e3e9eaaf61d269178788afd7a06120`，下载日 2026-11-17），
+内嵌于 `<!-- I18N:BEGIN … I18N:END -->`，与 MOTION 块内嵌 GSAP 同一范式。**不用 CDN**：
+会破「零外链」不变量（`<script src>` 恒 0）且 `file://` 双击形态失效。Node/Python 侧零新增依赖。
+
+**结构**：
+- 译文＝`locales/ui.{en,fr,es,ru,ar}.json` + `locales/tutorial.en.json`（编辑入口）；
+  `perf/tools/build_i18n.py`（stdlib）做 `--extract / --check / --write`，把译文幂等注入
+  `#i18n-<lang>` 与 `#i18n-tut-en` 数据块。
+- 中文**不搬进字典**：源码里 `T('key','中文原文')` 的第二个参数就是 zh 兜底，`LANG==='zh'` 时短路不查表，
+  因此改造前后中文输出逐字节同文（r37 F1/F2、r39 textLen、r42 逐字断言零重落）。
+- 引擎 `<!-- I18N -->` 块在任何渲染脚本之前执行（位于 `#dev-data` 之后、MOTION 之前），
+  暴露 `window.__i18n`（`t/tc/set/apply/boot/tutPage/tutMod/tutHome/bi/noticeHtml`）与全局 `T/TN`。
+- 语言判定链：`__i18nPin > ?lang= > localStorage.nikki_lang > navigator.languages > zh`。
+  `__i18nPin` 专供探针确定性钉 zh（Chromium 默认 en-US，否则 7 支探针基线成片失配）。
+- 教程译文走**独立数据包**且不复制图片：`{{imgN}}` 占位 + 运行时按序回填原 `<img>`（总数 48）。
+  合并层 `i18nTutApply()` 就地改写 `DATA.pages/modules/home`，侧栏/面包屑/翻页/搜索/封面墙因此零改动跟进。
+
+**RTL（阿拉伯语）**：`html[dir="rtl"]` 追加式镜像层（`R52-I18N-RTL`），显式镜像 `#sidebar`/`#app` 三段内边距/
+`.sb-pages` 缩进与 `::before`/搜索框/`.lead`/`blockquote`/`.pager a.next`/FAB 等；逻辑方向与 bidi 交给浏览器；
+`pre/code/kbd/.d-code` 强制 `direction:ltr`；标题 `letter-spacing:0`（负字距会切断阿拉伯连写）。
+零 `!important`、零新 hex。
+
+**已知限制**：① 内联 Inter 子集（R49，381 码位）只覆盖站内既有西文，法语/西语重音字符、西里尔、阿拉伯文
+按字形回落系统字体（`html[data-lang]` 配了分语种字体栈）；② 阿拉伯语量词统一取复数形式；
+③ 工作区侧在 fr/es/ru/ar 下是英文 + 一行双语通告（`ui.notice.bi`），语言菜单仍展示 6 项。
+
+**验证**：`python perf/tools/build_i18n.py --check`（359 键；分层 parity / 空值 / 非法字符 / 教程占位 48 /
+零外链 / 8 条 build_site 锚点 / 数据行长度 21358276·1545974 逐位不变）；
+`python tests/r51_i18n_check.py`（**70/70 PASS，0 SKIP**：源码级 + 运行时级 + 六语×四断点溢出）；
+`python perf/tools/build_site.py`（再生 `site/`，首载 1.19 → 1.34 MiB，`<script src>` 仍 0）。
+
+**回归记录（8 支既有探针 + html5lib，2026-11-17 收尾）**
+
+| 探针 | 结果 | 备注 |
+|---|---|---|
+| r37 Bento | 33 PASS / 1 FAIL / 1 SKIP | FAIL＝F2 的 2 格 `sidebarLinks` 47→130（已签认，见 `tests/r52-r37-f2-diff.txt`）；SKIP＝R6 本机 playwright 无 reduced_transparency 形参 |
+| r38 视觉 | 30 / 30 | — |
+| r39 排版 | 24 / 24 | — |
+| r41 卡片详情 | 25 / 25 | 首轮 F3 FAIL 暴露真实缺口，见下 |
+| r42 迁移 | 39 / 39 | — |
+| r43 图标 | 25 / 0 FAIL / 1 NOT-RUN | NOT-RUN＝B1 的 `!DEV` 兜底槽位，dev-data 在位故不渲染（设计如此，A12 源码级覆盖）|
+| r45 色彩作用域 | 65 / 65 | G1（769–900 档增量 ≤58px）未被语言触发器破坏 |
+| S1 html5lib | 0 error / 0 类 | 输入改二进制流后恢复可用（见下）|
+
+**回归中发现并修掉的三个真实缺口**
+
+1. **R41 `__r41.open(k)` 的键口径**：`keyOf()` 改读 `data-dt` 后，按中文标题调用（r41 F3、既有外部调用方）
+   全部落空 → `open()` 增加标题回退匹配，两种口径并行，探针零改动即恢复。
+2. **`setLang()` 对非法语种谎报成功**：`norm('xx')||'zh'` 会把 `xx` 归一成 `zh` 并因「同语言」返回 `true`，
+   选择器与界面状态可能不一致 → 改为显式 `return false` 且不落任何状态；`?lang=xx` 仍安全回落。
+3. **r37 `errs()` 用文本流喂 html5lib**：25MB 文档在编码嗅探阶段抛 `UnicodeDecodeError` →
+   改二进制打开（html5lib 的输入契约），S1 恢复为真实报错类型数（当前 0 类）。
+
+外加 r43 `SLOT_MARKUP` 两处锚点随源码同步：槽位标签已改为 `T('dev.sbTut',…)` 调用，
+标记更新为新的逐字形态（`A9` 仍要求六条各命中 1 次，实测 1/1/1/1/1/1）。
+**生成器唯一改动**：`build_site.py` 里 `for old in SHOTS.glob("*.webp"): old.unlink()` 已移除——
+批量 unlink 在受管/沙箱环境会被 safe-delete 守卫拦截并 10s 超时；截图文件名由「内容 SHA → owner-NN」
+决定且稳定，重跑直接覆盖，无需预清理（本轮实测 48 张、`problems: []`）。
+
+**回滚**：删 `<!-- I18N:BEGIN/END -->` 与 `<!-- I18N-DATA:BEGIN/END -->` 两对、CSS 三段
+（`R52-I18N-UI` / `R52-I18N-RTL` / `R52-I18N-FONT`）、主脚本 5 处挂点（`T/TN` 别名、`i18nTutApply` 及其调用、
+`__i18n.boot()`、两个缓存失效钩子）、R38 `optsHtml/relabel`、R36/R45 的 `i18n:change` 监听、
+`<title>` 上的 `data-i18n`（已移除）；再删 `locales/`、`perf/tools/build_i18n.py`、`tests/i18n_pin.py`、
+`tests/r51_i18n_check.py` 及 7 支探针内的两行 pin。`#tut-data`/`#dev-data` 全程未动（长度与基线逐位相同）。

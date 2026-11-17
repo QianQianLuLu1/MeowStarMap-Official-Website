@@ -23,6 +23,9 @@ import re
 import sys
 
 from playwright.sync_api import sync_playwright
+sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent))
+from i18n_pin import pin_browser  # noqa: E402  R52 语言引脚（默认 zh）
+
 
 HERE = pathlib.Path(__file__).resolve().parent
 ROOT = HERE.parent
@@ -177,6 +180,7 @@ def main():
     console_errors = []
     with sync_playwright() as pw:
         browser = pw.chromium.launch()
+        browser = pin_browser(browser)  # R52：同上，钉 zh
         ctx = browser.new_context(viewport={"width": 1440, "height": 900})
         page = ctx.new_page()
         page.on("console", lambda m: console_errors.append(m.text) if m.type == "error" else None)

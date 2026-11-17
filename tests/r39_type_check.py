@@ -20,6 +20,9 @@ import re
 import sys
 
 from playwright.sync_api import sync_playwright
+sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent))
+from i18n_pin import pin_browser  # noqa: E402  R52 语言引脚（默认 zh）
+
 
 try:
     sys.stdout.reconfigure(encoding="utf-8")
@@ -344,6 +347,7 @@ def run(args):
     console_errors, page_errors, failed_requests, warnings = [], [], [], []
     with sync_playwright() as p:
         browser = p.chromium.launch()
+        browser = pin_browser(browser)  # R52：语言自动判定会把默认语种切到 en，探针基线钉在 zh
         ctx = browser.new_context(viewport={"width": 1440, "height": 900}, reduced_motion="reduce")
         page = ctx.new_page()
         page.on("console", lambda m: (console_errors if m.type == "error" else warnings).append(m.text)

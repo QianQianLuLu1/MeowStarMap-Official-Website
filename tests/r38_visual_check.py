@@ -17,6 +17,9 @@ import sys
 import tempfile
 
 from playwright.sync_api import sync_playwright
+sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent))
+from i18n_pin import pin_browser  # noqa: E402  R52 语言引脚（默认 zh）
+
 
 try:
     sys.stdout.reconfigure(encoding="utf-8")
@@ -120,6 +123,7 @@ def main():
 
     with sync_playwright() as p:
         browser = p.chromium.launch()
+        browser = pin_browser(browser)  # R52：语言自动判定会把默认语种切到 en，探针基线钉在 zh
 
         # ── 源码级：HTML / JS / 注释 / 外链 / R38 token ──
         if args.skip_w3c:

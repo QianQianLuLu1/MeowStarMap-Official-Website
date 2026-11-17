@@ -22,6 +22,9 @@ import subprocess
 import sys
 
 from playwright.sync_api import sync_playwright
+sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent))
+from i18n_pin import pin_browser  # noqa: E402  R52 语言引脚（默认 zh）
+
 
 try:  # Windows 控制台默认 GBK，中文报告需强制 UTF-8（与既有探针同口径）
     sys.stdout.reconfigure(encoding="utf-8")
@@ -261,8 +264,10 @@ def w3c_check(L, skip):
         return
 
     def errs(path):
+        # html5lib 的输入契约是字节流；文本流会走它自己的编码嗅探再解码，25MB 文档下会抛
+        # UnicodeDecodeError（R52 实测）。用二进制打开，让 html5lib 按 <meta charset> 自行解码。
         parser = html5lib.HTMLParser()
-        with io.open(str(path), encoding="utf-8") as f:
+        with io.open(str(path), "rb") as f:
             parser.parse(f)
         return sorted({(e[1]) for e in parser.errors})
 
@@ -302,6 +307,7 @@ def run():
     errs = []
     with sync_playwright() as p:
         browser = p.chromium.launch(headless=True)
+        browser = pin_browser(browser)  # R52：语言自动判定会把默认语种切到 en，探针基线钉在 zh
         page = browser.new_context(viewport={"width": 1440, "height": 900}).new_page()
         page.on("pageerror", lambda e: errs.append("pageerror: " + str(e)[:120]))
         page.on("console", lambda m: errs.append("console: " + m.text[:120]) if m.type == "error" else None)

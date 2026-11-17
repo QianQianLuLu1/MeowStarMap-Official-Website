@@ -24,6 +24,9 @@ import re
 import sys
 
 from playwright.sync_api import sync_playwright
+sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent))
+from i18n_pin import pin_browser  # noqa: E402  R52 语言引脚（默认 zh）
+
 
 try:  # Windows 控制台默认 GBK，中文报告需强制 UTF-8（与 r37/r38/r39 同口径）
     sys.stdout.reconfigure(encoding="utf-8")
@@ -55,9 +58,11 @@ SLOTS = [
 SLOT_MARKUP = [
     '<span class="lp-brand-mark app-ic" aria-hidden="true"></span>',
     '<span class="lg-emoji app-ic" aria-hidden="true"></span>',
-    '<a class="sb-all" href="#/tutorial"><span class="app-ic" aria-hidden="true"></span>用户使用教程</a>',
+    # R52：标签文案改为 T('dev.sbTut','用户使用教程')，标记随源码同步（仍是逐字唯一锚点）
+    '<a class="sb-all" href="#/tutorial"><span class="app-ic" aria-hidden="true"></span>\'+T(\'dev.sbTut\',\'用户使用教程\')+\'</a>',
     '<span class="q-emoji"><span class="app-ic" aria-hidden="true"></span></span>',
-    '<a class="alllink" href="#/tutorial"><span class="app-ic" aria-hidden="true"></span> 查看用户使用教程</a>',
+    # R52：同上，兜底分支那处
+    '<a class="alllink" href="#/tutorial"><span class="app-ic" aria-hidden="true"></span> \'+T(\'dev.viewTut\',\'查看用户使用教程\')+\'</a>',
     '<div class="gate-emoji"><span class="app-ic" aria-hidden="true"></span></div>',
 ]
 WIDTHS = [390, 768, 1440, 1920]
@@ -204,6 +209,7 @@ def main():
     console_errors, failed_reqs = [], []
     with sync_playwright() as pw:
         browser = pw.chromium.launch()
+        browser = pin_browser(browser)  # R52：同上，钉 zh
         ctx = browser.new_context(viewport={"width": 1440, "height": 900})
         page = ctx.new_page()
         page.on("console", lambda m: console_errors.append(m.text) if m.type == "error" else None)

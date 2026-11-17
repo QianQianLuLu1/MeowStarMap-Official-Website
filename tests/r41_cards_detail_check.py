@@ -18,6 +18,9 @@ import pathlib
 import sys
 
 from playwright.sync_api import sync_playwright
+sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent))
+from i18n_pin import pin_browser  # noqa: E402  R52 语言引脚（默认 zh）
+
 
 HERE = pathlib.Path(__file__).resolve().parent
 ROOT = HERE.parent
@@ -79,6 +82,7 @@ def run():
     L = Log()
     with sync_playwright() as pw:
         browser = pw.chromium.launch()
+        browser = pin_browser(browser)  # R52：同上，钉 zh
         try:
             # ---------- A 结构挂载 ----------
             ctx, page = new_page(browser, 1440, 900)

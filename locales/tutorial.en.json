@@ -1,0 +1,304 @@
+{
+ "home": "\n<div class=\"hero\">\n  <div class=\"hero-badges\"><span>📘 Full walkthrough</span><span>Version 2.5.0-beta</span><span>Windows</span></div>\n  <h1>Meow Star Map<span class=\"hero-dot\">·</span>Full walkthrough</h1>\n  <div class=\"hero-sub\">\n<p><strong>Meow Star Map</strong> is a desktop app that helps you manage your <em>Infinity Nikki</em> screenshots. It can:</p>\n</div>\n  <div class=\"hero-notes\"><blockquote>This guide is written for every player — no computer expertise needed.</blockquote><blockquote>All screenshots come from the app actually running on a PC (version 2.5.0-beta, Windows).</blockquote><blockquote>Follow the chapters step by step: from the very first launch to advanced workflows, each action has its own page.</blockquote></div>\n</div>\n\n<section class=\"home-sec\">\n  <h2>🧭 First-time path</h2>\n  <p class=\"sec-tip\">New here? Walk this path once and you will cover the whole flow from installing to sharing.</p>\n  <div class=\"path\"><a class=\"step\" href=\"#/m1/m1p1\"><span class=\"step-no\">1</span><span class=\"step-label\">Install</span></a><a class=\"step\" href=\"#/m1/m1p3\"><span class=\"step-no\">2</span><span class=\"step-label\">Main window</span></a><a class=\"step\" href=\"#/m2/m2p1\"><span class=\"step-no\">3</span><span class=\"step-label\">Browse</span></a><a class=\"step\" href=\"#/m3/m3p1\"><span class=\"step-no\">4</span><span class=\"step-label\">Organise</span></a><a class=\"step\" href=\"#/m4/m4p1\"><span class=\"step-no\">5</span><span class=\"step-label\">Edit</span></a><a class=\"step\" href=\"#/m7/m7p1\"><span class=\"step-no\">6</span><span class=\"step-label\">Share</span></a></div>\n</section>\n\n<section class=\"home-sec\">\n  <h2>✨ What the app does</h2>\n  <ul class=\"feature-list\"><li>🔍 <strong>Finds automatically</strong> the photos and videos the game saves on your PC and turns them into a browsable album;</li><li>🖼️ Offers grid, timeline, masonry and more <strong>ways to browse</strong>, with filters by date, rating and type, plus search;</li><li>✏️ Built-in <strong>editing</strong>: brightness, filters, watermarks — no other editor needed;</li><li>🎮 Game-specific extras: <strong>outfit tagging</strong>, a <strong>gacha history</strong> (Resonance Log) and in-game <strong>camera settings</strong>;</li><li>🧹 Finds <strong>duplicate and similar photos</strong> so you can reclaim disk space in one click;</li><li>📤 One-click <strong>share to WeChat / QQ</strong>, or <strong>WiFi share</strong> straight to your phone;</li><li>🗑️ Two-layer <strong>trash</strong> protection so deleted photos can come back.</li></ul>\n</section>\n\n<section class=\"home-sec\">\n  <h2>🗂 Module entries</h2>\n  <p class=\"sec-tip\">The guide has three levels: <b>overview</b> → <b>section page</b> (index and summary) → <b>detail page</b> (steps, examples, caveats). Click a card to enter, or jump anywhere with the search box at the top.</p>\n  <div class=\"mod-grid\"><a class=\"mod-card\" href=\"#/m1\"><div class=\"mc-emoji\">🚀</div><div class=\"mc-name\">Quick start</div><div class=\"mc-desc\">From downloading to getting photos into the library: five pages cover your first full run. Best for players who just installed the app and have no album yet.</div><div class=\"mc-count\">5 pages ›</div></a><a class=\"mod-card\" href=\"#/m2\"><div class=\"mc-emoji\">🖼️</div><div class=\"mc-name\">Browse and find</div><div class=\"mc-desc\">Switch views, add filters, search keywords: turn thousands of photos into an album you can flip through at will. Also covers video and the three auto-grouped sidebar sections.</div><div class=\"mc-count\">6 pages ›</div></a><a class=\"mod-card\" href=\"#/m3\"><div class=\"mc-emoji\">🗂️</div><div class=\"mc-name\">Organise and manage</div><div class=\"mc-desc\">Rate, favourite, tag and mark outfits, then use multi-select and categories to build a system. Most organising happens on the photo detail page.</div><div class=\"mc-count\">5 pages ›</div></a><a class=\"mod-card\" href=\"#/m4\"><div class=\"mc-emoji\">✏️</div><div class=\"mc-name\">Edit and polish</div><div class=\"mc-desc\">No other editor needed: colour, filters, LUTs and watermarks in one place.</div><div class=\"mc-count\">4 pages ›</div></a><a class=\"mod-card\" href=\"#/m5\"><div class=\"mc-emoji\">🎮</div><div class=\"mc-name\">Resonance Log (gacha)</div><div class=\"mc-desc\">A small tool for recording your gacha history: add pulls, track the codex, import data and read stats.</div><div class=\"mc-count\">4 pages ›</div></a><a class=\"mod-card\" href=\"#/m6\"><div class=\"mc-emoji\">🧹</div><div class=\"mc-name\">Cleanup and trash</div><div class=\"mc-desc\">Burst shots and repeated exports quietly eat disk space; this section finds duplicates and restores deleted photos. Every delete goes to the trash first.</div><div class=\"mc-count\">2 pages ›</div></a><a class=\"mod-card\" href=\"#/m7\"><div class=\"mc-emoji\">📤</div><div class=\"mc-name\">Share and export</div><div class=\"mc-desc\">Send photos to WeChat / QQ friends, push them to your phone, or export in bulk to a folder with rules.</div><div class=\"mc-count\">3 pages ›</div></a><a class=\"mod-card\" href=\"#/m8\"><div class=\"mc-emoji\">⚙️</div><div class=\"mc-name\">Settings and data</div><div class=\"mc-desc\">Every option, grouped: startup and safety, appearance, scanning, profiles, plus backup and cache housekeeping.</div><div class=\"mc-count\">6 pages ›</div></a><a class=\"mod-card\" href=\"#/m9\"><div class=\"mc-emoji\">❓</div><div class=\"mc-name\">FAQ</div><div class=\"mc-desc\">A quick-reference table of the ten most common questions. Start with the index below; every answer links to the matching action.</div><div class=\"mc-count\">1 page ›</div></a></div>\n</section>\n\n<section class=\"home-sec\">\n  <h2>⚡ Shortcuts</h2>\n  <div class=\"quick-grid\"><a class=\"quick\" href=\"#/m9/m9p1\"><span class=\"q-emoji\">❓</span><span class=\"q-body\"><b>FAQ</b><i>Empty library, deleted photos, blank screen, migration… ten answers</i></span></a><a class=\"quick\" href=\"#/m4/m4p4\"><span class=\"q-emoji\">⌨️</span><span class=\"q-body\"><b>Editor shortcuts</b><i>Save, undo and compare with the original</i></span></a><a class=\"quick\" href=\"#/m7/m7p2\"><span class=\"q-emoji\">📶</span><span class=\"q-body\"><b>WiFi share to phone</b><i>No cable — scan the code and download</i></span></a><a class=\"quick\" href=\"#/m8/m8p5\"><span class=\"q-emoji\">💾</span><span class=\"q-body\"><b>Backup and migration</b><i>Back up the database before switching PCs</i></span></a><a class=\"quick\" href=\"#/m6/m6p2\"><span class=\"q-emoji\">🗑️</span><span class=\"q-body\"><b>Restore deleted photos</b><i>Two-layer trash protection</i></span></a></div>\n</section>\n\n<footer class=\"home-foot\"><hr />\n<p><strong>This guide matches app version 2.5.0-beta; the interface may change slightly in later versions.</strong></p>\n<p class=\"print-tip\">💡 To print or export as PDF: open “Read all” (top right) first, then use your browser's print function.</p></footer>\n",
+ "mods": {
+  "m1": {
+   "desc": "From downloading to getting photos into the library: five pages cover your first full run. Best for players who just installed the app and have no album yet.",
+   "name": "Quick start",
+   "overview": ""
+  },
+  "m2": {
+   "desc": "Switch views, add filters, search keywords: turn thousands of photos into an album you can flip through at will. Also covers video and the three auto-grouped sidebar sections.",
+   "name": "Browse and find",
+   "overview": ""
+  },
+  "m3": {
+   "desc": "Rate, favourite, tag and mark outfits, then use multi-select and categories to build a system. Most organising happens on the photo detail page.",
+   "name": "Organise and manage",
+   "overview": "\n<p>All of this organising happens on the <em>detail page</em>. Go back from full screen, or press “Back” in the editor, and you will see the detail page of a photo:</p>\n<p>{{img1}}</p>\n"
+  },
+  "m4": {
+   "desc": "No other editor needed: colour, filters, LUTs and watermarks in one place.",
+   "name": "Edit and polish",
+   "overview": "\n<p>The app ships with editing tools that rival dedicated software. To open them: <strong>right-click a photo → Edit</strong> (or press “Edit” on the detail page).</p>\n"
+  },
+  "m5": {
+   "desc": "A small tool for recording your gacha history: add pulls, track the codex, import data and read stats.",
+   "name": "Resonance Log (gacha)",
+   "overview": "\n<p>“Resonance Log” in the left menu records your gacha history, split into four tabs:</p>\n<p>{{img1}}</p>\n"
+  },
+  "m6": {
+   "desc": "Burst shots and repeated exports quietly eat disk space; this section finds duplicates and restores deleted photos. Every delete goes to the trash first.",
+   "name": "Cleanup and trash",
+   "overview": ""
+  },
+  "m7": {
+   "desc": "Send photos to WeChat / QQ friends, push them to your phone, or export in bulk to a folder with rules.",
+   "name": "Share and export",
+   "overview": ""
+  },
+  "m8": {
+   "desc": "Every option, grouped: startup and safety, appearance, scanning, profiles, plus backup and cache housekeeping.",
+   "name": "Settings and data",
+   "overview": "\n<p>“Settings” at the bottom of the left menu groups every option:</p>\n<p>{{img1}}</p>\n"
+  },
+  "m9": {
+   "desc": "A quick-reference table of the ten most common questions. Start with the index below; every answer links to the matching action.",
+   "name": "FAQ",
+   "overview": "\n<div class=\"faq-index\">\n  <h3>Question index</h3>\n  <ul>\n    <li><b>Install and scan</b>: <a href=\"#/m9/m9p1@faq-q1\">Q1 Empty library</a>, <a href=\"#/m9/m9p1@faq-q2\">Q2 Permission denied (E003)</a></li>\n    <li><b>Display and recovery</b>: <a href=\"#/m9/m9p1@faq-q3\">Q3 Photos disappeared</a>, <a href=\"#/m9/m9p1@faq-q4\">Q4 Restore a deletion</a></li>\n    <li><b>Editing and organising</b>: <a href=\"#/m9/m9p1@faq-q5\">Q5 Regret an edit</a></li>\n    <li><b>App and display</b>: <a href=\"#/m9/m9p1@faq-q6\">Q6 Crash or blank screen</a>, <a href=\"#/m9/m9p1@faq-q9\">Q9 Interface language</a></li>\n    <li><b>Data and migration</b>: <a href=\"#/m9/m9p1@faq-q7\">Q7 Move to a new PC</a>, <a href=\"#/m9/m9p1@faq-q8\">Q8 Cache taking space</a></li>\n    <li><b>Sharing</b>: <a href=\"#/m9/m9p1@faq-q10\">Q10 WeChat/QQ share does nothing</a></li>\n  </ul>\n</div>\n"
+  }
+ },
+ "pages": {
+  "m1p1": {
+   "desc": "Get the installer from GitHub Releases and install it like any other app.",
+   "html": "\n<ol><li>Open the project's GitHub Releases page (or the download link the author lists on Douyin / Bilibili);</li><li>Download the package named something like <code>MeowStarMap-Setup-2.5.0-beta.exe</code>;</li><li>Double-click it and click “Next” as you would for any installer;</li><li>When it finishes, the Meow Star Map icon appears on your desktop and in the Start menu.</li></ol>\n",
+   "lead": "Three minutes to install, then the Meow Star Map icon appears on your desktop.",
+   "text": "Download and install Get the installer from GitHub Releases and install it like any other app. Three minutes to install. Open GitHub Releases, download MeowStarMap-Setup, double-click and follow the wizard.",
+   "title": "Download and install"
+  },
+  "m1p2": {
+   "desc": "Empty library on first launch? The app finds the game and scans your photos automatically.",
+   "html": "\n<p>On first launch the library is empty and shows “No media yet”:</p>\n<p>{{img1}}</p>\n<p>No need to configure anything — a few seconds after launch the app <strong>automatically finds</strong> the installed <em>Infinity Nikki</em>, locates the folder where the game saves photos and starts scanning. When it finishes, all your game photos appear in the library.</p>\n",
+   "lead": "No manual setup: a few seconds after launch the photos appear by themselves.",
+   "text": "First launch it looks for your game photos Empty library on first launch? The app finds the game and scans your photos automatically. It locates Infinity Nikki and its photo folder.",
+   "title": "First launch: it looks for your game photos"
+  },
+  "m1p3": {
+   "desc": "Three areas: left menu, top toolbar, content area — plus multi-profile switching.",
+   "html": "\n<p>When the app opens you land on the main “Library” page:</p>\n<p>{{img1}}</p>\n<p>The window has three areas:</p>\n<ul><li><strong>Left menu</strong>: entries for the nine sections — Library, Screenshots, Favourites, Resonance Log, Cache, Categories, Duplicates, Trash, Settings;</li><li><strong>Top toolbar</strong>: type filter (all / images / videos), rating, date, sort order, search box, plus import, view switch and scan buttons;</li><li><strong>Content area</strong>: the photos live here. The counts of photos and videos sit in the bottom-left corner.</li></ul>\n<p>The “library overview” screenshot above boxes all three areas — compare it once and you are familiar.</p>\n<blockquote>💡 <strong>Tip</strong>: the “All profiles” dropdown at the top left switches character profiles (separated by in-game UID). If you play several accounts, each one is managed separately, and “All profiles” shows them together.</blockquote>\n",
+   "lead": "Use the “library overview” screenshot to learn the nine section entries.",
+   "text": "Getting to know the main window Three areas: left menu, top toolbar, content area plus multi-profile switching. Library, screenshots, favourites, resonance log, cache, categories, duplicates, trash, settings.",
+   "title": "Getting to know the main window"
+  },
+  "m1p4": {
+   "desc": "Incremental scan, auto-locate and manual folder — even if the game lives somewhere unusual.",
+   "html": "\n<h3>Three scanning modes</h3>\n<p>Day to day, <strong>the app scans for new photos on every launch</strong> — you do not need to do anything. To scan manually, click the small arrow next to the scan button and pick a mode.</p>\n<h3>Nothing found? Pick the folder yourself</h3>\n<p>If the automatic scan finds nothing (for example the game is installed in an unusual place), point the app at it manually:</p>\n<ol><li>Click the <strong>small arrow</strong> next to the scan button on the right of the toolbar to open the scan menu;</li></ol>\n<p>{{img1}}</p>\n<ol><li>The menu offers three modes:<ul><li><strong>Incremental scan (new files only)</strong>: finds only newly captured photos and is fast — recommended for daily use;</li><li><strong>Auto-locate the game folder</strong>: asks the app to try finding the game again;</li><li><strong>Choose a folder</strong>: pick it yourself — if the game is installed somewhere unusual, choose this, then select the game's <code>X6Game\\Saved\\GamePlayPhotos</code> folder (or any folder where you keep photos) and click “Select folder”.</li></ul></li><li>Progress shows in the bottom-right corner while scanning; when it finishes the photos appear in the library.</li></ol>\n<blockquote>💡 <strong>Tip</strong>: “Scan on launch” is on by default, so every start looks for new photos without manual work. You can change it in <a class=\"xref\" href=\"#/m8/m8p1\">Settings → General → Startup behaviour</a>.</blockquote>\n",
+   "lead": "If the automatic scan finds nothing, point the app at the GamePlayPhotos folder.",
+   "text": "Scanning modes and picking a folder yourself Incremental scan, auto-locate and manual folder even if the game lives somewhere unusual. GamePlayPhotos folder, scan menu, auto-locate.",
+   "title": "Scanning modes and picking a folder yourself"
+  },
+  "m1p5": {
+   "desc": "Three steps: pick a folder, tick files, set rules. The source folder is never modified.",
+   "html": "\n<p>Beyond the game folder, you can copy images and videos from <strong>any folder</strong> on your PC into the app:</p>\n<ol><li>Click the <strong>Import</strong> button on the left of the toolbar (the first icon) to open the wizard;</li></ol>\n<p>{{img1}}</p>\n<ol><li><strong>Step 1</strong>: click “Browse” and choose the folder that holds the photos;</li><li><strong>Step 2</strong>: preview the files and tick the ones you want;</li><li><strong>Step 3</strong>: set the import rules (target folder, naming, what to do about duplicates) and start the import.</li></ol>\n<p>Afterwards those photos appear in the library alongside the game photos.</p>\n<blockquote>💡 <strong>Tip</strong>: import <em>copies</em> files — nothing in the original folder is moved or changed, so it is safe.</blockquote>\n",
+   "lead": "Pull images and videos from any folder into one managed library.",
+   "text": "Import photos from other folders (import wizard) Three steps pick a folder, tick files, set rules. The source folder is never modified. Copies images and videos into the library.",
+   "title": "Import photos from other folders (import wizard)"
+  },
+  "m2p1": {
+   "desc": "Grid, list, timeline and masonry — switch with one click.",
+   "html": "\n<p>The view buttons sit in the middle of the toolbar — one click switches:</p>\n<ul><li><strong>Grid</strong> (default): an even grid of tiles;</li><li><strong>List</strong>: one photo per row with more details;</li><li><strong>Timeline</strong>: grouped by date, handy for recalling what you shot on a given day;</li><li><strong>Masonry</strong>: photos keep their original proportions, which feels better for larger previews.</li></ul>\n<p>{{img1}}</p>\n<p>{{img2}}</p>\n",
+   "lead": "The view buttons in the middle of the toolbar change how photos are laid out.",
+   "text": "Another layout four gallery views Grid, list, timeline and masonry switch with one click. Timeline groups by date, masonry keeps original proportions.",
+   "title": "Another layout: four gallery views"
+  },
+  "m2p2": {
+   "desc": "Filter by type, rating and date, sort by several columns, search keywords live.",
+   "html": "\n<h3>Filter: find the right photos fast</h3>\n<p>The toolbar offers several filters that can be combined:</p>\n<ul><li><strong>Type</strong>: all / images / videos;</li><li><strong>Rating</strong>: only rated photos (for example “3 stars and up”);</li></ul>\n<p>{{img1}}</p>\n<ul><li><strong>Date</strong>: pick a start and end date to see only that period;</li><li><strong>Missing only / corrupted only</strong>: check whether any file has a problem (moved by hand, broken file).</li></ul>\n<h3>Sorting</h3>\n<p>The row of buttons “date / name / size / resolution / rating” sorts the library; click once to sort by it and again to flip between descending and ascending.</p>\n<h3>Search</h3>\n<p>Type a keyword and the app searches <strong>as you type</strong> across file names, tags, outfits, scenes and notes. For example, type part of a file name and the matching photos appear at once:</p>\n<p>{{img2}}</p>\n",
+   "lead": "Find the few photos you want among thousands.",
+   "text": "Filtering, sorting and search Filter by type, rating and date, sort by several columns, search keywords live. Missing only, corrupted only, sort order, search as you type.",
+   "title": "Filtering, sorting and search"
+  },
+  "m2p3": {
+   "desc": "Group automatically by album type, outfit, scene or time of day.",
+   "html": "\n<p>Pressing “Smart grouping” groups photos automatically by <strong>album type / type / outfit / scene / time of day</strong>. The groups appear under the left menu; pick one to see only that group:</p>\n<p>{{img1}}</p>\n",
+   "lead": "Press “Smart grouping” and pick a group from the left.",
+   "text": "Smart grouping Group automatically by album type, outfit, scene or time of day. Groups appear under the left menu.",
+   "title": "Smart grouping"
+  },
+  "m2p4": {
+   "desc": "Click to go full screen, page with the keyboard, read camera settings, even play a slideshow.",
+   "html": "\n<h3>Full-screen viewing</h3>\n<p><strong>Click any photo</strong> to open it full screen:</p>\n<p>{{img1}}</p>\n<p>In full screen you can:</p>\n<ul><li>Press <strong>← / →</strong> or click the side arrows to move between photos;</li><li>Click the <strong>star</strong> button at the bottom right to favourite it; click <strong>info</strong> to see the details — photos taken in game also show the <strong>in-game camera settings</strong> (aperture, focal length, lighting, filter and so on);</li><li>Press <strong>Esc</strong> or click the × at the top right to return to the library.</li></ul>\n<p>{{img2}}</p>\n<h3>Slideshow</h3>\n<p>In full screen, press the <strong>play</strong> button at the top and the photos advance automatically. The interval button next to it (for example “3s”) sets how long each photo stays (1/2/3/5/8 seconds):</p>\n<p>{{img3}}</p>\n",
+   "lead": "Everything about full-screen viewing and playback.",
+   "text": "Full screen and slideshow Click to go full screen, page with the keyboard, read camera settings, even play a slideshow. Aperture, focal length, lighting, filter, interval.",
+   "title": "Full screen and slideshow"
+  },
+  "m2p5": {
+   "desc": "Videos live beside photos: duration badge, dedicated filter, full-screen playback.",
+   "html": "\n<p>Videos recorded in game appear in the library beside photos, with a duration badge in the bottom-right corner of the thumbnail. Use the <strong>video</strong> filter at the top to see only videos:</p>\n<p>{{img1}}</p>\n<p>Click a video to play it full screen. Videos support the same management features as photos: favourites, ratings, tags, sharing and export.</p>\n<blockquote>⚠️ <strong>Note</strong>: in this beta, the “Edit” entry for videos is not open yet (the right-click “Edit” item is greyed out for videos). This is expected; later versions will add trimming, speed changes and format conversion.</blockquote>\n",
+   "lead": "How recorded videos are shown and managed.",
+   "text": "Working with game videos Videos live beside photos duration badge, dedicated filter, full-screen playback. Editing is not available for videos yet.",
+   "title": "Working with game videos"
+  },
+  "m2p6": {
+   "desc": "Three sections grouped automatically by source.",
+   "html": "\n<p>The sidebar has three more sections, grouped automatically by source:</p>\n<ul><li><strong>Screenshots</strong>: images captured with the in-game screenshot key;</li></ul>\n<p>{{img1}}</p>\n<ul><li><strong>Favourites</strong>: every starred photo;</li></ul>\n<p>{{img2}}</p>\n<ul><li><strong>Cache</strong>: wallpapers and promo art downloaded by the game launcher. Looking for an official wallpaper for your desktop? Browse here:</li></ul>\n<p>{{img3}}</p>\n",
+   "lead": "Looking for official wallpapers? Try the cache section.",
+   "text": "Three handy sections screenshots, favourites, cache Three sections grouped automatically by source. Cache holds launcher wallpapers and promo art.",
+   "title": "Three handy sections: screenshots / favourites / cache"
+  },
+  "m3p1": {
+   "desc": "Rate at the bottom of the detail page, favourite from the side panel.",
+   "html": "\n<h3>Rating</h3>\n<p>The detail page has <strong>five stars</strong> at the bottom; click as many as you want to score. Rated photos can be found quickly with the <a class=\"xref\" href=\"#/m2/m2p2\">rating filter</a>.</p>\n<h3>Favourites</h3>\n<p>The info panel on the right of the detail page has a “Favourite” switch; hovering a thumbnail in the library also reveals a star button. Starred photos are collected in the “Favourites” section.</p>\n",
+   "lead": "Two clicks to mark your best photos.",
+   "text": "Rating and favourites Rate at the bottom of the detail page, favourite from the side panel. Five stars, rating filter, star button on hover.",
+   "title": "Rating and favourites"
+  },
+  "m3p2": {
+   "desc": "Custom tags plus 35 built-in outfit presets that feed search and grouping.",
+   "html": "\n<h3>Tags</h3>\n<p>Press the <strong>tag</strong> button at the top to add custom tags (common ones such as scenery, character and story are one click away). Searching the tag name later finds that batch of photos.</p>\n<p>{{img1}}</p>\n<h3>Outfit marking: what is the character wearing?</h3>\n<p>Find “Outfit” on the right of the detail page, click <strong>Add</strong>, then type the outfit name or pick one of the 35 built-in presets from the list and click “Save”:</p>\n<p>{{img2}}</p>\n<p>Marked photos can be browsed by outfit with “Smart grouping → Outfit”, and searching the outfit name finds them instantly.</p>\n",
+   "lead": "Tell the app what a photo is wearing.",
+   "text": "Tags and outfit marking Custom tags plus 35 built-in outfit presets that feed search and grouping. Smart grouping by outfit.",
+   "title": "Tags and outfit marking"
+  },
+  "m3p3": {
+   "desc": "The right-click menu collects common actions; undo from the toast.",
+   "html": "\n<h3>Right-click menu: the everyday actions</h3>\n<p><strong>Right-click any photo</strong> in the library to open the menu: open, edit, save as, export, copy to, move to, rename, share, favourite, delete, properties:</p>\n<p>{{img1}}</p>\n<h3>Slipped up? Undo</h3>\n<p>After moving, deleting or renaming, the toast that appears offers <strong>undo</strong>, restoring the photo exactly as before.</p>\n",
+   "lead": "Everyday actions live in the right-click menu, and slip-ups are reversible.",
+   "text": "Right-click menu and global undo The right-click menu collects common actions; undo from the toast. Open, edit, save as, export, copy to, move to, rename, share.",
+   "title": "Right-click menu and global undo"
+  },
+  "m3p4": {
+   "desc": "Ctrl / Shift multi-select, then delete, export, rename or watermark in one go.",
+   "html": "\n<h3>Selecting several photos</h3>\n<ul><li><strong>Ctrl + click</strong>: toggle one photo (non-adjacent selections work);</li><li><strong>Shift + click</strong>: select the range between two clicks;</li><li>Once selected, “Select all / invert” buttons appear at the bottom.</li></ul>\n<p>{{img1}}</p>\n<h3>What the batch bar can do</h3>\n<p>When photos are selected a row of buttons appears at the bottom:</p>\n<table><thead><tr><th>Button</th><th>What it does</th></tr></thead><tbody><tr><td>Delete</td><td>Moves the selected photos to the app trash (recoverable)</td></tr><tr><td>Export</td><td>Choose a folder and copy the photos out</td></tr><tr><td>Export to default</td><td>Exports straight to your configured default folder (set in <a class=\"xref\" href=\"#/m8/m8p1\">Settings → General → Export workflow</a>)</td></tr><tr><td>Move</td><td>Moves photos to another folder</td></tr><tr><td>Watermark</td><td>Applies one watermark to every selected photo</td></tr><tr><td>Rename</td><td>Batch rename by template (date, sequence, outfit and so on)</td></tr><tr><td>Move to profile</td><td>Moves photos under another UID profile</td></tr><tr><td>Share</td><td>Copies to the clipboard and shares to WeChat/QQ (see <a class=\"xref\" href=\"#/m7/m7p1\">Share to WeChat / QQ</a>)</td></tr><tr><td>WiFi share</td><td>Starts a LAN share that your phone opens by scanning (see <a class=\"xref\" href=\"#/m7/m7p2\">WiFi share</a>)</td></tr></tbody></table>\n<p>Press <strong>×</strong> on the right to clear the selection when you are done.</p>\n",
+   "lead": "The full button table for working on many photos at once.",
+   "text": "Batch actions handle a pile at once Ctrl / Shift multi-select, then delete, export, rename or watermark in one go. Export to default, move to profile, wifi share.",
+   "title": "Batch actions: handle a pile at once"
+  },
+  "m3p5": {
+   "desc": "Build your own category tree, file photos into it; built-in scene categories group automatically.",
+   "html": "\n<p>The “Categories” section lets you build your own classification:</p>\n<p>{{img1}}</p>\n<ul><li><strong>New category</strong>: set name, colour and icon, and nest it under another category to build levels (for example “Fields” and “Snow peaks” under “Landscape”);</li><li><strong>File photos</strong>: press “Assign media” on a category, search and tick photos; you can also drag a photo from the library onto a category;</li><li>The app also ships <strong>in-game scene categories</strong> (thumbnails, screenshots, travel journal, world tour and more) that group photos by source automatically;</li><li><strong>Scene time of day</strong>: in <a class=\"xref\" href=\"#/m8/m8p3\">Settings → Scanning → Scan options</a> press “Analyse now” and the app works out whether each photo is day, morning, dusk or night, so you can filter by time of day afterwards.</li></ul>\n<blockquote>💡 <strong>Tip</strong>: deleting a custom category never deletes the photos inside it.</blockquote>\n",
+   "lead": "Set up your own classification.",
+   "text": "Category management Build your own category tree, file photos into it; built-in scene categories group automatically. New category, assign media, scene categories, scene time of day.",
+   "title": "Category management"
+  },
+  "m4p1": {
+   "desc": "Three-pane editor with a dozen live sliders.",
+   "html": "\n<h3>Editor layout</h3>\n<p>The preview and histogram sit in the middle, the adjustment panel on the right, tool buttons along the top:</p>\n<p>{{img1}}</p>\n<h3>Basic adjustments</h3>\n<p>The “Basic” tab on the right holds sliders for brightness, contrast, saturation, temperature, highlights, shadows, clarity, sharpening and more — drag one and the preview updates live:</p>\n<p>{{img2}}</p>\n",
+   "lead": "Enter the editor, learn the layout, then start with basic colour.",
+   "text": "Editor layout and basic adjustments Three-pane editor with a dozen live sliders. Brightness, contrast, saturation, temperature, highlights, shadows, clarity, sharpening, histogram.",
+   "title": "Editor layout and basic adjustments"
+  },
+  "m4p2": {
+   "desc": "Four categories with 20 filters plus 5 LUT looks and .cube import.",
+   "html": "\n<ul><li><strong>Filters</strong> tab: 20 built-in filters across natural, vintage, artistic and cinematic — one click applies one, and “filter strength” is adjustable;</li></ul>\n<p>{{img1}}</p>\n<ul><li><strong>LUT</strong> tab: 5 looks, plus import of <code>.cube</code> grading files downloaded from the web.</li></ul>\n<p>{{img2}}</p>\n",
+   "lead": "Apply a filter in one click, or import a grading file from the web.",
+   "text": "Filters and LUTs Four categories with 20 filters plus 5 LUT looks and .cube import. Filter strength, natural, vintage, artistic, cinematic.",
+   "title": "Filters and LUTs"
+  },
+  "m4p3": {
+   "desc": "Text or image watermarks, nine-grid placement, Polaroid and signature presets.",
+   "html": "\n<p>The “Watermark” tab adds a <strong>text watermark</strong> (file name and date can be inserted automatically) or an <strong>image watermark</strong>, with nine-grid placement and ready-made Polaroid and signature styles; the preview on the right updates live:</p>\n<p>{{img1}}</p>\n",
+   "lead": "Put your own mark on the photo.",
+   "text": "Watermark Text or image watermarks, nine-grid placement, Polaroid and signature presets. Text watermark, image watermark.",
+   "title": "Watermark"
+  },
+  "m4p4": {
+   "desc": "Hold to compare, split-view compare; saving backs up the original; shortcut table.",
+   "html": "\n<h3>Comparing with the original</h3>\n<p>Want to know how much you changed? Two ways:</p>\n<ul><li><strong>Hold the “Compare” button</strong>: the original shows while held, the edit returns when released;</li><li><strong>Split view</strong>: original on one side, edit on the other.</li></ul>\n<p>{{img1}}</p>\n<h3>Saving and exporting</h3>\n<ul><li><strong>Save</strong>: writes the edit back to the photo. Don't worry — the original file is <strong>backed up automatically</strong> and can be restored;</li><li><strong>Save as</strong>: keeps the original and writes the edit to a new file;</li><li><strong>Export with settings</strong>: writes a copy that carries the edit parameters, so they can be restored into the editor later;</li><li><strong>Apply to selection</strong>: applies the current settings to the other selected photos in one go.</li></ul>\n<p>The top bar also has <strong>undo / redo / reset</strong>.</p>\n<h3>Common shortcuts</h3>\n<table><thead><tr><th>Shortcut</th><th>Action</th></tr></thead><tbody><tr><td>Ctrl + S</td><td>Save</td></tr><tr><td>Ctrl + Z / Ctrl + Y</td><td>Undo / redo</td></tr><tr><td>Space (hold)</td><td>Compare with the original</td></tr><tr><td>F11</td><td>Full-screen editing</td></tr><tr><td>?</td><td>Show all shortcuts</td></tr></tbody></table>\n",
+   "lead": "See how much you changed, and never lose the original.",
+   "text": "Compare, save, export and shortcuts Hold to compare, split-view compare; saving backs up the original; shortcut table. Apply to selection, export with settings, undo, redo, reset.",
+   "title": "Compare, save, export and shortcuts"
+  },
+  "m5p1": {
+   "desc": "Pick a banner, press add, record each pull with live stats.",
+   "html": "\n<p>Pick a banner, then press <strong>Add</strong> at the top right and choose the item and the time you got it — each pull is recorded. The panel above keeps a live count of total pulls and how many pulls since the last gold or purple.</p>\n",
+   "lead": "Add every pull yourself.",
+   "text": "Resonance records add pulls by hand Pick a banner, press add, record each pull with live stats. Total pulls, pulls since last gold, pulls since last purple.",
+   "title": "Resonance records: add pulls by hand"
+  },
+  "m5p2": {
+   "desc": "Full outfit codex with search and filters, or inferred from gacha records.",
+   "html": "\n<p>“My Wardrobe” holds the full outfit codex (pieces, makeup, Momo, props and resonance colours) with search by name and filters by ownership and rarity. Too much to mark by hand? Press <strong>Infer from resonance records</strong> at the top right and the app works out what you own from the pulls you recorded:</p>\n<p>{{img1}}</p>\n",
+   "lead": "Collection progress at a glance.",
+   "text": "My Wardrobe collection codex Full outfit codex with search and filters, or inferred from gacha records. Pieces, makeup, Momo, props, resonance colours.",
+   "title": "My Wardrobe: collection codex"
+  },
+  "m5p3": {
+   "desc": "Import JSON from gongeo.us and similar tools, or export a JSON backup.",
+   "html": "\n<p>If you have used a tracker such as gongeo.us, open “Import data”, choose the JSON file it exported and the app parses and imports the whole history at once — no manual entry. You can also <strong>export</strong> your records to JSON as a backup here:</p>\n<p>{{img1}}</p>\n",
+   "lead": "Import in one click instead of typing every pull.",
+   "text": "Importing data bring gacha records in Import JSON from gongeo.us and similar tools, or export a JSON backup. No manual entry.",
+   "title": "Importing data: bring gacha records in"
+  },
+  "m5p4": {
+   "desc": "Total pulls, gold distribution, per-banner detail and community percentiles.",
+   "html": "\n<p>The “Personal stats” page shows total pulls, gold distribution, per-banner detail and a comparison against community percentiles:</p>\n<p>{{img1}}</p>\n",
+   "lead": "The numbers decide whether you are lucky.",
+   "text": "Personal stats luck at a glance Total pulls, gold distribution, per-banner detail and community percentiles.",
+   "title": "Personal stats: luck at a glance"
+  },
+  "m6p1": {
+   "desc": "Exact duplicates plus similar detection, highlighted keepers, one-click policies.",
+   "html": "\n<p>Burst shots and repeated exports easily create duplicates. Open the “Duplicates” section and the app <strong>starts detecting automatically</strong>:</p>\n<p>{{img1}}</p>\n<ul><li><strong>Exact duplicates</strong>: files with identical content (say, the same photo saved twice);</li><li><strong>Similar detection</strong>: goes further and finds photos of the same scene with only minor differences; the strictness is adjustable;</li></ul>\n<p>{{img2}}</p>\n<p>In each group the app <strong>highlights the one worth keeping</strong> (judged by sharpness, size and capture time). You can:</p>\n<ul><li>Use the one-click policies at the top: keep the best quality / newest / largest / favourites;</li><li>Or tick what to delete group by group and press “Move to trash” (recoverable);</li><li><strong>Mark duplicates</strong>: tag duplicates so the library hides them automatically (turn on “Show duplicates” when you want to see them).</li></ul>\n<blockquote>💡 <strong>Tip</strong>: everything goes through the <a class=\"xref\" href=\"#/m6/m6p2\">trash</a> first — no file is deleted outright.</blockquote>\n",
+   "lead": "Find duplicates and reclaim disk space.",
+   "text": "Cleaning up duplicate photos Exact duplicates plus similar detection, highlighted keepers, one-click policies. Keep best quality, newest, largest, favourites, mark duplicates.",
+   "title": "Cleaning up duplicate photos"
+  },
+  "m6p2": {
+   "desc": "App trash plus the system recycle bin — two chances to recover.",
+   "html": "\n<p>When you delete a photo (right-click, batch delete, duplicate cleanup) it first goes to the <strong>app's own trash</strong> — the file stays where it is and can be restored at any time:</p>\n<p>{{img1}}</p>\n<ul><li><strong>Restore</strong>: tick the items and press “Restore” to bring them back into the library;</li><li><strong>Delete permanently / empty trash</strong>: only this step sends the file to the <strong>system recycle bin</strong> (with one more confirmation).</li></ul>\n<p>So a mistaken delete has two safety nets: the app trash, and then the system recycle bin.</p>\n<blockquote>⚠️ <strong>Caution</strong>: “Delete permanently” in the right-click menu skips the trash. It asks for confirmation, but use it carefully.</blockquote>\n",
+   "lead": "Deleted photos land here first and can come back.",
+   "text": "Trash two layers of safety App trash plus the system recycle bin two chances to recover. Restore, empty trash, delete permanently.",
+   "title": "Trash: two layers of safety"
+  },
+  "m7p1": {
+   "desc": "Photos go to the clipboard; the app checks WeChat / QQ and you paste.",
+   "html": "\n<p>Select photos (a single photo can use the right-click “Share”), press <strong>Share</strong> and choose “Share to WeChat / Share to QQ / Share to vivo office suite” from the menu:</p>\n<p>{{img1}}</p>\n<p>The app puts the photos on the clipboard and checks whether the target app is running: if it is, you are told to <strong>press Ctrl + V to send</strong>; if not, you are asked to open it first.</p>\n",
+   "lead": "Send photos to WeChat / QQ friends instantly.",
+   "text": "Share to WeChat / QQ in one click Photos go to the clipboard; the app checks WeChat / QQ and you paste. Ctrl + V to send.",
+   "title": "Share to WeChat / QQ in one click"
+  },
+  "m7p2": {
+   "desc": "LAN sharing: same WiFi, enter the PIN, view and download.",
+   "html": "\n<p>Want the photos on your phone? Select them and press <strong>WiFi share</strong> to start a LAN share:</p>\n<p>{{img1}}</p>\n<ol><li>Connect the phone and the PC to the <strong>same WiFi</strong>;</li><li>Open the <strong>address</strong> shown on screen in the phone browser;</li><li>Enter the <strong>PIN</strong> shown on screen, then view and download the photos on the phone.</li></ol>\n<p>The share counts down and stops by itself, and “Stop sharing” works at any time. The address and PIN may change every time — trust what the screen shows.</p>\n",
+   "lead": "No cable — grab photos on your phone.",
+   "text": "WiFi share download straight to your phone LAN sharing same WiFi, enter the PIN, view and download. Address and PIN shown on screen.",
+   "title": "WiFi share: download straight to your phone"
+  },
+  "m7p3": {
+   "desc": "Right-click export, batch export, export to a default folder with naming rules.",
+   "html": "\n<ul><li><strong>Right-click → Export / Save as</strong>: copies photos to a folder you choose;</li><li><strong>Batch export</strong>: select several and press “Export”; “Export to default” writes to the folder configured in settings and can rename automatically by “date + outfit + sequence” (configure it in <a class=\"xref\" href=\"#/m8/m8p1\">Settings → General → Export workflow</a>).</li></ul>\n",
+   "lead": "Copy photos out by your own rules.",
+   "text": "Export Right-click export, batch export, export to a default folder with naming rules. Export workflow, date, outfit, sequence.",
+   "title": "Export"
+  },
+  "m8p1": {
+   "desc": "Startup behaviour, file-safety switches, export workflow and language.",
+   "html": "\n<h3>General</h3>\n<ul><li><strong>Startup</strong>: “Scan on launch” and GPU hardware acceleration (turn it off, then restart, if a graphics-driver problem causes a blank screen or crash);</li><li><strong>File operations</strong>: confirm before delete, prefer soft delete (trash first), extra confirmation above a batch size;</li><li><strong>Export workflow</strong>: the target folder and naming rule for “Export to default”;</li><li><strong>Language</strong>: 13 languages including Simplified/Traditional Chinese, English, Japanese, Korean, French, German, Spanish, Portuguese, Russian, Thai and Vietnamese — switching applies immediately.</li></ul>\n<h3>File operations</h3>\n<p>Delete confirmations and similar safety switches live here:</p>\n<p>{{img1}}</p>\n",
+   "lead": "The settings you touch most live under “General”.",
+   "text": "General and file operation settings Startup behaviour, file-safety switches, export workflow and language. Scan on launch, GPU acceleration, soft delete, language.",
+   "title": "General and file operation settings"
+  },
+  "m8p2": {
+   "desc": "Two themes, font size, compact mode and motion switch.",
+   "html": "\n<p>The <strong>Theme</strong> tab switches between “Default minimal” and “Soft pink luxe”; you can also change the font size, turn on compact mode and reduce motion:</p>\n<p>{{img1}}</p>\n",
+   "lead": "Make the interface look the way you like.",
+   "text": "Appearance Two themes, font size, compact mode and motion switch. Default minimal, soft pink luxe.",
+   "title": "Appearance"
+  },
+  "m8p3": {
+   "desc": "Scan options, game folder management and a permission fallback.",
+   "html": "\n<ul><li><strong>Scan options</strong>: incremental scanning switch and “analyse now” for scene time-of-day;</li></ul>\n<p>{{img1}}</p>\n<ul><li><strong>Game folder / detected folders / manual fallback scan</strong>: manage where photos are found. The app lists detected game folders for you to tick; multiple installs and unusual paths can be added here by hand.</li></ul>\n",
+   "lead": "Decide where the app looks for photos.",
+   "text": "Scanning Scan options, game folder management and a permission fallback. Incremental scanning, detected folders, manual fallback.",
+   "title": "Scanning"
+  },
+  "m8p4": {
+   "desc": "Profiles by UID: add, switch, nickname and shooting stats.",
+   "html": "\n<p>Profiles are managed by in-game UID: add a profile, switch, edit the nickname and read each profile's shooting stats (count, date range, favourite outfits and so on):</p>\n<p>{{img1}}</p>\n",
+   "lead": "The profile hub for multi-account players.",
+   "text": "Character profiles Profiles by UID add, switch, nickname and shooting stats.",
+   "title": "Character profiles"
+  },
+  "m8p5": {
+   "desc": "7-day automatic backups, cache limits, what clearing data does.",
+   "html": "\n<ul><li><strong>Database backup</strong>: the album database is backed up automatically every 7 days (the latest 5 kept), and “Back up now” runs one immediately; back up before switching computers or reinstalling;</li></ul>\n<p>{{img1}}</p>\n<ul><li><strong>Cache</strong>: thumbnail cache size and cleanup. Once a limit is set, the least recently viewed thumbnails are cleaned automatically to free space — originals are untouched;</li></ul>\n<p>{{img2}}</p>\n<ul><li><strong>Clear data</strong>: “Clean missing records” removes stale index entries only; “Clear local data” empties the album records and tags (<strong>photo files on disk are not touched</strong>), which suits a fresh rescan.</li></ul>\n",
+   "lead": "Read this before switching PCs or reinstalling.",
+   "text": "Data management backup and cache 7-day automatic backups, cache limits, what clearing data does. Database backup, clear missing records, clear local data.",
+   "title": "Data management: backup and cache"
+  },
+  "m8p6": {
+   "desc": "Updates, contact details, the share-code decoder and plugin notes.",
+   "html": "\n<h3>About</h3>\n<ul><li><strong>App info</strong>: version and “Check for updates”;</li></ul>\n<p>{{img1}}</p>\n<ul><li><strong>Contact</strong>: GitHub repository, QQ groups, Bilibili / Douyin / Xiaohongshu — feedback is welcome;</li></ul>\n<p>{{img2}}</p>\n<ul><li><strong>Credits and licence</strong>: the app is open source under MIT.</li></ul>\n<h3>Tools: share-code decoder</h3>\n<p>In-game <strong>dye share codes</strong> and <strong>home build share codes</strong> can be decoded here to read the timestamp, UID and more:</p>\n<p>{{img3}}</p>\n<h3>Plugins (preview)</h3>\n<p>The plugin system extends the app (for example adding templates to the watermark panel). In this beta the entry shows “Unavailable”, which is expected until a later release:</p>\n<p>{{img4}}</p>\n",
+   "lead": "The about page hides a share-code decoder.",
+   "text": "About, tools and plugins Updates, contact details, the share-code decoder and plugin notes. Dye share code, home build share code, plugins.",
+   "title": "About, tools and plugins"
+  },
+  "m9p1": {
+   "desc": "Ten most common questions: empty library, permissions, recovery, blank screen, migration.",
+   "html": "\n<p id=\"faq-q1\"><strong>Q1: the library is empty after launch.</strong> The app scans automatically a few seconds after start. If nothing appears: click the small arrow next to the scan button → “Choose a folder” and pick the game's <code>GamePlayPhotos</code> folder or wherever you keep photos (see <a class=\"xref\" href=\"#/m1/m1p4\">Scanning modes</a>).</p>\n<p id=\"faq-q2\"><strong>Q2: “permission denied (E003)” while scanning.</strong> The app cannot read the game folder. Go to <a class=\"xref\" href=\"#/m8/m8p3\">Settings → Scanning → Manual fallback scan</a>, press “Restart as administrator” and scan again.</p>\n<p id=\"faq-q3\"><strong>Q3: the file is on disk but missing from the library.</strong> It was probably moved. Use “Missing only” in the library to find stale records, put the file back and rescan; records you no longer want can be removed with <a class=\"xref\" href=\"#/m8/m8p5\">Settings → Data management → Clean missing records</a>.</p>\n<p id=\"faq-q4\"><strong>Q4: I deleted a photo by mistake.</strong> Open the <a class=\"xref\" href=\"#/m6/m6p2\">Trash</a> section and restore it. Even after a permanent delete the system recycle bin still has a copy.</p>\n<p id=\"faq-q5\"><strong>Q5: I regret an edit.</strong> Press <a class=\"xref\" href=\"#/m4/m4p4\">Ctrl + Z in the editor</a>, or “Reset” to drop every adjustment; quitting without saving leaves the original alone. Saved photos also keep an automatic backup of the original file.</p>\n<p id=\"faq-q6\"><strong>Q6: the app crashes or goes blank.</strong> Go to <a class=\"xref\" href=\"#/m8/m8p1\">Settings → General → Startup</a>, turn off “GPU hardware acceleration” and restart. The app also recovers automatically after a crash. More logs are available under Settings → Logs and diagnostics.</p>\n<p id=\"faq-q7\"><strong>Q7: moving to a new PC.</strong> Old PC: <a class=\"xref\" href=\"#/m8/m8p5\">Settings → Data management → Database backup</a> → Back up now. On the new PC, install the app and restore that backup from the same page (copy the photo files yourself).</p>\n<p id=\"faq-q8\"><strong>Q8: the thumbnail cache is huge.</strong> <a class=\"xref\" href=\"#/m8/m8p5\">Settings → Data management → Cache</a> offers one-click cleanup and an automatic limit; only thumbnails are affected.</p>\n<p id=\"faq-q9\"><strong>Q9: the interface is in English — how do I switch back to Chinese?</strong> <a class=\"xref\" href=\"#/m8/m8p1\">Settings → General → Language</a>, pick “Simplified Chinese” and it applies immediately.</p>\n<p id=\"faq-q10\"><strong>Q10: WeChat/QQ share does nothing.</strong> Sharing puts photos on the clipboard, so the target app must be <strong>running</strong>: open WeChat or QQ first, press Share in the app, then paste with Ctrl + V in the chat window.</p>\n",
+   "lead": "Check the index first, jump straight to the answer.",
+   "text": "FAQ Ten most common questions: empty library, permissions, recovery, blank screen, migration. E003, missing photos, undo edit, crash, new computer, cache, language, WeChat share.",
+   "title": "FAQ"
+  }
+ }
+}
