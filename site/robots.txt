@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+# Single-language site (zh-CN); no multilingual versions, so no hreflang / per-language sitemap.

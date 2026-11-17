@@ -311,6 +311,24 @@ function ensureDev(){
     (SITE / "index.html").write_bytes(shell.encode("utf-8"))
     (SITE / ".nojekyll").write_bytes(b"")
 
+    # ── SEO 后处理（静态 prerender + head 标签 + robots/sitemap）──
+    seo_script = ROOT / "tools" / "seo_optimize.mjs"
+    seo = subprocess.run(
+        ["node", str(seo_script)],
+        cwd=str(REPO),
+        capture_output=True,
+        text=True,
+        encoding="utf-8",
+        errors="replace",
+    )
+    if seo.stdout:
+        print(seo.stdout.rstrip())
+    if seo.returncode != 0:
+        print("FAIL: SEO 步骤失败")
+        if seo.stderr:
+            print(seo.stderr[-1500:])
+        return 1
+
     # ── 自检 ──
     problems = []
     if 'id="tut-data"' in shell or 'id="dev-data"' in shell:
@@ -335,6 +353,13 @@ function ensureDev(){
         r = subprocess.run(["node", "--check", str(js)], capture_output=True, text=True)
         if r.returncode != 0:
             problems.append(f"node --check 失败：{js.name} {r.stderr[:200]}")
+    final_html = (SITE / "index.html").read_text(encoding="utf-8")
+    if "<!-- SEO:BEGIN" not in final_html or 'type="application/ld+json"' not in final_html:
+        problems.append("SEO head 块缺失")
+    if "<!-- SEO-PRERENDER:BEGIN -->" not in final_html:
+        problems.append("SEO 静态 prerender 缺失")
+    if not (SITE / "robots.txt").exists():
+        problems.append("robots.txt 缺失")
 
     sizes = {
         "index.html": (SITE / "index.html").stat().st_size,
