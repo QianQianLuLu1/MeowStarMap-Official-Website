@@ -1,0 +1,92 @@
+[
+  {
+    "name": "无 JS：落地页静态内容 > 500 字",
+    "ok": true,
+    "detail": "719"
+  },
+  {
+    "name": "无 JS：有且仅有 1 个 h1",
+    "ok": true,
+    "detail": "[\"Meow Star Map\"]"
+  },
+  {
+    "name": "无 JS：包含「无限暖暖」与下载入口",
+    "ok": true,
+    "detail": "game=true dl=true"
+  },
+  {
+    "name": "无 JS：body data-view = landing",
+    "ok": true,
+    "detail": "landing"
+  },
+  {
+    "name": "无 JS：无重复 id",
+    "ok": true,
+    "detail": ""
+  },
+  {
+    "name": "html lang = zh-CN",
+    "ok": true,
+    "detail": "zh-CN"
+  },
+  {
+    "name": "有 JS：landing 运行时标题 = SEO 标题",
+    "ok": true,
+    "detail": "喵星图 Meow Star Map 官网｜无限暖暖桌面相册工具"
+  },
+  {
+    "name": "有 JS：description 非空且含产品词",
+    "ok": true,
+    "detail": "81 字"
+  },
+  {
+    "name": "有 JS：robots 允许索引",
+    "ok": true,
+    "detail": "index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1"
+  },
+  {
+    "name": "有 JS：OG 基础标签齐全",
+    "ok": true,
+    "detail": "喵星图 Meow Star Map 官网｜无限暖暖桌面相册工具 / zh_CN"
+  },
+  {
+    "name": "有 JS：canonical 使用相对口径",
+    "ok": true,
+    "detail": "./"
+  },
+  {
+    "name": "有 JS：JSON-LD 含 WebSite + SoftwareApplication",
+    "ok": true,
+    "detail": "WebSite,SoftwareApplication"
+  },
+  {
+    "name": "有 JS：单语站点，无 hreflang（预期 0）",
+    "ok": true,
+    "detail": "0"
+  },
+  {
+    "name": "有 JS：landing 正常渲染",
+    "ok": true,
+    "detail": "719 字"
+  },
+  {
+    "name": "有 JS：控制台零报错",
+    "ok": true,
+    "detail": ""
+  },
+  {
+    "name": "robots.txt：允许全站抓取",
+    "ok": true,
+    "detail": "User-agent: *"
+  },
+  {
+    "name": "sitemap：仅配置 SITE_ORIGIN 时生成",
+    "ok": true,
+    "detail": "not configured"
+  },
+  {
+    "name": "OG 分享图存在（1200×630）",
+    "ok": true,
+    "detail": "58167 B"
+  }
+]

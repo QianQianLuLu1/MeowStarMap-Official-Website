@@ -1,12 +1,12 @@
-# perf — 加载性能与网络速度优化（R50 · 20261116）
+# perf — 加载性能与网络速度优化（R50 · 20261116 + site SEO R51 · 20261117）
 
-本目录是从 `main` 新建的 `性能/极速加载` 分支的性能工作区。结论先行：
+本目录是从 `main` 新建的 `perf/fast-load` 分支的性能工作区。结论先行：
 
 | 产物 | 首屏传输 | 相对 main |
 |---|---|---|
 | `main` 单文件（PNG，34.85 MB） | **34.85 MB** | 100% |
 | 单文件版（PNG → **无损 WebP**） | **24.98 MB** | −28.3% |
-| 多文件版 `site/`（推荐线上部署） | **1.19 MB**（gzip 684 KB / brotli 644 KB） | **−96.6%** |
+| 多文件版 `site/`（推荐线上部署） | **1.22 MB**（gzip 694 KB / brotli 647 KB） | **−96.3%** |
 
 *「清晰度不变」按**逐像素相同**兑现*：48 张教程截图以 WebP **lossless** 编码，
 解码后与 PNG 的 RGB 逐像素完全一致（48/48 复核通过），不是「肉眼不可辨」的有损近似。
@@ -32,7 +32,7 @@
 
 | 资产 | 体积 | 何时加载 |
 |---|---|---|
-| `site/index.html`（shell + CSS/JS + 字体 + 图标） | **1,186,206 B（1.13 MiB）** | 首屏，唯一阻塞资源 |
+| `site/index.html`（shell + CSS/JS + 字体 + 图标 + SEO 静态首屏） | **1,215,628 B（1.16 MiB）** | 首屏，唯一阻塞资源 |
 | `site/data/tutorial.js` | 69,450 B | 进入教程路由；空闲时预取 |
 | `site/data/dev-docs.js` | 2,088,814 B | 首次进入 `#/dev` |
 | `site/assets/shots/*.webp`（48 张） | 15,991,294 B | 每页 1–3 张；`loading="lazy"` |
@@ -40,14 +40,23 @@
 
 关键点：
 
-- **落地页不再为 30.9 MB 教程数据付费**；`#/` 首屏只有 1.19 MB（含内联字体），
-  比单文件版少 **27.5×**。
+- **落地页不再为 30.9 MB 教程数据付费**；`#/` 首屏 1.23 MiB（index + 68 KB 预取），
+  相对 `main` 原版 32.95 MiB 少 **27.1×**，相对本分支单文件 23.82 MiB 少 **19.4×**。
 - 数据外置为 **classic script**（`window.__TUT__` / `window.__DEV__`），不用 `fetch`/module，
   所以 `file://` 双击仍然完整可用，没有 CORS 问题。
 - 路由按需加载 + 加载完成自动重渲；入口 hover 预取；空闲时预取教程数据（搜索与封面依赖它）。
 - 截图改为独立 `.webp` 文件，`#/all` 连续阅读也真正惰性加载：打开 `#/all` 只请求视口附近
   3 张图，而不是 48 张。
 - 关于板块的微信二维码（317 KB base64 JPEG）外置 + `loading="lazy"`，不再进入首屏。
+
+### 3. `site/` 的 SEO（R51）
+
+- **落地页静态化**：构建时用 Playwright 渲染一次 `#/`，把 `#app` 内容（约 27 KB）写回 HTML；无 JS 也能读到 719 字正文，有 JS 时 SPA 接管，视觉逐像素不变。
+- **head**：`title`（31 字）、`description`（81 字）、`robots`、`canonical`（默认相对 `./`）、Open Graph、Twitter、JSON-LD（WebSite + SoftwareApplication）；`lang=zh-CN`、`og:locale=zh_CN`。
+- **robots.txt** 允许全站抓取；`sitemap.xml` 只在配置 `SITE_ORIGIN` 时生成（sitemap 必须是绝对 URL）。
+- **分享图** `site/assets/og-cover.jpg`（1200×630，58 KB）；配置域名后自动写入 `og:image`。
+- **国际化判断**：当前只有简体中文，**不加 hreflang**（没有其他语言版本时是空标注）。以后做英文/繁体，按 `/en/`、`/zh-TW/` 独立路径 + 翻译后的 title/description + 双向 hreflang + x-default + 分语言 sitemap；hash 路由不适合承载多语言，需要静态页。
+- **边界**：已静态化的是 `#/` 落地页；`#/features` 等 hash 路由在搜索引擎眼里仍是同一个 URL，不会被分别索引。要覆盖这些页需生成独立静态页（未做）。
 
 ---
 
@@ -57,29 +66,29 @@
 
 | 场景 | 传输字节 | 请求数 | 截图请求 | FCP | DCL | load |
 |---|---|---|---|---|---|---|
-| 原始单文件 · 落地页 | 34,547,054（32.95 MiB） | 1 | 0 | 332 ms | 1036 ms | 1047 ms |
-| **site · 落地页** | **1,255,656（1.20 MiB）** | 2 | 0 | **112 ms** | **226 ms** | **230 ms** |
-| 原始单文件 · 教程正文页 | 34,547,054 | 1 | 0 | 88 ms | 1127 ms | 1161 ms |
-| **site · 教程正文页** | **1,277,720（1.22 MiB）** | 3 | 1（22 KB） | 96 ms | **120 ms** | **226 ms** |
-| site · `#/all` 连续阅读 | 2,702,346（2.58 MiB） | 5 | 3 / 48 | 92 ms | 121 ms | 385 ms |
-| site · `#/dev` | 3,344,470（3.19 MiB） | 3 | 0 | 116 ms | 140 ms | 311 ms |
+| `main` 原版落地页（参考） | 34,851,151（32.95 MiB） | 1 | 0 | 332 ms | 1036 ms | 1047 ms |
+| 本分支单文件 · 落地页 | 24,980,902（23.82 MiB） | 1 | 0 | 312 ms | 619 ms | 638 ms |
+| **site · 落地页** | **1,285,096（1.23 MiB）** | 2 | 0 | **192 ms** | **232 ms** | **234 ms** |
+| 本分支单文件 · 教程正文页 | 24,980,902 | 1 | 0 | 92 ms | 599 ms | 634 ms |
+| **site · 教程正文页** | **1,307,160（1.25 MiB）** | 3 | 1（22 KB） | 180 ms | 210 ms | 285 ms |
+| site · `#/all` 连续阅读 | 2,731,786（2.61 MiB） | 5 | 3 / 48 | 208 ms | 231 ms | 458 ms |
+| site · `#/dev` | 3,373,910（3.22 MiB） | 3 | 0 | 188 ms | 211 ms | 343 ms |
 
-> 落地页的 1.20 MiB = `index.html` 1.13 MiB + 空闲预取的 `tutorial.js` 68 KB。
-> 教程数据预取是为搜索/封面服务的有意取舍；如果只算首屏阻塞资源，就是 1.13 MiB。
+> 本机单次实测；字节数确定，FCP/DCL 有 ±100 ms 波动。落地页 1.23 MiB = `index.html` 1.16 MiB + 空闲预取的 `tutorial.js` 68 KB；只算首屏阻塞资源是 1.16 MiB。
 
 带宽换算（仅下载时间，不含 TTFB）：
 
-| 带宽 | main 34.85 MB | 单文件无损版 24.98 MB | site 落地页 1.20 MiB | site 落地页 + gzip 700 KB |
+| 带宽 | main 34.85 MB | 单文件无损版 24.98 MB | site 落地页 1.23 MiB | site 落地页 + gzip 694 KB |
 |---|---|---|---|---|
-| 10 Mbps | 27.9 s | 20.0 s | **1.00 s** | **0.56 s** |
-| 50 Mbps | 5.6 s | 4.0 s | 0.20 s | 0.11 s |
+| 10 Mbps | 27.9 s | 20.0 s | **1.03 s** | **0.56 s** |
+| 50 Mbps | 5.6 s | 4.0 s | 0.21 s | 0.11 s |
 | 100 Mbps | 2.8 s | 2.0 s | 0.10 s | 0.06 s |
 
 压缩后体积（服务端开启 gzip/brotli 即可）：
 
 | 文件 | 原始 | gzip -9 | brotli q11 |
 |---|---|---|---|
-| `site/index.html` | 1,186,206 | 684,124 | 644,292 |
+| `site/index.html` | 1,215,628 | 693,670 | 647,315 |
 | `site/data/tutorial.js` | 69,450 | 17,057 | 14,434 |
 | `site/data/dev-docs.js` | 2,088,814 | 479,740 | 330,422 |
 | 单文件版 | 24,980,902 | 17,554,904 | —（base64 + WebP 熵高，收益有限） |
@@ -98,7 +107,10 @@ perf/
     extract_shots.py      从 #tut-data 提取 48 张 PNG 原图 → assets/shots
     convert_shots.py      PNG → WebP lossless（method=6, exact）+ 逐像素复核；可选 q95 对照
     build_lossless.py     无损 WebP 重建单文件（默认写 dist/，--in-place 覆盖源文件）
-    build_site.py         生成多文件版 site/（数据外置、按需加载、懒加载、预取）
+    build_site.py         生成多文件版 site/（数据外置、按需加载、懒加载、预取；末尾自动跑 SEO）
+    make_og.py            生成 1200×630 Open Graph 分享图（应用图标 + 中文字体合成）
+    seo_optimize.mjs      落地页静态 prerender + title/description/OG/JSON-LD/robots（可选 sitemap）
+    seo_check.mjs         SEO 自检 18 项（无 JS 可读性 / head 标签 / 结构化数据 / robots / sitemap）
     compare_shots.py      三份截图的逐像素对比（orig / lossless / site）
     smoke_site.mjs        10 路由功能签名对比（原文件 vs site，file://）
     interact_site.mjs     site/ 真实点击交互 + 390 移动端溢出
@@ -117,7 +129,11 @@ pip install -r perf/requirements.txt
 python perf/tools/extract_shots.py        # 从单文件提取 48 张 PNG
 python perf/tools/convert_shots.py        # 无损 WebP + 48/48 逐像素复核
 python perf/tools/build_lossless.py --in-place   # 单文件版（会把源文件换成 25 MB 版）
-python perf/tools/build_site.py           # 多文件版 → site/
+python perf/tools/make_og.py              # 1200×630 分享图
+python perf/tools/build_site.py           # 多文件版 + SEO（内部会调 seo_optimize.mjs）
+node perf/tools/seo_check.mjs             # SEO 18 项自检
+# 有正式域名时（会写绝对 canonical / og:url / og:image / sitemap.xml）：
+# SITE_ORIGIN=https://your.domain python perf/tools/build_site.py
 
 # 本地预览（HTTP 推荐，gzip/brotli 由服务器负责）
 python -m http.server 8080
@@ -136,7 +152,9 @@ python -m http.server 8080
 | 单文件不变量 | link 2(data:) / script src 0 / iframe 0 / 外链 img 0 / url(http) 0 / @font-face 2 / img 53 / style 1 |
 | 22 个 JS 块 | `node --check` 全通过 |
 | html5lib strict | **NOT-RUN**：25 MB 文件上 strict 解析在本机 >20 分钟无结果；`--skip-w3c` 跳过。结构等价另由「head/tail 逐字节相同 + JSON 去载荷深比对 + 22 JS 块编译」三项覆盖 |
-| 10 路由功能签名（view / title / h1+h2 / links / imgs / textLen / sidebar / broken） | 原文件 vs `site/` **逐项相同**，console / pageerror / requestfailed 全 0（file://） |
+| 10 路由功能签名（view / title / h1+h2 / links / imgs / textLen / sidebar / broken） | 原文件 vs `site/` **逐项相同**（仅 landing 的 `<title>` 按 SEO 有意改为长标题），console / pageerror / requestfailed 全 0（file://） |
+| `site/` SEO | `seo_check.mjs` **18/18 PASS**：无 JS 可读 719 字、1 个 h1、无重复 id、title 31 字、description 81 字、canonical、OG、JSON-LD（WebSite + SoftwareApplication）、robots、无 hreflang（单语）、控制台 0 报错 |
+| `site/` 视觉 | SEO 前后 landing 截图**逐像素完全相同**（静态 prerender 被 SPA 覆盖后无差异） |
 | `site/` 交互（真实点击） | 9/9：hero → 身份门 → 用户 → 教程首页（8 封面加载）→ 模块卡 → 详情页（截图懒加载）→ 搜索 → 资源下载面板 → 主题明暗切换（刷新持久化）→ 微信二维码懒加载；`file://` 与 HTTP 均通过 |
 | `site/` 移动端 | 7 路由 × 390px：文档级横向溢出 **0px**（`perf/tools/interact_site.mjs`） |
 | 截图（8 场景 × 3 产物，1440/390、浅/深） | `orig` vs `lossless`、`orig` vs `site` **16/16 PASS**：10 项逐像素完全相同；6 项为 ≤2/255 的文字抗锯齿 / 合成层抖动（无布局、无文案、无图片区域差异，肉眼不可辨），见 `reports/shots-diff.json` |
@@ -156,6 +174,9 @@ python -m http.server 8080
    部署，可以外置成 `.woff2` 再省约 0.5 MB 首屏（需接受 file:// 下回退系统字体）。
 5. 没有做 AVIF/JXL 对比：AVIF lossless 的浏览器门槛更高（Safari 16.4+），且本机缺编码器；
    WebP lossless 已满足「零画质损失」且兼容面更宽。
+6. **hash 路由的二级页不单独索引**：`#/features`、`#/download`、教程/文档页在搜索引擎眼里仍是同一个 URL。要覆盖需要为它们生成独立静态页（未做）。
+7. **未配置 `SITE_ORIGIN` 时**：canonical 是相对 `./`，不生成 `sitemap.xml`、不写 `og:url` / `og:image`；配好域名重跑即可。当前是简体中文单语，未加 hreflang（有意）。
+8. SEO 重建依赖 Node Playwright（`seo_optimize.mjs` 渲染落地页）；没有该依赖时 `build_site.py` 会报错退出，不会静默产出无 SEO 的 site。
 
 ## 六、回滚
 
