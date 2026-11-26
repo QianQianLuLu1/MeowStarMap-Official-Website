@@ -1,5 +1,7 @@
 #!/usr/bin/env python3
-"""把 perf/assets/shots/*.png 压成 WebP。
+"""历史 PNG→WebP 工具：把 perf/assets/shots/*.png 压成 WebP。
+
+当前源文件已是 WebP；本脚本仅用于历史 PNG 输入或对照。
 
 默认只做 **无损**（lossless）编码：像素逐位不变，清晰度零损失。
 可选附带 q95 档用于对照（有损，仅供体积/画质报告，不用于正式产物）。

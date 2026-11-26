@@ -1,12 +1,12 @@
 """perf 工具链公共模块：源文件定位、`#tut-data` 切分、内嵌截图枚举与体积换算。
 
 硬约束（所有脚本共同遵守）：
-  源文件 `Meow Star Map 官网.html` 只读；一切产物写入 perf/assets 与 perf/dist。
-  这条约束由 build_optimized.py 在运行前后各校验一次 sha256 来兜底。
+  默认只读源文件；一切产物写入 perf/assets 与 perf/dist。
+  `build_lossless.py --in-place` 才会显式覆盖源文件。
 
 口径说明：
-  - `#tut-data` 是单行巨型 JSON（约 30.9M 字符），其中教程截图以
-    `data:image/png;base64,...` 内联。本工具链只处理这一种 URI。
+  - 当前 `#tut-data` 约 21.36M 字符，48 张截图为无损 WebP。
+    `PNG_URI_RE` 仅供历史 PNG 输入或对照使用，不能从当前 WebP 源提取 PNG。
   - 源文件的 JSON 不含 `\\/` 与 `\\u003c` 转义（已实测），因此可以直接在
     原始文本层面用正则替换，无需重新序列化整个 JSON。
 """

@@ -1,5 +1,7 @@
 #!/usr/bin/env python3
-"""把 `#tut-data` 里内联的 PNG 截图原样落到 perf/assets/shots/。
+"""历史 PNG 基线工具：把仍含 PNG 的 `#tut-data` 截图落到 perf/assets/shots/。
+
+当前 `#tut-data` 已是无损 WebP，本脚本不适用于当前源文件。
 
 只读源文件；产物写 perf/assets。按内容 sha256 去重，重复出现只存一份，
 manifest.json 记录全部出现位置（owner/field），供后续转换与重建使用。

@@ -2,7 +2,8 @@
 
 ## 范围说明
 
-- 本项目是**纯静态单文件站点**：无服务端、无接口、无鉴权、不收集或上传用户数据；浏览器 `localStorage` 仅保存本地偏好（`nikki_theme` 明暗主题、`nikki_look` 外观三态、`nikki_lp_theme` landing 配色、`nikki_role` 身份、`nikki_lang` 界面语言）。站点零外部资源请求——字体、图标、教程截图与六语词典全部以 `data:` 内联。
+- 单文件版无服务端、接口、鉴权或数据上传；字体、图标、教程截图和六语词典均以 `data:` 内联，`localStorage` 仅保存本地偏好（`nikki_theme`、`nikki_look`、`nikki_lp_theme`、`nikki_role`、`nikki_lang`）。
+- 多文件版 `site/` 将教程数据、开发者数据、WebP 截图和微信二维码拆为同源相对路径文件；CSS/JS/字体/图标/词典仍内联。它同样无服务端逻辑，但并非所有资源都是 `data:`。
 - **桌面软件 MeowStarMap 的安全问题不属于本仓库**，请报告至软件仓库：<https://github.com/QianQianLuLu1/MeowStarMap>（渠道见该仓库说明）。
 - 站内第三方网盘下载链接与 GitHub 外链指向外部服务，其安全性由对应服务方负责；发现链接指向异常请按下述渠道告知维护者。
 
