@@ -1,0 +1,66 @@
+[PASS] 390/zh/light 路由与动作分组存在
+[PASS] 390/zh/light 可见文字入口数量正确
+[PASS] 390/zh/light 页面无横向溢出
+[PASS] 390/zh/light 导航与品牌高度稳定
+[PASS] 390/zh/light 链接区自身不溢出
+[PASS] 390/zh/light 文字入口字号一致
+[PASS] 390/zh/light 文字入口 inline padding 一致
+[PASS] 390/zh/light 三层 gap 一致
+[PASS] 390/zh/light 按钮盒无额外等宽留白
+[PASS] 390/zh/light 相邻文字边缘距一致
+[PASS] 390/zh/light 文字边缘距等于 gap+padding
+[PASS] 390/zh/light 全部文字单行且不裁切
+[PASS] 390/zh/light 文字入口互不重叠
+[PASS] 390/zh/light 文字入口不遮挡图标控件
+[PASS] 390/zh/light 主动作完整位于可视区
+[PASS] 390/zh/light 窄屏沿用下载按钮隐藏规则
+[PASS] 390/zh/light 路由保留独立滚动区
+[PASS] 390/zh/light 路由末项可滚入可视区
+[PASS] 390/zh/light 路由—动作跨界间距一致
+[PASS] 390/zh/light 路由首项可滚回可视区
+[PASS] 641/fr/light 路由与动作分组存在
+[PASS] 641/fr/light 可见文字入口数量正确
+[PASS] 641/fr/light 页面无横向溢出
+[PASS] 641/fr/light 导航与品牌高度稳定
+[PASS] 641/fr/light 链接区自身不溢出
+[PASS] 641/fr/light 文字入口字号一致
+[PASS] 641/fr/light 文字入口 inline padding 一致
+[PASS] 641/fr/light 三层 gap 一致
+[PASS] 641/fr/light 按钮盒无额外等宽留白
+[PASS] 641/fr/light 相邻文字边缘距一致
+[PASS] 641/fr/light 文字边缘距等于 gap+padding
+[PASS] 641/fr/light 全部文字单行且不裁切
+[PASS] 641/fr/light 文字入口互不重叠
+[PASS] 641/fr/light 文字入口不遮挡图标控件
+[PASS] 641/fr/light 主动作完整位于可视区
+[PASS] 641/fr/light 三个主动作可见
+[PASS] 641/fr/light 路由保留独立滚动区
+[PASS] 641/fr/light 路由末项可滚入可视区
+[PASS] 641/fr/light 路由—动作跨界间距一致
+[PASS] 641/fr/light 路由首项可滚回可视区
+[PASS] 1440/zh/light 路由与动作分组存在
+[PASS] 1440/zh/light 可见文字入口数量正确
+[PASS] 1440/zh/light 页面无横向溢出
+[PASS] 1440/zh/light 导航与品牌高度稳定
+[PASS] 1440/zh/light 链接区自身不溢出
+[PASS] 1440/zh/light 文字入口字号一致
+[PASS] 1440/zh/light 文字入口 inline padding 一致
+[PASS] 1440/zh/light 三层 gap 一致
+[PASS] 1440/zh/light 按钮盒无额外等宽留白
+[PASS] 1440/zh/light 相邻文字边缘距一致
+[PASS] 1440/zh/light 文字边缘距等于 gap+padding
+[PASS] 1440/zh/light 全部文字单行且不裁切
+[PASS] 1440/zh/light 文字入口互不重叠
+[PASS] 1440/zh/light 文字入口不遮挡图标控件
+[PASS] 1440/zh/light 主动作完整位于可视区
+[PASS] 1440/zh/light 三个主动作可见
+[PASS] 1440/zh/light 路由保留独立滚动区
+[PASS] 进入仍进入身份选择页
+[PASS] 下载按钮仍打开资源下载面板
+[PASS] 关于按钮仍滚动到关于板块
+[PASS] GitHub 入口属性不变
+[PASS] 语言菜单仍可打开
+[PASS] 语言菜单仍可 Escape 关闭
+[PASS] 全程 console/pageerror/requestfailed 零报错
+
+合计 64 项：PASS 64 / FAIL 0

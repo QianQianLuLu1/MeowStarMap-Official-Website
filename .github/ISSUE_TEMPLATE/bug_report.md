@@ -21,6 +21,7 @@ assignees: []
 - 浏览器 / 引擎与版本：<!-- 如 Chrome 130 / Firefox 132 / WebKit -->
 - 视口宽度：<!-- 项目审计集为 390 / 768 / 1440 / 1920 / 2560，其它宽度也请注明 -->
 - 主题态：<!-- 明 / 暗 / auto；外观 neutral / color / plain；landing 配色 slim / spectrum / energy / deep -->
+- 界面语言：<!-- zh / en / fr / es / ru / ar -->
 - 是否开启 reduced-motion / reduced-transparency：
 
 ## 证据

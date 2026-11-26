@@ -9,11 +9,11 @@
 |---|---|---|---|
 | 营销侧 | 落地页、5 个二级页、页脚、关于、`#lp-nav`、下载面板、配色/外观/主题、卡片详情 | zh en fr es ru ar | `ui.{en,fr,es,ru,ar}.json`（zh 是源码里的 inline default） |
 | 工作区侧 | 身份门、教程族（首页/9 模块/36 页/侧栏/面包屑/翻页/搜索）、开发者工作台页框 | zh + en | 仅 `ui.en.json` |
-| 开发者文档库正文 | 104 篇技术文档 | **永久不译** | — |
+| 开发者文档库正文 | 104 篇技术文档（12 个板块） | **永久不译** | — |
 
-**开发者文档库永久只提供中文原文**，这是产品决定而非本轮欠账：它的读者是开发者，21.4 万字技术文档
-逐语维护的成本与失真风险都不可接受。工作区侧在 fr/es/ru/ar 下经 `fallbackLng` 回落英文，
-并由 `ui.notice.bi` 那行英文通告说明这一点。
+**开发者文档库永久只提供中文原文**，这是产品决定而非本轮欠账：它的读者是开发者，
+总量 823,995 字（站点数据块自报统计）技术文档逐语维护的成本与失真风险都不可接受。
+工作区侧在 fr/es/ru/ar 下经 `fallbackLng` 回落英文，并由 `ui.notice.bi` 那行英文通告说明这一点。
 
 ## 编辑流程（单向）
 
@@ -29,13 +29,19 @@ python perf/tools/build_site.py
 ```
 
 若改了源码里的 `T('key','中文默认值')`，先跑 `python perf/tools/build_i18n.py --extract`
-刷新 `ui.zh.json`（它是键表快照，勿手改），再按 `--check` 的缺口补译文。
+刷新 `ui.zh.json`（它是**从源码抽出的键表快照**，勿手改），再按 `--check` 的缺口补译文。
 
 ## 键的两个归属（重要）
 
-- `MKT`（6 语必填）：`nav. hero. stats. feat. adv. cta.* dl. foot. about. pg.* dt.* palette. look. theme. lang. toast.`
-- `BI`（只做中英）：`doc. gate. top. tut. dev. search. notice.`
-  — 这 6 个前缀的键**不允许**出现在 `ui.{fr,es,ru,ar}.json`，出现即判 FAIL，避免出现「半译」状态。
+键表共 **359 键**，按前缀分两层：
+
+| 层 | 前缀 | 键数 | 要求 |
+|---|---|---|---|
+| **MKT**（营销侧，6 语必填） | `about` `adv` `dl` `dt` `feat` `foot` `hero` `lang` `look` `nav` `palette` `pg` `stats` `theme` `title` `toast` | 272 | `ui.{en,fr,es,ru,ar}.json` 五个文件**键集合必须一致**；缺一即 `--check` 判 FAIL |
+| **BI**（工作区侧，只做中英） | `dev` `doc` `gate` `notice` `search` `top` `tut` | 87 | 这 7 个前缀的键**不允许**出现在 `ui.{fr,es,ru,ar}.json`，出现即判 FAIL，避免出现「半译」状态 |
+
+> 注：早期版本文档里写的 `cta.*` 前缀在当前键表中**不存在**（相关文案归入 `pg.*` / `dt.*`）；
+> `title.*` 是 MKT 前缀，容易被误当成 BI，请勿混淆。
 
 ## 写法约定
 
@@ -48,8 +54,11 @@ python perf/tools/build_site.py
 
 ## 教程英文包（tutorial.en.json）
 
-- 结构与 `#tut-data` 同构：`home`（同构 HTML）+ `mods`（9 条）+ `pages`（36 条）。
-- **图片一律写占位** `{{img1}}…{{imgN}}`，运行时按 DOM 顺序把原 `<img>` 回填进去；
+- 结构与 `#tut-data` **同构但键名不同**：译文包用 `home` + **`mods`** + `pages`；
+  而单文件里的 `#tut-data` 用 `home` + **`modules`** + `pages`。
+  `build_i18n.py` 负责这层映射（`base["modules"]` ↔ `tut["mods"]`），手改任一侧都会导致占位校验失败。
+  规模：`mods` 9 条（dict）、`pages` 36 条。
+- **图片一律写占位** `{{imgN}}…{{imgM}}`，运行时按 DOM 顺序把原 `<img>` 回填进去；
   绝不复制 48 张内联 WebP（会 +100 MB 并破坏 R45 的数据行长度断言）。
   占位数量必须与中文原文逐页相等，总数 = 48，`--check` 会校验。
 - `home` 必须保留 9 张 `.mod-card` 且每张含 `.mc-emoji/.mc-name/.mc-desc/.mc-count`，
@@ -62,3 +71,5 @@ python perf/tools/build_site.py
    由系统字体按字形兜底（`html[data-lang]` 上配了分语种字体栈），字形与 Inter 可能有细微差异。
 2. 阿拉伯语的数字量词统一取复数形式；不追求阿拉伯语六种数的语法完备。
 3. 工作区侧的界面在 fr/es/ru/ar 下是英文（含教程正文），语言菜单仍展示 6 项。
+4. 界面语言落点为 `html[lang]` / `html[data-lang]` / `html[dir="rtl"]`，偏好存 `localStorage.nikki_lang`；
+   `?lang=` 查询参数优先级高于本地偏好，`__i18nPin` 仅供探针钉住语言，不面向用户。

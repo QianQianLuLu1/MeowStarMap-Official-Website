@@ -2,83 +2,103 @@
 
 ## 项目结构概述
 
-单文件静态教程站点，无构建工具、无框架依赖（指站点本体；测试工具链的运行时与依赖声明见下文「环境装配与工具链路由」章节）。
+单文件静态教程站点，无构建工具、无框架依赖（指站点本体；构建与测试工具链见下文「环境装配与工具链」章节）。
+
+**本工作树的真实目录（20261126 实测）**：
 
 ```
-Meow Star Map 官网.html ← 唯一源文件（3516 行，R21 完成态于 R25 更名承接 + R26 + R27 + R28 + R29 + R31 增量 + R32/R33/R34/R35/R36 + R37 Bento Grid 层；R22/R23 高级动效不在当前基线），包含全部 HTML / CSS / JS
-package.json         ← npm scripts 入口（setup/doctor + smoke/审计/交互/回归）+ engines.node 版本声明
-Makefile             ← make 入口（与 npm scripts 同构；本机未装 make，npm 为主用路径）
-requirements.txt     ← Python 依赖锁定版本（playwright/html5lib，唯一声明来源）
-tests/               ← GUI 审计脚本 + 注入脚本 + 对比工具
-  gui-audit.js         黑盒只读审计（Playwright 页面上下文执行）
-  r14_harness.py       全设备响应式校验驱动（Python + Playwright）
-  r14_compare.py       基线 vs 修改后截图/审计对比
-  r15_interactions.py  交互回归套件（搜索/主题/下载面板/微信弹窗/抽屉/路由直达；R26 起默认页指向「Meow Star Map 官网.html」，R25 更名的迁移遗漏已补）
-  r17_interactions.py / r17_matrix.py  R17 交互扩面与多引擎矩阵
-  r18_landing_check.py 一级首页专项巡检（R21 起按新口径断言：单一 CTA + 资源下载下拉面板 + 关于板块首屏可见）
-  r19_probe.py         R19 探针（R21 口径 27 项：L1 结构/面板开合/回弹涟漪取证/门页分流/弹层回归/主题三态）
-  r19_w3c_check.py     R19 HTML5 规范解析校验（html5lib，before/after 对比）
-  r20_icons_cta_check.py  R20 网盘图标贴片 + R25 按钮规范校验（file:// 加载，硬编码精确色值/圆角/线框/图标断言）
-  r22_motion_check.py  R22 动效探针（24 项：FLIP 终态/残影壳/滚轮阻尼落位/顶底橡皮筋/速度吸附/弹簧级联/reduced-motion 降级/CLS，端口 8661）
-  r23_refine_check.py  R23 深化探针（18 项：__r23 钩子与 CFG/setCfg 断言/残影壳 transform 驱动取证/toc sticky 冻结/顶部不补偿/reduced-motion/CLS/390，端口 8662）
-  r24_file_check.py    R24 file:// 全路由普查（双协议可用性：路由矩阵 data-view/未知回落/双视口横向溢出/主题映射不变量+刷新持久化/console 普查，无端口）
-  r26_nav_glass_check.py  R26 导航液态玻璃探针（23 项：箭头清零/折射声明/高光扫动 --lg-x/tone 亮度自适应与滞回/暗主题反转/.lp-dl-item 涟漪回弹/reduced-motion/390/console，端口 8663）
-  r27_buttons_check.py  R27 按钮动效扩面探针（75 项：新覆盖控件逐类 press/波心/pop 取证（pointerdown 捕获+microtask 同源基线，消除 Playwright bb 漂移与 hover transform 过渡相位）、inline-block 计算样式、summary marker 防裁剪、键盘 Enter 中心波、reduced-motion、390 溢出/console，端口 8664）
-  r28_panel_flip_check.py  R28 面板流体变换探针（24 项：r28-on 门控/lpMenuIn 屏蔽/FLIP 中段与终态几何对位/hidden 同步翻转/残影壳 fixed+z29+几何定格+双采样补间+自删/Escape 焦点归还/选项点击关闭/中段打断瞬收/路由重渲 rebind/reduced-motion 整体跳过/390 钳制分支/CLS/console 红线，端口 8665；headless 下须 gsap.ticker.lagSmoothing(false) 消除 SwiftShader 帧停顿时间膨胀）
-  r29_panel_glass_check.py  R29 面板液态玻璃探针（28 项：按钮浅蓝 #8ecbff+对比度线性化口径/圆角图标/折射声明 url(#lg-refract)/半透明玻璃底/::after 高光带/--lg-x 初值 8% 与滚动位移（390×500，click 自动滚动须先回页顶）/tone 亮度自适应与 #808080 中灰滞回两侧/暗主题 tone 反转与令牌级联/移动云盘新 href 逐字/Escape/R28 ghost 出现又自删/390 溢出/reduced-motion 玻璃保留/console，端口 8666）
-  r31_cards_check.py   R31 卡片三项视效探针（24 项：r31-on 门控与 __r31 钩子/倾斜中段 matrix3d 含 perspective/弹簧回正终态清内联+类移除+springs 递增/触屏拖拽倾斜+位移>8px 抑制 click 防误触/QQ 面板 morph 中段 xPercent:-50 居中基准保留+aboutPopIn 被屏蔽/QQ 终态 clearProps 无内联残留+与按钮 centerX 对位/QQ 残影壳 fixed+z71+pointer-events:none 且自删/微信弹窗 morph+遮罩淡入+ab-lock/Escape 焦点归还+残影壳 z91 自删/conic ::before 计算样式+mask 抠环+静止 opacity 0→hover 1/r31breath 动画/暗色与 dev 视图 --r31-glow 令牌切换/.gate-role 注入 .r31-ring/390 无横向溢出/reduced-motion 下倾斜与 morph 整体旁路/CLS 零新增/console+pageerror+HTTP≥400 红线，端口 8667）
-  r31_links_check.py   R31 外链与外部资源校验（纯 stdlib：① 零外链资源不变量——<link>/<script src>/@font-face/url(http)/外链 img/iframe/@import 恒为 0，扫描前剥离 >100000 字符的巨型数据行避免假阳性；② outbound href 与冻结清单逐字一致；可选 `--online` 联网可达性探测，2xx/3xx 与 401/403/405/429 均判可达）
-  r37_bento_check.py   R37 Bento Grid 专项探针（Playwright + html5lib + stdlib，**file:// 协议、无端口自起**；`--baseline` 落改造前功能基线 / `--skip-w3c` 跳慢检。33 项：零外链两段口径（标记级全文 + 文本级须先剥 >100000 字符巨型行，否则 dev-data 文档正文的 4 处 `@import` 假阳性）+ `@font-face{`==2 与禁用裸词口径 + 数据行按内容定位 + R37 注释对成对 + HTML 注释禁连续双连字符 + 全部 JS 块 node 编译不执行 + V1 配色四值精确（浅 #F5F5F7/#FFF、深 #1D1D1F/#000，含 `.wrap-home/.wrap-dev` 让位断言）+ V2 圆角 == clamp(16,0.07×短边,34) 逐卡、四角相等、静置零投影零渐变描边、`border-radius:inherit` 环等值 + V2b/V2c 作用域收口（非 Bento 零内联变量；`.gate-role`22/`.pagecard`24/`.quick`24/`.step`16 未被动）+ V3/V3b 网格 16px 与区块 24px + V4 Hero 跨 2×2（**断言取 grid-column-START，span 简写不写 -end**）/面积主导/轨道宽对位 + V5 空洞普查 + R1 五断点×双主题×两视图零横向溢出 + R2 单列解跨列（防 `2px 1112px` 隐式轨道）+ R3 手机档 Hero 主导 + R4 骨架同构（用等价脚手架，静态骨架在 domcontentloaded 前已被 render() 覆写）+ R8a CSS 兜底 + R8b 禁 JS 不破版 + V7 渐变文字每页≤1（transparent 须按 `rgba(0,0,0,0)` 计算值判定）+ F1/F2 七视图×双主题功能逐位比对 + F3~F11 交互回归，**本机 prefers-reduced-transparency 恒 reduce，playwright 版无该形参故双态记 NOT-RUN**）
-  r43_icon_check.py      R43 软件图标层探针（Playwright + stdlib，**file:// 协议、无端口自起**；`--skip-slow` 跳四断点矩阵。26 项：源码级 A1–A12（📷 计数归零 / link 恰 2 枚且无 href 非 data: 者 / 三段 base64 解码 + PNG·RIFF-WEBP 魔数 / 母图全文仅内联一次 / R43 两对注释对成对 / HTML 注释禁双连字符 / 六处槽位标记逐字在位含 !DEV 兜底那处 / 两条巨行未触碰 / @font-face 仍 2）+ 运行时 B1–B8（五处可达槽位实测 宽=高=fontSize 即「占位=1em」/ 身份门与快捷卡瓦片圆角底色描边未被 background-image 长写吞掉 / --app-icon 在真实浏览器 new Image() 解出 256×256 / 两枚 link 的 DOM href 均 data: / 四断点×双主题×三态零横向溢出且 390 landing 品牌 ≤52px / plain 态灰度化 / console 与 requestfailed 双零 / 禁 JS 下两处静态图标样式仍生效）。口径要点：溢出矩阵不重载页面，改 data-theme/data-look 属性 + set_viewport_size 驱动级联；`.dev-actions` 那处在 renderDev 的 `if(!DEV)` 兜底分支，本构建 dev-data 在位故运行时不可达，记 NOT-RUN 并由 A9 源码级覆盖）
-  r45_theme_scope_check.py  R45 landing 暗底舞台色彩作用域收口探针（Playwright + html5lib + stdlib，**file:// 协议、无端口自起**；`--skip-slow` 跳对比度矩阵与断点矩阵。69 项：A1–A11 源码级（R45 两对注释对成对 / HTML 注释禁双连字符 / 外链 link 负向前瞻 0 + 图标 link 恰 2 / script src·iframe·url(http)·外链 img 全 0 / @font-face 仍 2 / 两条数据行按内容定位且长度逐位不变 / 22 个 JS 块 node 编译不执行 / **A9 禁翻清单**：层体不得出现 `--lp-eyebrow-ink:` 等 11 个 landing 墨口与强调色族赋值 / **A10** `--card:`·`--bg:` 只允许出现在 subject 为 `#lp-nav` 或 `#look-menu` 且剥掉 `:has()` 后不含 `.lp-root` 的规则 / **A11** 改写面恰为 tx·mut·bd·card·bg·lp-ac-ink）+ B1/B2 泄漏与暗玻璃生效 + C1 `.lp-dl-btn` 精确色值未动 + D1–D3 深色与 plain 三态惰性（含 plain 下色点仍隐藏）+ E1 暗底 AA 全量 + E2 审计清单零落空 + E3 新板块卡面与既有 `.about-sec` computed 全等 + F1–F7 折叠圆钮可见性/开合/aria-expanded/选色持久化/Escape 归还焦点/hashchange 关闭/plain 豁免 + G1 视口矩阵（文档零溢出·769–900 档 `.lp-links` 增量 ≤58px·品牌 ≤52px）+ H1/H2 console 与 requestfailed 双零）。口径要点：① **对比度须扫遍整条 `body::before` 固定渐变取最劣端**，只按元素当前屏幕位置取样会系统性高估；② 前景须按祖先链合成到舞台之上，而 **body/html 自身底色在 `body::before` 之下**，误入链即把暗底判成浅底（本项目首轮即因此全报 PASS，务必照此实现任何后续对比度探针）；③ 主题态用 `localStorage.nikki_lp_theme` + reload 驱动，不手改 className；`data-theme`/`data-look`/视口用属性与 `set_viewport_size` 驱动级联，不重载；④ 卡面↔页面底分离度**不设为 3:1**（R37 已知限制② 已文档化全站基线 1.09/1.25），一致性改由 E3 的「computed 与 `.about-sec` 全等」表达。
-  insert-*.mjs         分阶段 CSS/JS 注入脚本（R7/R8/P9/P13/R14/R15 等，均已生效退役，勿重跑）
-  smoke.mjs            快速冒烟测试
-  env_check.py         R30 环境装配/体检（--setup：装锁定依赖 + chromium + 补 smoke 基线；默认 doctor 只读体检，纯 stdlib）
-  archive-r15/ archive-r16/ archive-r18/  ← 历轮结果 JSON 归档
-backups/             ← 精修轮次快照（**本工作树未纳入**，命名语义见文末「备份文件命名语义」；快照在父仓库 / 外部留存）
-（无根目录轮次报告：R25–R29 精修报告已于 2026-10-06 清理删除，根目录仅余 `AGENTS.md` 作为常驻文档）
-gui-test-screenshots/ ← 审计截图归档（按轮次/日期分目录；**本工作树未纳入**，实际截图随各轮探针结果存放，详见各 `rNN_*.py` 说明）
+Meow Star Map 官网.html ← 唯一源文件（5,742 行 / 25,213,498 B / CRLF；R55 基线），含全部 HTML / CSS / JS / 教程与开发者数据 / 六语词典 / 字体子集 / 图标
+site/                     ← 多文件线上版（perf/tools/build_site.py 生成，已入库）
+  index.html                单页应用 shell：CSS/JS/字体/图标内联（1,418,802 B / 1.35 MiB）
+  data/tutorial.js          window.__TUT__  教程数据（截图改为相对路径）
+  data/dev-docs.js          window.__DEV__  开发者文档
+  assets/shots/*.webp       48 张 1400×900 无损 WebP 截图（15,991,294 B）
+  assets/about-wx.jpg       关于板块微信二维码（238,007 B）
+  .nojekyll / README.md
+locales/                  ← 六语译文唯一编辑入口
+  ui.zh.json                 键表快照（由 build_i18n.py --extract 生成，勿手改）
+  ui.{en,fr,es,ru,ar}.json  译文（zh 走源码内联默认值，不入字典）
+  tutorial.en.json          教程英文包（9 模块 / 36 页 / 48 个 {{imgN}} 占位）
+  README.md                 编辑流程与键归属口径
+perf/                     ← 构建与取证工具链（第三方依赖仅 Pillow，见 perf/requirements.txt）
+  tools/                     build_i18n.py / build_site.py / extract_shots.py / convert_shots.py /
+                             build_lossless.py / compare_shots.py / common.py + 5 个 .mjs 取证脚本
+  reports/                   构建元数据、网络实测、截图差异、探针日志（入库）
+  assets/ dist/              [gitignored] 可重建中间产物
+tests/                    ← 常驻回归探针（9 支）+ 基线 JSON + 截图归档 + 校验报告
+  r37_bento_check.py          Bento Grid / 配色 / 圆角 / 零外链 / 功能基线比对
+  r38_visual_check.py         三态外观 / 菜单 / AA 对比度 / 多路由溢出
+  r39_type_check.py           苹果式排版阶梯
+  r41_cards_detail_check.py   landing 卡片行尾详情展开
+  r42_migration_check.py      二级页内容迁移零丢失 / GitHub 入口 / 断点矩阵
+  r43_icon_check.py           软件图标单点内联 / 六槽位几何 / 溢出矩阵
+  r45_theme_scope_check.py    landing 暗底舞台色彩作用域 / AA / 折叠配色入口
+  r51_i18n_check.py           六语 i18n（源码级 + 运行时级 + 六语 × 四断点溢出）
+  r54_nav_actions_check.py    常驻导航七入口布局（单行 / 不裁切 / 不重叠 / 文字边缘距 / 路由可滚）
+  i18n_pin.py                 探针共用的语言钉住辅助模块
+AGENTS.md / README.md / CONTRIBUTING.md / SECURITY.md / CODE_OF_CONDUCT.md / LICENSE
+.github/                  ← Issue / PR 模板
 ```
 
-## 环境装配与工具链路由（R30 · 20261004）
+**已不存在于本工作树的旧工具链（历史口径，勿再引用）**：`package.json`（npm scripts `setup/doctor/smoke/vreg`）、`Makefile`、根 `requirements.txt`、`tests/` 下的 r14–r31 探针与 `gui-audit.js` / `insert-*.mjs` / `env_check.py` / `smoke.mjs`、`backups/`、`gui-test-screenshots/`、`archive-r15/` 等归档目录。这些属于父仓库工具链或早期历史产物；本工作树的一律口径以本节与「环境装配与工具链」为准。
 
-### 一次性装配与体检
+## 环境装配与工具链（20261126 实况）
 
-| 入口 | 首选命令 | 等价形式 | 说明 |
-|------|---------|---------|------|
-| 装配（幂等） | `npm run setup` | `make setup` ＝ `python tests/env_check.py --setup` | ① `pip install -r requirements.txt`（锁定版）② `playwright install chromium` ③ `tests/baseline.json` 缺失时自动 `smoke:init` 补齐 ④ 末尾自动体检 |
-| 体检（只读） | `npm run doctor` | `make doctor` ＝ `python tests/env_check.py` | 查 Python/Node 版本、pip 包逐位对版 requirements.txt、chromium 可无头启动、smoke 基线在位、r14 结果 JSON 前置；任一 FAIL 退出码 1，WARN 不影响退出码 |
+### 一次性装配
 
-**干净检出（clone）后必须先跑一次 setup**：`tests/baseline.json` 与 `tests/r14-*-results.json` 均被 gitignore 不入库——前者缺失时 `npm run smoke` 直接失败（setup 自动补）；后者缺失时 `npm run audit:compare` 无从对比（须先 `audit:baseline` + `audit:after`，或直接 `npm run audit:full`）。
+| 入口 | 命令 | 说明 |
+|------|------|------|
+| 探针依赖 | `pip install playwright html5lib` + `playwright install chromium` | `tests/` 下 9 支探针的全部第三方依赖；本工作树**无锁文件**，版本以安装环境为准 |
+| 构建工具链依赖 | `pip install -r perf/requirements.txt` | 仅 Pillow（无损 WebP 与截图处理） |
+| Node | 任意现代版本 | 仅用于 `node --check` 校验 JS 块与 `perf/tools/*.mjs` 取证脚本；**零第三方 npm 依赖**，无 `package-lock.json` |
+
+> 探针一律 `python tests/<脚本>.py` 直跑，**不建 venv**（未激活的 venv 会打断全部既有入口）。
+> 历轮实测基线：Python 3.12。
 
 ### 声明来源（单一、可复制）
 
-| 事项 | 唯一来源 | 执行者 |
-|------|---------|--------|
-| Node 版本要求（≥18） | `package.json` → `engines.node` | doctor 读取并强制校验 |
-| Python 第三方依赖及锁定版本 | `requirements.txt`（R30 时点：playwright 1.60.0、html5lib 1.1，以文件为准） | setup 安装 / doctor 逐位校验 |
-| Python 版本下限（≥3.8） | `tests/env_check.py` → `MIN_PY` 常量 | doctor 强制校验 |
+| 事项 | 唯一来源 |
+|------|---------|
+| 站点本体结构与硬契约 | `Meow Star Map 官网.html` 的注释对 + 本文件「关键开发约定」 |
+| 探针第三方依赖 | 本节「一次性装配」（本工作树无 `requirements.txt` 锁文件） |
+| 构建工具链第三方依赖 | `perf/requirements.txt`（Pillow） |
+| i18n 键表与译文 | `locales/ui.zh.json`（键表快照）+ `locales/ui.{en,fr,es,ru,ar}.json` |
+| 教程英文包 | `locales/tutorial.en.json` |
 
-- Node 侧**零第三方依赖**是设计事实（`smoke.mjs` 仅用 node: 内置模块），因此无 package-lock.json，npm 不新增任何依赖包。
-- Python 下限 3.8 由探针实际依赖推导（`ThreadingHTTPServer` 3.7+、`sys.stdout.reconfigure` 3.7+、`importlib.metadata` 3.8+，取最高者）；历轮实测基线 Python 3.12 / Node 26。
-- 探针一律 `python tests/<脚本>.py` 直跑（与 Makefile `PYTHON := python` 同一解释器口径）；**不建 venv**（未激活的 venv 会打断全部既有入口）。
+### 常用命令
 
-### 探针路由
-
-| 任务 | 命令（npm 为主；有 make 的环境括注等价 target） |
+| 任务 | 命令 |
 |------|------|
-| 冒烟 | `npm run smoke`（make smoke） |
-| 全设备审计三步 | `npm run audit:full`（make audit-full）＝ baseline → after → compare；compare 依赖前两步的结果 JSON |
-| 交互回归 | `npm run interact:baseline` / `npm run interact:after`（make interact-baseline / interact-after） |
-| 完整回归 | `npm run vreg`（make vreg）＝ 冒烟 + 审计 + 交互 |
-| 现场诊断 | `npm run diag`（make diag）；`tests/r15_diag2.py` 无入口，仅手动 `python tests/r15_diag2.py` |
-| 轮次专项探针（r17–r29、r31、r24、r19_w3c 等） | 直接 `python tests/<脚本>.py`（端口内嵌自起，无需手动开服务器；**不为其新增 npm scripts / make targets，避免平行工具**）。R31 另加 `python tests/r31_links_check.py [--online]`（外链不变量 + 可选联网可达性） |
+| 校验译文 / 键表 / 零外链 / build_site 锚点 | `python perf/tools/build_i18n.py --check` |
+| 刷新键表快照 | `python perf/tools/build_i18n.py --extract` |
+| 注入译文到单文件 | `python perf/tools/build_i18n.py --write` |
+| 再生多文件版 `site/` | `python perf/tools/build_site.py` |
+| 无损 WebP 重建单文件 | `python perf/tools/extract_shots.py` → `convert_shots.py` → `build_lossless.py --in-place` |
+| 路由功能签名对比（原文件 vs `site/`） | `node perf/tools/smoke_site.mjs` |
+| 站点真实点击 + 390 移动端溢出 | `node perf/tools/interact_site.mjs` |
+| 网络传输 / FCP / DCL 实测 | `node perf/tools/measure_network.mjs`（需本地 HTTP 服务） |
+| 8 场景截图取证 | `node perf/tools/shoot_compare.mjs` |
+| 逐轮专项探针 | `python tests/<脚本>.py`（`file://` 直开、无端口自起；**不为其新增 npm scripts / make targets，避免平行工具**） |
 
-> 本机（当前开发机）未装 make：make 入口供有 make 的环境使用，本机一律走 `npm run`。`.gitattributes` 已钉 `Makefile text eol=lf`（GNU make 对 CRLF 续行敏感）。
+### 探针清单（9 支，常驻）
+
+| 探针 | 覆盖 |
+|------|------|
+| `tests/r37_bento_check.py` | Bento Grid 布局 / 配色 / 圆角 / 零外链 / 功能基线比对（`--baseline` 落基线、`--skip-w3c` 跳慢检） |
+| `tests/r38_visual_check.py` | 三态外观 / 菜单 / AA 对比度 / 多路由溢出（`--skip-w3c`、`--skip-browser-fallback`） |
+| `tests/r39_type_check.py` | 苹果式排版阶梯（`--baseline-json` / `--compare-json`） |
+| `tests/r41_cards_detail_check.py` | landing 卡片行尾详情展开（`--skip-slow`） |
+| `tests/r42_migration_check.py` | 二级页内容迁移零丢失 / GitHub 入口 / 断点矩阵（`--skip-slow`） |
+| `tests/r43_icon_check.py` | 软件图标单点内联 / 六槽位几何 / 溢出矩阵（`--skip-slow`） |
+| `tests/r45_theme_scope_check.py` | landing 暗底舞台色彩作用域 / AA / 折叠配色入口（`--skip-slow`） |
+| `tests/r51_i18n_check.py` | 六语 i18n：源码级 / 运行时级 / 六语 × 四断点溢出 |
+| `tests/r54_nav_actions_check.py` | 常驻导航七入口布局：单行 / 不裁切 / 不重叠 / 文字边缘距 / 路由可滚 |
+
+各探针的完整用法与口径见脚本头部注释；未跑项显式记 NOT-RUN，不当作通过。`tests/i18n_pin.py` 是探针共用的语言钉住辅助模块（把 `__i18nPin` 钉为 zh，保证确定性）。基线 JSON（`tests/r37-baseline.json`、`tests/r39-baseline.json` 等）与 `tests/*-shots/` 截图归档是有意入库的验收证据，勿删。
 
 ## HTML 文件章节结构索引
 
-`Meow Star Map 官网.html`（3187 行）的完整章节地图，标注注释标记与行号范围，便于快速定位编辑目标。（**当前基线 = R21 完成态更名 + R25 + R26 + R27 + R28 + R29 + R31 增量**；下方「总览」表已于 2026-10-07 刷新为 R31 基线锚点口径，并移除已退出基线的 R22-UI 块；CSS 分区表与「可回滚注释对标记汇总」一律以 grep 锚点（`R29:BEGIN` 等）为准；行号随轮次漂移；**grep 巨型数据行务必 `cut -c` 截断输出**）
+`Meow Star Map 官网.html`（**5,742 行 / 25,213,498 B / CRLF**）的完整章节地图，标注注释标记与行号范围，便于快速定位编辑目标。（**当前基线 = R55**；下方「总览」与「CSS 样式分区」表已于 20261126 刷新为 R55 锚点口径；CSS 分区表与「可回滚注释对标记汇总」一律以 grep 锚点（`R55:BEGIN` 等）为准；行号随轮次漂移；**grep 巨型数据行务必 `cut -c` 截断输出**）
 
 > **R32–R35 勘误（20261025）**：当前文件 = R31 基线 + **R32** GitHub 同步层（`R32:BEGIN/END`，关于板块社交图标配色对齐 MeowStarMap README）+ **R33** 品牌更名轮（20261024，全文件 209 处软件名替换为 Meow Star Map/喵星图 系，数据块 SHA 冻结基线失效；localStorage 键 `nikki_*`、NikkiPhotos_* 目录、`gongeo.us-nikki-tracker`、《无限暖暖》、"Nikki" 角色引用有意保留）+ **R34** 一级界面 Apple 发布会风格层（`R34:BEGIN/END`：Inter v4.1 base64 内嵌 @font-face＝全站唯一 1 处、`--lp-font` 重定义（仅 .lp-* 消费）、九组 `--color-*` 语义 token、`.text-gradient` @supports 纯色兜底、`.lp-hero::before` 超大背景字、四可选主题类 `.lp-theme-slim/-spectrum/-energy/-deep`（模板默认挂 slim）；仅作用 `body[data-view="landing"]`/`.lp-*`/`.lp-root .about-*`；回滚＝删注释对 + 还原 lpView() 两处 class）+ **R35** 全站 Apple 视觉延伸层（20261025，`</style>` 前 R34:END 之后：body 字体栈升级 Inter+Noto Sans SC/思源黑体+苹方/雅黑系统兜底（级联覆写 P1 的 MiSans body 栈，中文不内嵌 Web 字体）、新增 `--r-card:24px` 覆写 `.ms-card/.mod-card/.pagecard/.quick`（不动全局 --r-md）、`.gate h1`/`.hero h1` clamp() 流式字号 + 字距收紧、`.gate-sub`/`.hero-sub` 300 细体、≤960px 紧凑口径微升至 25/26px、print 回落 30px；**零 JS/模板/色彩/动画改动**，暗色零新增规则；回滚＝删 R35 注释对，或整文件还原 `Meow Star Map 官网.backup-r35-20261025.html` 快照）。探针待办：r31_links_check 口径显式更新（Inter data: 巨型行经 >100000 字符剥离逻辑天然不计）、父仓库 `npm run vreg`、r25/r26/r29/r31 探针回归（R35 未触碰按钮/面板几何与色值）。本工作树无父仓库工具链，R35 校验以本机 html5lib strict 解析（0 错误）+ 零外链计数核查 + IAB 六视图截图/控制台遍历替代。
 
@@ -208,106 +228,147 @@ gui-test-screenshots/ ← 审计截图归档（按轮次/日期分目录；**本
 
 > **R25 勘误（20261003）**：当前文件 = R21 完成态更名副本（与 R22 时点源文件 `用户使用教程.backup-r22-20261002.html` 同源；该快照存于父仓库 / 外部，本工作树未纳入）+ R25 按钮规范层增量（`</style>` 前插入 15 行）。R22/R23 的改动**不在当前基线**（其章节条目与 r22/r23/r24 探针仅作历史记录）。本勘误时点关键锚点（行号随后续轮次漂移，现行基线以 R29 勘误与分区表锚点为准）：`<style>` 止于 L1408（R25 层 L1393–1407）；内嵌数据块 L1435–1436；`lpView()` L1766；ENHANCE L2045–2260；ABOUT-UI L2386–2477；R21-UI L2478–2602；文件尾 L2604。下文旧表行号仅供历史参照。
 
-### 总览（R31 基线快照；绝对行号随每轮增量漂移，定位一律以 grep 锚点为准，见下方「CSS 样式分区」与「可回滚注释对标记汇总」）
+### 总览（R55 基线快照；20261126 实测。绝对行号随每轮增量漂移，定位一律以 grep 锚点为准，见下方「CSS 样式分区」与「可回滚注释对标记汇总」）
 
-| 区域 | grep 锚点 / 行号（R31 基线） | 说明 |
+| 区域 | grep 锚点 / 行号（R55 基线） | 说明 |
 |------|------|------|
-| `<head>` 头部 | 1–（`<style>` 止于 ~L1513） | 防闪烁脚本（`THEME:BEGIN/END`）+ 全量 CSS + title |
-| `<body>` 静态骨架 | L1515 起 | Landing 导航 / 顶栏 / 遮罩 / 侧栏 / 主内容区（骨架屏） |
-| 内嵌数据块 | `<body>` 内 `#tut-data` / `#dev-data` | 用户教程 JSON + 开发者文档 JSON（**严禁触碰**，smoke 以 SHA 冻结；**R33（20261024）品牌更名注记**：已按指令将数据块内软件名 NikkiGallery / nikkiGallery / WXNN XiangCe / 无限暖暖相册管理工具 / NikkiGalleryManifest / NikkiGallery-Setup / __NIKKI_PRELOAD_DEV__ 统一替换为 Meow Star Map / meowStarMap / 喵星图 / MeowStarMapManifest / MeowStarMap-Setup / __MEOWSTARMAP_PRELOAD_DEV__（共 209 处），SHA 冻结基线失效，后续从父仓库重建数据需以新名口径为准；`localStorage.nikki_theme`/`nikki_role` 键与游戏目录 NikkiPhotos_*、第三方仓库 gongeo.us-nikki-tracker 有意保留） |
-| `<!-- MOTION -->` 块 | `MOTION:BEGIN`（L1542–1567） | GSAP 3.13.0 内嵌库（核心 + ScrollTrigger，含 Observer；无 ScrollToPlugin/Flip/CustomEase） |
-| 主脚本（路由 + 渲染） | MOTION 块之后 | 数据解析 / 侧栏 / 视图渲染 / hash 路由 |
-| `<!-- ENHANCE -->` 块 | `ENHANCE:BEGIN`（L2150–2365） | 三次精修交互增强 |
-| `<!-- THEME-UI -->` 块 | `THEME-UI:BEGIN`（L2366–2427） | 主题切换按钮 UI（topbar `#themebtn` + lp-nav `.lp-themebtn` 双挂载） |
-| `<!-- ATM-UI -->` 块 | `ATM-UI:BEGIN`（L2428–2446） | 漂浮几何氛围层 |
-| `<!-- TOAST-UI -->` 块 | `TOAST-UI:BEGIN`（L2447–2489） | Toast 通知队列 |
-| `<!-- ABOUT-UI -->` 块 | `ABOUT-UI:BEGIN`（L2491–2582） | 关于板块（社交+微信弹窗）+ 微信二维码弹窗 |
-| `<!-- R21-UI -->` 块 | `R21-UI:BEGIN`（L2583–2707） | 资源下载下拉面板状态机 + 全局按钮按压回弹/坐标涟漪 |
-| `<!-- R26-SVG -->` 块 | `R26-SVG:BEGIN`（L2708–2718） | 导航液态玻璃折射滤镜 |
-| `<!-- R26-UI -->` 块 | `R26-UI:BEGIN`（L2719–2786） | 导航高光/tone 滚动脚本 |
-| `<!-- R28-UI -->` 块 | `R28-UI:BEGIN`（L2787–2870） | 面板流体变换（FLIP+残影壳） |
-| `<!-- R29-UI -->` 块 | `R29-UI:BEGIN`（L2871–2935） | 面板液态玻璃（按钮浅蓝 + 液态玻璃 + 上缘高光带） |
-| `<!-- R31C-UI -->` 块 | `R31C-UI:BEGIN`（L2936–2964） | 门卡 `.r31-ring` 注入（`.gate-role` 伪元素被占用的替代路径） |
-| `<!-- R31A-UI -->` 块 | `R31A-UI:BEGIN`（L2965–3078） | 卡片 3D 透视倾斜 + 弹簧阻尼回正（含指针离场归零） |
-| `<!-- R31B-UI -->` 块 | `R31B-UI:BEGIN`（L3079–3185） | 关于板块 Fluid Morph（QQ 面板 + 微信弹窗） |
-| `</body></html>` | L3515–3516 | 文件结尾（总 3516 行，R37 基线；R37 CSS 层 L1639–1723、`</style>` L1724、`<body>` L1726、R37-UI L3459–3514） |
+| `<head>` 头部 | 1–25 | `THEME:BEGIN/END`（L6–19）防闪烁脚本 + `R43-ICON:BEGIN/END`（L21–24）两枚 `data:` 图标 link |
+| `<style>` 起始 | L26 | 全量 CSS（`</style>` L2686） |
+| `<body>` 静态骨架 | L2688 起 | `LP-NAV:BEGIN/END`（L2689–2707）一级导航 + `#topbar` / `#mask` / `#sidebar` / `#app` |
+| 内嵌数据块 | L2723 `#tut-data`（21,358,276 字符）/ L2724 `#dev-data`（1,545,974 字符） | 教程 JSON（`home` / `modules` 9 / `pages` 36）+ 开发者文档 JSON（12 板块 / 104 篇 / 823,995 字）——**严禁触碰** |
+| 六语词典块 | `I18N-DATA:BEGIN/END`（L2725–2733） | `#i18n-en/fr/es/ru/ar` + `#i18n-tut-en`（由 `build_i18n.py` 注入，勿手改） |
+| i18n 运行时 | `I18N:BEGIN/END`（L2734–3150） | i18next 23.16.8 UMD（MIT）内嵌 + `window.__i18n` 引擎 + `T/TN` 别名 + `setLang()` + `i18nTutApply()` + `__i18n.boot()` |
+| `<!-- MOTION -->` 块 | `MOTION:BEGIN/END`（L3151–3176） | GSAP 3.13.0 内嵌库（核心 + ScrollTrigger，含 Observer；无 ScrollToPlugin/Flip/CustomEase） |
+| 主脚本（路由 + 渲染） | L3178 起 | 惰性解析 `ensureTut()`（L3188，`R46:BEGIN/END` L3181–3197）/ 侧栏 / 视图渲染 / hash 路由（`render()` L3769） |
+| `<!-- ENHANCE -->` 块 | `ENHANCE:BEGIN/END`（L4049–4264） | 三次精修交互增强 |
+| `<!-- THEME-UI -->` 块 | `THEME-UI:BEGIN/END`（L4265–4331） | 主题切换按钮 UI（topbar `#themebtn` + lp-nav `.lp-themebtn` 双挂载） |
+| `<!-- ATM-UI -->` 块 | `ATM-UI:BEGIN/END`（L4332–4350） | 漂浮几何氛围层 |
+| `<!-- TOAST-UI -->` 块 | `TOAST-UI:BEGIN/END`（L4351–4393） | Toast 通知队列 |
+| `<!-- ABOUT-UI -->` 块 | `ABOUT-UI:BEGIN/END`（L4395–4486） | 关于板块（社交 + 微信二维码弹窗；二维码 JPEG 在 L4402） |
+| `<!-- R21-UI -->` 块 | `R21-UI:BEGIN/END`（L4487–4611） | 资源下载下拉面板状态机 + 全局按钮按压回弹 / 坐标涟漪 |
+| `<!-- R26-SVG -->` 块 | `R26-SVG:BEGIN/END`（L4612–4622） | 导航液态玻璃折射滤镜 |
+| `<!-- R26-UI -->` 块 | `R26-UI:BEGIN/END`（L4623–4690） | 导航高光 / tone 滚动脚本 |
+| `<!-- R28-UI -->` 块 | `R28-UI:BEGIN/END`（L4691–4774） | 面板流体变换（FLIP + 残影壳） |
+| `<!-- R29-UI -->` 块 | `R29-UI:BEGIN/END`（L4775–4839） | 面板液态玻璃（按钮浅蓝 + 液态玻璃 + 上缘高光带） |
+| `<!-- R31C-UI -->` 块 | `R31C-UI:BEGIN/END`（L4840–4868） | 门卡 `.r31-ring` 注入（`.gate-role` 伪元素被占用的替代路径） |
+| `<!-- R31A-UI -->` 块 | `R31A-UI:BEGIN/END`（L4869–4982） | 卡片 3D 透视倾斜 + 弹簧回正（含指针离场归零） |
+| `<!-- R31B-UI -->` 块 | `R31B-UI:BEGIN/END`（L4983–5089） | 关于板块 Fluid Morph（QQ 面板 + 微信弹窗两实例） |
+| `<!-- R36-UI -->` 块 | `R36-UI:BEGIN/END`（L5090–5157） | landing 配色四枚色点 + `nikki_lp_theme` 持久化 |
+| `<!-- R37-UI -->` 块 | `R37-UI:BEGIN/END`（L5158–5213） | 逐卡短边比例圆角（内联 `--r-bento`） |
+| `<!-- R38-UI -->` 块 | `R38-UI:BEGIN/END`（L5215–5381） | 外观三态 `data-look` + 菜单（`nikki_look` 持久化） |
+| `<!-- R40-UI -->` 块 | `R40-UI:BEGIN/END`（L5382–5402） | 二级页导航高亮 `syncNav()`（L5388） |
+| `<!-- R41-UI -->` 块 | `R41-UI:BEGIN/END`（L5403–5681） | landing 卡片行尾整行详情面板 |
+| `<!-- R45-UI -->` 块 | `R45-UI:BEGIN/END`（L5682–5739） | 769–900px 档配色入口折叠圆钮 |
+| `</body></html>` | L5740–5741 | 文件结尾（总 5,742 行，末行为空行；CRLF 5,741） |
 
-> **R22-UI / R22 高级动效层 / R23 深化不在当前基线**：R22/R23 改动已退出（仅作历史记录，见下方「精修区域标识 · R22/R23」与 `r22`/`r23` 探针），故上表不含 R22-UI 块；R25–R31 为 CSS 增量层，定位见「CSS 样式分区」表的 `R25:BEGIN`–`R31:BEGIN` 锚点。
+> **R22-UI / R22 高级动效层 / R23 深化不在当前基线**：R22/R23 改动已退出（仅作历史记录，见下方「精修区域标识 · R22/R23」），故上表不含 R22-UI 块；R25–R55 为 CSS 增量层，定位见「CSS 样式分区」表的 `R25:BEGIN`–`R55:BEGIN` 锚点。
 
-### CSS 样式分区（`<style>` 自 L19 起；`</style>` 行号见 R29 勘误）
+### CSS 样式分区（`<style>` 自 L26 起；`</style>` L2686）
 
-> **锚点约定（20261004 起）**：当前基线各层定位一律以「行号 / 定位锚点」列的标记 grep 为准（如 `grep -n "R25:BEGIN"`，中文标记直接 grep 逐字文本）；尾段（R14 补充层起）各层随后续每轮增量整体漂移，活表**不再维护绝对行号**，绝对行号仅存于各轮勘误（时点快照）。口径说明：R25 勘误的「R25 层 L1393–1407」为含标记行口径（R25 时点），R26/R27 勘误的「R25 层 L1390–1402」为层内容口径；现行实测 `R25:BEGIN`=1389、`R25:END`=1403；R26 起各勘误层区间均为含标记行口径。
+> **锚点约定（20261004 起，20261126 刷新）**：各层定位一律以「行号 / 定位锚点」列的标记 grep 为准（如 `grep -n "R55:BEGIN"`，中文标记直接 grep 逐字文本）；尾段各层随后续每轮增量整体漂移，绝对行号仅存于本表与各轮勘误（时点快照）。
 
-| 行号 / 定位锚点 | 注释标记 | 内容 |
+| 位置 / 定位锚点 | 注释标记 | 内容 |
 |---------|---------|------|
-| 19–357 | — | 基础样式：`:root` 令牌 / 布局 / 组件 / 顶栏 / 侧栏 / 封面网格 / 详情页 |
-| 358–425 | `/* ═══ 二次精修层 ═══ */` | P1 令牌与排印 · P2 卡片微交互 · P3 液态玻璃 · P4 详情页阅读 |
-| 426–481 | `/* ═══ 三次精修层 ═══ */` | P5 动效引擎 · P6 阅读进度条 · P7 液态玻璃 v2 · P8 骨架拟真 |
-| 482–543 | `/* ═══ 四次精修层 ═══ */` | P9 排印留白 · P10 形状统一 · P11 液态玻璃 v2 · P12 微交互 |
-| 544–732 | `/* ═══ 五次精修层 ═══ */` | R13 全设备响应式适配层（390/768/1440/1920/2560） |
-| 733–820 | `/* ═══ 六次精修层 ═══ */` | P13 留白节奏 · P14 微交互精修 · P15 液态玻璃 v3 · P16 骨架与空态 v3 |
-| 821–997 | `/* ═══ 七次精修层 ═══ */` | P17 深色主题（`html[data-theme="dark"]` 作用域）· P18 科技质感 · P19 技术债 |
-| 998–1079 | `/* ═══ 八次精修层 ═══ */` | P21 令牌扩展 · P22 Toast · P23 漂浮几何视差 · P24 前轮遗留 |
-| 锚点 grep `响应式补齐层` | `/* ═══ … ═══ */` 多行注释块（标题行「响应式补齐层 · R14（全设备适配核验补齐）· 2026-10-01」）+ `关于板块层` | R14 触控适配 + 关于板块 CSS（R19 起仅社交/微信，`.about-dd*` 已删） |
-| 锚点 grep `UI 细节清零层`（起止两处） | 起＝多行注释块「UI 细节清零层 · R15 — 2026-10-01」，止＝单行 `/* ═══… UI 细节清零层 · R15:END ═══… */` | R15 UI 细节清零层（FAQ 间距 / 尾部边距 / 移动端层叠修复） |
-| 锚点 `R18:BEGIN`…`R18:END` | `/* ═══ R18:BEGIN … R18:END ═══ */` | R18 一级首页层（`#lp-nav` 毛玻璃导航 / hero / `.lp-panels` 玻璃卡 / 滚动淡入 / 暗色与降级） |
-| 锚点 `R19:BEGIN`…`R19:END` | `/* ═══ R19:BEGIN … R19:END ═══ */` | R19 一级首页聚焦层（`.lp-dl` 下载区块样式/`.lp-cap`/`.gate-back`/`.lp-tile` 图标贴片/`.lp-cta` 实心化；R21 起下载卡标记已从模板移除，此层样式保留供回滚） |
-| 锚点 `R21:BEGIN`…`R21:END` | `/* ═══ R21:BEGIN … R21:END ═══ */` | R21 收纳与动效层（hero 弹性满屏/关于板块贴底/`.lp-dl-btn`+`.lp-dl-menu` 下拉面板/`.r21-*` 按压回弹与涟漪/矮视口压缩） |
-| 1394–1423（历史） | `/* ═══ R22 高级动效层 ═══ */`（`/* R22:BEGIN … R22:END */`） | R22：`@property --r22-ang` + `.r22-on .lp-cta::before` conic 旋转描边 / `::after` 呼吸背光（暗色环配色覆盖）/ `.r22-on .lp-dl-menu.is-open{animation:none}` 屏蔽 lpMenuIn / `.r22-ghost` 残影壳（R23:A 追加 `will-change`，L1416-1417）/ reduced-motion 静止化（**历史行号，当前基线不含**） |
-| 锚点 `R25:BEGIN`…`R25:END` | `/* ═══ R25:BEGIN … R25:END ═══ */` | R25 按钮规范对齐层（双按钮 `var(--r-md)`=16px 圆角矩形 / `.lp-cta` 线框化 inset 环 / 按钮内联图标尺寸） |
-| 锚点 `R26:BEGIN`…`R26:END` | `/* ═══ R26:BEGIN … R26:END ═══ */` | R26 导航液态玻璃层（两栏 `::after` 边缘高光扫动带 `--lg-x` / `data-lg-tone` 文字令牌覆写 / `@supports` 门控的玻璃底色与 `url(#lg-refract)` 折射声明对） |
-| 锚点 `R27:BEGIN`…`R27:END` | `/* ═══ R27:BEGIN … R27:END ═══ */` | R27 按钮动效扩面适配层（`.crumbs a.r21-b,.page-body a.r21-b{display:inline-block}`（inline 锚点承载缩放与涟漪裁剪）+ `.doc-toc-m summary.r21-b{list-style-position:inside}`（防涟漪宿主 overflow:hidden 裁掉折叠三角）） |
-| 锚点 `R28:BEGIN`…`R28:END` | `/* ═══ R28:BEGIN … R28:END ═══ */` | R28 面板流体变换层（`.r28-on .lp-dl-menu.is-open{animation:none}` 屏蔽 lpMenuIn（FLIP 接管开启）/ `.r28-ghost` 残影壳（fixed、z-index:29 压按钮行 z31 之下、pointer-events:none、transform-origin 0 0、will-change）/ reduced-motion 壳 display:none 兜底） |
-| 锚点 `R29:BEGIN`…`R29:END` | `/* ═══ R29:BEGIN … R29:END ═══ */` | R29 面板液态玻璃层（`.lp-dl-btn` 浅蓝 #8ecbff＋深藏青字 / `url(#lg-refract)` 声明对玻璃底 / `::after` 上缘高光带 / `data-lg-tone` 令牌覆写） |
+| L26 起 | `<style>` … `</style>`（L2686） | 全量 CSS；下表按源码顺序排列 |
+| 基础样式段 | — | `:root` 令牌 / 布局 / 组件 / 顶栏 / 侧栏 / 封面网格 / 详情页 |
+| 二次精修层段 | `/* ═══ 二次精修层 ═══ */` | P1 令牌与排印 · P2 卡片微交互 · P3 液态玻璃 · P4 详情页阅读 |
+| 三次精修层段 | `/* ═══ 三次精修层 ═══ */` | P5 动效引擎 · P6 阅读进度条 · P7 液态玻璃 v2 · P8 骨架拟真 |
+| 四次精修层段 | `/* ═══ 四次精修层 ═══ */` | P9 排印留白 · P10 形状统一 · P11 液态玻璃 v2 · P12 微交互 |
+| 五次精修层段 | `/* ═══ 五次精修层 ═══ */` | R13 全设备响应式适配层（390/768/1440/1920/2560） |
+| 六次精修层段 | `/* ═══ 六次精修层 ═══ */` | P13 留白节奏 · P14 微交互精修 · P15 液态玻璃 v3 · P16 骨架与空态 v3 |
+| 七次精修层段 | `/* ═══ 七次精修层 ═══ */` | P17 深色主题（`html[data-theme="dark"]` 作用域）· P18 科技质感 · P19 技术债 |
+| 八次精修层段 | `/* ═══ 八次精修层 ═══ */` | P21 令牌扩展 · P22 Toast · P23 漂浮几何视差 · P24 前轮遗留 |
+| 锚点 grep `响应式补齐层` | 多行注释块 + `关于板块层` | R14 触控适配 + 关于板块 CSS（R19 起仅社交/微信） |
+| 锚点 grep `UI 细节清零层` | 起＝多行注释块「UI 细节清零层 · R15」；止＝单行 `… UI 细节清零层 · R15:END …`（L1237） | R15 UI 细节清零层（FAQ 间距 / 尾部边距 / 移动端层叠修复） |
+| L1239–1311 | `R18:BEGIN … R18:END` | R18 一级首页层（`#lp-nav` 毛玻璃导航 / hero / 滚动淡入 / 暗色与降级） |
+| L1313–1345 | `R19:BEGIN … R19:END` | R19 一级首页聚焦层（`.lp-dl` 下载区块 / `.gate-back` / 图标贴片） |
+| L1346–1399 | `R21:BEGIN … R21:END` | R21 收纳与动效层（hero 弹性满屏 / `.lp-dl-btn`+`.lp-dl-menu` / `.r21-*` 按压回弹与涟漪 / 矮视口压缩） |
+| L1400–1414 | `R25:BEGIN … R25:END` | R25 按钮规范对齐层（双按钮 16px 圆角 / `.lp-cta` 线框化 / 内联图标） |
+| L1415–1444 | `R26:BEGIN … R26:END` | R26 导航液态玻璃层（高光扫动带 / `data-lg-tone` / `url(#lg-refract)` 声明对） |
+| L1445–1452 | `R27:BEGIN … R27:END` | R27 按钮动效扩面适配层（inline 锚点承载缩放与涟漪裁剪 / summary marker 防裁剪） |
+| L1453–1461 | `R28:BEGIN … R28:END` | R28 面板流体变换层（FLIP 屏蔽 / `.r28-ghost` 残影壳） |
+| L1462–1484 | `R29:BEGIN … R29:END` | R29 面板液态玻璃层（`.lp-dl-btn` 浅蓝 / 玻璃底 / 上缘高光带 / tone 覆写） |
+| L1485–1523 | `R31:BEGIN … R31:END` | R31 卡片三项视效层（3D 倾斜 / conic 环 / 呼吸背光） |
+| L1524–1529 | `R32:BEGIN … R32:END` | R32 GitHub 同步层（关于板块社交图标配色对齐软件仓库 README） |
+| L1530–1595 | `R34:BEGIN … R34:END` | R34 一级界面 Apple 发布会风格层（Inter 内嵌 / `--color-*` 语义 token / 四套 landing 配色主题） |
+| L1597–1617 | `R35:BEGIN … R35:END` | R35 全站 Apple 视觉延伸层（字体栈 / `--r-card` / 流式字号） |
+| L1618–1649 | `R36:BEGIN … R36:END` | R36 Apple 收尾层 + 中文字体子集化（Noto Sans SC 字体巨行在 L1632） |
+| L1650–1738 | `R37:BEGIN … R37:END` | R37 Bento Grid 便当布局层（底色令牌 / 面板让位 / 首卡跨 2×2 / 逐卡比例圆角 / 扁平化） |
+| L1739–2035 | `R38:BEGIN … R38:END` | R38 三态外观层（`data-look` / 排印 token / 面板与按钮外观） |
+| L2036–2121 | `R39:BEGIN … R39:END` | R39 苹果式排版阶梯层（`--type-*` / `--lh-*` / `--space-*` / 40em 行宽） |
+| L2122–2206 | `R40:BEGIN … R40:END` | R40 二级页小卡体系（`.pg-*` / `.lpx-*`） |
+| L2207–2319 | `R41:BEGIN … R41:END` | R41 卡片行尾整行详情面板层 |
+| L2320–2385 | `R42:BEGIN … R42:END` | R42 三卡迁移至二级页 + 顶部常驻 GitHub 入口 |
+| L2386–2396 | `R43:BEGIN … R43:END` | R43 软件图标层（`--app-icon` 单点内联 / 六处消费） |
+| L2397–2499 | `R45:BEGIN … R45:END` | R45 landing 暗底舞台色彩作用域收口 |
+| L2500–2530 | `R52-I18N-UI:BEGIN … R52-I18N-UI:END` | R52 六语语言选择器 UI（纯 SVG 触发器，无文本节点） |
+| L2532–2566 | `R52-I18N-RTL:BEGIN … R52-I18N-RTL:END` | R52 阿拉伯语 RTL 镜像层（`html[dir="rtl"]`） |
+| L2568–2574 | `R52-I18N-FONT:BEGIN … R52-I18N-FONT:END` | R52 按语种字体栈（Inter 子集外的字形回落系统字体） |
+| L2575–2652 | `R53-HOME-RHYTHM:BEGIN … R53-HOME-RHYTHM:END` | R53 一级首页布局节奏层（纯 CSS，作用域限 `.lp-root:has(.lpx-stats)`） |
+| L2653–2673 | `R54:BEGIN … R54:END` | R54 常驻导航主入口布局（`.lp-routes` / `.lp-actions` 分组） |
+| L2674–2685 | `R55:BEGIN … R55:END` | R55 常驻导航文字间距统一（七入口内容宽度 + 统一 padding 与字号） |
 
-### `<body>` 静态 HTML 骨架（L1515–L1539）
+### `<body>` 静态 HTML 骨架（L2688–2721）
 
 | 行号 | 元素 | 说明 |
 |------|------|------|
-| 1515 | `<body data-view="home">` | 静态初始值，JS 路由动态切换 `data-view`（首帧即被 `render()` 覆写） |
-| 1516–1525 | `<nav id="lp-nav">` | 一级首页毛玻璃导航（`LP-NAV:BEGIN/END` 注释对）：品牌 + 进入(`#/identity`)/下载/关于 + 主题按钮挂点（R19 起不再有教程/开发者直链） |
-| 1526–1535 | `<header id="topbar">` | 顶栏：汉堡菜单 `#burger` · Logo · 搜索框 `#searchwrap`（`.tut-only`）· 主题切换 `#themebtn`（JS 注入） |
-| 1536 | `<div id="mask">` | 侧栏展开时的半透明遮罩 |
-| 1537 | `<aside id="sidebar">` | 侧栏容器（内容由 JS `syncSidebar()` 动态填充） |
-| 1538 | `<main id="app">` | 主内容区（初始为骨架屏，JS `render()` 填充实际视图） |
+| 2688 | `<body data-view="home">` | 静态初始值，JS 路由动态切换 `data-view`（首帧即被 `render()` 覆写） |
+| 2690–2706 | `<nav id="lp-nav">` | 一级首页毛玻璃导航（`LP-NAV:BEGIN/END` 注释对 L2689–2707）。R54 起结构：`.lp-brand` + `.lp-links`（内含 `.lp-routes` 四条产品路由 + `.lp-actions` 三个主动作）+ `.lp-gh` GitHub 圆钮 |
+| 2708–2718 | `<header id="topbar">` | 顶栏：汉堡菜单 `#burger` · Logo · 搜索框 `#searchwrap`（L2711，`.tut-only`）· 主题切换 `#themebtn`（JS 注入） |
+| 2719 | `<div id="mask">` | 侧栏展开时的半透明遮罩 |
+| 2720 | `<aside id="sidebar">` | 侧栏容器（内容由 JS `syncSidebar()` 动态填充） |
+| 2721 | `<main id="app">` | 主内容区（初始为骨架屏，JS `render()` 填充实际视图） |
 
-### 主脚本路由与视图渲染（L1479–L2060）
+### 主脚本路由与视图渲染（R55 基线锚点）
 
-**路由入口**：`function render()`（L1826），监听 `hashchange`（~L1963），根据 `location.hash` 设置 `body[data-view]` 并渲染对应视图。未知 hash 一律回落 `landing`（一级首页）。
+**路由入口**：`function render()`（L3769），监听 `hashchange`（L3122），根据 `location.hash` 设置 `body[data-view]` 并渲染对应视图。未知 hash 一律回落 `landing`（一级首页）；landing 子页判定与 `lpTitles` 分发在 L3816 附近。
 
 | 视图 | data-view | 路由 hash | 渲染函数 / 行号 | 说明 |
-|------|-----------|----------|----------------|------|
-| L1 一级首页 | `landing` | `#/`（默认/未知回落） | `lpView()`（L1782）+ `render()` 内 landing 分支（~L1869） | R21 收纳型 Landing：hero（「资源下载」实心按钮+下拉面板 与 单一 CTA 同行，CTA → `#/identity`）+ 关于板块（`__aboutMount` 挂入 `[data-about-slot]`，仅社交/微信）+ 页脚；hero 弹性占满首屏，关于板块贴底免滚动 |
-| 身份选择门 | `identity` | `#/identity`（仅显式进入） | `render()` 内 ~L1840 | 用户/开发者选择门页 `.gate`（文档入口唯一收拢点）+ `.gate-back` 返回一级首页；不强制首访 |
-| L2 教程首页 | `home` | `#/tutorial` | `render()` 内 ~L1861 | 英雄区 + 封面网格，数据来自 `#tut-data`（原 `#/` 已降级至此） |
+|------|-----------|-----------|----------------|------|
+| L1 一级首页 | `landing` | `#/`（默认/未知回落） | `lpView()`（L3547）+ `render()` 内 landing 分支 | R21 收纳型 Landing：hero（「资源下载」实心按钮 + 下拉面板 与 单一 CTA 同行，CTA → `#/identity`）+ 核心能力 stats + 主要功能 6 卡 + 产品优势 3 卡（R41 起支持点卡行尾展开详情）+ 关于板块 + 页脚；hero 弹性占满首屏 |
+| L2（营销） | `landing` | `#/features`、`#/resonance`、`#/privacy`、`#/download` | `pgFeaturesView()` 等四页（L3627 起） | R40 建、R42 吸收三张大卡；统一走 `pgShell()`（L3610）+ `.pg-grid > .pg-card` |
+| L3（营销） | `landing` | `#/download/start` | `pgGettingStartedView()`（L3735） | R42 建的三级页「开始使用」；`pgShell` 可选尾参使返回链指向 `#/download` |
+| 身份选择门 | `identity` | `#/identity`（仅显式进入） | `render()` 内 identity 分支 | 用户/开发者双卡分流（`.gate`）+ `.gate-back` 返回首页；不强制首访 |
+| L2 教程首页 | `home` | `#/tutorial` | `render()` 内 home 分支 + `buildHomeGrid()`（L3235） | 英雄区 + 封面网格，数据来自 `#tut-data`（R46 起惰性解析） |
 | L3 连续阅读 | `all` | `#/all` | `render()` 内 | 全教程连续阅读模式 |
 | L3 模块页 | `module` | `#/<模块id>` | `render()` 内 | 模块概览 + 页面列表 + 相关模块 |
 | L4 详情页 | `page` | `#/<模块id>/<页面id>` | `render()` 内 | 面包屑 + 正文 + 上下翻页 |
-| L2 开发者工作台 | `dev` | `#/dev` | `renderDev()` → `devHome()`（L1623） | 开发者专属工作区，数据来自 `#dev-data` |
-| L3 开发者板块 | `dev` | `#/dev/<板块id>` | `devCat()` | 板块文档列表 + 过滤 |
-| L3+ 开发者子分类 | `dev` | `#/dev/<板块>/<子分类>` | `devGroup()` | 子分类文档组 |
-| L4 开发者文档详情 | `dev` | `#/dev/<板块>/<文档id>` | `devDocPage()` | 文档正文 + TOC |
+| L2 开发者工作台 | `dev` | `#/dev` | `renderDev()`（L3468）→ `devHome()`（L3349） | 开发者专属工作区，数据来自 `#dev-data` |
+| L3 开发者板块 | `dev` | `#/dev/<板块id>` | `devCat()`（L3378） | 板块文档列表 + 过滤 |
+| L3+ 开发者子分类 | `dev` | `#/dev/<板块>/<子分类>` | `devGroup()`（L3411） | 子分类文档组 |
+| L4 开发者文档详情 | `dev` | `#/dev/<板块>/<文档id>` | `devDocPage()`（L3431） | 文档正文 + TOC |
 
 **关键辅助函数**：
 
 | 函数 | 行号 | 用途 |
 |------|------|------|
-| `low()` / `esc()` | ~L1477 | 小写缓存 / HTML 转义 |
-| `wrapImgShells()` / `hydrateShells()` | ~L1480 | 图片壳包裹与 hydration |
-| `buildHomeGrid()` | L1516 | 构建首页封面网格 |
-| `getRole()` / `setRole()` / `pick()` | ~L1530 | 身份选择与记忆（`pick()` 选完跳 `#/dev` 或 `#/tutorial`） |
-| `syncSidebar()` | ~L1589 | 侧栏内容生成（用户/开发者两套） |
-| `crumbs()` | ~L1595 | 面包屑导航生成 |
-| `renderDev()` | ~L1742 | 开发者视图路由分发 |
-| `lpView()` / `lpEnhance()` | L1782 / L1810 | Landing 模板（R21：资源下载按钮+下拉面板 与 CTA 同行）/ 滚动淡入（IntersectionObserver，reduced-motion 降级） |
-| lp 导航「关于」处理器 | ~L1968 | `#lp-about-link`→`.about-sec` 平滑滚动（不写 hash）；`#lp-dl-link` 改由 R21-UI 块接管（滚动到按钮行并展开面板） |
-| `[data-role-pick]` 委托 | ~L1980 | 门页双卡点击 → `pick()` |
-| R21-UI 面板/动效引擎 | 2512–2636 | 下拉面板状态机（外点/Escape/选项点击/重渲 六路关闭 + 视口钳制）+ `pointerdown` 委托涟漪与按压回弹（SEL=L2521 `button,.lp-cta,.alllink,.pager a,.lp-dl-item` + R27 扩面 19 组（侧栏/面包屑/列表卡/quick/封面卡/板块卡/step/相关 chips/TOC/正文行内链接/logo/搜索联想），reduced-motion 全停） |
-| `R22-UI` 流体变换 / 滚动物理（**历史轮次，当前基线不含**） | — | R22/R23 高级动效（面板 FLIP + `.r22-ghost` 残影壳 + 全局滚动物理 + `__r22`/`__r23` 钩子）**不在当前基线**；仅作历史记录，回滚方式见文末「可回滚注释对标记汇总」与「精修区域标识 · R22/R23」 |
+| `setLang()` | L3018 | R52 语言切换（`nikki_lang`；非法语种显式返回 `false` 且不落任何状态） |
+| `low()` / `esc()` | L3202 / L3203 | 小写缓存 / HTML 转义 |
+| `ensureTut()` | L3188 | R46 惰性解析 `#tut-data`，填充 `MODS/ORDER/byId/modById`（`R46:BEGIN/END` L3181–3197） |
+| `wrapImgShells()` / `hydrateShells()` | L3205 / L3217 | 图片壳包裹与 hydration（R48 注入 `loading="lazy"` / `decoding="async"`） |
+| `buildHomeGrid()` | L3235 | 构建首页封面网格 |
+| `getRole()` / `setRole()` / `pick()` | L3263–3265 | 身份选择与记忆（`nikki_role`；`pick()` 选完跳 `#/dev` 或 `#/tutorial`） |
+| `buildUserSb()` | L3275 | R46 惰性构建用户侧栏 |
+| `syncSidebar()` | L3314 | 侧栏内容生成（用户/开发者两套） |
+| `crumbs()` | L3321 | 面包屑导航生成 |
+| `devHome()` / `devCat()` / `devGroup()` / `devDocPage()` | L3349 / L3378 / L3411 / L3431 | 开发者视图四层渲染 |
+| `renderDev()` | L3468 | 开发者视图路由分发 |
+| `lpThemeCls()` | L3509 | R36 landing 配色主题类恢复（`nikki_lp_theme`） |
+| `pgIcon()` / `lpFooterView()` | L3517 / L3536 | R40 十四枚内联 SVG 图标 / 页脚模板 |
+| `lpView()` | L3547 | Landing 模板（R21：资源下载按钮 + 下拉面板 与 CTA 同行） |
+| `pgShell()` | L3610 | R40 二/三级页外壳（可选尾参 `backHref` / `backText`） |
+| `pgDownloadView()` | L3707 | `#/download` 页面（R44 起右卡为「资源下载」面板逐字复用） |
+| `pgGettingStartedView()` | L3735 | `#/download/start` 三级页 |
+| `lpEnhance()` | L3753 | Landing 滚动淡入（IntersectionObserver，reduced-motion 降级） |
+| `render()` | L3769 | hash 路由总入口 |
+| `i18nTutApply()` | L4019 | R52 教程包合并（zh 下为空操作） |
+| `syncNav()` | L5388 | R40 二级页导航高亮（前缀匹配，剥 `@` 锚点） |
+| R21-UI 面板/动效引擎 | L4487–4611 | 下拉面板状态机（六路关闭 + 视口钳制）+ `pointerdown` 委托涟漪与按压回弹（R27 扩面 19 组），reduced-motion 全停 |
+| R45-UI 折叠配色入口 | L5682–5739 | 769–900px 档把四枚色点折成单枚 32px 圆钮 + 纵向浮层 |
 
 ### 可回滚注释对标记汇总
 
-> 「定位锚点」列为第 1 列注释对的 grep 定位标记（如 `grep -n "R25:BEGIN"`）；行号随后续轮次整体漂移，本表不维护现行绝对行号，历史绝对行号见各轮勘误（时点快照）。
+> 「定位锚点」列为第 1 列注释对的 grep 定位标记（如 `grep -n "R55:BEGIN"`）；行号随后续轮次整体漂移，历史绝对行号见各轮勘误（时点快照）。
 
 | 标记 | 定位锚点 | 回滚方式 |
 |------|------|----------|
@@ -335,16 +396,25 @@ gui-test-screenshots/ ← 审计截图归档（按轮次/日期分目录；**本
 | `<!-- R31C-UI:BEGIN -->` … `<!-- R31C-UI:END -->` | `R31C-UI:BEGIN` | 删除之间内容（`.gate-role` 注入 `.r31-ring`；残留 `<i>` 无样式无副作用） |
 | `<!-- R31A-UI:BEGIN -->` … `<!-- R31A-UI:END -->` | `R31A-UI:BEGIN` | 删除之间内容（3D 倾斜 + 弹簧回正引擎） |
 | `<!-- R31B-UI:BEGIN -->` … `<!-- R31B-UI:END -->` | `R31B-UI:BEGIN` | 删除之间内容（关于板块 Fluid Morph：QQ 面板 + 微信弹窗两实例） |
-| `/* R37:BEGIN */ … /* R37:END */`（CSS，L1639–1723） | `R37:BEGIN` | 删除之间内容（Bento Grid 层：`.wrap-home/.wrap-dev` 让位页面底、`.cover-grid/.mod-grid/.skel-grid/.quick-grid/.pagecards` gap 16px、`.sec-tip` 区块 24px、首卡跨 2×2 与 Hero 内部构图、`--r-bento` 消费点、去渐变描边与静置投影扁平化、`.dev-stats .stat b` 去渐变、暗色 `.ms-cover-ph`/`.stat`/`.skel-body` 配套、≥1440px 四列档、≤767px 解跨列）+ **另需还原两处就地令牌（本层唯一非纯追加项）**：L20 `--bg:#f4f6fa;` 与 L842 `--bg:#0f1420;--bd:#2a3244;--tx:#e8ecf4;--mut:#9aa6bd;--card:#161c2a;` |
-| `<!-- R37-UI:BEGIN -->` … `<!-- R37-UI:END -->`（JS，L3459–3514） | `R37-UI:BEGIN` | 删除之间内容（逐卡短边比例圆角：单 `ResizeObserver` + `rAF` 批量写内联 `--r-bento`，`clamp(16px, 0.07×min(宽,高), 34px)`，`#app` `MutationObserver` 重挂 + `isConnected` 显式 `unobserve` 释放）。删除后 CSS 侧 `var(--r-bento, var(--r37-r))` 自动回落 26px，**不破版**，故可与 CSS 层独立回滚 |
-| `/* R38:BEGIN */` … `/* R38:END */`（CSS，L1731–2027）+ `<!-- R38-UI:BEGIN -->` … `<!-- R38-UI:END -->`（JS，L3820–3973） | `R38:BEGIN` / `R38-UI:BEGIN` | 删除两个注释对之间内容；另还原两处非纯追加：`<html data-look="neutral">`（L2）与 head THEME 脚本的 `nikki_look` 读取；或整文件还原 `Meow Star Map 官网.backup-r38-20261027.html` |
+| `/* R37:BEGIN */ … /* R37:END */`（CSS，L1650–1738） | `R37:BEGIN` | 删除之间内容（Bento Grid 层：`.wrap-home/.wrap-dev` 让位页面底、`.cover-grid/.mod-grid/.skel-grid/.quick-grid/.pagecards` gap 16px、`.sec-tip` 区块 24px、首卡跨 2×2 与 Hero 内部构图、`--r-bento` 消费点、去渐变描边与静置投影扁平化、`.dev-stats .stat b` 去渐变、暗色 `.ms-cover-ph`/`.stat`/`.skel-body` 配套、≥1440px 四列档、≤767px 解跨列）+ **另需还原两处就地令牌（本层唯一非纯追加项）**：`--bg:#f4f6fa;` 与 `--bg:#0f1420;--bd:#2a3244;--tx:#e8ecf4;--mut:#9aa6bd;--card:#161c2a;` |
+| `<!-- R37-UI:BEGIN -->` … `<!-- R37-UI:END -->`（JS，L5158–5213） | `R37-UI:BEGIN` | 删除之间内容（逐卡短边比例圆角：单 `ResizeObserver` + `rAF` 批量写内联 `--r-bento`，`clamp(16px, 0.07×min(宽,高), 34px)`，`#app` `MutationObserver` 重挂 + `isConnected` 显式 `unobserve` 释放）。删除后 CSS 侧 `var(--r-bento, var(--r37-r))` 自动回落 26px，**不破版**，故可与 CSS 层独立回滚 |
+| `/* R38:BEGIN */` … `/* R38:END */`（CSS，L1739–2035）+ `<!-- R38-UI:BEGIN -->` … `<!-- R38-UI:END -->`（JS，L5215–5381） | `R38:BEGIN` / `R38-UI:BEGIN` | 删除两个注释对之间内容；另还原两处非纯追加：`<html data-look="neutral">` 与 head THEME 脚本的 `nikki_look` 读取 |
 | `/* R39:BEGIN … R39:END */`（CSS） | `R39:BEGIN` | 删除之间内容（苹果式排版阶梯层：`--type-*`/`--lh-*`/`--space-*`/`--measure-prose` 与 A–F 六组规则，纯 CSS 零 JS/DOM/文案）|
 | `/* R40:BEGIN … R40:END */`（CSS）+ `/* R40-VIEW:BEGIN … R40-VIEW:END */`（模板）+ `<!-- R40-UI:BEGIN … R40-UI:END -->`（JS） | `R40:BEGIN` / `R40-VIEW:BEGIN` / `R40-UI:BEGIN` | 删除三处注释对之间内容（`.lpx-*`/`.pg-*` 小卡体系、`pgIcon`/`lpFooterView`/`pgShell` 与四个二级页模板、`syncNav` 高亮脚本）+ 还原 `render()` 的 landing 子页判定与 `lpTitles` 分发 + 还原 `#lp-nav` 的 `.lp-nav-link` 四项 |
 | `/* R41:BEGIN … R41:END */`（CSS）+ `<!-- R41-UI:BEGIN … R41-UI:END -->`（JS） | `R41:BEGIN` / `R41-UI:BEGIN` | 删除两处注释对之间内容（卡片行尾整行详情面板：`.lpx-card-toggle`/`.lpx-detpanel`/`.lpx-det-*` 与惰性建面板脚本）|
-| `/* R42:BEGIN … R42:END */`（CSS）+ `/* R42-VIEW:BEGIN … R42-VIEW:END */`（模板） | `R42:BEGIN` / `R42-VIEW:BEGIN` | 删除两处注释对之间内容 + 还原 `lpView()` 三卡、`pgShell()` 签名与四页调用、`pgFeaturesView`/`pgResonanceView`/`pgDownloadView` 文案、`render()` 三处、R40-UI `syncNav()`、`LP-NAV` 与 `#topbar` 两处 markup；或整文件还原 `Meow Star Map 官网.backup-r42-20261101.html` |
+| `/* R42:BEGIN … R42:END */`（CSS）+ `/* R42-VIEW:BEGIN … R42-VIEW:END */`（模板） | `R42:BEGIN` / `R42-VIEW:BEGIN` | 删除两处注释对之间内容 + 还原 `lpView()` 三卡、`pgShell()` 签名与四页调用、`pgFeaturesView`/`pgResonanceView`/`pgDownloadView` 文案、`render()` 三处、R40-UI `syncNav()`、`LP-NAV` 与 `#topbar` 两处 markup |
 | `/* R43:BEGIN … R43:END */`（CSS）+ `<!-- R43-ICON:BEGIN … R43-ICON:END -->`（head link 对） | `R43:BEGIN` / `R43-ICON:BEGIN` | **非纯追加**：删除两处注释对之间内容 + **逐字还原六处 `📷` 图标字形**（`.lp-brand-mark`/`.lg-emoji`/`.sb-all`/`.q-emoji`/`.dev-actions .alllink`/`.gate-emoji`）+ 还原四探针的零外链口径（r37 S5/S5c、r38 S4、r39 S0、r42 A10a/A10a2）+ 还原 `tests/r37-baseline.json`（或直接从 `tests/r37-baseline.pre-r43.json` 取回） |
-| **无注释对**（R44 为 `pgDownloadView()` 内单行就地替换 → 11 行） | grep `"<h3>资源下载</h3>"`（全文件恰 1 处，且在 `pgDownloadView` 的 `.pg-grid.two` 内） | **非纯追加、零 CSS、零 JS 块**：把该 `<article>` 的 11 行整段还原为原单行 `    +'<article class="pg-card"><span class="pg-ico">'+pgIcon('spark')+'</span><h3>系统要求</h3><p>Windows 10 (1803+) / Windows 11，x64 架构。</p></article>'`（总行数 4865 → 4855）。详见「R44 勘误（20261101）」 |
-| `/* ═══ R45:BEGIN … R45:END ═══ */`（CSS，L2397–2499）+ `<!-- R45-UI:BEGIN … R45-UI:END -->`（JS，L4967–5024） | `R45:BEGIN` / `R45-UI:BEGIN` | **纯追加，两处注释对删尽即完全回滚，无任何不可追加项**：未动 `:root`/`.lp-root` 令牌定义、未动任何模板行与既有选择器、未新增 hex / 中文文案 / 动画、未重指派 `--lp-*-ink`/`--ac*`/`--bg`/`--card`（`--card`/`--bg` 仅在 `#lp-nav` 与 `#look-menu` 两个隔离作用域内新赋，不在 `.lp-root` 上）。R45-UI 对 R36-UI **只读不改**（复用其 `.lp-thdots` 产物，只加 `.is-open` 类、不搬迁不复制），故 R36 可独立回滚且 R45-UI 空转不破版。另删 `tests/r45_theme_scope_check.py`。详见「R45 勘误（20261101）」 |
+| **无注释对**（R44 为 `pgDownloadView()` 内单行就地替换 → 11 行） | grep `"<h3>资源下载</h3>"`（全文件恰 1 处，且在 `pgDownloadView` 的 `.pg-grid.two` 内） | **非纯追加、零 CSS、零 JS 块**：把该 `<article>` 的 11 行整段还原为原单行 `    +'<article class="pg-card"><span class="pg-ico">'+pgIcon('spark')+'</span><h3>系统要求</h3><p>Windows 10 (1803+) / Windows 11，x64 架构。</p></article>'`。详见「R44 勘误（20261101）」 |
+| `/* ═══ R45:BEGIN … R45:END ═══ */`（CSS，L2397–2499）+ `<!-- R45-UI:BEGIN … R45-UI:END -->`（JS，L5682–5739） | `R45:BEGIN` / `R45-UI:BEGIN` | **纯追加，两处注释对删尽即完全回滚，无任何不可追加项**：未动 `:root`/`.lp-root` 令牌定义、未动任何模板行与既有选择器、未新增 hex / 中文文案 / 动画、未重指派 `--lp-*-ink`/`--ac*`/`--bg`/`--card`（`--card`/`--bg` 仅在 `#lp-nav` 与 `#look-menu` 两个隔离作用域内新赋，不在 `.lp-root` 上）。R45-UI 对 R36-UI **只读不改**（复用其 `.lp-thdots` 产物，只加 `.is-open` 类、不搬迁不复制），故 R36 可独立回滚且 R45-UI 空转不破版。另删 `tests/r45_theme_scope_check.py` |
+| `/* ══ R46:BEGIN … R46:END ═══ */`（JS，L3181–3197） | `R46:BEGIN` | 删除之间内容（`ensureTut()` 惰性解析）+ 还原 `USER_SB` 为加载期 IIFE + 还原 4 处 R46 调用点（教程路由判定 / 侧栏 / 搜索 / `render()`） |
+| `<!-- I18N-DATA:BEGIN -->` … `<!-- I18N-DATA:END -->`（L2725–2733） | `I18N-DATA:BEGIN` | 删除之间内容（`#i18n-en/fr/es/ru/ar` + `#i18n-tut-en` 五个词典块）。**勿手改**：由 `python perf/tools/build_i18n.py --write` 重新生成 |
+| `<!-- I18N:BEGIN -->` … `<!-- I18N:END -->`（L2734–3150） | `I18N:BEGIN` | 删除之间内容（i18next 23.16.8 UMD 内嵌 + `window.__i18n` 引擎 + `T/TN` 别名 + `setLang()` + `i18nTutApply()` + `__i18n.boot()`）+ 还原主脚本 5 处挂点与 R38 `optsHtml/relabel`、R36/R45 的 `i18n:change` 监听 |
+| `/* ══ R52-I18N-UI:BEGIN … R52-I18N-UI:END ═══ */`（CSS，L2500–2530） | `R52-I18N-UI:BEGIN` | 删除之间内容（六语语言选择器 UI，纯 SVG 触发器） |
+| `/* ══ R52-I18N-RTL:BEGIN … R52-I18N-RTL:END ═══ */`（CSS，L2532–2566） | `R52-I18N-RTL:BEGIN` | 删除之间内容（阿拉伯语 RTL 镜像层） |
+| `/* ══ R52-I18N-FONT:BEGIN … R52-I18N-FONT:END ═══ */`（CSS，L2568–2574） | `R52-I18N-FONT:BEGIN` | 删除之间内容（按语种字体栈） |
+| `/* ══ R53-HOME-RHYTHM:BEGIN … R53-HOME-RHYTHM:END ═══ */`（CSS，L2575–2652） | `R53-HOME-RHYTHM:BEGIN` | 删除之间内容（一级首页布局节奏层，纯 CSS，**无任何不可追加项**） |
+| `/* ══════ R54:BEGIN … R54:END ══════ */`（CSS，L2653–2673） | `R54:BEGIN` | 删除之间内容 + **移除 `LP-NAV` 中 `.lp-routes` / `.lp-actions` 两个包裹 `div`**（保留其子节点原顺序），随后 `python perf/tools/build_site.py` 再生 `site/` |
+| `/* ══════ R55:BEGIN … R55:END ══════ */`（CSS，L2674–2685） | `R55:BEGIN` | 删除之间内容（R54 结构与行为自动恢复），随后再生 `site/` |
 
 ---
 
@@ -360,14 +430,17 @@ gui-test-screenshots/ ← 审计截图归档（按轮次/日期分目录；**本
 - **favicon**：`<head>` 内两枚 `data:` 内联 `<link>`（`rel="icon"` + `rel="apple-touch-icon"`）；这是全站仅有的 `<link>`，探针按「href 非 `data:` 者计 0」守零外链口径。
 - **不要新增的**：`assets/` 真实图片文件（破单文件自包含契约）、`og:image`（data: 抓不到、外链 img 会破 A10a）、`.gr-emoji`/`.ms-emoji`/`pgIcon()`/`.lp-tile`/`.ab-ic-*` 等**非软件图标**图形。
 
-### 主题切换机制
+### 主题与偏好机制
 
 - **存储**：`localStorage.nikki_theme`，值为 `light` / `dark` / `auto`（默认 `auto`，由 JS 实时同步 `prefers-color-scheme`；**`light` 态有意不设 `data-theme` 属性**，仅 dark 态设 `html[data-theme="dark"]`）。
 - **落点**：`html[data-theme]` 属性；深色样式仅通过 `html[data-theme="dark"]` 作用域定义。
 - **防闪烁**：`<head>` 顶部内联 `<script>`（`THEME:BEGIN` / `THEME:END` 注释对之间），首帧前同步解析并设置属性。
 - **回滚**：删除 `THEME:BEGIN`…`THEME:END` 注释对之间内容 + R7 深色样式分区 + THEME-UI 块。
 - **外观偏好（R38）**：`localStorage.nikki_look` = `neutral`（默认）/`color`/`plain`，落点 `html[data-look]`；与 `nikki_theme`、`nikki_lp_theme` 独立；plain 压过 landing 主题并隐藏配色圆点。触发器为 topbar / lp-nav / identity 三处纯图标按钮 + 单一隐藏菜单；回滚见「R38 勘误」。
+- **身份偏好**：`localStorage.nikki_role`（`user` / `dev`），门页 `pick()` 写入。
+- **语言偏好（R52）**：`localStorage.nikki_lang`，取值 `zh` / `en` / `fr` / `es` / `ru` / `ar`（默认 `zh`）；落点 `html[lang]` + `html[data-lang]` + `html[dir="rtl"]`（仅阿拉伯语）。判定链 `__i18nPin > ?lang= > localStorage.nikki_lang > navigator.languages > zh`；`__i18nPin` 专供探针确定性钉 `zh`（Chromium 默认 en-US，否则 7 支既有探针基线会成片失配）。非法语种显式回落 `zh` 且 `setLang()` 返回 `false`、不落任何状态（**不得谎报成功**）。语言切换**不新增路由**。
 - **landing 色彩作用域铁律（R45 起，新增 landing 板块必读）**：`lp-theme-energy` / `lp-theme-deep` 会把 landing 底刷成**暗底**（`body::before` 是 `position:fixed` 的视口渐变，`#0B0C10→#181A22` / `#024F97→#1D6EB6`）。新板块若直接写 `--tx`/`--mut`/`--bd`/`--card`/`--ac`，在暗底上会掉到 **1.1–1.8:1**（R40–R44 首轮即此不可读）。正确姿势：文字与表面一律走 `.lp-root` 上已翻好的继承令牌（`color:var(--tx)` / `background:var(--card)`），或走 landing 墨口 `--lp-eyebrow-ink`/`--lp-sub-ink`/`--lp-foot-ink`/`--lp-ac-ink`（`--lp-ac-ink` 默认 `var(--ac)`，浅态零差异）。**卡片表面须与 `.about-sec` 同值**才能算「与原有板块统一」，可证形式见 r45 E3（六者 computed 全等）。两条硬约束：① **不要**在 `.lp-root` 上翻 `--card`/`--ac`/`--ac-soft`（`.lp-dl-btn` 的 `#8ecbff`/`#0b2e4f` 与 `.lp-cta{background:var(--ac)}` 被 r20/r25/r29 精确断言占用）；② `#lp-nav` 与 `#look-menu` **都在 `.lp-root` 之外**（分别是 body 直接子节点、body 挂载浮层），够不着祖先翻转，须各自单点覆写（N1/M1），且 `:has(.lp-root…)` 是关系选择器、不是祖先作用域。`plain` 态下 `.lp-theme-*` 类**仍在** `.lp-root` 上，任何暗底适配规则都必须带 `:not([data-look="plain"])` 才不推翻 R38 的 plain 组。
+- **R53 landing 布局作用域（R53 起，新增 landing 板块必读）**：R53 的排版节奏规则挂在 `body[data-view="landing"] #app .lp-root:has(.lpx-stats)` 上——**只有带 stats 区块的一级首页命中**，四个二级页走 `.pg-*` 体系不命中。给一级首页加新区块时，若希望它跟随 R53 的留白与栅格，须确认该区块所在视图仍带 `.lpx-stats`；否则会因选择器不匹配而完全不受 R53 影响。
 
 ### 五级界面架构（R21 起收拢入口）
 
@@ -375,7 +448,7 @@ gui-test-screenshots/ ← 审计截图归档（按轮次/日期分目录；**本
 
 | 层级 | data-view 值 | 路由 | 说明 |
 |------|-------------|------|------|
-| L1 | `landing` | `#/` | 一级首页，**聚焦「关于 + 下载」**：hero（「资源下载」实心按钮 + 下拉面板（三网盘项）居 CTA 左侧，CTA → `#/identity`）+ 核心能力 stats + 主要功能 6 卡 + 产品优势 3 卡（R41 起支持点卡行尾展开详情）+ 关于板块（首屏底部免滚动）+ 页脚；隐藏顶栏/侧栏，显示 `#lp-nav`（功能/共鸣录/隐私/下载 四个二级页直链 + 进入/下载/关于 + **R42 新增 `.lp-gh` GitHub 圆钮**）；**不再有任何教程/开发者直链，无独立下载区块**；R42 起三张整宽大卡（产品介绍 / 共鸣录横幅 / 开始使用）已迁往二级页 |
+| L1 | `landing` | `#/` | 一级首页，**聚焦「关于 + 下载」**：hero（「资源下载」实心按钮 + 下拉面板（三网盘项）居 CTA 左侧，CTA → `#/identity`）+ 核心能力 stats + 主要功能 6 卡 + 产品优势 3 卡（R41 起支持点卡行尾展开详情）+ 关于板块（首屏底部免滚动）+ 页脚；隐藏顶栏/侧栏，显示 `#lp-nav`；**不再有任何教程/开发者直链，无独立下载区块**；R42 起三张整宽大卡（产品介绍 / 共鸣录横幅 / 开始使用）已迁往二级页；R53 起本层受 `R53-HOME-RHYTHM` 排版节奏层约束（作用域限 `.lp-root:has(.lpx-stats)`） |
 | L2（营销） | `landing` | `#/features`、`#/resonance`、`#/privacy`、`#/download` | R40 建的四个产品介绍二级页，`view` 仍为 `landing`（共用 `#lp-nav` 与 `.pg` 的 92px 顶部留白），仅模板与 `document.title` 分流；统一走 `pgShell` + `.pg-grid > .pg-card` 小卡体系，**R42 起页内零大卡** |
 | L3（营销） | `landing` | `#/download/start` | R42 建的三级页「开始使用」，承载版本 / 系统要求 / 三步 / FAQ；`pgShell` 可选尾参使返回链指向 `#/download` 而非首页 |
 | 门页 | `identity` | `#/identity` | 身份选择门 = 文档入口唯一收拢点（用户/开发者双卡分流），隐藏顶栏与侧栏；仅显式进入，不强制首访；`.gate-back` 可返回 L1 |
@@ -385,20 +458,38 @@ gui-test-screenshots/ ← 审计截图归档（按轮次/日期分目录；**本
 
 开发者视图额外通过 `body[data-view="dev"]` 切换紫色令牌（`--dvc` 系列变量）。
 
+**常驻导航结构（R54 / R55）**：`#lp-nav` = `.lp-brand` + `.lp-links`（内含 `.lp-routes` 四条产品路由 + `.lp-actions` 三个主动作「进入 / 下载 / 关于」）+ `.lp-gh` GitHub 圆钮。R54 起产品路由独立横滑、三个主动作独占剩余宽度；R55 起七个文字入口统一为内容宽度（`flex:0 0 auto` + `padding-inline:2px` + `white-space:nowrap`，基础 13.5px、≤560px 12.5px），组间 gap 用 `clamp(8px,1.25vw,22px)`、≤400px 收至 4px。三个主动作**不**加 `.lp-nav-link` 类，以免被 `syncNav()` 当作路由项。
+
+**六语覆盖（R52 起）**：营销侧（L1 + 五个二/三级页 + 页脚 + 关于 + `#lp-nav` + 下载面板 + 配色/外观/主题 + 卡片详情）为 zh/en/fr/es/ru/ar 六语；工作区侧（身份门 / 教程族 / 开发者页框）只有 zh/en，其余语种回落英文并给出一行双语通告（`notice.bi`）；**开发者文档库正文永久不译**。
+
 ### 响应式断点
+
+（下列为源文件中实际存在的媒体查询，20261126 按 `grep "@media"` 全量核对。）
 
 | 断点 | 用途 |
 |------|------|
 | `≤ 1100px` | 开发者文档布局单列化，TOC 隐藏 |
-| `≤ 900px` | R19 下载卡三列 → 单列（R21 起卡片已收拢为下拉面板，该规则仅剩回滚价值） |
-| `≤ 960px` | 侧栏收起为汉堡菜单，封面网格 2 列 |
+| `≤ 960px` | 侧栏收起为汉堡菜单，封面网格 2 列；R53 在 `641–960px` 档改 2 列 stats / 卡片栅格 |
+| `≤ 900px` | R19 下载卡三列 → 单列（R21 起已收拢为下拉面板，仅剩回滚价值）；R42 起隐藏 landing 配色色点行 |
 | `≤ 768px` | Landing hero 收紧（R18/R21） |
-| `≤ 720px`（高度） | R21 矮视口首屏再压缩（hero/about/foot 留白收紧，保关于板块一屏可见） |
+| `≤ 767px` | R37 单列档复位 `grid-column:auto`（否则 `span 2` 撑出隐式轨道把卡片压成 2px 宽） |
+| `≤ 720px`（高度） | R21 矮视口首屏再压缩；R53 在矮视口收紧 hero / 关于 / 页脚留白 |
+| `≤ 640px` | R42 隐藏重复的 `#lp-dl-link` 下载按钮；R53 在此档改 1 列卡片栅格；R54/R55 在此档让 `.lp-actions` 按内容宽度排布 |
 | `≤ 600px` | 封面网格单列 |
-| `≤ 560px` | 顶栏紧凑模式，骨架屏单列，lp-nav 紧凑；R21 双按钮紧凑与关于板块压缩 |
-| `prefers-reduced-motion` | 全局禁用动画（R21 涟漪/回弹、R22 FLIP/残影/滚动物理在 JS 层也直接跳过或整体停用） |
+| `≤ 560px` | 顶栏紧凑模式、骨架屏单列、lp-nav 紧凑；R55 在此档把七个文字入口字号降至 12.5px |
+| `≤ 480px` | 更窄档的补充压缩 |
+| `≤ 400px` | R54 在此档把导航 gap 收到 4px、品牌 `flex-basis` 收到 104px |
+| `≥ 641px` | R54 三个主动作严格三等分（R55 改为内容宽度） |
+| `769–900px` | R45 折叠配色入口圆钮的生效档（R42 曾把色点隐藏档扩到 ≤900px，致该档一度无配色入口） |
+| `≥ 961px` | R53 大屏档：区块宽 `min(1440px, 100% − 64px)`、导航内边距按视口居中 |
+| `≥ 1024px` / `≥ 1101px` | 开发者文档宽屏布局 |
+| `≥ 1440px` | R37 四列 Bento 档（9 卡 = 4+8 = 12 格铺 3 行零空洞） |
+| `≥ 1920px` | 超宽屏补充档 |
+| `prefers-reduced-motion` | 全局禁用动画（R21 涟漪/回弹、R22 FLIP/残影、GSAP 入场在 JS 层也直接跳过） |
+| `prefers-reduced-transparency` | 玻璃层降级（R26 起导航两栏经 `@supports` 豁免） |
+| `pointer:coarse` / `hover:hover` | 触屏与精确指针分支（R31 倾斜、玻璃高光、涟漪） |
 
-审计覆盖视口：390 / 768 / 1440 / 1920 / 2560 px。
+审计覆盖视口：390 / 768 / 1440 / 1920 / 2560 px；R51/R54 另覆盖 360 / 390 / 640 / 641 / 850 / 1440 等宽度。
 
 ## 精修区域标识
 
@@ -411,46 +502,57 @@ CSS 中以注释分隔符标记各精修层，格式为 `/* ═══ 第N次精
 - **R7**：深色主题分区（`html[data-theme="dark"]` 作用域）
 - **R8 / R14 / R15**：后续响应式与交互精修轮次
 - **R18**：一级首页层（`R18:BEGIN/END` 注释对，`#/` Landing + `#lp-nav`；配套 `LP-NAV:BEGIN/END` HTML 块与 `render()` landing 分支）
-- **R19**：一级首页聚焦层（`R19:BEGIN/END` 注释对；下载剥离为 `.lp-dl` 独立区块、文档入口收拢至 `#/identity` 门页、`.gate-back`；关于板块 `.about-dd*` 下载下拉已删）
-- **R21**：一级首页收纳与全局按钮动效层（`R21:BEGIN/END` CSS + `R21-UI:BEGIN/END` JS 注释对；`.lp-dl` 三卡收拢为 hero 内「资源下载」实心按钮+下拉面板、hero 弹性满屏使关于板块首屏贴底、全局按钮按压回弹 `r21-press/r21-pop` 与坐标涟漪 `r21-rip`；注意 `.lp-cta-row` 需 `z-index:31` 压过 about 卡，否则 g-ok 填充动画的层叠上下文会盖住面板）
-- **R22**（历史轮次，**当前基线不含**）：高级动效层（`R22:BEGIN/END` CSS（L1394-1423）+ `R22-UI:BEGIN/END` JS 注释对（L2625-2938）+ enhance() 内 R22 对（L2204-2210）；① 资源下载按钮→面板 GSAP FLIP 流体变换（开启 `power4.out` 0.55s，关闭 `.r22-ghost` 残影壳 0.32s 且**不延迟 `hidden` 翻转**，MutationObserver 零侵入监听 R21 状态机）② `.lp-cta` conic 旋转描边（`@property --r22-ang`，伪元素实现，**不动按钮本体**以保全 r20 精确色值断言）+ `::after` 呼吸背光 ③ 全局滚动物理：滚轮全程阻尼接管 + 顶/底橡皮筋（`#app` translateY）+ 速度吸附语义锚点，iOS/reduced-motion 整体停用，内层滚动容器与键盘/滚动条放行 ④ enhance() 弹簧级联 `elastic.out(1,0.72)`；调试钩子 `window.__r22`）
-- **R23**（历史轮次，**当前基线不含**）：R22 深化轮（**无独立注释对**，全部改动位于 R22 块内部并带 `/* R23 */` 行级标记；R22 整体回滚会一并移除 R23，单独撤销=还原带标记行）：① 残影壳补间 transform 化（`playClose()` 几何定格 + `will-change`，消除逐帧 layout；圆角非均匀缩放轻微椭圆化为已知取舍）② lastRect 时效加固（`fonts.ready` + `#lp-dl-wrap` ResizeObserver → `scheduleRect()`，经 watchMenu 重挂链路复用）③ 底边橡皮筋 `.doc-toc` sticky 冻结（`tocFix()` 以父网格行顶为参照判定 sticky 生效中 → `setPull()` 写 `-appY` 反向位移，`clearOv()` 清理；**sticky 在 transform 祖先下仍生效但被画布带跑，非跳自然流位；sticky 元素自身 offsetTop 已含位移不可作参照**；toc 仅 ≥1366px 视口且仅开发文档详情页渲染）④ 手感参数收拢 `CFG={vThresh,projMs,sessMs,snapTolVh,noUndo,ovMax,rubWheel,rubTouch}`（默认=R22 现值，行为零变化）+ `window.__r23={ver:'r23.0',cfg,setCfg}`（`__r22` 契约不变，r22 探针零回归）⑤ iOS 轻吸附评估维持现状（scrollTo 会打断原生 momentum）；测试 `tests/r23_refine_check.py`（18 项，端口 8662；CLS 断言与 r22 同口径——教程详情页导航存在既有侧栏 CLS 位移，改前后逐位一致，与轮次无关）
-- **R25**：一级首页按钮规范对齐层（`R25:BEGIN/END` CSS 注释对 + `lpView()` 两处按钮模板内联 SVG 图标；① `.lp-cta`/`.lp-dl-btn` 圆角 `var(--r-md)`=16px 圆角矩形 ② `.lp-cta` 线框化：透明底 + `inset 0 0 0 1.5px var(--ac)` 描边环（非文字 3:1 达标），文字亮色用 `--ac-deep`（对 `--bg` 5.3:1 ≥4.5）、暗色用 `--ac`（5.9:1），hover 填 `--ac-soft` ③ Feather v4.29.2（MIT）内联 SVG 图标：资源下载=download、选择身份进入=user，`aria-hidden`，20px（≤560px 18px）`flex-shrink:0`；r20_icons_cta_check.py 口径已同步（实心断言转移至 `.lp-dl-btn`，新增线框/圆角/图标/等高断言，截图目录 r25-20261003））
-- **R26**：导航液态玻璃 + 按钮箭头清理 + 动效扩面层（`R26:BEGIN/END` CSS 注释对 + `R26-SVG:BEGIN/END`（`filter#lg-refract`＝feTurbulence+feDisplacementMap scale14）+ `R26-UI:BEGIN/END`（rAF 滚动脚本）；① 两按钮删除尾部箭头：`.lp-dl-chev`（▾）与 `.lp-go`（→）span 及其 CSS（R21 reduced-motion 清单同步去掉 `.lp-dl-chev`），左侧 download/user 功能图标保留，面板内 `.lp-dl-go` 保留 ② `#topbar`/`#lp-nav` `::after` 边缘高光扫动带（1.5px 渐变，`background-position-x:var(--lg-x)`＝8%+滚动进度×84%，暗色减淡）③ 轻微折射：`backdrop-filter:url(#lg-refract) blur() saturate()` 声明对（blur 在前 url 在后，不支持 url() 的引擎整条丢弃自动回退纯模糊；Chromium 系生效）④ `data-lg-tone` 亮度自适应：R26-UI 于导航下沿 5 点 `elementsFromPoint` 找首个不透明背景（渐变取首色标）→ 相对亮度均值 + 滞回 0.45/0.55 → 写 tone；CSS 经作用域令牌（`--tx/--mut/--bd`）+ 玻璃底色覆写适配子元素；`html[data-theme]`/`body[data-view]` MutationObserver 即时重算，门页清残留 tone ⑤ **能力判断豁免透明度偏好**：本机 `EnableTransparency=0` → `prefers-reduced-transparency` 恒激活，导航两栏改用 `@supports (backdrop-filter…)` 门控压过 P11 实底降级（仅两栏豁免，其余玻璃面维持 P11 行为）⑥ R21 SEL 补 `.lp-dl-item`（网盘下拉三项涟漪回弹）；测试 `tests/r26_nav_glass_check.py`（23 项，端口 8663），截图目录 r26-20261003）
-- **R27**：三/四级页+正文链接按钮动效扩面层（`R27:BEGIN/END` CSS 注释对 + R21-UI `SEL` 扩面一行，**JS 逻辑零改动**；① `SEL` 追加 19 组选择器：侧栏五类 `.sb-home/.sb-all/.sb-modlink/.sb-grp/.sb-pages a`、面包屑 `.crumbs a`、列表卡 `.pagecard`、快捷入口 `.quick`、L2 顺带 `.ms-card/.mod-card/.step`、相关 chips `.rel a/.mod-rel a`、开发者 TOC `.doc-toc a/.doc-toc-m a/.doc-toc-m summary`、正文行内链接 `.page-body a`（含 `.d-anchor`）、顶栏 `#topbar .logo`、搜索联想 `#searchdrop .sr`（`<button>` 类历轮已全局生效，本轮补齐的是链接式控件）② CSS 仅两行：inline 锚点转 inline-block（`transform`/`overflow:hidden` 在 inline 上无效）+ summary `list-style-position:inside` 防 `overflow:hidden` 裁掉默认折叠三角 ③ 引擎三路挂载已覆盖动态内容：`scan()`（初始）/`#app` MutationObserver（重渲）/pointerdown 兜底（侧栏与搜索联想在 `#app` 外走兜底路径）④ 需求与 R21 引擎逐字吻合：press `scale(.95)` → pop 0.38s `cubic-bezier(.34,1.56,.64,1)` 先过冲 1.05 再回 1；涟漪 `clientX/Y−getBoundingClientRect()` 精确波心、键盘 Enter/Space 降级中心波 ⑤ 已核实 `#topbar` 为 flex（`.alllink`/`.logo` 是 flex item 已块化，无需适配）、正文容器 `.page-body` 四处（教程详情/连续阅读/模块概览/开发者文档）；测试 `tests/r27_buttons_check.py`（75 项，端口 8664），截图目录 r27-20261003）
-- **R28**：面板流体变换层（`R28:BEGIN/END` CSS 注释对 + `R28-UI:BEGIN/END` JS 注释对，**R21 状态机零改动**，需求=Orange OS 7「从哪里来回哪里去」；① 开启=MutationObserver 监听 `#lp-dl-menu[hidden]` 翻转后真面板 FLIP：`transformOrigin:'0 0'` 手写反演（非钳制 `xPercent:-50`、clampMenu 钳制 `xPercent:0` 双分支），自按钮矩形+按钮圆角+opacity .55 补间至面板位，`power4.out` 0.55s，终态 clearProps 还原样式表基态；选项 `.lp-dl-item` y:10/opacity:0 级联 delay .08 stagger .05 ② 关闭=hidden 同步翻转零延迟（r19 探针口径不变）+ `.r28-ghost` 残影壳（面板 rect 几何定格+缓存背景/边框/圆角/阴影，rAF+scroll/resize 刷新 lastRect）`power3.in` 0.32s 缩回按钮位（圆角同步过渡）自删，z29 压在按钮行 z31 之下呈「吸收」感 ③ 打断：开启中途关闭/resize→`snapEnd()` 瞬收清内联残留（尊重 clampMenu `transform:none`，无壳——无连续几何起点）；路由重渲→`#app` childList observer `rebind()` 重抓重挂+清壳 ④ 降级：无 GSAP 不挂 `html.r28-on` 回退 lpMenuIn；reduced-motion JS 整体跳过+CSS 壳 display:none 兜底 ⑤ `window.__r28={ver:'r28.0',cfg:{durOpen,durClose,openOp,closeOp,itemY,itemSt},stats:{morphOpen,ghost}}` 钩子；已知取舍：残影壳非均匀缩放圆角轻微椭圆化（R23 同款）、壳不含文字、中段打断瞬收；测试 `tests/r28_panel_flip_check.py`（24 项，端口 8665），截图目录 r28-20261003；r26 探针按压取证段同步加 900ms 静置（FLIP 期面板非静止位））
-- **R29**：面板液态玻璃层（`R29:BEGIN/END` CSS 注释对 + `R29-UI:BEGIN/END` JS 注释对 + lpView() 模板移动云盘 href 单行替换，**R21 状态机与 R28 FLIP 零改动**；① `.lp-dl-btn` 浅蓝化：`#8ecbff` 底 + `#0b2e4f` 深藏青字（线性化 WCAG ≈8:1），hover `#79bffb`，亮暗主题同色，几何/内联图标（stroke=currentColor 自动跟随）零改动 ② `.lp-dl-menu` 液态玻璃：复用 R26 设施——`@supports` 门控内半透明底（亮 `rgba(255,255,255,.55)`/暗 `rgba(22,28,42,.58)`）+ `backdrop-filter` 声明对（`blur(20px) saturate(170%)` 在前、`url(#lg-refract) blur(20px) saturate(170%)` 在后，不支持 url() 的引擎整条丢弃回退纯模糊；滤镜 `#lg-refract` 为 R26-SVG 既有，零新增 SVG）+ `::after` 上缘高光带（1.5px 渐变，`left/right:var(--r-lg)` 内缩避 22px 圆角外溢，`background-position-x:var(--lg-x,50%)`）+ `data-lg-tone` 令牌覆写（`--tx/--mut/--bd/--ac/--ac-soft`，亮暗 tone × 亮暗主题四组合镜像 R26 层令牌覆写段）③ R29-UI 克隆 R26-UI 机制换宿主 `#lp-dl-menu`：`bgLumAt`（elementsFromPoint 首个不透明背景，跳过菜单自身与 `.r28-ghost`；**亮度口径=通道加权均值/255 伽马空间非线性化 RL，#808080≈0.50 落滞回带**）底缘下 8px 五点采样、滞回 0.45/0.55 写 tone；`--lg-x = 8%+滚动进度×84%`；hidden 翻转 MO 触发——开启瞬间 R28 FLIP 中段几何非静止故**先只更新 lg-x，680ms 后补采静止位 tone**，scroll/resize/theme/view MO 常规触发；try/catch 静默降级 ④ reduced-motion：玻璃为静态 CSS 保留（R26 同口径），FLIP/lpMenuIn 既有跳过逻辑不动；`prefers-reduced-transparency` 沿用 R26 豁免口径（本机 EnableTransparency=0 恒激活）⑤ 已知取舍：R28 ghost 残影壳复制 computed 半透明底但无 backdrop-filter（残影阶段无折射，既有降级路径）；移动云盘 href 更换为 `https://yun.139.com/shareweb/#/w/i/2xTrLAojYVTme/*z9yB02Re7uUB:/`（与旧链同构格式，r15/r18/r19 的 `yun.139.com` 子串断言不受影响）；r20 探针两行色值断言同步（亮暗均 rgb(142,203,255)/rgb(11,46,79)）；测试 `tests/r29_panel_glass_check.py`（28 项，端口 8666），截图目录 r29-20261003；**HTML 注释禁 `--` 坑二次确认（R29-UI 注释写 lg-x 不写 --lg-x，w3c 探针归零）**）
+- **R19**：一级首页聚焦层（`R19:BEGIN/END` 注释对；下载剥离为 `.lp-dl` 独立区块、文档入口收拢至 `#/identity` 门页、`.gate-back`）
+- **R21**：一级首页收纳与全局按钮动效层（`R21:BEGIN/END` CSS + `R21-UI:BEGIN/END` JS；`.lp-dl` 三卡收拢为 hero 内「资源下载」实心按钮+下拉面板、hero 弹性满屏使关于板块首屏贴底、全局按钮按压回弹 `r21-press/r21-pop` 与坐标涟漪 `r21-rip`）
+- **R22**（历史轮次，**当前基线不含**）：高级动效层（GSAP FLIP 面板变换 + `.r22-ghost` 残影壳 + 全局滚动物理 + `__r22` 钩子）
+- **R23**（历史轮次，**当前基线不含**）：R22 深化轮（残影壳补间 transform 化 / lastRect 时效加固 / TOC sticky 冻结 / 手感参数收拢 `window.__r23`）
+- **R25**：一级首页按钮规范对齐层（`R25:BEGIN/END` CSS + `lpView()` 两处按钮模板内联 Feather SVG 图标）
+- **R26**：导航液态玻璃 + 按钮箭头清理 + 动效扩面层（`R26:BEGIN/END` CSS + `R26-SVG/BEGIN/END`（`filter#lg-refract`）+ `R26-UI/BEGIN/END`（rAF 滚动脚本））
+- **R27**：三/四级页+正文链接按钮动效扩面层（`R27:BEGIN/END` CSS + R21-UI `SEL` 扩面一行）
+- **R28**：面板流体变换层（`R28:BEGIN/END` CSS + `R28-UI:BEGIN/END` JS）
+- **R29**：面板液态玻璃层（`R29:BEGIN/END` CSS + `R29-UI:BEGIN/END` JS + lpView() 模板移动云盘 href 单行替换）
+- **R32**：关于板块社交图标配色同步层（`R32:BEGIN/END` CSS）
+- **R33**：品牌更名轮（209 处软件名替换为 Meow Star Map / 喵星图系；`localStorage` 键 `nikki_*`、`NikkiPhotos_*` 目录、`gongeo.us-nikki-tracker`、《无限暖暖》与角色引用**有意保留**）
+- **R34**：一级界面 Apple 发布会风格层（`R34:BEGIN/END` CSS：Inter 内嵌、`--color-*` 语义 token、四套 landing 配色主题）
+- **R35**：全站 Apple 视觉延伸层（`R35:BEGIN/END` CSS：字体栈、`--r-card`、流式字号）
+- **R36**：Apple 收尾层 + Noto Sans SC 中文字体子集化（`R36:BEGIN/END` CSS + `R36-UI:BEGIN/END` JS：四枚配色色点 + `nikki_lp_theme`）
+- **R37**：Apple 风格 Bento Grid 便当布局层（`R37:BEGIN/END` CSS + `R37-UI:BEGIN/END` JS；详见「R37 勘误（20261026）」全量口径）
+- **R38**：三态外观层（`R38:BEGIN/END` CSS + `R38-UI:BEGIN/END` JS：`html[data-look]` + `nikki_look`）
+- **R39**：苹果式排版阶梯层（`R39:BEGIN/END` CSS，纯 CSS 零 JS/DOM/文案）
+- **R40**：产品介绍二级页与 `.pg-*` / `.lpx-*` 小卡体系（`R40:BEGIN/END` CSS + `R40-VIEW:BEGIN/END` 模板 + `R40-UI:BEGIN/END` JS）
+- **R41**：卡片行尾整行详情面板层（`R41:BEGIN/END` CSS + `R41-UI:BEGIN/END` JS）
+- **R42**：三卡迁移至二级页 + 顶部常驻 GitHub 入口（`R42:BEGIN/END` CSS + `R42-VIEW:BEGIN/END` 模板）
+- **R43**：软件图标层（`R43:BEGIN/END` CSS + `R43-ICON:BEGIN/END` head link 对；六处 `📷` 就地替换）
+- **R44**：**无注释对**——`pgDownloadView()` 内单行就地替换为 11 行资源下载卡
+- **R45**：landing 暗底舞台色彩作用域收口（`R45:BEGIN/END` CSS + `R45-UI:BEGIN/END` JS）
+- **R46**：教程数据惰性解析（`R46:BEGIN/END` JS：主脚本内 `ensureTut()`）
+- **R47 / R48 / R49**：**只改载荷、不新增注释对**——R47 教程截图 PNG→WebP q90、R48 注入截图惰性解码（`loading="lazy"` + `decoding="async"`）、R49 Inter 可变字体子集化；详见「R46–R49 勘误」
+- **R50**：**只改载荷、不新增注释对**——单文件版无损 WebP + 多文件版 `site/` 架构；详见「R50 勘误」
+- **R51**：i18n 探针（无 CSS/JS 层，产出 `tests/r51_i18n_check.py` + `tests/i18n_pin.py`）
+- **R52**：六语国际化（`R52-I18N-UI/RTL/FONT` 三段 CSS + `I18N-DATA` 词典块 + `I18N` 运行时块）
+- **R53**：一级首页布局节奏层（`R53-HOME-RHYTHM:BEGIN/END` CSS，纯 CSS，作用域限 `body[data-view="landing"] #app .lp-root:has(.lpx-stats)`）
+- **R54**：常驻导航主入口布局（`R54:BEGIN/END` CSS + `LP-NAV` 结构新增 `.lp-routes` / `.lp-actions` 两层）
+- **R55**：常驻导航文字间距统一（`R55:BEGIN/END` CSS，七入口内容宽度 + 统一 padding 与字号）
 
-- **R37**：Apple 风格 Bento Grid 便当布局层（`R37:BEGIN/END` CSS 注释对 + `R37-UI:BEGIN/END` JS 注释对；详见「R37 勘误（20261026）」全量口径。要点速览：① 全站底色令牌就地换为 浅 `#F5F5F7`/`#FFFFFF` · 深 `#1D1D1F`/`#000000`；② **`.wrap-home`/`.wrap-dev` 让位 `var(--bg)`**，否则 `--bg` 仅 L22 一处消费而被白面板盖死、深色下面板与卡片同为 `#000` 不可辨（两条并列规则的特异度分别对齐 L520 与 L957，源码顺序获胜、零 `important`）；③ `.cover-grid` 与 `.mod-grid` 首卡跨 2 列 × 2 行（全文件首批 `grid-column/grid-row`；`:first-child` 恰为权重最高的真实入口卡，零新类名、零模板改动，R21 `SEL`/R31A `TILT`/GSAP 串原样生效；`≤767px` 必须解跨列，否则 1 列网格内 `span 2` 撑出 `2px 1112px` 隐式轨道把卡片压成 2px 宽）；④ 新增 `≥1440px` 四列档，Hero 占墙比 66%→49%，9 卡恰铺 3 行零空洞；⑤ 逐卡比例圆角 `clamp(16px, 0.07×min(宽,高), 34px)`，由 R37-UI 单 `ResizeObserver` + `rAF` 写内联 `--r-bento`，CSS `var(--r-bento, var(--r37-r))` 兜底 26px；系数由规范字面 18% 工程修正为 7%（18% 在实测短边 213–748px 会给到 15–135px、Hero 近胶囊）；⑥ 间距收敛 16px（压掉 L693 的 28px 与 L708 的 32px）+ `.sec-tip` 区块 24px；⑦ 两网格卡去 L973–976 双层渐变描边与静置投影、仅留 1px `--bd` 发丝边，hover 层级反馈复用既有 `translateY` + 强调色边框 + R31 conic 环，**零新增动画**；⑧ `.dev-stats .stat b` 去渐变以守「每页至多一处渐变文字」（须同时清 `background-image`/`background-clip`/`-webkit-text-fill-color`，否则数字因 `color:transparent` 隐形）。**零新增依赖、零外链不变量保持、DOM 零新增可见文案（故不触发 R36 Noto 子集化）**；测试 `tests/r37_bento_check.py`（file:// 协议、无端口；33 项 = 31 PASS / 0 FAIL / 2 NOT-RUN）；已知限制：标准单段圆弧 ≠ 连续圆角、卡面↔页面底差仅 1.09:1（浅）/1.25:1（深）无法与单一描边同达 WCAG 1.4.11 3:1（改造前既有发丝边亦 1.13:1，不引入新失效）
+每层可独立回滚：删除对应注释对之间的 CSS 块即可（**非纯追加的例外**：R37 两处令牌、R43 六处图标、R44 单行替换、R54 `LP-NAV` 两个包裹 `div`）。
 
-每层可独立回滚：删除对应注释对之间的 CSS 块即可（**R37 例外**：除删两个注释对外，还须还原 L20 与 L842 的两处令牌原文，它是本表唯一非纯追加的轮次）。
+## 快照与历史归档（现状）
 
-## 备份文件命名语义
+- **本工作树不含整文件快照目录**：`backups/`、`*.backup-*.html`、`gui-test-screenshots/` 都在 `.gitignore` 内。历史命名格式为
+  `Meow Star Map 官网.backup-<标记>-<日期>.html`（R25 起）或 `用户使用教程.backup-<标记>-<日期>.html`（R24 及之前），
+  快照实体存于父仓库 / 外部留存。**当前工作树没有快照**，故 R43 起各轮只能删注释对回滚，不能「还原整文件」。
+- **父仓库口径（仅作历史溯源，本工作树不存在）**：`p9`→P9精修、`r8`→R8精修、`r14`→R14全设备适配、`r15`→R15精修、
+  `r18`→R18一级首页与路由重构、`r19`→R19一级首页聚焦重构、`r21`→R21一级首页收纳与全局动效、`r22`→R22高级动效与交互、
+  `r23`→R23深化动效、`r25`→R25按钮规范对齐、`r26`→R26导航液态玻璃、`r27`→R27按钮动效扩面、`r28`→R28面板流体变换、
+  `r29`→R29面板液态玻璃与按钮浅蓝。这些轮次报告已于 2026-10-06 清理删除。
+- **一次性工作区**：`.i18n-tmp/`（R52 改造前的整文件备份 + 探针日志 + 一次性补丁脚本）已被 `.gitignore` 排除，
+  属可丢弃的临时产物，**不入库、不作为回滚依据**。
 
-`backups/`（精修快照目录，本工作树未纳入，快照存于父仓库 / 外部）下文件命名格式：
-
-```
-Meow Star Map 官网.backup-<标记>-<日期>.html   ← R25 起新源文件名前缀
-用户使用教程.backup-<标记>-<日期>.html          ← 旧源文件名（R24 及之前的历史快照）
-用户使用教程.r6.20260930.html
-```
-
-| 组成部分 | 含义 |
-|---------|------|
-| `backup-` | 通用快照前缀 |
-| `backup-<标记>-` | 精修轮次或功能标记（如 `p9`、`r8`、`r14`、`r15`、`r18`、`r19`、`r19icons`、`r21`、`r22`、`r23`、`r25`、`r26`、`r27`、`about`、`gui-audit`、`responsive`） |
-| `r6.` | 修订版本号前缀（旧格式） |
-| `YYYYMMDD` | 快照日期 |
-
-> 注：以下轮次报告名仅作标记溯源参考，**本工作树未纳入任何轮次报告**；其中 R25–R29 精修报告已于 2026-10-06 清理删除，早期报告（`p9`/`r8`/`r14`/`r15`/`r18`/`r19`/`r21`）亦不在本工作树，快照与报告存于父仓库 / 外部。
-
-标记与精修报告对应关系（历史溯源）：`p9` → P9精修报告、`r8` → R8精修报告、`r14` → R14全设备适配、`r15` → R15精修报告、`r18` → R18一级首页与路由重构报告、`r19` → R19一级首页聚焦重构报告、`r21` → R21一级首页收纳与全局动效报告、`r22` → R22高级动效与交互报告（历史）、`r23` → R23深化动效报告（历史）、`r25` → R25按钮规范对齐与工具链迁移报告（已清理删除）、`r26` → R26导航液态玻璃与按钮动效统一报告（已清理删除）、`r27` → R27三四级页按钮动效扩面报告（已清理删除）、`r28` → R28面板流体变换动效报告（已清理删除）、`r29` → R29面板液态玻璃与按钮浅蓝报告（已清理删除）。
-
-## 路由速查（R21 起）
+## 路由速查（R55 起）
 
 | Hash | 视图 | 说明 |
 |------|------|------|
-| `#/` | `landing` | 一级首页（关于+下载聚焦；唯一出口 = hero CTA / lp-nav「进入」→ `#/identity`；「资源下载」按钮展开三网盘下拉面板；未知 hash 也回落至此） |
+| `#/` | `landing` | 一级首页（关于+下载聚焦；唯一出口 = hero CTA / lp-nav「进入」→ `#/identity`；「资源下载」按钮展开三网盘下拉面板；未知 hash 也回落至此）。R54 起导航结构为 `.lp-routes`（四条产品路由）+ `.lp-actions`（进入 / 下载 / 关于）+ `.lp-gh` GitHub 圆钮 |
 | `#/features` | `landing` | 二级页「功能总览」（R40 建；R42 吸收产品介绍卡 → title/lead 即卡内两句 + §1 三张要点小卡） |
 | `#/resonance` | `landing` | 二级页「共鸣录」（R42 吸收共鸣录横幅卡；页尾残留大 banner 已拆为 h2 + pg-tip + pg-link） |
 | `#/privacy` | `landing` | 二级页「隐私与本地数据」 |
@@ -462,15 +564,18 @@ Meow Star Map 官网.backup-<标记>-<日期>.html   ← R25 起新源文件名�
 | `#/dev`、`#/dev/...` | `dev` | 开发者工作台（板块/子分类/文档） |
 | `#/identity` | `identity` | 身份选择门（L1 CTA / lp-nav「进入」/ 顶栏「切换身份」进入；门页含返回 L1 链接） |
 
-30.9MB 教程数据块内 47 处 `#/mX` 内链与路由前缀解耦，改动路由时**严禁触碰数据行**（`smoke.mjs` 以 SHA 冻结）。R50 起该块内 48 张截图改为无损 WebP，行长度由 30,924,428 变为 21,358,276（仅图片载荷变化）。
+教程数据块（`#tut-data`，行 L2723，21,358,276 字符）内的 47 处 `#/mX` 内链与路由前缀解耦，改动路由时**严禁触碰数据行**。
+R50 起该块内 48 张截图改为无损 WebP（行长度由 30,924,428 变为 21,358,276，仅图片载荷变化）；R52 起 `#tut-data` 与 `#dev-data` 长度逐位不变。
+
+> 语言切换走 `?lang=` 查询参数或 `localStorage.nikki_lang`，**不新增路由**；`html[lang]` / `html[data-lang]` 驱动文案与字体栈，`html[dir="rtl"]` 驱动阿拉伯语镜像层。
 
 > **R50 勘误（20261116）**：当前文件 = R49 基线 + **R50 性能/极速加载**（`性能/极速加载` 分支，从 `main` 新建）。两项交付：
 > **① 单文件版**：`#tut-data` 内 48 张 1400×900 截图由 PNG 换为**无损 WebP**（`lossless, method=6, exact`），图片载荷 22.09 → 15.25 MiB；整文件 34,547,054 → **24,980,902 B**（相对 main 的 34,851,151 降 28.3%）。只替换图片载荷：`#tut-data` 之外的 head/tail 逐字节相同、JSON 去载荷后深度等价、CRLF 计数 5058 / `</script>` 24 不变、48/48 解码后与 PNG **逐像素相同**、22 个 JS 块 `node --check` 通过、零外链不变量全等（link 2 data: / script src 0 / iframe 0 / 外链 img 0 / url(http) 0 / @font-face 2 / img 53 / style 1）。工具链：`perf/tools/{extract_shots,convert_shots,build_lossless}.py`。
-> **② 多文件版 `site/`（线上部署）**：首屏 `site/index.html` 1,186,206 B（1.13 MiB；字体与图标仍内联，保证 `file://` 可用），教程数据 69,450 B、开发者文档 2,088,814 B、48 张截图 15,991,294 B（按页 / `#/all` 也 lazy）、关于二维码 238,007 B（外置 + lazy）。教程/开发者数据改为 classic script 按需加载（非 fetch/module，file:// 不触发 CORS）；路由未就绪先渲染占位、加载完成自动重渲；入口 hover 与空闲时预取。实测（Chromium 147 headless，本地 HTTP，无压缩）：首屏传输 1.20 MiB vs 单文件 32.95 MiB（**27.5×**），FCP 112 vs 332 ms、DCL 226 vs 1036 ms；`#/all` 只请求 3/48 张图。工具链：`perf/tools/build_site.py`，报告 `perf/README.md`。
+> **② 多文件版 `site/`（线上部署）**：首屏 `site/index.html` 1,186,206 B（1.13 MiB；字体与图标仍内联，保证 `file://` 可用），教程数据 69,450 B、开发者文档 2,088,814 B、48 张截图 15,991,294 B（按页 / `#/all` 也 lazy）、关于二维码 238,007 B（外置 + lazy）。教程/开发者数据改为 classic script 按需加载（非 fetch/module，file:// 不触发 CORS）；路由未就绪先渲染占位、加载完成自动重渲；入口 hover 与空闲时预取。实测（Chromium 147 headless，本地 HTTP，无压缩）：首屏传输 1.20 MiB vs 单文件 32.95 MiB（**27.5×**），FCP 112 vs 332 ms、DCL 226 vs 1036 ms；`#/all` 只请求 3/48 张图。工具链：`perf/tools/build_site.py`；报告口径已并入本文件「R50 勘误」与根 `README.md`「性能与构建工具链」（原 `perf/README.md` 已于 20261126 清理删除）。
 > **③ 验证**：10 路由功能签名（view/title/h1+h2/links/imgs/textLen/sidebar/broken）与 console/pageerror/requestfailed 逐项与原文件相同（`file://`）；8 场景 × 3 产物截图对比 16/16 PASS（10 项逐像素相同，6 项 ≤2/255 文字抗锯齿抖动；证据 `perf/reports/shots-diff.json`）。仓库探针：r37 32P/1F/2N、r38 27P/1F/2N、r39 23P/0F/1N、r41 25P、r42 39P、r43 25P/0F/1N、r45(--skip-slow) 65P。仅两处探针口径随数据变更调整：`r45 A7` 冻结行长度 30924428 → **21358276**（dev 1545974 未动）、`r43 A6` 改为按**母图载荷本体**计数（原「全文件仅 1 处 webp data URI」在截图 WebP 化后必然为 49 处）。已知失败均非 R50 引入：r37 F2 的 `sidebarLinks` 两格（47→130，R46 惰性侧栏 + 同文档 hash 状态残留，沿 `tests/r46-r37-f2-diff.txt` 口径）、r38 U5 的 scroll 关闭（把 `main` 原件换回后同样 FAIL，`perf/reports/probes/r38-main-baseline.txt`，属 Chrome 147 时序）。html5lib strict 在 25 MB 文件上本机 >20 min 无结果，记 NOT-RUN。
 > 回滚：单文件 `git checkout main -- "Meow Star Map 官网.html"`；多文件删除 `site/` 与 `perf/`（`perf/assets`、`perf/dist` 本就不入库）；探针 `git checkout main -- tests/r45_theme_scope_check.py`。
 
-## R52 六语国际化（20261117）
+## R52 勘误（20261117）
 
 **范围**：营销侧（落地页 / 5 个二级页 / 页脚 / 关于 / `#lp-nav` / 下载面板 / 配色·外观·主题 / 卡片详情）
 提供 **zh en fr es ru ar** 六语；工作区侧（身份门 / 教程族 / 开发者页框）只做 **zh + en**；
@@ -541,3 +646,159 @@ Meow Star Map 官网.backup-<标记>-<日期>.html   ← R25 起新源文件名�
 `__i18n.boot()`、两个缓存失效钩子）、R38 `optsHtml/relabel`、R36/R45 的 `i18n:change` 监听、
 `<title>` 上的 `data-i18n`（已移除）；再删 `locales/`、`perf/tools/build_i18n.py`、`tests/i18n_pin.py`、
 `tests/r51_i18n_check.py` 及 7 支探针内的两行 pin。`#tut-data`/`#dev-data` 全程未动（长度与基线逐位相同）。
+
+---
+
+## R53 勘误（20261125 · 工作树未提交）
+
+**范围**：唯一源文件 `Meow Star Map 官网.html` 的 `</style>` 前新增
+`/* ══ R53-HOME-RHYTHM:BEGIN … R53-HOME-RHYTHM:END ══ */` 纯 CSS 层（L2575–2652）。
+零 JS、零 DOM、零文案、零路由、零 locales、零字体子集、零数据块、零外链、零新 hex、**零不可追加项**。
+
+**问题与目标**：一级首页自 R40 起沿用二级页的 `.lpx-*` 小卡栅格，区块宽度、栅格列数与留白在同一份 CSS 里
+与 landing hero / 关于板块 / 页脚各写一套，导致首页纵向节奏与其它视图不统一。本轮把首页的排版节奏集中到一个
+**只作用于一级首页**的作用域内重写。
+
+**作用域（本轮成立的前提）**：所有规则挂在
+`body[data-view="landing"] #app .lp-root:has(.lpx-stats)` 之下。`.lpx-stats` 只存在于一级首页，
+四个二级页 / 三级页走 `.pg-*` 体系不命中该选择器，故本层**不会外溢到营销二级页**。
+`:has()` 需 Safari ≥ 15.4；不支持的引擎整层不生效 → 回落改前布局，内容仍可读、不破版。
+
+**内容**：
+① 区块容器 `.lpx-section` 宽 `min(1440px, calc(100% - 64px))`、上留白 88px；
+② `.lpx-stat-grid` 改 4 列（gap 20px），`.lpx-stat` 内距 `32px 24px`；
+③ `.lpx-card-grid` / `.lpx-adv-grid` 改 3 列（gap 24px），`.lpx-card` 内距 32px；
+④ 触控目标补齐：`.lpx-more` / `.lpx-det-link` 最小高 44px，页脚链接 `min-height:44px`；
+⑤ 正文节奏：`.lpx-card p` 与 `.lpx-det-list li` 行高 1.65；
+⑥ 关于板块 `.about-sec` 宽 `min(880px,100%)`、页脚 `.lp-footnav` 3 列（gap 32px）；
+⑦ 断点档：`≥961px` 大屏档（区块宽 + 导航内边距按视口居中 + hero 留白）；`641–960px` 档 2 列栅格；
+`≤640px` 档 1 列卡片栅格、stats 2 列、页脚 2 列；`max-height:720px` 矮视口收紧 hero / 关于 / 页脚；
+⑧ RTL：`html[dir="rtl"]` 下 `#app` 内距归零（逻辑方向已由浏览器接管）；
+⑨ 阿拉伯语：`html[data-lang="ar"]` 下卡片正文与详情列表行高提到 1.85。
+
+**验证**：R53–R55 期间常驻探针结果见「R54 / R55 勘误」的回归记录（r42 39/39、r43 25 PASS / 0 FAIL / 1 NOT-RUN、
+r45 72/72、r38 29 PASS / 0 FAIL / 1 NOT-RUN、r41 22 PASS / 0 FAIL / 1 SKIP、r51 69 PASS / 0 FAIL / 1 SKIP、
+r37 32 PASS / 1 FAIL / 2 NOT-RUN，唯一 FAIL 仍是已签认的 F2 `sidebarLinks 47→130` 同文档残留）。
+
+**已知限制**：① `≤640px` 档卡片改单列后，首页纵向长度显著增加；② 阿拉伯语行高单独提档，未做逐语种排印精修；
+③ 本层依赖 `:has()`，旧引擎整层失效。
+
+**回滚**：删除 `R53-HOME-RHYTHM:BEGIN/END` 之间全部内容（纯追加，无不可追加项），随后运行
+`python perf/tools/build_site.py` 再生 `site/`。
+
+## R54 常驻导航主入口布局（20261125）
+
+**范围**：唯一源文件 `Meow Star Map 官网.html` 的 `LP-NAV` 结构与 `</style>` 前新增
+`/* ═══ R54:BEGIN … R54:END ═══ */` 纯 CSS 层；`site/index.html` 由 `build_site.py` 再生。
+零 JS、零文案、零路由、零 locales、零字体子集、零数据块、零外链、零新 hex。
+
+**问题与目标**：`进入 / 下载 / 关于` 与四条产品路由及全部控件共用 `.lp-links` 横滚预算，
+三个主入口缺少防收缩与禁止换行规则。旧实现实测 390px 中文主入口被压成两行，641px 法语
+`.lp-links` 溢出 278px，部分按钮文字被裁切。
+
+**结构（非纯追加）**：四条 `.lp-nav-link` 原样包入 `.lp-routes`；`a[href="#/identity"]`、
+`#lp-dl-link`、`#lp-about-link` 原样包入 `.lp-actions`。顺序、ID、class、`data-route`、
+`data-i18n`、href、按钮类型与事件处理不变；三个主动作不加 `.lp-nav-link`，避免被 `syncNav()` 当路由项。
+
+**布局**：`.lp-links` 使用剩余宽度并限制 `max-inline-size:min(100%,1080px)`，避免超宽屏过度拉伸；
+`.lp-routes` 独立横滑并隐藏滚动条；`.lp-actions` 占据剩余空间，`≥641px` 三个主动作严格三等分、
+单行、居中，组宽按三格最长译文预留；外层与组间距使用 `clamp(8px,1.25vw,22px)`。
+`≤640px` 沿用 R42 的 `#lp-dl-link{display:none}`，两个可见主动作不产生空列；`≤400px` gap 收到 4px。
+品牌窄屏 `line-height:1.1`，保证 360px 三行紧凑文本也不超出 52px 栏高。全部新增几何使用逻辑属性，RTL 自然镜像。
+
+**用户确认的取舍**：① `≤640px` 保留现有重复下载按钮隐藏规则；② 窄屏允许四条产品路由独立横滑，
+优先保护主入口完整可见。未取消或替换任何既有功能。
+
+**验证**：
+
+- 新增 `tests/r54_nav_actions_check.py`；旧实现快速用例 27 PASS / 11 FAIL，复现两行、裁切与溢出。
+- 改后单文件与 `site/index.html` 完整矩阵各 **727 PASS / 0 FAIL**：9 宽度 × 6 语 × 明暗、
+  6 个 landing 路由、等宽/等距/单行/不裁切/不重叠/路由可滚/功能冒烟/console 双零。
+- `build_i18n.py --check` 通过；数据行长度 21358276 / 1545974 不变，CRLF 与零外链契约保持。
+- `build_site.py` 通过，`site/index.html` 1,418,076 B（1.35 MiB），48 张截图不变。
+- r42 完整 39/39；r43 完整 25 PASS / 0 FAIL / 1 NOT-RUN；r45 完整 72/72。
+- r38 29 PASS / 0 FAIL / 1 NOT-RUN；r39 23 PASS / 0 FAIL / 1 NOT-RUN；r41 22 PASS / 0 FAIL / 1 SKIP
+  （均按脚本支持项跳过慢检，导航完整矩阵由 R54 覆盖）。
+- r51 69 PASS / 0 FAIL / 1 SKIP；本机 Python 不支持 `Path.read_text(newline=...)`，运行时用等价的
+  `Path.open(newline="")` 兼容入口执行，未改探针或产品代码。
+- r37 32 PASS / 1 FAIL / 2 NOT-RUN；唯一 FAIL 仍是已签认的 F2 `sidebarLinks 47→130` 同文档残留，
+  见 `tests/r52-r37-f2-diff.txt`，其余功能轴零差异，不重落基线。
+- html5lib 对剥离两条巨型数据脚本后的结构副本校验 **0 error / 0 类**；浏览器实查 1440/390 截图见
+  `tests/r54-shots/desktop-1440.png`、`tests/r54-shots/mobile-390.png`。
+
+**已知限制**：① `≤640px` 按既有规则只显示“进入 / 关于”两个主动作，下载页仍由路由“下载”进入；
+② 极窄屏路由文字需要在 `.lp-routes` 内横滑，主入口与控件保持可见；③ 360px 品牌可能压缩为三行，
+但行高已收至 1.1，实测高度不超过 52px。
+
+**回滚**：删除 R54 CSS 注释对之间全部内容，并移除 `LP-NAV` 中 `.lp-routes` / `.lp-actions`
+两个包裹 `div`（保留其子节点原顺序）；随后运行 `python perf/tools/build_site.py` 再生 `site/`。
+
+---
+
+## R55 常驻导航文字间距统一（20261125）
+
+**范围**：唯一源文件 `Meow Star Map 官网.html` 的 `</style>` 前新增
+`/* ═══ R55:BEGIN … R55:END ═══ */` 纯 CSS 层；`site/index.html` 由 `build_site.py` 再生。
+零 DOM、零 JS、零文案、零路由、零 locales、零字体子集、零数据块、零外链、零新 hex。
+
+**问题**：R54 的四条产品路由按内容宽度排列，三个主动作却占等宽 flex 格，导致实际文字边缘距不一致。
+用户确认统一全部七个文字入口（功能 / 共鸣录 / 隐私 / 下载 / 进入 / 下载 / 关于），按文字布局边缘距验收。
+
+**实现**：R55 覆盖 R54 的等宽分配部分：`.lp-links` 恢复 `flex:0 1 auto` 并按内容宽度整体靠右；
+`.lp-actions` 恢复内容宽度；七个文字入口统一 `flex:0 0 auto`、`padding-inline:2px`、`white-space:nowrap`、
+基础 `font-size:13.5px`，`≤560px` 统一 12.5px。继续共享 `clamp(8px,1.25vw,22px)` gap，
+`≤400px` 为 4px；路由独立横滑、`≤640px` 隐藏重复下载按钮、RTL 逻辑属性均保持不变。
+相邻文字边缘距理论值为 `gap + 左右 padding`，不再把剩余宽度塞进主动作格内。
+
+**探针**：`tests/r54_nav_actions_check.py` 扩展为七入口采样，使用 `Range.getBoundingClientRect()` 验收文字边缘距，
+删除等宽/中心等距断言；保留单行、不裁切、不重叠、无页面溢出、功能冒烟与 console 双零。
+路由首尾验收改为“滚动到边界并正确对齐”，极窄屏单条路由比滚动区更宽时不再强求整条同时完整可见。
+
+**验证**：
+
+- 旧 CSS 快速基线 54 PASS / 10 FAIL：641px 法语边缘距差 26.6px，1440px 中文差 135.5px，
+  390px 路由/主动作字号差 1px。
+- R55 单文件与 `site/index.html` 完整矩阵各 **2580 PASS / 0 FAIL**：13 宽度 × 6 语 × 明暗、
+  6 个 landing 路由 × 3 宽度 × 3 语、七入口边缘距/字号/padding/gap/路由可达/功能冒烟。
+- `build_i18n.py --check` 通过；数据行 21358276 / 1545974 不变，CRLF 5741/5741，R55 注释对各 1 对。
+- `build_site.py` 通过，`site/index.html` 1,418,802 B（1.35 MiB），48 张截图不变。
+- r42 完整 39/39；r43 完整 25 PASS / 0 FAIL / 1 NOT-RUN；r45 完整 72/72。
+- r38 29 PASS / 0 FAIL / 1 NOT-RUN；r41 22 PASS / 0 FAIL / 1 SKIP；r51 69 PASS / 0 FAIL / 1 SKIP。
+- r39 低负载复跑 22 PASS / 1 FAIL / 1 NOT-RUN；唯一 FAIL 为 T13 打印采样得到 48px 旧路由标题，
+  期望 30px。R55 选择器仅作用于 `#lp-nav`，未改 h1 或打印规则；按路由切换后的探针采样状态问题保留，
+  不改产品代码或冻结断言。
+- html5lib 对剥离两条巨型数据脚本后的结构副本校验 **0 error / 0 类**；浏览器实查 1440/390 截图已更新。
+
+**已知限制**：① `≤640px` 仍只显示“进入 / 关于”两个主动作；② 极窄屏单条长路由可能比 `.lp-routes`
+可视区更宽，此时只能对齐滚动边界，不能与相邻项同时完整显示；③ 文字间距按 Range 布局盒度量，不承诺逐字形墨迹像素级等距。
+
+**回滚**：删除 R55 CSS 注释对之间全部内容，然后运行 `python perf/tools/build_site.py` 再生 `site/`；
+R54 结构与行为自动恢复。专项探针若需回退到 R54 口径，应同步恢复等宽/中心等距断言。
+
+---
+
+## 文档清单与维护口径（20261126）
+
+本仓库的 `.md` 文档共 11 份，维护口径如下：
+
+| 文件 | 定位 | 维护口径 |
+|---|---|---|
+| `AGENTS.md` | 常驻开发者文档：结构索引、逐轮勘误、开发约定、回滚方式 | **每轮改动后追记**（范围 / 契约影响 / 验证 / 已知限制 / 回滚）；结构表与锚点按当前基线刷新 |
+| `README.md` | 项目入口说明：是什么 / 怎么跑 / 怎么测 / 契约 / 第三方资产 | 随基线与体积刷新，数值须实测 |
+| `CONTRIBUTING.md` | 贡献指引（提炼 AGENTS.md 既有约定，不另立新规） | AGENTS.md 约定变更时同步 |
+| `SECURITY.md` | 安全问题披露指引 | 极少变动 |
+| `CODE_OF_CONDUCT.md` | 行为准则 | 极少变动 |
+| `locales/README.md` | i18n 译文编辑流程与键归属口径 | 键表结构变化时同步 |
+| `site/README.md` | 多文件版产物的部署说明 | 随 `site/` 产物刷新 |
+| `.github/ISSUE_TEMPLATE/*.md`、`.github/PULL_REQUEST_TEMPLATE.md` | GitHub 协作模板 | 探针清单与契约清单变更时同步 |
+
+**新增文档的门槛**：轮次报告、临时计划、一次性取证脚本产物一律**不入库**；需要留证的结论写进对应轮次勘误或 `perf/reports/`。
+本工作树**只有这一份常驻开发者文档**，不设 per-round 报告文件。
+
+**20261126 清理结果**：物理删除 `perf/README.md`——它是 R50「性能/极速加载」分支期的冻结性能报告：
+所述分支已合并进 `main`；`site/` 体积数字已被 R52/R54/R55 超越（1.13 MiB → 1.35 MiB）；
+工具清单缺 `build_i18n.py`（照其操作会得到一份缺 i18n 词典的 `site/`）；
+「回滚：多文件版删除 `site/` 与 `perf/`」的建议在 i18n 落地后会误删构建工具链。
+其中仍然有效的工具链用法与实测口径已迁入根 `README.md`「性能与构建工具链」与本文件「R50 勘误」。
+
+

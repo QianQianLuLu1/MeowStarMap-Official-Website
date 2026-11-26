@@ -1,0 +1,74 @@
+[PASS] A1 ui.zh.json 在位且非空
+[PASS] A2 #i18n-en 可解析
+[PASS] A2 #i18n-fr 可解析
+[PASS] A2 #i18n-es 可解析
+[PASS] A2 #i18n-ru 可解析
+[PASS] A2 #i18n-ar 可解析
+[PASS] A3 ui.en 与 zh 键表对位（MKT 272 条）
+[PASS] A3 ui.fr 与 zh 键表对位（MKT 272 条）
+[PASS] A3b ui.fr 不含工作区侧键（只做中英）
+[PASS] A3 ui.es 与 zh 键表对位（MKT 272 条）
+[PASS] A3b ui.es 不含工作区侧键（只做中英）
+[PASS] A3 ui.ru 与 zh 键表对位（MKT 272 条）
+[PASS] A3b ui.ru 不含工作区侧键（只做中英）
+[PASS] A3 ui.ar 与 zh 键表对位（MKT 272 条）
+[PASS] A3b ui.ar 不含工作区侧键（只做中英）
+[PASS] A4 译文无空值/非法字符
+[PASS] A5 教程英文包可解析
+[PASS] A5b 教程页数与中文一致
+[PASS] A6 教程图片占位逐页对齐（总数 48）
+[PASS] A7 英文包无未替换的 {{imgN}} 之外的占位
+[PASS] A8 @font-face{ 恒 2
+[PASS] A9 无非 data: 的 <link>
+[PASS] A10 无 <script src>
+[PASS] A11 无 url(http)
+[PASS] A12 无 <iframe>
+[PASS] A13 两条巨型数据行未被触碰
+[PASS] A14 build_site 的 8 条手术锚点逐字在位
+[PASS] A15 I18N 注释对成对
+[PASS] A16 I18N-DATA 注释对成对
+[PASS] A17 i18next 版本与 MIT 许可头在位
+[PASS] A18 RTL 层存在
+[PASS] A19 RTL 层零 !important
+[PASS] A20 RTL 层零 hex 色值
+[PASS] A21 全部 24 个 JS 块 node 编译通过
+[PASS] A22 全文 CRLF 一致（无裸 LF）
+[PASS] B1 zh 默认：lang=zh-CN 且无 dir
+[PASS] B2 zh 基线文案逐字未变
+[PASS] B3 语言菜单：6 项且当前项 aria-pressed
+[PASS] B4 菜单完整落在视口内
+[PASS] B5 en：lang/dir 就位
+[PASS] B5b en：导航与页脚已本地化（无中文残留）
+[PASS] B5c en：标语与 zh 不同（确实替换）
+[PASS] B5 fr：lang/dir 就位
+[PASS] B5b fr：导航与页脚已本地化（无中文残留）
+[PASS] B5c fr：标语与 zh 不同（确实替换）
+[PASS] B5 es：lang/dir 就位
+[PASS] B5b es：导航与页脚已本地化（无中文残留）
+[PASS] B5c es：标语与 zh 不同（确实替换）
+[PASS] B5 ru：lang/dir 就位
+[PASS] B5b ru：导航与页脚已本地化（无中文残留）
+[PASS] B5c ru：标语与 zh 不同（确实替换）
+[PASS] B5 ar：lang/dir 就位
+[PASS] B5b ar：导航与页脚已本地化（无中文残留）
+[PASS] B5c ar：标语与 zh 不同（确实替换）
+[PASS] B6 刷新后语言保持（localStorage.nikki_lang）
+[PASS] B7 ?lang=ru 生效且隐私页为俄语
+[PASS] B8 非法 ?lang=xx 被忽略（不写存储）
+[PASS] B9 ar：侧栏镜像到右侧
+[PASS] B10 ar：正文让位右侧 306px、侧栏缩进 32px
+[PASS] B11 ar：代码块仍 LTR
+[PASS] B12 ar：文档零横向溢出
+[PASS] B13 en：教程页为英文且模块名同步
+[PASS] B14 en：图片注入正常、无占位残留
+[PASS] B15 en：教程首页 9 卡且全英文
+[PASS] B16 ar：身份门回落英文且带双语通告
+[PASS] B17 en：卡片详情仍可展开且要点已翻译
+[PASS] B18 重复 apply 幂等（文本长度不变）
+[SKIP] B19 六语 × 四断点零横向溢出
+        期望: --skip-slow
+        实测: NOT-RUN
+[PASS] B20 六语 × 五路由 console/pageerror 双零
+[PASS] B21 全流程无未捕获异常
+
+合计 70 项：PASS 69 / FAIL 0 / SKIP 1

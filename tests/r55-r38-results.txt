@@ -1,0 +1,37 @@
+
+==============================================================================
+R38 全站 Apple 收官 + 三态外观专项探针
+==============================================================================
+ skip S1 html5lib strict 解析
+        原因: --skip-w3c
+  ok  S2 全部 JS 块编译
+  ok  S3 R38 注释对成对 + HTML 注释无连续双连字符
+  ok  S4 零外链资源 + 字体声明仍 2 处
+  ok  S5 R38 新规则 hex 仅在 token 定义
+  ok  S5b R38 新 token 均有消费
+  ok  S6 data-look 静态默认 + head 读取
+  ok  S6b 数据块在位
+  ok  U1 默认 neutral / 3 触发器 / 菜单隐藏 / 无额外 body 文本
+  ok  U2 菜单打开 / 3 项 / 锚定导航下方 / aria
+  ok  U3 选择 color / 持久化 / 既有键隔离
+  ok  U4 刷新保持 color / 非法值回落 neutral
+  ok  U5 Escape/外点/滚动/resize/路由关闭 + 焦点归还
+  ok  U6 键盘 Enter 打开 / 焦点入选项 / Escape 归还
+  ok  U7 topbar/lp-nav/identity fab 三处挂载 + fab 不挡门页内容
+  ok  U8 390/561 菜单视口内 + 宿主下方
+  ok  V1 neutral 表面（hero/dev/gate/card/wrap/目录/胶囊按钮）
+  ok  V2 color 恢复彩色 hero/环境光且保持新半径/无阴影
+  ok  V3 plain 去色/去水印/隐藏圆点 + plain×dark 单色
+  ok  V4 Inter/Noto 栈、700 主视觉、600 页标题、300 副文、≥12px 小字
+  ok  V5 WCAG AA 关键文本 + landing 渐变（亮/暗）
+  ok  V6 全断点/双主题/七路由零横向溢出
+  ok  V7 七路由 data-view 不变
+  ok  V8 控制台 0 error / 0 pageerror / 0 资源失败
+  ok  V9 prefers-reduced-motion 新层无动画
+  ok  V10 降低透明度：彩色门卡/菜单回实底
+  ok  V11 禁用 JS 默认 neutral 不破版
+  ok  V12 字体移除后系统兜底
+  ok  V13 background-clip 关闭后纯色可读
+  ok  V14 plain 压过 landing energy / 三键隔离
+------------------------------------------------------------------------------
+合计 30 | PASS 29 | FAIL 0 | NOT-RUN 1

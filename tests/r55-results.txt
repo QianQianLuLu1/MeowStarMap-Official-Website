@@ -1,0 +1,2582 @@
+[PASS] 360/zh/light 路由与动作分组存在
+[PASS] 360/zh/light 可见文字入口数量正确
+[PASS] 360/zh/light 页面无横向溢出
+[PASS] 360/zh/light 导航与品牌高度稳定
+[PASS] 360/zh/light 链接区自身不溢出
+[PASS] 360/zh/light 文字入口字号一致
+[PASS] 360/zh/light 文字入口 inline padding 一致
+[PASS] 360/zh/light 三层 gap 一致
+[PASS] 360/zh/light 按钮盒无额外等宽留白
+[PASS] 360/zh/light 相邻文字边缘距一致
+[PASS] 360/zh/light 文字边缘距等于 gap+padding
+[PASS] 360/zh/light 全部文字单行且不裁切
+[PASS] 360/zh/light 文字入口互不重叠
+[PASS] 360/zh/light 文字入口不遮挡图标控件
+[PASS] 360/zh/light 主动作完整位于可视区
+[PASS] 360/zh/light 窄屏沿用下载按钮隐藏规则
+[PASS] 360/zh/light 路由保留独立滚动区
+[PASS] 360/zh/light 路由末项可滚至末端
+[PASS] 360/zh/light 路由—动作跨界间距一致
+[PASS] 360/zh/light 路由首项可滚回起点
+[PASS] 360/en/light 路由与动作分组存在
+[PASS] 360/en/light 可见文字入口数量正确
+[PASS] 360/en/light 页面无横向溢出
+[PASS] 360/en/light 导航与品牌高度稳定
+[PASS] 360/en/light 链接区自身不溢出
+[PASS] 360/en/light 文字入口字号一致
+[PASS] 360/en/light 文字入口 inline padding 一致
+[PASS] 360/en/light 三层 gap 一致
+[PASS] 360/en/light 按钮盒无额外等宽留白
+[PASS] 360/en/light 相邻文字边缘距一致
+[PASS] 360/en/light 文字边缘距等于 gap+padding
+[PASS] 360/en/light 全部文字单行且不裁切
+[PASS] 360/en/light 文字入口互不重叠
+[PASS] 360/en/light 文字入口不遮挡图标控件
+[PASS] 360/en/light 主动作完整位于可视区
+[PASS] 360/en/light 窄屏沿用下载按钮隐藏规则
+[PASS] 360/en/light 路由保留独立滚动区
+[PASS] 360/en/light 路由末项可滚至末端
+[PASS] 360/en/light 路由—动作跨界间距一致
+[PASS] 360/en/light 路由首项可滚回起点
+[PASS] 360/fr/light 路由与动作分组存在
+[PASS] 360/fr/light 可见文字入口数量正确
+[PASS] 360/fr/light 页面无横向溢出
+[PASS] 360/fr/light 导航与品牌高度稳定
+[PASS] 360/fr/light 链接区自身不溢出
+[PASS] 360/fr/light 文字入口字号一致
+[PASS] 360/fr/light 文字入口 inline padding 一致
+[PASS] 360/fr/light 三层 gap 一致
+[PASS] 360/fr/light 按钮盒无额外等宽留白
+[PASS] 360/fr/light 相邻文字边缘距一致
+[PASS] 360/fr/light 文字边缘距等于 gap+padding
+[PASS] 360/fr/light 全部文字单行且不裁切
+[PASS] 360/fr/light 文字入口互不重叠
+[PASS] 360/fr/light 文字入口不遮挡图标控件
+[PASS] 360/fr/light 主动作完整位于可视区
+[PASS] 360/fr/light 窄屏沿用下载按钮隐藏规则
+[PASS] 360/fr/light 路由保留独立滚动区
+[PASS] 360/fr/light 路由末项可滚至末端
+[PASS] 360/fr/light 路由首项可滚回起点
+[PASS] 360/es/light 路由与动作分组存在
+[PASS] 360/es/light 可见文字入口数量正确
+[PASS] 360/es/light 页面无横向溢出
+[PASS] 360/es/light 导航与品牌高度稳定
+[PASS] 360/es/light 链接区自身不溢出
+[PASS] 360/es/light 文字入口字号一致
+[PASS] 360/es/light 文字入口 inline padding 一致
+[PASS] 360/es/light 三层 gap 一致
+[PASS] 360/es/light 按钮盒无额外等宽留白
+[PASS] 360/es/light 相邻文字边缘距一致
+[PASS] 360/es/light 文字边缘距等于 gap+padding
+[PASS] 360/es/light 全部文字单行且不裁切
+[PASS] 360/es/light 文字入口互不重叠
+[PASS] 360/es/light 文字入口不遮挡图标控件
+[PASS] 360/es/light 主动作完整位于可视区
+[PASS] 360/es/light 窄屏沿用下载按钮隐藏规则
+[PASS] 360/es/light 路由保留独立滚动区
+[PASS] 360/es/light 路由末项可滚至末端
+[PASS] 360/es/light 路由—动作跨界间距一致
+[PASS] 360/es/light 路由首项可滚回起点
+[PASS] 360/ru/light 路由与动作分组存在
+[PASS] 360/ru/light 可见文字入口数量正确
+[PASS] 360/ru/light 页面无横向溢出
+[PASS] 360/ru/light 导航与品牌高度稳定
+[PASS] 360/ru/light 链接区自身不溢出
+[PASS] 360/ru/light 文字入口字号一致
+[PASS] 360/ru/light 文字入口 inline padding 一致
+[PASS] 360/ru/light 三层 gap 一致
+[PASS] 360/ru/light 按钮盒无额外等宽留白
+[PASS] 360/ru/light 相邻文字边缘距一致
+[PASS] 360/ru/light 文字边缘距等于 gap+padding
+[PASS] 360/ru/light 全部文字单行且不裁切
+[PASS] 360/ru/light 文字入口互不重叠
+[PASS] 360/ru/light 文字入口不遮挡图标控件
+[PASS] 360/ru/light 主动作完整位于可视区
+[PASS] 360/ru/light 窄屏沿用下载按钮隐藏规则
+[PASS] 360/ru/light 路由保留独立滚动区
+[PASS] 360/ru/light 路由末项可滚至末端
+[PASS] 360/ru/light 路由—动作跨界间距一致
+[PASS] 360/ru/light 路由首项可滚回起点
+[PASS] 360/ar/light 路由与动作分组存在
+[PASS] 360/ar/light 可见文字入口数量正确
+[PASS] 360/ar/light 页面无横向溢出
+[PASS] 360/ar/light 导航与品牌高度稳定
+[PASS] 360/ar/light 链接区自身不溢出
+[PASS] 360/ar/light 文字入口字号一致
+[PASS] 360/ar/light 文字入口 inline padding 一致
+[PASS] 360/ar/light 三层 gap 一致
+[PASS] 360/ar/light 按钮盒无额外等宽留白
+[PASS] 360/ar/light 相邻文字边缘距一致
+[PASS] 360/ar/light 文字边缘距等于 gap+padding
+[PASS] 360/ar/light 全部文字单行且不裁切
+[PASS] 360/ar/light 文字入口互不重叠
+[PASS] 360/ar/light 文字入口不遮挡图标控件
+[PASS] 360/ar/light 主动作完整位于可视区
+[PASS] 360/ar/light 窄屏沿用下载按钮隐藏规则
+[PASS] 360/ar/light 路由保留独立滚动区
+[PASS] 360/ar/light 路由末项可滚至末端
+[PASS] 360/ar/light 路由—动作跨界间距一致
+[PASS] 360/ar/light 路由首项可滚回起点
+[PASS] 390/zh/light 路由与动作分组存在
+[PASS] 390/zh/light 可见文字入口数量正确
+[PASS] 390/zh/light 页面无横向溢出
+[PASS] 390/zh/light 导航与品牌高度稳定
+[PASS] 390/zh/light 链接区自身不溢出
+[PASS] 390/zh/light 文字入口字号一致
+[PASS] 390/zh/light 文字入口 inline padding 一致
+[PASS] 390/zh/light 三层 gap 一致
+[PASS] 390/zh/light 按钮盒无额外等宽留白
+[PASS] 390/zh/light 相邻文字边缘距一致
+[PASS] 390/zh/light 文字边缘距等于 gap+padding
+[PASS] 390/zh/light 全部文字单行且不裁切
+[PASS] 390/zh/light 文字入口互不重叠
+[PASS] 390/zh/light 文字入口不遮挡图标控件
+[PASS] 390/zh/light 主动作完整位于可视区
+[PASS] 390/zh/light 窄屏沿用下载按钮隐藏规则
+[PASS] 390/zh/light 路由保留独立滚动区
+[PASS] 390/zh/light 路由末项可滚至末端
+[PASS] 390/zh/light 路由—动作跨界间距一致
+[PASS] 390/zh/light 路由首项可滚回起点
+[PASS] 390/en/light 路由与动作分组存在
+[PASS] 390/en/light 可见文字入口数量正确
+[PASS] 390/en/light 页面无横向溢出
+[PASS] 390/en/light 导航与品牌高度稳定
+[PASS] 390/en/light 链接区自身不溢出
+[PASS] 390/en/light 文字入口字号一致
+[PASS] 390/en/light 文字入口 inline padding 一致
+[PASS] 390/en/light 三层 gap 一致
+[PASS] 390/en/light 按钮盒无额外等宽留白
+[PASS] 390/en/light 相邻文字边缘距一致
+[PASS] 390/en/light 文字边缘距等于 gap+padding
+[PASS] 390/en/light 全部文字单行且不裁切
+[PASS] 390/en/light 文字入口互不重叠
+[PASS] 390/en/light 文字入口不遮挡图标控件
+[PASS] 390/en/light 主动作完整位于可视区
+[PASS] 390/en/light 窄屏沿用下载按钮隐藏规则
+[PASS] 390/en/light 路由保留独立滚动区
+[PASS] 390/en/light 路由末项可滚至末端
+[PASS] 390/en/light 路由—动作跨界间距一致
+[PASS] 390/en/light 路由首项可滚回起点
+[PASS] 390/fr/light 路由与动作分组存在
+[PASS] 390/fr/light 可见文字入口数量正确
+[PASS] 390/fr/light 页面无横向溢出
+[PASS] 390/fr/light 导航与品牌高度稳定
+[PASS] 390/fr/light 链接区自身不溢出
+[PASS] 390/fr/light 文字入口字号一致
+[PASS] 390/fr/light 文字入口 inline padding 一致
+[PASS] 390/fr/light 三层 gap 一致
+[PASS] 390/fr/light 按钮盒无额外等宽留白
+[PASS] 390/fr/light 相邻文字边缘距一致
+[PASS] 390/fr/light 文字边缘距等于 gap+padding
+[PASS] 390/fr/light 全部文字单行且不裁切
+[PASS] 390/fr/light 文字入口互不重叠
+[PASS] 390/fr/light 文字入口不遮挡图标控件
+[PASS] 390/fr/light 主动作完整位于可视区
+[PASS] 390/fr/light 窄屏沿用下载按钮隐藏规则
+[PASS] 390/fr/light 路由保留独立滚动区
+[PASS] 390/fr/light 路由末项可滚至末端
+[PASS] 390/fr/light 路由—动作跨界间距一致
+[PASS] 390/fr/light 路由首项可滚回起点
+[PASS] 390/es/light 路由与动作分组存在
+[PASS] 390/es/light 可见文字入口数量正确
+[PASS] 390/es/light 页面无横向溢出
+[PASS] 390/es/light 导航与品牌高度稳定
+[PASS] 390/es/light 链接区自身不溢出
+[PASS] 390/es/light 文字入口字号一致
+[PASS] 390/es/light 文字入口 inline padding 一致
+[PASS] 390/es/light 三层 gap 一致
+[PASS] 390/es/light 按钮盒无额外等宽留白
+[PASS] 390/es/light 相邻文字边缘距一致
+[PASS] 390/es/light 文字边缘距等于 gap+padding
+[PASS] 390/es/light 全部文字单行且不裁切
+[PASS] 390/es/light 文字入口互不重叠
+[PASS] 390/es/light 文字入口不遮挡图标控件
+[PASS] 390/es/light 主动作完整位于可视区
+[PASS] 390/es/light 窄屏沿用下载按钮隐藏规则
+[PASS] 390/es/light 路由保留独立滚动区
+[PASS] 390/es/light 路由末项可滚至末端
+[PASS] 390/es/light 路由—动作跨界间距一致
+[PASS] 390/es/light 路由首项可滚回起点
+[PASS] 390/ru/light 路由与动作分组存在
+[PASS] 390/ru/light 可见文字入口数量正确
+[PASS] 390/ru/light 页面无横向溢出
+[PASS] 390/ru/light 导航与品牌高度稳定
+[PASS] 390/ru/light 链接区自身不溢出
+[PASS] 390/ru/light 文字入口字号一致
+[PASS] 390/ru/light 文字入口 inline padding 一致
+[PASS] 390/ru/light 三层 gap 一致
+[PASS] 390/ru/light 按钮盒无额外等宽留白
+[PASS] 390/ru/light 相邻文字边缘距一致
+[PASS] 390/ru/light 文字边缘距等于 gap+padding
+[PASS] 390/ru/light 全部文字单行且不裁切
+[PASS] 390/ru/light 文字入口互不重叠
+[PASS] 390/ru/light 文字入口不遮挡图标控件
+[PASS] 390/ru/light 主动作完整位于可视区
+[PASS] 390/ru/light 窄屏沿用下载按钮隐藏规则
+[PASS] 390/ru/light 路由保留独立滚动区
+[PASS] 390/ru/light 路由末项可滚至末端
+[PASS] 390/ru/light 路由—动作跨界间距一致
+[PASS] 390/ru/light 路由首项可滚回起点
+[PASS] 390/ar/light 路由与动作分组存在
+[PASS] 390/ar/light 可见文字入口数量正确
+[PASS] 390/ar/light 页面无横向溢出
+[PASS] 390/ar/light 导航与品牌高度稳定
+[PASS] 390/ar/light 链接区自身不溢出
+[PASS] 390/ar/light 文字入口字号一致
+[PASS] 390/ar/light 文字入口 inline padding 一致
+[PASS] 390/ar/light 三层 gap 一致
+[PASS] 390/ar/light 按钮盒无额外等宽留白
+[PASS] 390/ar/light 相邻文字边缘距一致
+[PASS] 390/ar/light 文字边缘距等于 gap+padding
+[PASS] 390/ar/light 全部文字单行且不裁切
+[PASS] 390/ar/light 文字入口互不重叠
+[PASS] 390/ar/light 文字入口不遮挡图标控件
+[PASS] 390/ar/light 主动作完整位于可视区
+[PASS] 390/ar/light 窄屏沿用下载按钮隐藏规则
+[PASS] 390/ar/light 路由保留独立滚动区
+[PASS] 390/ar/light 路由末项可滚至末端
+[PASS] 390/ar/light 路由—动作跨界间距一致
+[PASS] 390/ar/light 路由首项可滚回起点
+[PASS] 400/zh/light 路由与动作分组存在
+[PASS] 400/zh/light 可见文字入口数量正确
+[PASS] 400/zh/light 页面无横向溢出
+[PASS] 400/zh/light 导航与品牌高度稳定
+[PASS] 400/zh/light 链接区自身不溢出
+[PASS] 400/zh/light 文字入口字号一致
+[PASS] 400/zh/light 文字入口 inline padding 一致
+[PASS] 400/zh/light 三层 gap 一致
+[PASS] 400/zh/light 按钮盒无额外等宽留白
+[PASS] 400/zh/light 相邻文字边缘距一致
+[PASS] 400/zh/light 文字边缘距等于 gap+padding
+[PASS] 400/zh/light 全部文字单行且不裁切
+[PASS] 400/zh/light 文字入口互不重叠
+[PASS] 400/zh/light 文字入口不遮挡图标控件
+[PASS] 400/zh/light 主动作完整位于可视区
+[PASS] 400/zh/light 窄屏沿用下载按钮隐藏规则
+[PASS] 400/zh/light 路由保留独立滚动区
+[PASS] 400/zh/light 路由末项可滚至末端
+[PASS] 400/zh/light 路由—动作跨界间距一致
+[PASS] 400/zh/light 路由首项可滚回起点
+[PASS] 400/en/light 路由与动作分组存在
+[PASS] 400/en/light 可见文字入口数量正确
+[PASS] 400/en/light 页面无横向溢出
+[PASS] 400/en/light 导航与品牌高度稳定
+[PASS] 400/en/light 链接区自身不溢出
+[PASS] 400/en/light 文字入口字号一致
+[PASS] 400/en/light 文字入口 inline padding 一致
+[PASS] 400/en/light 三层 gap 一致
+[PASS] 400/en/light 按钮盒无额外等宽留白
+[PASS] 400/en/light 相邻文字边缘距一致
+[PASS] 400/en/light 文字边缘距等于 gap+padding
+[PASS] 400/en/light 全部文字单行且不裁切
+[PASS] 400/en/light 文字入口互不重叠
+[PASS] 400/en/light 文字入口不遮挡图标控件
+[PASS] 400/en/light 主动作完整位于可视区
+[PASS] 400/en/light 窄屏沿用下载按钮隐藏规则
+[PASS] 400/en/light 路由保留独立滚动区
+[PASS] 400/en/light 路由末项可滚至末端
+[PASS] 400/en/light 路由—动作跨界间距一致
+[PASS] 400/en/light 路由首项可滚回起点
+[PASS] 400/fr/light 路由与动作分组存在
+[PASS] 400/fr/light 可见文字入口数量正确
+[PASS] 400/fr/light 页面无横向溢出
+[PASS] 400/fr/light 导航与品牌高度稳定
+[PASS] 400/fr/light 链接区自身不溢出
+[PASS] 400/fr/light 文字入口字号一致
+[PASS] 400/fr/light 文字入口 inline padding 一致
+[PASS] 400/fr/light 三层 gap 一致
+[PASS] 400/fr/light 按钮盒无额外等宽留白
+[PASS] 400/fr/light 相邻文字边缘距一致
+[PASS] 400/fr/light 文字边缘距等于 gap+padding
+[PASS] 400/fr/light 全部文字单行且不裁切
+[PASS] 400/fr/light 文字入口互不重叠
+[PASS] 400/fr/light 文字入口不遮挡图标控件
+[PASS] 400/fr/light 主动作完整位于可视区
+[PASS] 400/fr/light 窄屏沿用下载按钮隐藏规则
+[PASS] 400/fr/light 路由保留独立滚动区
+[PASS] 400/fr/light 路由末项可滚至末端
+[PASS] 400/fr/light 路由—动作跨界间距一致
+[PASS] 400/fr/light 路由首项可滚回起点
+[PASS] 400/es/light 路由与动作分组存在
+[PASS] 400/es/light 可见文字入口数量正确
+[PASS] 400/es/light 页面无横向溢出
+[PASS] 400/es/light 导航与品牌高度稳定
+[PASS] 400/es/light 链接区自身不溢出
+[PASS] 400/es/light 文字入口字号一致
+[PASS] 400/es/light 文字入口 inline padding 一致
+[PASS] 400/es/light 三层 gap 一致
+[PASS] 400/es/light 按钮盒无额外等宽留白
+[PASS] 400/es/light 相邻文字边缘距一致
+[PASS] 400/es/light 文字边缘距等于 gap+padding
+[PASS] 400/es/light 全部文字单行且不裁切
+[PASS] 400/es/light 文字入口互不重叠
+[PASS] 400/es/light 文字入口不遮挡图标控件
+[PASS] 400/es/light 主动作完整位于可视区
+[PASS] 400/es/light 窄屏沿用下载按钮隐藏规则
+[PASS] 400/es/light 路由保留独立滚动区
+[PASS] 400/es/light 路由末项可滚至末端
+[PASS] 400/es/light 路由—动作跨界间距一致
+[PASS] 400/es/light 路由首项可滚回起点
+[PASS] 400/ru/light 路由与动作分组存在
+[PASS] 400/ru/light 可见文字入口数量正确
+[PASS] 400/ru/light 页面无横向溢出
+[PASS] 400/ru/light 导航与品牌高度稳定
+[PASS] 400/ru/light 链接区自身不溢出
+[PASS] 400/ru/light 文字入口字号一致
+[PASS] 400/ru/light 文字入口 inline padding 一致
+[PASS] 400/ru/light 三层 gap 一致
+[PASS] 400/ru/light 按钮盒无额外等宽留白
+[PASS] 400/ru/light 相邻文字边缘距一致
+[PASS] 400/ru/light 文字边缘距等于 gap+padding
+[PASS] 400/ru/light 全部文字单行且不裁切
+[PASS] 400/ru/light 文字入口互不重叠
+[PASS] 400/ru/light 文字入口不遮挡图标控件
+[PASS] 400/ru/light 主动作完整位于可视区
+[PASS] 400/ru/light 窄屏沿用下载按钮隐藏规则
+[PASS] 400/ru/light 路由保留独立滚动区
+[PASS] 400/ru/light 路由末项可滚至末端
+[PASS] 400/ru/light 路由—动作跨界间距一致
+[PASS] 400/ru/light 路由首项可滚回起点
+[PASS] 400/ar/light 路由与动作分组存在
+[PASS] 400/ar/light 可见文字入口数量正确
+[PASS] 400/ar/light 页面无横向溢出
+[PASS] 400/ar/light 导航与品牌高度稳定
+[PASS] 400/ar/light 链接区自身不溢出
+[PASS] 400/ar/light 文字入口字号一致
+[PASS] 400/ar/light 文字入口 inline padding 一致
+[PASS] 400/ar/light 三层 gap 一致
+[PASS] 400/ar/light 按钮盒无额外等宽留白
+[PASS] 400/ar/light 相邻文字边缘距一致
+[PASS] 400/ar/light 文字边缘距等于 gap+padding
+[PASS] 400/ar/light 全部文字单行且不裁切
+[PASS] 400/ar/light 文字入口互不重叠
+[PASS] 400/ar/light 文字入口不遮挡图标控件
+[PASS] 400/ar/light 主动作完整位于可视区
+[PASS] 400/ar/light 窄屏沿用下载按钮隐藏规则
+[PASS] 400/ar/light 路由保留独立滚动区
+[PASS] 400/ar/light 路由末项可滚至末端
+[PASS] 400/ar/light 路由—动作跨界间距一致
+[PASS] 400/ar/light 路由首项可滚回起点
+[PASS] 401/zh/light 路由与动作分组存在
+[PASS] 401/zh/light 可见文字入口数量正确
+[PASS] 401/zh/light 页面无横向溢出
+[PASS] 401/zh/light 导航与品牌高度稳定
+[PASS] 401/zh/light 链接区自身不溢出
+[PASS] 401/zh/light 文字入口字号一致
+[PASS] 401/zh/light 文字入口 inline padding 一致
+[PASS] 401/zh/light 三层 gap 一致
+[PASS] 401/zh/light 按钮盒无额外等宽留白
+[PASS] 401/zh/light 相邻文字边缘距一致
+[PASS] 401/zh/light 文字边缘距等于 gap+padding
+[PASS] 401/zh/light 全部文字单行且不裁切
+[PASS] 401/zh/light 文字入口互不重叠
+[PASS] 401/zh/light 文字入口不遮挡图标控件
+[PASS] 401/zh/light 主动作完整位于可视区
+[PASS] 401/zh/light 窄屏沿用下载按钮隐藏规则
+[PASS] 401/zh/light 路由保留独立滚动区
+[PASS] 401/zh/light 路由末项可滚至末端
+[PASS] 401/zh/light 路由—动作跨界间距一致
+[PASS] 401/zh/light 路由首项可滚回起点
+[PASS] 401/en/light 路由与动作分组存在
+[PASS] 401/en/light 可见文字入口数量正确
+[PASS] 401/en/light 页面无横向溢出
+[PASS] 401/en/light 导航与品牌高度稳定
+[PASS] 401/en/light 链接区自身不溢出
+[PASS] 401/en/light 文字入口字号一致
+[PASS] 401/en/light 文字入口 inline padding 一致
+[PASS] 401/en/light 三层 gap 一致
+[PASS] 401/en/light 按钮盒无额外等宽留白
+[PASS] 401/en/light 相邻文字边缘距一致
+[PASS] 401/en/light 文字边缘距等于 gap+padding
+[PASS] 401/en/light 全部文字单行且不裁切
+[PASS] 401/en/light 文字入口互不重叠
+[PASS] 401/en/light 文字入口不遮挡图标控件
+[PASS] 401/en/light 主动作完整位于可视区
+[PASS] 401/en/light 窄屏沿用下载按钮隐藏规则
+[PASS] 401/en/light 路由保留独立滚动区
+[PASS] 401/en/light 路由末项可滚至末端
+[PASS] 401/en/light 路由—动作跨界间距一致
+[PASS] 401/en/light 路由首项可滚回起点
+[PASS] 401/fr/light 路由与动作分组存在
+[PASS] 401/fr/light 可见文字入口数量正确
+[PASS] 401/fr/light 页面无横向溢出
+[PASS] 401/fr/light 导航与品牌高度稳定
+[PASS] 401/fr/light 链接区自身不溢出
+[PASS] 401/fr/light 文字入口字号一致
+[PASS] 401/fr/light 文字入口 inline padding 一致
+[PASS] 401/fr/light 三层 gap 一致
+[PASS] 401/fr/light 按钮盒无额外等宽留白
+[PASS] 401/fr/light 相邻文字边缘距一致
+[PASS] 401/fr/light 文字边缘距等于 gap+padding
+[PASS] 401/fr/light 全部文字单行且不裁切
+[PASS] 401/fr/light 文字入口互不重叠
+[PASS] 401/fr/light 文字入口不遮挡图标控件
+[PASS] 401/fr/light 主动作完整位于可视区
+[PASS] 401/fr/light 窄屏沿用下载按钮隐藏规则
+[PASS] 401/fr/light 路由保留独立滚动区
+[PASS] 401/fr/light 路由末项可滚至末端
+[PASS] 401/fr/light 路由—动作跨界间距一致
+[PASS] 401/fr/light 路由首项可滚回起点
+[PASS] 401/es/light 路由与动作分组存在
+[PASS] 401/es/light 可见文字入口数量正确
+[PASS] 401/es/light 页面无横向溢出
+[PASS] 401/es/light 导航与品牌高度稳定
+[PASS] 401/es/light 链接区自身不溢出
+[PASS] 401/es/light 文字入口字号一致
+[PASS] 401/es/light 文字入口 inline padding 一致
+[PASS] 401/es/light 三层 gap 一致
+[PASS] 401/es/light 按钮盒无额外等宽留白
+[PASS] 401/es/light 相邻文字边缘距一致
+[PASS] 401/es/light 文字边缘距等于 gap+padding
+[PASS] 401/es/light 全部文字单行且不裁切
+[PASS] 401/es/light 文字入口互不重叠
+[PASS] 401/es/light 文字入口不遮挡图标控件
+[PASS] 401/es/light 主动作完整位于可视区
+[PASS] 401/es/light 窄屏沿用下载按钮隐藏规则
+[PASS] 401/es/light 路由保留独立滚动区
+[PASS] 401/es/light 路由末项可滚至末端
+[PASS] 401/es/light 路由—动作跨界间距一致
+[PASS] 401/es/light 路由首项可滚回起点
+[PASS] 401/ru/light 路由与动作分组存在
+[PASS] 401/ru/light 可见文字入口数量正确
+[PASS] 401/ru/light 页面无横向溢出
+[PASS] 401/ru/light 导航与品牌高度稳定
+[PASS] 401/ru/light 链接区自身不溢出
+[PASS] 401/ru/light 文字入口字号一致
+[PASS] 401/ru/light 文字入口 inline padding 一致
+[PASS] 401/ru/light 三层 gap 一致
+[PASS] 401/ru/light 按钮盒无额外等宽留白
+[PASS] 401/ru/light 相邻文字边缘距一致
+[PASS] 401/ru/light 文字边缘距等于 gap+padding
+[PASS] 401/ru/light 全部文字单行且不裁切
+[PASS] 401/ru/light 文字入口互不重叠
+[PASS] 401/ru/light 文字入口不遮挡图标控件
+[PASS] 401/ru/light 主动作完整位于可视区
+[PASS] 401/ru/light 窄屏沿用下载按钮隐藏规则
+[PASS] 401/ru/light 路由保留独立滚动区
+[PASS] 401/ru/light 路由末项可滚至末端
+[PASS] 401/ru/light 路由—动作跨界间距一致
+[PASS] 401/ru/light 路由首项可滚回起点
+[PASS] 401/ar/light 路由与动作分组存在
+[PASS] 401/ar/light 可见文字入口数量正确
+[PASS] 401/ar/light 页面无横向溢出
+[PASS] 401/ar/light 导航与品牌高度稳定
+[PASS] 401/ar/light 链接区自身不溢出
+[PASS] 401/ar/light 文字入口字号一致
+[PASS] 401/ar/light 文字入口 inline padding 一致
+[PASS] 401/ar/light 三层 gap 一致
+[PASS] 401/ar/light 按钮盒无额外等宽留白
+[PASS] 401/ar/light 相邻文字边缘距一致
+[PASS] 401/ar/light 文字边缘距等于 gap+padding
+[PASS] 401/ar/light 全部文字单行且不裁切
+[PASS] 401/ar/light 文字入口互不重叠
+[PASS] 401/ar/light 文字入口不遮挡图标控件
+[PASS] 401/ar/light 主动作完整位于可视区
+[PASS] 401/ar/light 窄屏沿用下载按钮隐藏规则
+[PASS] 401/ar/light 路由保留独立滚动区
+[PASS] 401/ar/light 路由末项可滚至末端
+[PASS] 401/ar/light 路由—动作跨界间距一致
+[PASS] 401/ar/light 路由首项可滚回起点
+[PASS] 560/zh/light 路由与动作分组存在
+[PASS] 560/zh/light 可见文字入口数量正确
+[PASS] 560/zh/light 页面无横向溢出
+[PASS] 560/zh/light 导航与品牌高度稳定
+[PASS] 560/zh/light 链接区自身不溢出
+[PASS] 560/zh/light 文字入口字号一致
+[PASS] 560/zh/light 文字入口 inline padding 一致
+[PASS] 560/zh/light 三层 gap 一致
+[PASS] 560/zh/light 按钮盒无额外等宽留白
+[PASS] 560/zh/light 相邻文字边缘距一致
+[PASS] 560/zh/light 文字边缘距等于 gap+padding
+[PASS] 560/zh/light 全部文字单行且不裁切
+[PASS] 560/zh/light 文字入口互不重叠
+[PASS] 560/zh/light 文字入口不遮挡图标控件
+[PASS] 560/zh/light 主动作完整位于可视区
+[PASS] 560/zh/light 窄屏沿用下载按钮隐藏规则
+[PASS] 560/zh/light 路由保留独立滚动区
+[PASS] 560/en/light 路由与动作分组存在
+[PASS] 560/en/light 可见文字入口数量正确
+[PASS] 560/en/light 页面无横向溢出
+[PASS] 560/en/light 导航与品牌高度稳定
+[PASS] 560/en/light 链接区自身不溢出
+[PASS] 560/en/light 文字入口字号一致
+[PASS] 560/en/light 文字入口 inline padding 一致
+[PASS] 560/en/light 三层 gap 一致
+[PASS] 560/en/light 按钮盒无额外等宽留白
+[PASS] 560/en/light 相邻文字边缘距一致
+[PASS] 560/en/light 文字边缘距等于 gap+padding
+[PASS] 560/en/light 全部文字单行且不裁切
+[PASS] 560/en/light 文字入口互不重叠
+[PASS] 560/en/light 文字入口不遮挡图标控件
+[PASS] 560/en/light 主动作完整位于可视区
+[PASS] 560/en/light 窄屏沿用下载按钮隐藏规则
+[PASS] 560/en/light 路由保留独立滚动区
+[PASS] 560/en/light 路由末项可滚至末端
+[PASS] 560/en/light 路由—动作跨界间距一致
+[PASS] 560/en/light 路由首项可滚回起点
+[PASS] 560/fr/light 路由与动作分组存在
+[PASS] 560/fr/light 可见文字入口数量正确
+[PASS] 560/fr/light 页面无横向溢出
+[PASS] 560/fr/light 导航与品牌高度稳定
+[PASS] 560/fr/light 链接区自身不溢出
+[PASS] 560/fr/light 文字入口字号一致
+[PASS] 560/fr/light 文字入口 inline padding 一致
+[PASS] 560/fr/light 三层 gap 一致
+[PASS] 560/fr/light 按钮盒无额外等宽留白
+[PASS] 560/fr/light 相邻文字边缘距一致
+[PASS] 560/fr/light 文字边缘距等于 gap+padding
+[PASS] 560/fr/light 全部文字单行且不裁切
+[PASS] 560/fr/light 文字入口互不重叠
+[PASS] 560/fr/light 文字入口不遮挡图标控件
+[PASS] 560/fr/light 主动作完整位于可视区
+[PASS] 560/fr/light 窄屏沿用下载按钮隐藏规则
+[PASS] 560/fr/light 路由保留独立滚动区
+[PASS] 560/fr/light 路由末项可滚至末端
+[PASS] 560/fr/light 路由—动作跨界间距一致
+[PASS] 560/fr/light 路由首项可滚回起点
+[PASS] 560/es/light 路由与动作分组存在
+[PASS] 560/es/light 可见文字入口数量正确
+[PASS] 560/es/light 页面无横向溢出
+[PASS] 560/es/light 导航与品牌高度稳定
+[PASS] 560/es/light 链接区自身不溢出
+[PASS] 560/es/light 文字入口字号一致
+[PASS] 560/es/light 文字入口 inline padding 一致
+[PASS] 560/es/light 三层 gap 一致
+[PASS] 560/es/light 按钮盒无额外等宽留白
+[PASS] 560/es/light 相邻文字边缘距一致
+[PASS] 560/es/light 文字边缘距等于 gap+padding
+[PASS] 560/es/light 全部文字单行且不裁切
+[PASS] 560/es/light 文字入口互不重叠
+[PASS] 560/es/light 文字入口不遮挡图标控件
+[PASS] 560/es/light 主动作完整位于可视区
+[PASS] 560/es/light 窄屏沿用下载按钮隐藏规则
+[PASS] 560/es/light 路由保留独立滚动区
+[PASS] 560/es/light 路由末项可滚至末端
+[PASS] 560/es/light 路由—动作跨界间距一致
+[PASS] 560/es/light 路由首项可滚回起点
+[PASS] 560/ru/light 路由与动作分组存在
+[PASS] 560/ru/light 可见文字入口数量正确
+[PASS] 560/ru/light 页面无横向溢出
+[PASS] 560/ru/light 导航与品牌高度稳定
+[PASS] 560/ru/light 链接区自身不溢出
+[PASS] 560/ru/light 文字入口字号一致
+[PASS] 560/ru/light 文字入口 inline padding 一致
+[PASS] 560/ru/light 三层 gap 一致
+[PASS] 560/ru/light 按钮盒无额外等宽留白
+[PASS] 560/ru/light 相邻文字边缘距一致
+[PASS] 560/ru/light 文字边缘距等于 gap+padding
+[PASS] 560/ru/light 全部文字单行且不裁切
+[PASS] 560/ru/light 文字入口互不重叠
+[PASS] 560/ru/light 文字入口不遮挡图标控件
+[PASS] 560/ru/light 主动作完整位于可视区
+[PASS] 560/ru/light 窄屏沿用下载按钮隐藏规则
+[PASS] 560/ru/light 路由保留独立滚动区
+[PASS] 560/ru/light 路由末项可滚至末端
+[PASS] 560/ru/light 路由—动作跨界间距一致
+[PASS] 560/ru/light 路由首项可滚回起点
+[PASS] 560/ar/light 路由与动作分组存在
+[PASS] 560/ar/light 可见文字入口数量正确
+[PASS] 560/ar/light 页面无横向溢出
+[PASS] 560/ar/light 导航与品牌高度稳定
+[PASS] 560/ar/light 链接区自身不溢出
+[PASS] 560/ar/light 文字入口字号一致
+[PASS] 560/ar/light 文字入口 inline padding 一致
+[PASS] 560/ar/light 三层 gap 一致
+[PASS] 560/ar/light 按钮盒无额外等宽留白
+[PASS] 560/ar/light 相邻文字边缘距一致
+[PASS] 560/ar/light 文字边缘距等于 gap+padding
+[PASS] 560/ar/light 全部文字单行且不裁切
+[PASS] 560/ar/light 文字入口互不重叠
+[PASS] 560/ar/light 文字入口不遮挡图标控件
+[PASS] 560/ar/light 主动作完整位于可视区
+[PASS] 560/ar/light 窄屏沿用下载按钮隐藏规则
+[PASS] 560/ar/light 路由保留独立滚动区
+[PASS] 560/ar/light 路由末项可滚至末端
+[PASS] 560/ar/light 路由—动作跨界间距一致
+[PASS] 560/ar/light 路由首项可滚回起点
+[PASS] 561/zh/light 路由与动作分组存在
+[PASS] 561/zh/light 可见文字入口数量正确
+[PASS] 561/zh/light 页面无横向溢出
+[PASS] 561/zh/light 导航与品牌高度稳定
+[PASS] 561/zh/light 链接区自身不溢出
+[PASS] 561/zh/light 文字入口字号一致
+[PASS] 561/zh/light 文字入口 inline padding 一致
+[PASS] 561/zh/light 三层 gap 一致
+[PASS] 561/zh/light 按钮盒无额外等宽留白
+[PASS] 561/zh/light 相邻文字边缘距一致
+[PASS] 561/zh/light 文字边缘距等于 gap+padding
+[PASS] 561/zh/light 全部文字单行且不裁切
+[PASS] 561/zh/light 文字入口互不重叠
+[PASS] 561/zh/light 文字入口不遮挡图标控件
+[PASS] 561/zh/light 主动作完整位于可视区
+[PASS] 561/zh/light 窄屏沿用下载按钮隐藏规则
+[PASS] 561/zh/light 路由保留独立滚动区
+[PASS] 561/en/light 路由与动作分组存在
+[PASS] 561/en/light 可见文字入口数量正确
+[PASS] 561/en/light 页面无横向溢出
+[PASS] 561/en/light 导航与品牌高度稳定
+[PASS] 561/en/light 链接区自身不溢出
+[PASS] 561/en/light 文字入口字号一致
+[PASS] 561/en/light 文字入口 inline padding 一致
+[PASS] 561/en/light 三层 gap 一致
+[PASS] 561/en/light 按钮盒无额外等宽留白
+[PASS] 561/en/light 相邻文字边缘距一致
+[PASS] 561/en/light 文字边缘距等于 gap+padding
+[PASS] 561/en/light 全部文字单行且不裁切
+[PASS] 561/en/light 文字入口互不重叠
+[PASS] 561/en/light 文字入口不遮挡图标控件
+[PASS] 561/en/light 主动作完整位于可视区
+[PASS] 561/en/light 窄屏沿用下载按钮隐藏规则
+[PASS] 561/en/light 路由保留独立滚动区
+[PASS] 561/en/light 路由末项可滚至末端
+[PASS] 561/en/light 路由—动作跨界间距一致
+[PASS] 561/en/light 路由首项可滚回起点
+[PASS] 561/fr/light 路由与动作分组存在
+[PASS] 561/fr/light 可见文字入口数量正确
+[PASS] 561/fr/light 页面无横向溢出
+[PASS] 561/fr/light 导航与品牌高度稳定
+[PASS] 561/fr/light 链接区自身不溢出
+[PASS] 561/fr/light 文字入口字号一致
+[PASS] 561/fr/light 文字入口 inline padding 一致
+[PASS] 561/fr/light 三层 gap 一致
+[PASS] 561/fr/light 按钮盒无额外等宽留白
+[PASS] 561/fr/light 相邻文字边缘距一致
+[PASS] 561/fr/light 文字边缘距等于 gap+padding
+[PASS] 561/fr/light 全部文字单行且不裁切
+[PASS] 561/fr/light 文字入口互不重叠
+[PASS] 561/fr/light 文字入口不遮挡图标控件
+[PASS] 561/fr/light 主动作完整位于可视区
+[PASS] 561/fr/light 窄屏沿用下载按钮隐藏规则
+[PASS] 561/fr/light 路由保留独立滚动区
+[PASS] 561/fr/light 路由末项可滚至末端
+[PASS] 561/fr/light 路由—动作跨界间距一致
+[PASS] 561/fr/light 路由首项可滚回起点
+[PASS] 561/es/light 路由与动作分组存在
+[PASS] 561/es/light 可见文字入口数量正确
+[PASS] 561/es/light 页面无横向溢出
+[PASS] 561/es/light 导航与品牌高度稳定
+[PASS] 561/es/light 链接区自身不溢出
+[PASS] 561/es/light 文字入口字号一致
+[PASS] 561/es/light 文字入口 inline padding 一致
+[PASS] 561/es/light 三层 gap 一致
+[PASS] 561/es/light 按钮盒无额外等宽留白
+[PASS] 561/es/light 相邻文字边缘距一致
+[PASS] 561/es/light 文字边缘距等于 gap+padding
+[PASS] 561/es/light 全部文字单行且不裁切
+[PASS] 561/es/light 文字入口互不重叠
+[PASS] 561/es/light 文字入口不遮挡图标控件
+[PASS] 561/es/light 主动作完整位于可视区
+[PASS] 561/es/light 窄屏沿用下载按钮隐藏规则
+[PASS] 561/es/light 路由保留独立滚动区
+[PASS] 561/es/light 路由末项可滚至末端
+[PASS] 561/es/light 路由—动作跨界间距一致
+[PASS] 561/es/light 路由首项可滚回起点
+[PASS] 561/ru/light 路由与动作分组存在
+[PASS] 561/ru/light 可见文字入口数量正确
+[PASS] 561/ru/light 页面无横向溢出
+[PASS] 561/ru/light 导航与品牌高度稳定
+[PASS] 561/ru/light 链接区自身不溢出
+[PASS] 561/ru/light 文字入口字号一致
+[PASS] 561/ru/light 文字入口 inline padding 一致
+[PASS] 561/ru/light 三层 gap 一致
+[PASS] 561/ru/light 按钮盒无额外等宽留白
+[PASS] 561/ru/light 相邻文字边缘距一致
+[PASS] 561/ru/light 文字边缘距等于 gap+padding
+[PASS] 561/ru/light 全部文字单行且不裁切
+[PASS] 561/ru/light 文字入口互不重叠
+[PASS] 561/ru/light 文字入口不遮挡图标控件
+[PASS] 561/ru/light 主动作完整位于可视区
+[PASS] 561/ru/light 窄屏沿用下载按钮隐藏规则
+[PASS] 561/ru/light 路由保留独立滚动区
+[PASS] 561/ru/light 路由末项可滚至末端
+[PASS] 561/ru/light 路由—动作跨界间距一致
+[PASS] 561/ru/light 路由首项可滚回起点
+[PASS] 561/ar/light 路由与动作分组存在
+[PASS] 561/ar/light 可见文字入口数量正确
+[PASS] 561/ar/light 页面无横向溢出
+[PASS] 561/ar/light 导航与品牌高度稳定
+[PASS] 561/ar/light 链接区自身不溢出
+[PASS] 561/ar/light 文字入口字号一致
+[PASS] 561/ar/light 文字入口 inline padding 一致
+[PASS] 561/ar/light 三层 gap 一致
+[PASS] 561/ar/light 按钮盒无额外等宽留白
+[PASS] 561/ar/light 相邻文字边缘距一致
+[PASS] 561/ar/light 文字边缘距等于 gap+padding
+[PASS] 561/ar/light 全部文字单行且不裁切
+[PASS] 561/ar/light 文字入口互不重叠
+[PASS] 561/ar/light 文字入口不遮挡图标控件
+[PASS] 561/ar/light 主动作完整位于可视区
+[PASS] 561/ar/light 窄屏沿用下载按钮隐藏规则
+[PASS] 561/ar/light 路由保留独立滚动区
+[PASS] 561/ar/light 路由末项可滚至末端
+[PASS] 561/ar/light 路由—动作跨界间距一致
+[PASS] 561/ar/light 路由首项可滚回起点
+[PASS] 640/zh/light 路由与动作分组存在
+[PASS] 640/zh/light 可见文字入口数量正确
+[PASS] 640/zh/light 页面无横向溢出
+[PASS] 640/zh/light 导航与品牌高度稳定
+[PASS] 640/zh/light 链接区自身不溢出
+[PASS] 640/zh/light 文字入口字号一致
+[PASS] 640/zh/light 文字入口 inline padding 一致
+[PASS] 640/zh/light 三层 gap 一致
+[PASS] 640/zh/light 按钮盒无额外等宽留白
+[PASS] 640/zh/light 相邻文字边缘距一致
+[PASS] 640/zh/light 文字边缘距等于 gap+padding
+[PASS] 640/zh/light 全部文字单行且不裁切
+[PASS] 640/zh/light 文字入口互不重叠
+[PASS] 640/zh/light 文字入口不遮挡图标控件
+[PASS] 640/zh/light 主动作完整位于可视区
+[PASS] 640/zh/light 窄屏沿用下载按钮隐藏规则
+[PASS] 640/zh/light 路由保留独立滚动区
+[PASS] 640/en/light 路由与动作分组存在
+[PASS] 640/en/light 可见文字入口数量正确
+[PASS] 640/en/light 页面无横向溢出
+[PASS] 640/en/light 导航与品牌高度稳定
+[PASS] 640/en/light 链接区自身不溢出
+[PASS] 640/en/light 文字入口字号一致
+[PASS] 640/en/light 文字入口 inline padding 一致
+[PASS] 640/en/light 三层 gap 一致
+[PASS] 640/en/light 按钮盒无额外等宽留白
+[PASS] 640/en/light 相邻文字边缘距一致
+[PASS] 640/en/light 文字边缘距等于 gap+padding
+[PASS] 640/en/light 全部文字单行且不裁切
+[PASS] 640/en/light 文字入口互不重叠
+[PASS] 640/en/light 文字入口不遮挡图标控件
+[PASS] 640/en/light 主动作完整位于可视区
+[PASS] 640/en/light 窄屏沿用下载按钮隐藏规则
+[PASS] 640/en/light 路由保留独立滚动区
+[PASS] 640/en/light 路由末项可滚至末端
+[PASS] 640/en/light 路由—动作跨界间距一致
+[PASS] 640/en/light 路由首项可滚回起点
+[PASS] 640/fr/light 路由与动作分组存在
+[PASS] 640/fr/light 可见文字入口数量正确
+[PASS] 640/fr/light 页面无横向溢出
+[PASS] 640/fr/light 导航与品牌高度稳定
+[PASS] 640/fr/light 链接区自身不溢出
+[PASS] 640/fr/light 文字入口字号一致
+[PASS] 640/fr/light 文字入口 inline padding 一致
+[PASS] 640/fr/light 三层 gap 一致
+[PASS] 640/fr/light 按钮盒无额外等宽留白
+[PASS] 640/fr/light 相邻文字边缘距一致
+[PASS] 640/fr/light 文字边缘距等于 gap+padding
+[PASS] 640/fr/light 全部文字单行且不裁切
+[PASS] 640/fr/light 文字入口互不重叠
+[PASS] 640/fr/light 文字入口不遮挡图标控件
+[PASS] 640/fr/light 主动作完整位于可视区
+[PASS] 640/fr/light 窄屏沿用下载按钮隐藏规则
+[PASS] 640/fr/light 路由保留独立滚动区
+[PASS] 640/fr/light 路由末项可滚至末端
+[PASS] 640/fr/light 路由—动作跨界间距一致
+[PASS] 640/fr/light 路由首项可滚回起点
+[PASS] 640/es/light 路由与动作分组存在
+[PASS] 640/es/light 可见文字入口数量正确
+[PASS] 640/es/light 页面无横向溢出
+[PASS] 640/es/light 导航与品牌高度稳定
+[PASS] 640/es/light 链接区自身不溢出
+[PASS] 640/es/light 文字入口字号一致
+[PASS] 640/es/light 文字入口 inline padding 一致
+[PASS] 640/es/light 三层 gap 一致
+[PASS] 640/es/light 按钮盒无额外等宽留白
+[PASS] 640/es/light 相邻文字边缘距一致
+[PASS] 640/es/light 文字边缘距等于 gap+padding
+[PASS] 640/es/light 全部文字单行且不裁切
+[PASS] 640/es/light 文字入口互不重叠
+[PASS] 640/es/light 文字入口不遮挡图标控件
+[PASS] 640/es/light 主动作完整位于可视区
+[PASS] 640/es/light 窄屏沿用下载按钮隐藏规则
+[PASS] 640/es/light 路由保留独立滚动区
+[PASS] 640/es/light 路由末项可滚至末端
+[PASS] 640/es/light 路由—动作跨界间距一致
+[PASS] 640/es/light 路由首项可滚回起点
+[PASS] 640/ru/light 路由与动作分组存在
+[PASS] 640/ru/light 可见文字入口数量正确
+[PASS] 640/ru/light 页面无横向溢出
+[PASS] 640/ru/light 导航与品牌高度稳定
+[PASS] 640/ru/light 链接区自身不溢出
+[PASS] 640/ru/light 文字入口字号一致
+[PASS] 640/ru/light 文字入口 inline padding 一致
+[PASS] 640/ru/light 三层 gap 一致
+[PASS] 640/ru/light 按钮盒无额外等宽留白
+[PASS] 640/ru/light 相邻文字边缘距一致
+[PASS] 640/ru/light 文字边缘距等于 gap+padding
+[PASS] 640/ru/light 全部文字单行且不裁切
+[PASS] 640/ru/light 文字入口互不重叠
+[PASS] 640/ru/light 文字入口不遮挡图标控件
+[PASS] 640/ru/light 主动作完整位于可视区
+[PASS] 640/ru/light 窄屏沿用下载按钮隐藏规则
+[PASS] 640/ru/light 路由保留独立滚动区
+[PASS] 640/ru/light 路由末项可滚至末端
+[PASS] 640/ru/light 路由—动作跨界间距一致
+[PASS] 640/ru/light 路由首项可滚回起点
+[PASS] 640/ar/light 路由与动作分组存在
+[PASS] 640/ar/light 可见文字入口数量正确
+[PASS] 640/ar/light 页面无横向溢出
+[PASS] 640/ar/light 导航与品牌高度稳定
+[PASS] 640/ar/light 链接区自身不溢出
+[PASS] 640/ar/light 文字入口字号一致
+[PASS] 640/ar/light 文字入口 inline padding 一致
+[PASS] 640/ar/light 三层 gap 一致
+[PASS] 640/ar/light 按钮盒无额外等宽留白
+[PASS] 640/ar/light 相邻文字边缘距一致
+[PASS] 640/ar/light 文字边缘距等于 gap+padding
+[PASS] 640/ar/light 全部文字单行且不裁切
+[PASS] 640/ar/light 文字入口互不重叠
+[PASS] 640/ar/light 文字入口不遮挡图标控件
+[PASS] 640/ar/light 主动作完整位于可视区
+[PASS] 640/ar/light 窄屏沿用下载按钮隐藏规则
+[PASS] 640/ar/light 路由保留独立滚动区
+[PASS] 641/zh/light 路由与动作分组存在
+[PASS] 641/zh/light 可见文字入口数量正确
+[PASS] 641/zh/light 页面无横向溢出
+[PASS] 641/zh/light 导航与品牌高度稳定
+[PASS] 641/zh/light 链接区自身不溢出
+[PASS] 641/zh/light 文字入口字号一致
+[PASS] 641/zh/light 文字入口 inline padding 一致
+[PASS] 641/zh/light 三层 gap 一致
+[PASS] 641/zh/light 按钮盒无额外等宽留白
+[PASS] 641/zh/light 相邻文字边缘距一致
+[PASS] 641/zh/light 文字边缘距等于 gap+padding
+[PASS] 641/zh/light 全部文字单行且不裁切
+[PASS] 641/zh/light 文字入口互不重叠
+[PASS] 641/zh/light 文字入口不遮挡图标控件
+[PASS] 641/zh/light 主动作完整位于可视区
+[PASS] 641/zh/light 三个主动作可见
+[PASS] 641/zh/light 路由保留独立滚动区
+[PASS] 641/en/light 路由与动作分组存在
+[PASS] 641/en/light 可见文字入口数量正确
+[PASS] 641/en/light 页面无横向溢出
+[PASS] 641/en/light 导航与品牌高度稳定
+[PASS] 641/en/light 链接区自身不溢出
+[PASS] 641/en/light 文字入口字号一致
+[PASS] 641/en/light 文字入口 inline padding 一致
+[PASS] 641/en/light 三层 gap 一致
+[PASS] 641/en/light 按钮盒无额外等宽留白
+[PASS] 641/en/light 相邻文字边缘距一致
+[PASS] 641/en/light 文字边缘距等于 gap+padding
+[PASS] 641/en/light 全部文字单行且不裁切
+[PASS] 641/en/light 文字入口互不重叠
+[PASS] 641/en/light 文字入口不遮挡图标控件
+[PASS] 641/en/light 主动作完整位于可视区
+[PASS] 641/en/light 三个主动作可见
+[PASS] 641/en/light 路由保留独立滚动区
+[PASS] 641/en/light 路由末项可滚至末端
+[PASS] 641/en/light 路由—动作跨界间距一致
+[PASS] 641/en/light 路由首项可滚回起点
+[PASS] 641/fr/light 路由与动作分组存在
+[PASS] 641/fr/light 可见文字入口数量正确
+[PASS] 641/fr/light 页面无横向溢出
+[PASS] 641/fr/light 导航与品牌高度稳定
+[PASS] 641/fr/light 链接区自身不溢出
+[PASS] 641/fr/light 文字入口字号一致
+[PASS] 641/fr/light 文字入口 inline padding 一致
+[PASS] 641/fr/light 三层 gap 一致
+[PASS] 641/fr/light 按钮盒无额外等宽留白
+[PASS] 641/fr/light 相邻文字边缘距一致
+[PASS] 641/fr/light 文字边缘距等于 gap+padding
+[PASS] 641/fr/light 全部文字单行且不裁切
+[PASS] 641/fr/light 文字入口互不重叠
+[PASS] 641/fr/light 文字入口不遮挡图标控件
+[PASS] 641/fr/light 主动作完整位于可视区
+[PASS] 641/fr/light 三个主动作可见
+[PASS] 641/fr/light 路由保留独立滚动区
+[PASS] 641/fr/light 路由末项可滚至末端
+[PASS] 641/fr/light 路由—动作跨界间距一致
+[PASS] 641/fr/light 路由首项可滚回起点
+[PASS] 641/es/light 路由与动作分组存在
+[PASS] 641/es/light 可见文字入口数量正确
+[PASS] 641/es/light 页面无横向溢出
+[PASS] 641/es/light 导航与品牌高度稳定
+[PASS] 641/es/light 链接区自身不溢出
+[PASS] 641/es/light 文字入口字号一致
+[PASS] 641/es/light 文字入口 inline padding 一致
+[PASS] 641/es/light 三层 gap 一致
+[PASS] 641/es/light 按钮盒无额外等宽留白
+[PASS] 641/es/light 相邻文字边缘距一致
+[PASS] 641/es/light 文字边缘距等于 gap+padding
+[PASS] 641/es/light 全部文字单行且不裁切
+[PASS] 641/es/light 文字入口互不重叠
+[PASS] 641/es/light 文字入口不遮挡图标控件
+[PASS] 641/es/light 主动作完整位于可视区
+[PASS] 641/es/light 三个主动作可见
+[PASS] 641/es/light 路由保留独立滚动区
+[PASS] 641/es/light 路由末项可滚至末端
+[PASS] 641/es/light 路由—动作跨界间距一致
+[PASS] 641/es/light 路由首项可滚回起点
+[PASS] 641/ru/light 路由与动作分组存在
+[PASS] 641/ru/light 可见文字入口数量正确
+[PASS] 641/ru/light 页面无横向溢出
+[PASS] 641/ru/light 导航与品牌高度稳定
+[PASS] 641/ru/light 链接区自身不溢出
+[PASS] 641/ru/light 文字入口字号一致
+[PASS] 641/ru/light 文字入口 inline padding 一致
+[PASS] 641/ru/light 三层 gap 一致
+[PASS] 641/ru/light 按钮盒无额外等宽留白
+[PASS] 641/ru/light 相邻文字边缘距一致
+[PASS] 641/ru/light 文字边缘距等于 gap+padding
+[PASS] 641/ru/light 全部文字单行且不裁切
+[PASS] 641/ru/light 文字入口互不重叠
+[PASS] 641/ru/light 文字入口不遮挡图标控件
+[PASS] 641/ru/light 主动作完整位于可视区
+[PASS] 641/ru/light 三个主动作可见
+[PASS] 641/ru/light 路由保留独立滚动区
+[PASS] 641/ru/light 路由末项可滚至末端
+[PASS] 641/ru/light 路由—动作跨界间距一致
+[PASS] 641/ru/light 路由首项可滚回起点
+[PASS] 641/ar/light 路由与动作分组存在
+[PASS] 641/ar/light 可见文字入口数量正确
+[PASS] 641/ar/light 页面无横向溢出
+[PASS] 641/ar/light 导航与品牌高度稳定
+[PASS] 641/ar/light 链接区自身不溢出
+[PASS] 641/ar/light 文字入口字号一致
+[PASS] 641/ar/light 文字入口 inline padding 一致
+[PASS] 641/ar/light 三层 gap 一致
+[PASS] 641/ar/light 按钮盒无额外等宽留白
+[PASS] 641/ar/light 相邻文字边缘距一致
+[PASS] 641/ar/light 文字边缘距等于 gap+padding
+[PASS] 641/ar/light 全部文字单行且不裁切
+[PASS] 641/ar/light 文字入口互不重叠
+[PASS] 641/ar/light 文字入口不遮挡图标控件
+[PASS] 641/ar/light 主动作完整位于可视区
+[PASS] 641/ar/light 三个主动作可见
+[PASS] 641/ar/light 路由保留独立滚动区
+[PASS] 641/ar/light 路由末项可滚至末端
+[PASS] 641/ar/light 路由—动作跨界间距一致
+[PASS] 641/ar/light 路由首项可滚回起点
+[PASS] 768/zh/light 路由与动作分组存在
+[PASS] 768/zh/light 可见文字入口数量正确
+[PASS] 768/zh/light 页面无横向溢出
+[PASS] 768/zh/light 导航与品牌高度稳定
+[PASS] 768/zh/light 链接区自身不溢出
+[PASS] 768/zh/light 文字入口字号一致
+[PASS] 768/zh/light 文字入口 inline padding 一致
+[PASS] 768/zh/light 三层 gap 一致
+[PASS] 768/zh/light 按钮盒无额外等宽留白
+[PASS] 768/zh/light 相邻文字边缘距一致
+[PASS] 768/zh/light 文字边缘距等于 gap+padding
+[PASS] 768/zh/light 全部文字单行且不裁切
+[PASS] 768/zh/light 文字入口互不重叠
+[PASS] 768/zh/light 文字入口不遮挡图标控件
+[PASS] 768/zh/light 主动作完整位于可视区
+[PASS] 768/zh/light 三个主动作可见
+[PASS] 768/zh/light 路由保留独立滚动区
+[PASS] 768/en/light 路由与动作分组存在
+[PASS] 768/en/light 可见文字入口数量正确
+[PASS] 768/en/light 页面无横向溢出
+[PASS] 768/en/light 导航与品牌高度稳定
+[PASS] 768/en/light 链接区自身不溢出
+[PASS] 768/en/light 文字入口字号一致
+[PASS] 768/en/light 文字入口 inline padding 一致
+[PASS] 768/en/light 三层 gap 一致
+[PASS] 768/en/light 按钮盒无额外等宽留白
+[PASS] 768/en/light 相邻文字边缘距一致
+[PASS] 768/en/light 文字边缘距等于 gap+padding
+[PASS] 768/en/light 全部文字单行且不裁切
+[PASS] 768/en/light 文字入口互不重叠
+[PASS] 768/en/light 文字入口不遮挡图标控件
+[PASS] 768/en/light 主动作完整位于可视区
+[PASS] 768/en/light 三个主动作可见
+[PASS] 768/en/light 路由保留独立滚动区
+[PASS] 768/en/light 路由末项可滚至末端
+[PASS] 768/en/light 路由—动作跨界间距一致
+[PASS] 768/en/light 路由首项可滚回起点
+[PASS] 768/fr/light 路由与动作分组存在
+[PASS] 768/fr/light 可见文字入口数量正确
+[PASS] 768/fr/light 页面无横向溢出
+[PASS] 768/fr/light 导航与品牌高度稳定
+[PASS] 768/fr/light 链接区自身不溢出
+[PASS] 768/fr/light 文字入口字号一致
+[PASS] 768/fr/light 文字入口 inline padding 一致
+[PASS] 768/fr/light 三层 gap 一致
+[PASS] 768/fr/light 按钮盒无额外等宽留白
+[PASS] 768/fr/light 相邻文字边缘距一致
+[PASS] 768/fr/light 文字边缘距等于 gap+padding
+[PASS] 768/fr/light 全部文字单行且不裁切
+[PASS] 768/fr/light 文字入口互不重叠
+[PASS] 768/fr/light 文字入口不遮挡图标控件
+[PASS] 768/fr/light 主动作完整位于可视区
+[PASS] 768/fr/light 三个主动作可见
+[PASS] 768/fr/light 路由保留独立滚动区
+[PASS] 768/fr/light 路由末项可滚至末端
+[PASS] 768/fr/light 路由—动作跨界间距一致
+[PASS] 768/fr/light 路由首项可滚回起点
+[PASS] 768/es/light 路由与动作分组存在
+[PASS] 768/es/light 可见文字入口数量正确
+[PASS] 768/es/light 页面无横向溢出
+[PASS] 768/es/light 导航与品牌高度稳定
+[PASS] 768/es/light 链接区自身不溢出
+[PASS] 768/es/light 文字入口字号一致
+[PASS] 768/es/light 文字入口 inline padding 一致
+[PASS] 768/es/light 三层 gap 一致
+[PASS] 768/es/light 按钮盒无额外等宽留白
+[PASS] 768/es/light 相邻文字边缘距一致
+[PASS] 768/es/light 文字边缘距等于 gap+padding
+[PASS] 768/es/light 全部文字单行且不裁切
+[PASS] 768/es/light 文字入口互不重叠
+[PASS] 768/es/light 文字入口不遮挡图标控件
+[PASS] 768/es/light 主动作完整位于可视区
+[PASS] 768/es/light 三个主动作可见
+[PASS] 768/es/light 路由保留独立滚动区
+[PASS] 768/es/light 路由末项可滚至末端
+[PASS] 768/es/light 路由—动作跨界间距一致
+[PASS] 768/es/light 路由首项可滚回起点
+[PASS] 768/ru/light 路由与动作分组存在
+[PASS] 768/ru/light 可见文字入口数量正确
+[PASS] 768/ru/light 页面无横向溢出
+[PASS] 768/ru/light 导航与品牌高度稳定
+[PASS] 768/ru/light 链接区自身不溢出
+[PASS] 768/ru/light 文字入口字号一致
+[PASS] 768/ru/light 文字入口 inline padding 一致
+[PASS] 768/ru/light 三层 gap 一致
+[PASS] 768/ru/light 按钮盒无额外等宽留白
+[PASS] 768/ru/light 相邻文字边缘距一致
+[PASS] 768/ru/light 文字边缘距等于 gap+padding
+[PASS] 768/ru/light 全部文字单行且不裁切
+[PASS] 768/ru/light 文字入口互不重叠
+[PASS] 768/ru/light 文字入口不遮挡图标控件
+[PASS] 768/ru/light 主动作完整位于可视区
+[PASS] 768/ru/light 三个主动作可见
+[PASS] 768/ru/light 路由保留独立滚动区
+[PASS] 768/ru/light 路由末项可滚至末端
+[PASS] 768/ru/light 路由—动作跨界间距一致
+[PASS] 768/ru/light 路由首项可滚回起点
+[PASS] 768/ar/light 路由与动作分组存在
+[PASS] 768/ar/light 可见文字入口数量正确
+[PASS] 768/ar/light 页面无横向溢出
+[PASS] 768/ar/light 导航与品牌高度稳定
+[PASS] 768/ar/light 链接区自身不溢出
+[PASS] 768/ar/light 文字入口字号一致
+[PASS] 768/ar/light 文字入口 inline padding 一致
+[PASS] 768/ar/light 三层 gap 一致
+[PASS] 768/ar/light 按钮盒无额外等宽留白
+[PASS] 768/ar/light 相邻文字边缘距一致
+[PASS] 768/ar/light 文字边缘距等于 gap+padding
+[PASS] 768/ar/light 全部文字单行且不裁切
+[PASS] 768/ar/light 文字入口互不重叠
+[PASS] 768/ar/light 文字入口不遮挡图标控件
+[PASS] 768/ar/light 主动作完整位于可视区
+[PASS] 768/ar/light 三个主动作可见
+[PASS] 768/ar/light 路由保留独立滚动区
+[PASS] 900/zh/light 路由与动作分组存在
+[PASS] 900/zh/light 可见文字入口数量正确
+[PASS] 900/zh/light 页面无横向溢出
+[PASS] 900/zh/light 导航与品牌高度稳定
+[PASS] 900/zh/light 链接区自身不溢出
+[PASS] 900/zh/light 文字入口字号一致
+[PASS] 900/zh/light 文字入口 inline padding 一致
+[PASS] 900/zh/light 三层 gap 一致
+[PASS] 900/zh/light 按钮盒无额外等宽留白
+[PASS] 900/zh/light 相邻文字边缘距一致
+[PASS] 900/zh/light 文字边缘距等于 gap+padding
+[PASS] 900/zh/light 全部文字单行且不裁切
+[PASS] 900/zh/light 文字入口互不重叠
+[PASS] 900/zh/light 文字入口不遮挡图标控件
+[PASS] 900/zh/light 主动作完整位于可视区
+[PASS] 900/zh/light 三个主动作可见
+[PASS] 900/zh/light 路由保留独立滚动区
+[PASS] 900/en/light 路由与动作分组存在
+[PASS] 900/en/light 可见文字入口数量正确
+[PASS] 900/en/light 页面无横向溢出
+[PASS] 900/en/light 导航与品牌高度稳定
+[PASS] 900/en/light 链接区自身不溢出
+[PASS] 900/en/light 文字入口字号一致
+[PASS] 900/en/light 文字入口 inline padding 一致
+[PASS] 900/en/light 三层 gap 一致
+[PASS] 900/en/light 按钮盒无额外等宽留白
+[PASS] 900/en/light 相邻文字边缘距一致
+[PASS] 900/en/light 文字边缘距等于 gap+padding
+[PASS] 900/en/light 全部文字单行且不裁切
+[PASS] 900/en/light 文字入口互不重叠
+[PASS] 900/en/light 文字入口不遮挡图标控件
+[PASS] 900/en/light 主动作完整位于可视区
+[PASS] 900/en/light 三个主动作可见
+[PASS] 900/en/light 路由保留独立滚动区
+[PASS] 900/en/light 路由末项可滚至末端
+[PASS] 900/en/light 路由—动作跨界间距一致
+[PASS] 900/en/light 路由首项可滚回起点
+[PASS] 900/fr/light 路由与动作分组存在
+[PASS] 900/fr/light 可见文字入口数量正确
+[PASS] 900/fr/light 页面无横向溢出
+[PASS] 900/fr/light 导航与品牌高度稳定
+[PASS] 900/fr/light 链接区自身不溢出
+[PASS] 900/fr/light 文字入口字号一致
+[PASS] 900/fr/light 文字入口 inline padding 一致
+[PASS] 900/fr/light 三层 gap 一致
+[PASS] 900/fr/light 按钮盒无额外等宽留白
+[PASS] 900/fr/light 相邻文字边缘距一致
+[PASS] 900/fr/light 文字边缘距等于 gap+padding
+[PASS] 900/fr/light 全部文字单行且不裁切
+[PASS] 900/fr/light 文字入口互不重叠
+[PASS] 900/fr/light 文字入口不遮挡图标控件
+[PASS] 900/fr/light 主动作完整位于可视区
+[PASS] 900/fr/light 三个主动作可见
+[PASS] 900/fr/light 路由保留独立滚动区
+[PASS] 900/fr/light 路由末项可滚至末端
+[PASS] 900/fr/light 路由—动作跨界间距一致
+[PASS] 900/fr/light 路由首项可滚回起点
+[PASS] 900/es/light 路由与动作分组存在
+[PASS] 900/es/light 可见文字入口数量正确
+[PASS] 900/es/light 页面无横向溢出
+[PASS] 900/es/light 导航与品牌高度稳定
+[PASS] 900/es/light 链接区自身不溢出
+[PASS] 900/es/light 文字入口字号一致
+[PASS] 900/es/light 文字入口 inline padding 一致
+[PASS] 900/es/light 三层 gap 一致
+[PASS] 900/es/light 按钮盒无额外等宽留白
+[PASS] 900/es/light 相邻文字边缘距一致
+[PASS] 900/es/light 文字边缘距等于 gap+padding
+[PASS] 900/es/light 全部文字单行且不裁切
+[PASS] 900/es/light 文字入口互不重叠
+[PASS] 900/es/light 文字入口不遮挡图标控件
+[PASS] 900/es/light 主动作完整位于可视区
+[PASS] 900/es/light 三个主动作可见
+[PASS] 900/es/light 路由保留独立滚动区
+[PASS] 900/es/light 路由末项可滚至末端
+[PASS] 900/es/light 路由—动作跨界间距一致
+[PASS] 900/es/light 路由首项可滚回起点
+[PASS] 900/ru/light 路由与动作分组存在
+[PASS] 900/ru/light 可见文字入口数量正确
+[PASS] 900/ru/light 页面无横向溢出
+[PASS] 900/ru/light 导航与品牌高度稳定
+[PASS] 900/ru/light 链接区自身不溢出
+[PASS] 900/ru/light 文字入口字号一致
+[PASS] 900/ru/light 文字入口 inline padding 一致
+[PASS] 900/ru/light 三层 gap 一致
+[PASS] 900/ru/light 按钮盒无额外等宽留白
+[PASS] 900/ru/light 相邻文字边缘距一致
+[PASS] 900/ru/light 文字边缘距等于 gap+padding
+[PASS] 900/ru/light 全部文字单行且不裁切
+[PASS] 900/ru/light 文字入口互不重叠
+[PASS] 900/ru/light 文字入口不遮挡图标控件
+[PASS] 900/ru/light 主动作完整位于可视区
+[PASS] 900/ru/light 三个主动作可见
+[PASS] 900/ru/light 路由保留独立滚动区
+[PASS] 900/ru/light 路由末项可滚至末端
+[PASS] 900/ru/light 路由—动作跨界间距一致
+[PASS] 900/ru/light 路由首项可滚回起点
+[PASS] 900/ar/light 路由与动作分组存在
+[PASS] 900/ar/light 可见文字入口数量正确
+[PASS] 900/ar/light 页面无横向溢出
+[PASS] 900/ar/light 导航与品牌高度稳定
+[PASS] 900/ar/light 链接区自身不溢出
+[PASS] 900/ar/light 文字入口字号一致
+[PASS] 900/ar/light 文字入口 inline padding 一致
+[PASS] 900/ar/light 三层 gap 一致
+[PASS] 900/ar/light 按钮盒无额外等宽留白
+[PASS] 900/ar/light 相邻文字边缘距一致
+[PASS] 900/ar/light 文字边缘距等于 gap+padding
+[PASS] 900/ar/light 全部文字单行且不裁切
+[PASS] 900/ar/light 文字入口互不重叠
+[PASS] 900/ar/light 文字入口不遮挡图标控件
+[PASS] 900/ar/light 主动作完整位于可视区
+[PASS] 900/ar/light 三个主动作可见
+[PASS] 900/ar/light 路由保留独立滚动区
+[PASS] 1024/zh/light 路由与动作分组存在
+[PASS] 1024/zh/light 可见文字入口数量正确
+[PASS] 1024/zh/light 页面无横向溢出
+[PASS] 1024/zh/light 导航与品牌高度稳定
+[PASS] 1024/zh/light 链接区自身不溢出
+[PASS] 1024/zh/light 文字入口字号一致
+[PASS] 1024/zh/light 文字入口 inline padding 一致
+[PASS] 1024/zh/light 三层 gap 一致
+[PASS] 1024/zh/light 按钮盒无额外等宽留白
+[PASS] 1024/zh/light 相邻文字边缘距一致
+[PASS] 1024/zh/light 文字边缘距等于 gap+padding
+[PASS] 1024/zh/light 全部文字单行且不裁切
+[PASS] 1024/zh/light 文字入口互不重叠
+[PASS] 1024/zh/light 文字入口不遮挡图标控件
+[PASS] 1024/zh/light 主动作完整位于可视区
+[PASS] 1024/zh/light 三个主动作可见
+[PASS] 1024/zh/light 路由保留独立滚动区
+[PASS] 1024/en/light 路由与动作分组存在
+[PASS] 1024/en/light 可见文字入口数量正确
+[PASS] 1024/en/light 页面无横向溢出
+[PASS] 1024/en/light 导航与品牌高度稳定
+[PASS] 1024/en/light 链接区自身不溢出
+[PASS] 1024/en/light 文字入口字号一致
+[PASS] 1024/en/light 文字入口 inline padding 一致
+[PASS] 1024/en/light 三层 gap 一致
+[PASS] 1024/en/light 按钮盒无额外等宽留白
+[PASS] 1024/en/light 相邻文字边缘距一致
+[PASS] 1024/en/light 文字边缘距等于 gap+padding
+[PASS] 1024/en/light 全部文字单行且不裁切
+[PASS] 1024/en/light 文字入口互不重叠
+[PASS] 1024/en/light 文字入口不遮挡图标控件
+[PASS] 1024/en/light 主动作完整位于可视区
+[PASS] 1024/en/light 三个主动作可见
+[PASS] 1024/en/light 路由保留独立滚动区
+[PASS] 1024/fr/light 路由与动作分组存在
+[PASS] 1024/fr/light 可见文字入口数量正确
+[PASS] 1024/fr/light 页面无横向溢出
+[PASS] 1024/fr/light 导航与品牌高度稳定
+[PASS] 1024/fr/light 链接区自身不溢出
+[PASS] 1024/fr/light 文字入口字号一致
+[PASS] 1024/fr/light 文字入口 inline padding 一致
+[PASS] 1024/fr/light 三层 gap 一致
+[PASS] 1024/fr/light 按钮盒无额外等宽留白
+[PASS] 1024/fr/light 相邻文字边缘距一致
+[PASS] 1024/fr/light 文字边缘距等于 gap+padding
+[PASS] 1024/fr/light 全部文字单行且不裁切
+[PASS] 1024/fr/light 文字入口互不重叠
+[PASS] 1024/fr/light 文字入口不遮挡图标控件
+[PASS] 1024/fr/light 主动作完整位于可视区
+[PASS] 1024/fr/light 三个主动作可见
+[PASS] 1024/fr/light 路由保留独立滚动区
+[PASS] 1024/fr/light 路由末项可滚至末端
+[PASS] 1024/fr/light 路由—动作跨界间距一致
+[PASS] 1024/fr/light 路由首项可滚回起点
+[PASS] 1024/es/light 路由与动作分组存在
+[PASS] 1024/es/light 可见文字入口数量正确
+[PASS] 1024/es/light 页面无横向溢出
+[PASS] 1024/es/light 导航与品牌高度稳定
+[PASS] 1024/es/light 链接区自身不溢出
+[PASS] 1024/es/light 文字入口字号一致
+[PASS] 1024/es/light 文字入口 inline padding 一致
+[PASS] 1024/es/light 三层 gap 一致
+[PASS] 1024/es/light 按钮盒无额外等宽留白
+[PASS] 1024/es/light 相邻文字边缘距一致
+[PASS] 1024/es/light 文字边缘距等于 gap+padding
+[PASS] 1024/es/light 全部文字单行且不裁切
+[PASS] 1024/es/light 文字入口互不重叠
+[PASS] 1024/es/light 文字入口不遮挡图标控件
+[PASS] 1024/es/light 主动作完整位于可视区
+[PASS] 1024/es/light 三个主动作可见
+[PASS] 1024/es/light 路由保留独立滚动区
+[PASS] 1024/es/light 路由末项可滚至末端
+[PASS] 1024/es/light 路由—动作跨界间距一致
+[PASS] 1024/es/light 路由首项可滚回起点
+[PASS] 1024/ru/light 路由与动作分组存在
+[PASS] 1024/ru/light 可见文字入口数量正确
+[PASS] 1024/ru/light 页面无横向溢出
+[PASS] 1024/ru/light 导航与品牌高度稳定
+[PASS] 1024/ru/light 链接区自身不溢出
+[PASS] 1024/ru/light 文字入口字号一致
+[PASS] 1024/ru/light 文字入口 inline padding 一致
+[PASS] 1024/ru/light 三层 gap 一致
+[PASS] 1024/ru/light 按钮盒无额外等宽留白
+[PASS] 1024/ru/light 相邻文字边缘距一致
+[PASS] 1024/ru/light 文字边缘距等于 gap+padding
+[PASS] 1024/ru/light 全部文字单行且不裁切
+[PASS] 1024/ru/light 文字入口互不重叠
+[PASS] 1024/ru/light 文字入口不遮挡图标控件
+[PASS] 1024/ru/light 主动作完整位于可视区
+[PASS] 1024/ru/light 三个主动作可见
+[PASS] 1024/ru/light 路由保留独立滚动区
+[PASS] 1024/ru/light 路由末项可滚至末端
+[PASS] 1024/ru/light 路由—动作跨界间距一致
+[PASS] 1024/ru/light 路由首项可滚回起点
+[PASS] 1024/ar/light 路由与动作分组存在
+[PASS] 1024/ar/light 可见文字入口数量正确
+[PASS] 1024/ar/light 页面无横向溢出
+[PASS] 1024/ar/light 导航与品牌高度稳定
+[PASS] 1024/ar/light 链接区自身不溢出
+[PASS] 1024/ar/light 文字入口字号一致
+[PASS] 1024/ar/light 文字入口 inline padding 一致
+[PASS] 1024/ar/light 三层 gap 一致
+[PASS] 1024/ar/light 按钮盒无额外等宽留白
+[PASS] 1024/ar/light 相邻文字边缘距一致
+[PASS] 1024/ar/light 文字边缘距等于 gap+padding
+[PASS] 1024/ar/light 全部文字单行且不裁切
+[PASS] 1024/ar/light 文字入口互不重叠
+[PASS] 1024/ar/light 文字入口不遮挡图标控件
+[PASS] 1024/ar/light 主动作完整位于可视区
+[PASS] 1024/ar/light 三个主动作可见
+[PASS] 1024/ar/light 路由保留独立滚动区
+[PASS] 1440/zh/light 路由与动作分组存在
+[PASS] 1440/zh/light 可见文字入口数量正确
+[PASS] 1440/zh/light 页面无横向溢出
+[PASS] 1440/zh/light 导航与品牌高度稳定
+[PASS] 1440/zh/light 链接区自身不溢出
+[PASS] 1440/zh/light 文字入口字号一致
+[PASS] 1440/zh/light 文字入口 inline padding 一致
+[PASS] 1440/zh/light 三层 gap 一致
+[PASS] 1440/zh/light 按钮盒无额外等宽留白
+[PASS] 1440/zh/light 相邻文字边缘距一致
+[PASS] 1440/zh/light 文字边缘距等于 gap+padding
+[PASS] 1440/zh/light 全部文字单行且不裁切
+[PASS] 1440/zh/light 文字入口互不重叠
+[PASS] 1440/zh/light 文字入口不遮挡图标控件
+[PASS] 1440/zh/light 主动作完整位于可视区
+[PASS] 1440/zh/light 三个主动作可见
+[PASS] 1440/zh/light 路由保留独立滚动区
+[PASS] 1440/en/light 路由与动作分组存在
+[PASS] 1440/en/light 可见文字入口数量正确
+[PASS] 1440/en/light 页面无横向溢出
+[PASS] 1440/en/light 导航与品牌高度稳定
+[PASS] 1440/en/light 链接区自身不溢出
+[PASS] 1440/en/light 文字入口字号一致
+[PASS] 1440/en/light 文字入口 inline padding 一致
+[PASS] 1440/en/light 三层 gap 一致
+[PASS] 1440/en/light 按钮盒无额外等宽留白
+[PASS] 1440/en/light 相邻文字边缘距一致
+[PASS] 1440/en/light 文字边缘距等于 gap+padding
+[PASS] 1440/en/light 全部文字单行且不裁切
+[PASS] 1440/en/light 文字入口互不重叠
+[PASS] 1440/en/light 文字入口不遮挡图标控件
+[PASS] 1440/en/light 主动作完整位于可视区
+[PASS] 1440/en/light 三个主动作可见
+[PASS] 1440/en/light 路由保留独立滚动区
+[PASS] 1440/fr/light 路由与动作分组存在
+[PASS] 1440/fr/light 可见文字入口数量正确
+[PASS] 1440/fr/light 页面无横向溢出
+[PASS] 1440/fr/light 导航与品牌高度稳定
+[PASS] 1440/fr/light 链接区自身不溢出
+[PASS] 1440/fr/light 文字入口字号一致
+[PASS] 1440/fr/light 文字入口 inline padding 一致
+[PASS] 1440/fr/light 三层 gap 一致
+[PASS] 1440/fr/light 按钮盒无额外等宽留白
+[PASS] 1440/fr/light 相邻文字边缘距一致
+[PASS] 1440/fr/light 文字边缘距等于 gap+padding
+[PASS] 1440/fr/light 全部文字单行且不裁切
+[PASS] 1440/fr/light 文字入口互不重叠
+[PASS] 1440/fr/light 文字入口不遮挡图标控件
+[PASS] 1440/fr/light 主动作完整位于可视区
+[PASS] 1440/fr/light 三个主动作可见
+[PASS] 1440/fr/light 路由保留独立滚动区
+[PASS] 1440/es/light 路由与动作分组存在
+[PASS] 1440/es/light 可见文字入口数量正确
+[PASS] 1440/es/light 页面无横向溢出
+[PASS] 1440/es/light 导航与品牌高度稳定
+[PASS] 1440/es/light 链接区自身不溢出
+[PASS] 1440/es/light 文字入口字号一致
+[PASS] 1440/es/light 文字入口 inline padding 一致
+[PASS] 1440/es/light 三层 gap 一致
+[PASS] 1440/es/light 按钮盒无额外等宽留白
+[PASS] 1440/es/light 相邻文字边缘距一致
+[PASS] 1440/es/light 文字边缘距等于 gap+padding
+[PASS] 1440/es/light 全部文字单行且不裁切
+[PASS] 1440/es/light 文字入口互不重叠
+[PASS] 1440/es/light 文字入口不遮挡图标控件
+[PASS] 1440/es/light 主动作完整位于可视区
+[PASS] 1440/es/light 三个主动作可见
+[PASS] 1440/es/light 路由保留独立滚动区
+[PASS] 1440/ru/light 路由与动作分组存在
+[PASS] 1440/ru/light 可见文字入口数量正确
+[PASS] 1440/ru/light 页面无横向溢出
+[PASS] 1440/ru/light 导航与品牌高度稳定
+[PASS] 1440/ru/light 链接区自身不溢出
+[PASS] 1440/ru/light 文字入口字号一致
+[PASS] 1440/ru/light 文字入口 inline padding 一致
+[PASS] 1440/ru/light 三层 gap 一致
+[PASS] 1440/ru/light 按钮盒无额外等宽留白
+[PASS] 1440/ru/light 相邻文字边缘距一致
+[PASS] 1440/ru/light 文字边缘距等于 gap+padding
+[PASS] 1440/ru/light 全部文字单行且不裁切
+[PASS] 1440/ru/light 文字入口互不重叠
+[PASS] 1440/ru/light 文字入口不遮挡图标控件
+[PASS] 1440/ru/light 主动作完整位于可视区
+[PASS] 1440/ru/light 三个主动作可见
+[PASS] 1440/ru/light 路由保留独立滚动区
+[PASS] 1440/ar/light 路由与动作分组存在
+[PASS] 1440/ar/light 可见文字入口数量正确
+[PASS] 1440/ar/light 页面无横向溢出
+[PASS] 1440/ar/light 导航与品牌高度稳定
+[PASS] 1440/ar/light 链接区自身不溢出
+[PASS] 1440/ar/light 文字入口字号一致
+[PASS] 1440/ar/light 文字入口 inline padding 一致
+[PASS] 1440/ar/light 三层 gap 一致
+[PASS] 1440/ar/light 按钮盒无额外等宽留白
+[PASS] 1440/ar/light 相邻文字边缘距一致
+[PASS] 1440/ar/light 文字边缘距等于 gap+padding
+[PASS] 1440/ar/light 全部文字单行且不裁切
+[PASS] 1440/ar/light 文字入口互不重叠
+[PASS] 1440/ar/light 文字入口不遮挡图标控件
+[PASS] 1440/ar/light 主动作完整位于可视区
+[PASS] 1440/ar/light 三个主动作可见
+[PASS] 1440/ar/light 路由保留独立滚动区
+[PASS] 1920/zh/light 路由与动作分组存在
+[PASS] 1920/zh/light 可见文字入口数量正确
+[PASS] 1920/zh/light 页面无横向溢出
+[PASS] 1920/zh/light 导航与品牌高度稳定
+[PASS] 1920/zh/light 链接区自身不溢出
+[PASS] 1920/zh/light 文字入口字号一致
+[PASS] 1920/zh/light 文字入口 inline padding 一致
+[PASS] 1920/zh/light 三层 gap 一致
+[PASS] 1920/zh/light 按钮盒无额外等宽留白
+[PASS] 1920/zh/light 相邻文字边缘距一致
+[PASS] 1920/zh/light 文字边缘距等于 gap+padding
+[PASS] 1920/zh/light 全部文字单行且不裁切
+[PASS] 1920/zh/light 文字入口互不重叠
+[PASS] 1920/zh/light 文字入口不遮挡图标控件
+[PASS] 1920/zh/light 主动作完整位于可视区
+[PASS] 1920/zh/light 三个主动作可见
+[PASS] 1920/zh/light 路由保留独立滚动区
+[PASS] 1920/en/light 路由与动作分组存在
+[PASS] 1920/en/light 可见文字入口数量正确
+[PASS] 1920/en/light 页面无横向溢出
+[PASS] 1920/en/light 导航与品牌高度稳定
+[PASS] 1920/en/light 链接区自身不溢出
+[PASS] 1920/en/light 文字入口字号一致
+[PASS] 1920/en/light 文字入口 inline padding 一致
+[PASS] 1920/en/light 三层 gap 一致
+[PASS] 1920/en/light 按钮盒无额外等宽留白
+[PASS] 1920/en/light 相邻文字边缘距一致
+[PASS] 1920/en/light 文字边缘距等于 gap+padding
+[PASS] 1920/en/light 全部文字单行且不裁切
+[PASS] 1920/en/light 文字入口互不重叠
+[PASS] 1920/en/light 文字入口不遮挡图标控件
+[PASS] 1920/en/light 主动作完整位于可视区
+[PASS] 1920/en/light 三个主动作可见
+[PASS] 1920/en/light 路由保留独立滚动区
+[PASS] 1920/fr/light 路由与动作分组存在
+[PASS] 1920/fr/light 可见文字入口数量正确
+[PASS] 1920/fr/light 页面无横向溢出
+[PASS] 1920/fr/light 导航与品牌高度稳定
+[PASS] 1920/fr/light 链接区自身不溢出
+[PASS] 1920/fr/light 文字入口字号一致
+[PASS] 1920/fr/light 文字入口 inline padding 一致
+[PASS] 1920/fr/light 三层 gap 一致
+[PASS] 1920/fr/light 按钮盒无额外等宽留白
+[PASS] 1920/fr/light 相邻文字边缘距一致
+[PASS] 1920/fr/light 文字边缘距等于 gap+padding
+[PASS] 1920/fr/light 全部文字单行且不裁切
+[PASS] 1920/fr/light 文字入口互不重叠
+[PASS] 1920/fr/light 文字入口不遮挡图标控件
+[PASS] 1920/fr/light 主动作完整位于可视区
+[PASS] 1920/fr/light 三个主动作可见
+[PASS] 1920/fr/light 路由保留独立滚动区
+[PASS] 1920/es/light 路由与动作分组存在
+[PASS] 1920/es/light 可见文字入口数量正确
+[PASS] 1920/es/light 页面无横向溢出
+[PASS] 1920/es/light 导航与品牌高度稳定
+[PASS] 1920/es/light 链接区自身不溢出
+[PASS] 1920/es/light 文字入口字号一致
+[PASS] 1920/es/light 文字入口 inline padding 一致
+[PASS] 1920/es/light 三层 gap 一致
+[PASS] 1920/es/light 按钮盒无额外等宽留白
+[PASS] 1920/es/light 相邻文字边缘距一致
+[PASS] 1920/es/light 文字边缘距等于 gap+padding
+[PASS] 1920/es/light 全部文字单行且不裁切
+[PASS] 1920/es/light 文字入口互不重叠
+[PASS] 1920/es/light 文字入口不遮挡图标控件
+[PASS] 1920/es/light 主动作完整位于可视区
+[PASS] 1920/es/light 三个主动作可见
+[PASS] 1920/es/light 路由保留独立滚动区
+[PASS] 1920/ru/light 路由与动作分组存在
+[PASS] 1920/ru/light 可见文字入口数量正确
+[PASS] 1920/ru/light 页面无横向溢出
+[PASS] 1920/ru/light 导航与品牌高度稳定
+[PASS] 1920/ru/light 链接区自身不溢出
+[PASS] 1920/ru/light 文字入口字号一致
+[PASS] 1920/ru/light 文字入口 inline padding 一致
+[PASS] 1920/ru/light 三层 gap 一致
+[PASS] 1920/ru/light 按钮盒无额外等宽留白
+[PASS] 1920/ru/light 相邻文字边缘距一致
+[PASS] 1920/ru/light 文字边缘距等于 gap+padding
+[PASS] 1920/ru/light 全部文字单行且不裁切
+[PASS] 1920/ru/light 文字入口互不重叠
+[PASS] 1920/ru/light 文字入口不遮挡图标控件
+[PASS] 1920/ru/light 主动作完整位于可视区
+[PASS] 1920/ru/light 三个主动作可见
+[PASS] 1920/ru/light 路由保留独立滚动区
+[PASS] 1920/ar/light 路由与动作分组存在
+[PASS] 1920/ar/light 可见文字入口数量正确
+[PASS] 1920/ar/light 页面无横向溢出
+[PASS] 1920/ar/light 导航与品牌高度稳定
+[PASS] 1920/ar/light 链接区自身不溢出
+[PASS] 1920/ar/light 文字入口字号一致
+[PASS] 1920/ar/light 文字入口 inline padding 一致
+[PASS] 1920/ar/light 三层 gap 一致
+[PASS] 1920/ar/light 按钮盒无额外等宽留白
+[PASS] 1920/ar/light 相邻文字边缘距一致
+[PASS] 1920/ar/light 文字边缘距等于 gap+padding
+[PASS] 1920/ar/light 全部文字单行且不裁切
+[PASS] 1920/ar/light 文字入口互不重叠
+[PASS] 1920/ar/light 文字入口不遮挡图标控件
+[PASS] 1920/ar/light 主动作完整位于可视区
+[PASS] 1920/ar/light 三个主动作可见
+[PASS] 1920/ar/light 路由保留独立滚动区
+[PASS] 390/zh/dark 路由与动作分组存在
+[PASS] 390/zh/dark 可见文字入口数量正确
+[PASS] 390/zh/dark 页面无横向溢出
+[PASS] 390/zh/dark 导航与品牌高度稳定
+[PASS] 390/zh/dark 链接区自身不溢出
+[PASS] 390/zh/dark 文字入口字号一致
+[PASS] 390/zh/dark 文字入口 inline padding 一致
+[PASS] 390/zh/dark 三层 gap 一致
+[PASS] 390/zh/dark 按钮盒无额外等宽留白
+[PASS] 390/zh/dark 相邻文字边缘距一致
+[PASS] 390/zh/dark 文字边缘距等于 gap+padding
+[PASS] 390/zh/dark 全部文字单行且不裁切
+[PASS] 390/zh/dark 文字入口互不重叠
+[PASS] 390/zh/dark 文字入口不遮挡图标控件
+[PASS] 390/zh/dark 主动作完整位于可视区
+[PASS] 390/zh/dark 窄屏沿用下载按钮隐藏规则
+[PASS] 390/zh/dark 路由保留独立滚动区
+[PASS] 390/zh/dark 路由末项可滚至末端
+[PASS] 390/zh/dark 路由—动作跨界间距一致
+[PASS] 390/zh/dark 路由首项可滚回起点
+[PASS] 390/en/dark 路由与动作分组存在
+[PASS] 390/en/dark 可见文字入口数量正确
+[PASS] 390/en/dark 页面无横向溢出
+[PASS] 390/en/dark 导航与品牌高度稳定
+[PASS] 390/en/dark 链接区自身不溢出
+[PASS] 390/en/dark 文字入口字号一致
+[PASS] 390/en/dark 文字入口 inline padding 一致
+[PASS] 390/en/dark 三层 gap 一致
+[PASS] 390/en/dark 按钮盒无额外等宽留白
+[PASS] 390/en/dark 相邻文字边缘距一致
+[PASS] 390/en/dark 文字边缘距等于 gap+padding
+[PASS] 390/en/dark 全部文字单行且不裁切
+[PASS] 390/en/dark 文字入口互不重叠
+[PASS] 390/en/dark 文字入口不遮挡图标控件
+[PASS] 390/en/dark 主动作完整位于可视区
+[PASS] 390/en/dark 窄屏沿用下载按钮隐藏规则
+[PASS] 390/en/dark 路由保留独立滚动区
+[PASS] 390/en/dark 路由末项可滚至末端
+[PASS] 390/en/dark 路由—动作跨界间距一致
+[PASS] 390/en/dark 路由首项可滚回起点
+[PASS] 390/ar/dark 路由与动作分组存在
+[PASS] 390/ar/dark 可见文字入口数量正确
+[PASS] 390/ar/dark 页面无横向溢出
+[PASS] 390/ar/dark 导航与品牌高度稳定
+[PASS] 390/ar/dark 链接区自身不溢出
+[PASS] 390/ar/dark 文字入口字号一致
+[PASS] 390/ar/dark 文字入口 inline padding 一致
+[PASS] 390/ar/dark 三层 gap 一致
+[PASS] 390/ar/dark 按钮盒无额外等宽留白
+[PASS] 390/ar/dark 相邻文字边缘距一致
+[PASS] 390/ar/dark 文字边缘距等于 gap+padding
+[PASS] 390/ar/dark 全部文字单行且不裁切
+[PASS] 390/ar/dark 文字入口互不重叠
+[PASS] 390/ar/dark 文字入口不遮挡图标控件
+[PASS] 390/ar/dark 主动作完整位于可视区
+[PASS] 390/ar/dark 窄屏沿用下载按钮隐藏规则
+[PASS] 390/ar/dark 路由保留独立滚动区
+[PASS] 390/ar/dark 路由末项可滚至末端
+[PASS] 390/ar/dark 路由—动作跨界间距一致
+[PASS] 390/ar/dark 路由首项可滚回起点
+[PASS] 641/zh/dark 路由与动作分组存在
+[PASS] 641/zh/dark 可见文字入口数量正确
+[PASS] 641/zh/dark 页面无横向溢出
+[PASS] 641/zh/dark 导航与品牌高度稳定
+[PASS] 641/zh/dark 链接区自身不溢出
+[PASS] 641/zh/dark 文字入口字号一致
+[PASS] 641/zh/dark 文字入口 inline padding 一致
+[PASS] 641/zh/dark 三层 gap 一致
+[PASS] 641/zh/dark 按钮盒无额外等宽留白
+[PASS] 641/zh/dark 相邻文字边缘距一致
+[PASS] 641/zh/dark 文字边缘距等于 gap+padding
+[PASS] 641/zh/dark 全部文字单行且不裁切
+[PASS] 641/zh/dark 文字入口互不重叠
+[PASS] 641/zh/dark 文字入口不遮挡图标控件
+[PASS] 641/zh/dark 主动作完整位于可视区
+[PASS] 641/zh/dark 三个主动作可见
+[PASS] 641/zh/dark 路由保留独立滚动区
+[PASS] 641/en/dark 路由与动作分组存在
+[PASS] 641/en/dark 可见文字入口数量正确
+[PASS] 641/en/dark 页面无横向溢出
+[PASS] 641/en/dark 导航与品牌高度稳定
+[PASS] 641/en/dark 链接区自身不溢出
+[PASS] 641/en/dark 文字入口字号一致
+[PASS] 641/en/dark 文字入口 inline padding 一致
+[PASS] 641/en/dark 三层 gap 一致
+[PASS] 641/en/dark 按钮盒无额外等宽留白
+[PASS] 641/en/dark 相邻文字边缘距一致
+[PASS] 641/en/dark 文字边缘距等于 gap+padding
+[PASS] 641/en/dark 全部文字单行且不裁切
+[PASS] 641/en/dark 文字入口互不重叠
+[PASS] 641/en/dark 文字入口不遮挡图标控件
+[PASS] 641/en/dark 主动作完整位于可视区
+[PASS] 641/en/dark 三个主动作可见
+[PASS] 641/en/dark 路由保留独立滚动区
+[PASS] 641/en/dark 路由末项可滚至末端
+[PASS] 641/en/dark 路由—动作跨界间距一致
+[PASS] 641/en/dark 路由首项可滚回起点
+[PASS] 641/ar/dark 路由与动作分组存在
+[PASS] 641/ar/dark 可见文字入口数量正确
+[PASS] 641/ar/dark 页面无横向溢出
+[PASS] 641/ar/dark 导航与品牌高度稳定
+[PASS] 641/ar/dark 链接区自身不溢出
+[PASS] 641/ar/dark 文字入口字号一致
+[PASS] 641/ar/dark 文字入口 inline padding 一致
+[PASS] 641/ar/dark 三层 gap 一致
+[PASS] 641/ar/dark 按钮盒无额外等宽留白
+[PASS] 641/ar/dark 相邻文字边缘距一致
+[PASS] 641/ar/dark 文字边缘距等于 gap+padding
+[PASS] 641/ar/dark 全部文字单行且不裁切
+[PASS] 641/ar/dark 文字入口互不重叠
+[PASS] 641/ar/dark 文字入口不遮挡图标控件
+[PASS] 641/ar/dark 主动作完整位于可视区
+[PASS] 641/ar/dark 三个主动作可见
+[PASS] 641/ar/dark 路由保留独立滚动区
+[PASS] 641/ar/dark 路由末项可滚至末端
+[PASS] 641/ar/dark 路由—动作跨界间距一致
+[PASS] 641/ar/dark 路由首项可滚回起点
+[PASS] 1440/zh/dark 路由与动作分组存在
+[PASS] 1440/zh/dark 可见文字入口数量正确
+[PASS] 1440/zh/dark 页面无横向溢出
+[PASS] 1440/zh/dark 导航与品牌高度稳定
+[PASS] 1440/zh/dark 链接区自身不溢出
+[PASS] 1440/zh/dark 文字入口字号一致
+[PASS] 1440/zh/dark 文字入口 inline padding 一致
+[PASS] 1440/zh/dark 三层 gap 一致
+[PASS] 1440/zh/dark 按钮盒无额外等宽留白
+[PASS] 1440/zh/dark 相邻文字边缘距一致
+[PASS] 1440/zh/dark 文字边缘距等于 gap+padding
+[PASS] 1440/zh/dark 全部文字单行且不裁切
+[PASS] 1440/zh/dark 文字入口互不重叠
+[PASS] 1440/zh/dark 文字入口不遮挡图标控件
+[PASS] 1440/zh/dark 主动作完整位于可视区
+[PASS] 1440/zh/dark 三个主动作可见
+[PASS] 1440/zh/dark 路由保留独立滚动区
+[PASS] 1440/en/dark 路由与动作分组存在
+[PASS] 1440/en/dark 可见文字入口数量正确
+[PASS] 1440/en/dark 页面无横向溢出
+[PASS] 1440/en/dark 导航与品牌高度稳定
+[PASS] 1440/en/dark 链接区自身不溢出
+[PASS] 1440/en/dark 文字入口字号一致
+[PASS] 1440/en/dark 文字入口 inline padding 一致
+[PASS] 1440/en/dark 三层 gap 一致
+[PASS] 1440/en/dark 按钮盒无额外等宽留白
+[PASS] 1440/en/dark 相邻文字边缘距一致
+[PASS] 1440/en/dark 文字边缘距等于 gap+padding
+[PASS] 1440/en/dark 全部文字单行且不裁切
+[PASS] 1440/en/dark 文字入口互不重叠
+[PASS] 1440/en/dark 文字入口不遮挡图标控件
+[PASS] 1440/en/dark 主动作完整位于可视区
+[PASS] 1440/en/dark 三个主动作可见
+[PASS] 1440/en/dark 路由保留独立滚动区
+[PASS] 1440/ar/dark 路由与动作分组存在
+[PASS] 1440/ar/dark 可见文字入口数量正确
+[PASS] 1440/ar/dark 页面无横向溢出
+[PASS] 1440/ar/dark 导航与品牌高度稳定
+[PASS] 1440/ar/dark 链接区自身不溢出
+[PASS] 1440/ar/dark 文字入口字号一致
+[PASS] 1440/ar/dark 文字入口 inline padding 一致
+[PASS] 1440/ar/dark 三层 gap 一致
+[PASS] 1440/ar/dark 按钮盒无额外等宽留白
+[PASS] 1440/ar/dark 相邻文字边缘距一致
+[PASS] 1440/ar/dark 文字边缘距等于 gap+padding
+[PASS] 1440/ar/dark 全部文字单行且不裁切
+[PASS] 1440/ar/dark 文字入口互不重叠
+[PASS] 1440/ar/dark 文字入口不遮挡图标控件
+[PASS] 1440/ar/dark 主动作完整位于可视区
+[PASS] 1440/ar/dark 三个主动作可见
+[PASS] 1440/ar/dark 路由保留独立滚动区
+[PASS] 390/zh/light/#/ 路由与动作分组存在
+[PASS] 390/zh/light/#/ 可见文字入口数量正确
+[PASS] 390/zh/light/#/ 页面无横向溢出
+[PASS] 390/zh/light/#/ 导航与品牌高度稳定
+[PASS] 390/zh/light/#/ 链接区自身不溢出
+[PASS] 390/zh/light/#/ 文字入口字号一致
+[PASS] 390/zh/light/#/ 文字入口 inline padding 一致
+[PASS] 390/zh/light/#/ 三层 gap 一致
+[PASS] 390/zh/light/#/ 按钮盒无额外等宽留白
+[PASS] 390/zh/light/#/ 相邻文字边缘距一致
+[PASS] 390/zh/light/#/ 文字边缘距等于 gap+padding
+[PASS] 390/zh/light/#/ 全部文字单行且不裁切
+[PASS] 390/zh/light/#/ 文字入口互不重叠
+[PASS] 390/zh/light/#/ 文字入口不遮挡图标控件
+[PASS] 390/zh/light/#/ 主动作完整位于可视区
+[PASS] 390/zh/light/#/ 窄屏沿用下载按钮隐藏规则
+[PASS] 390/zh/light/#/ 路由保留独立滚动区
+[PASS] 390/fr/light/#/ 路由与动作分组存在
+[PASS] 390/fr/light/#/ 可见文字入口数量正确
+[PASS] 390/fr/light/#/ 页面无横向溢出
+[PASS] 390/fr/light/#/ 导航与品牌高度稳定
+[PASS] 390/fr/light/#/ 链接区自身不溢出
+[PASS] 390/fr/light/#/ 文字入口字号一致
+[PASS] 390/fr/light/#/ 文字入口 inline padding 一致
+[PASS] 390/fr/light/#/ 三层 gap 一致
+[PASS] 390/fr/light/#/ 按钮盒无额外等宽留白
+[PASS] 390/fr/light/#/ 相邻文字边缘距一致
+[PASS] 390/fr/light/#/ 文字边缘距等于 gap+padding
+[PASS] 390/fr/light/#/ 全部文字单行且不裁切
+[PASS] 390/fr/light/#/ 文字入口互不重叠
+[PASS] 390/fr/light/#/ 文字入口不遮挡图标控件
+[PASS] 390/fr/light/#/ 主动作完整位于可视区
+[PASS] 390/fr/light/#/ 窄屏沿用下载按钮隐藏规则
+[PASS] 390/fr/light/#/ 路由保留独立滚动区
+[PASS] 390/ar/light/#/ 路由与动作分组存在
+[PASS] 390/ar/light/#/ 可见文字入口数量正确
+[PASS] 390/ar/light/#/ 页面无横向溢出
+[PASS] 390/ar/light/#/ 导航与品牌高度稳定
+[PASS] 390/ar/light/#/ 链接区自身不溢出
+[PASS] 390/ar/light/#/ 文字入口字号一致
+[PASS] 390/ar/light/#/ 文字入口 inline padding 一致
+[PASS] 390/ar/light/#/ 三层 gap 一致
+[PASS] 390/ar/light/#/ 按钮盒无额外等宽留白
+[PASS] 390/ar/light/#/ 相邻文字边缘距一致
+[PASS] 390/ar/light/#/ 文字边缘距等于 gap+padding
+[PASS] 390/ar/light/#/ 全部文字单行且不裁切
+[PASS] 390/ar/light/#/ 文字入口互不重叠
+[PASS] 390/ar/light/#/ 文字入口不遮挡图标控件
+[PASS] 390/ar/light/#/ 主动作完整位于可视区
+[PASS] 390/ar/light/#/ 窄屏沿用下载按钮隐藏规则
+[PASS] 390/ar/light/#/ 路由保留独立滚动区
+[PASS] 641/zh/light/#/ 路由与动作分组存在
+[PASS] 641/zh/light/#/ 可见文字入口数量正确
+[PASS] 641/zh/light/#/ 页面无横向溢出
+[PASS] 641/zh/light/#/ 导航与品牌高度稳定
+[PASS] 641/zh/light/#/ 链接区自身不溢出
+[PASS] 641/zh/light/#/ 文字入口字号一致
+[PASS] 641/zh/light/#/ 文字入口 inline padding 一致
+[PASS] 641/zh/light/#/ 三层 gap 一致
+[PASS] 641/zh/light/#/ 按钮盒无额外等宽留白
+[PASS] 641/zh/light/#/ 相邻文字边缘距一致
+[PASS] 641/zh/light/#/ 文字边缘距等于 gap+padding
+[PASS] 641/zh/light/#/ 全部文字单行且不裁切
+[PASS] 641/zh/light/#/ 文字入口互不重叠
+[PASS] 641/zh/light/#/ 文字入口不遮挡图标控件
+[PASS] 641/zh/light/#/ 主动作完整位于可视区
+[PASS] 641/zh/light/#/ 三个主动作可见
+[PASS] 641/zh/light/#/ 路由保留独立滚动区
+[PASS] 641/fr/light/#/ 路由与动作分组存在
+[PASS] 641/fr/light/#/ 可见文字入口数量正确
+[PASS] 641/fr/light/#/ 页面无横向溢出
+[PASS] 641/fr/light/#/ 导航与品牌高度稳定
+[PASS] 641/fr/light/#/ 链接区自身不溢出
+[PASS] 641/fr/light/#/ 文字入口字号一致
+[PASS] 641/fr/light/#/ 文字入口 inline padding 一致
+[PASS] 641/fr/light/#/ 三层 gap 一致
+[PASS] 641/fr/light/#/ 按钮盒无额外等宽留白
+[PASS] 641/fr/light/#/ 相邻文字边缘距一致
+[PASS] 641/fr/light/#/ 文字边缘距等于 gap+padding
+[PASS] 641/fr/light/#/ 全部文字单行且不裁切
+[PASS] 641/fr/light/#/ 文字入口互不重叠
+[PASS] 641/fr/light/#/ 文字入口不遮挡图标控件
+[PASS] 641/fr/light/#/ 主动作完整位于可视区
+[PASS] 641/fr/light/#/ 三个主动作可见
+[PASS] 641/fr/light/#/ 路由保留独立滚动区
+[PASS] 641/ar/light/#/ 路由与动作分组存在
+[PASS] 641/ar/light/#/ 可见文字入口数量正确
+[PASS] 641/ar/light/#/ 页面无横向溢出
+[PASS] 641/ar/light/#/ 导航与品牌高度稳定
+[PASS] 641/ar/light/#/ 链接区自身不溢出
+[PASS] 641/ar/light/#/ 文字入口字号一致
+[PASS] 641/ar/light/#/ 文字入口 inline padding 一致
+[PASS] 641/ar/light/#/ 三层 gap 一致
+[PASS] 641/ar/light/#/ 按钮盒无额外等宽留白
+[PASS] 641/ar/light/#/ 相邻文字边缘距一致
+[PASS] 641/ar/light/#/ 文字边缘距等于 gap+padding
+[PASS] 641/ar/light/#/ 全部文字单行且不裁切
+[PASS] 641/ar/light/#/ 文字入口互不重叠
+[PASS] 641/ar/light/#/ 文字入口不遮挡图标控件
+[PASS] 641/ar/light/#/ 主动作完整位于可视区
+[PASS] 641/ar/light/#/ 三个主动作可见
+[PASS] 641/ar/light/#/ 路由保留独立滚动区
+[PASS] 1440/zh/light/#/ 路由与动作分组存在
+[PASS] 1440/zh/light/#/ 可见文字入口数量正确
+[PASS] 1440/zh/light/#/ 页面无横向溢出
+[PASS] 1440/zh/light/#/ 导航与品牌高度稳定
+[PASS] 1440/zh/light/#/ 链接区自身不溢出
+[PASS] 1440/zh/light/#/ 文字入口字号一致
+[PASS] 1440/zh/light/#/ 文字入口 inline padding 一致
+[PASS] 1440/zh/light/#/ 三层 gap 一致
+[PASS] 1440/zh/light/#/ 按钮盒无额外等宽留白
+[PASS] 1440/zh/light/#/ 相邻文字边缘距一致
+[PASS] 1440/zh/light/#/ 文字边缘距等于 gap+padding
+[PASS] 1440/zh/light/#/ 全部文字单行且不裁切
+[PASS] 1440/zh/light/#/ 文字入口互不重叠
+[PASS] 1440/zh/light/#/ 文字入口不遮挡图标控件
+[PASS] 1440/zh/light/#/ 主动作完整位于可视区
+[PASS] 1440/zh/light/#/ 三个主动作可见
+[PASS] 1440/zh/light/#/ 路由保留独立滚动区
+[PASS] 1440/fr/light/#/ 路由与动作分组存在
+[PASS] 1440/fr/light/#/ 可见文字入口数量正确
+[PASS] 1440/fr/light/#/ 页面无横向溢出
+[PASS] 1440/fr/light/#/ 导航与品牌高度稳定
+[PASS] 1440/fr/light/#/ 链接区自身不溢出
+[PASS] 1440/fr/light/#/ 文字入口字号一致
+[PASS] 1440/fr/light/#/ 文字入口 inline padding 一致
+[PASS] 1440/fr/light/#/ 三层 gap 一致
+[PASS] 1440/fr/light/#/ 按钮盒无额外等宽留白
+[PASS] 1440/fr/light/#/ 相邻文字边缘距一致
+[PASS] 1440/fr/light/#/ 文字边缘距等于 gap+padding
+[PASS] 1440/fr/light/#/ 全部文字单行且不裁切
+[PASS] 1440/fr/light/#/ 文字入口互不重叠
+[PASS] 1440/fr/light/#/ 文字入口不遮挡图标控件
+[PASS] 1440/fr/light/#/ 主动作完整位于可视区
+[PASS] 1440/fr/light/#/ 三个主动作可见
+[PASS] 1440/fr/light/#/ 路由保留独立滚动区
+[PASS] 1440/ar/light/#/ 路由与动作分组存在
+[PASS] 1440/ar/light/#/ 可见文字入口数量正确
+[PASS] 1440/ar/light/#/ 页面无横向溢出
+[PASS] 1440/ar/light/#/ 导航与品牌高度稳定
+[PASS] 1440/ar/light/#/ 链接区自身不溢出
+[PASS] 1440/ar/light/#/ 文字入口字号一致
+[PASS] 1440/ar/light/#/ 文字入口 inline padding 一致
+[PASS] 1440/ar/light/#/ 三层 gap 一致
+[PASS] 1440/ar/light/#/ 按钮盒无额外等宽留白
+[PASS] 1440/ar/light/#/ 相邻文字边缘距一致
+[PASS] 1440/ar/light/#/ 文字边缘距等于 gap+padding
+[PASS] 1440/ar/light/#/ 全部文字单行且不裁切
+[PASS] 1440/ar/light/#/ 文字入口互不重叠
+[PASS] 1440/ar/light/#/ 文字入口不遮挡图标控件
+[PASS] 1440/ar/light/#/ 主动作完整位于可视区
+[PASS] 1440/ar/light/#/ 三个主动作可见
+[PASS] 1440/ar/light/#/ 路由保留独立滚动区
+[PASS] 390/zh/light/#/features 路由与动作分组存在
+[PASS] 390/zh/light/#/features 可见文字入口数量正确
+[PASS] 390/zh/light/#/features 页面无横向溢出
+[PASS] 390/zh/light/#/features 导航与品牌高度稳定
+[PASS] 390/zh/light/#/features 链接区自身不溢出
+[PASS] 390/zh/light/#/features 文字入口字号一致
+[PASS] 390/zh/light/#/features 文字入口 inline padding 一致
+[PASS] 390/zh/light/#/features 三层 gap 一致
+[PASS] 390/zh/light/#/features 按钮盒无额外等宽留白
+[PASS] 390/zh/light/#/features 相邻文字边缘距一致
+[PASS] 390/zh/light/#/features 文字边缘距等于 gap+padding
+[PASS] 390/zh/light/#/features 全部文字单行且不裁切
+[PASS] 390/zh/light/#/features 文字入口互不重叠
+[PASS] 390/zh/light/#/features 文字入口不遮挡图标控件
+[PASS] 390/zh/light/#/features 主动作完整位于可视区
+[PASS] 390/zh/light/#/features 窄屏沿用下载按钮隐藏规则
+[PASS] 390/zh/light/#/features 路由保留独立滚动区
+[PASS] 390/fr/light/#/features 路由与动作分组存在
+[PASS] 390/fr/light/#/features 可见文字入口数量正确
+[PASS] 390/fr/light/#/features 页面无横向溢出
+[PASS] 390/fr/light/#/features 导航与品牌高度稳定
+[PASS] 390/fr/light/#/features 链接区自身不溢出
+[PASS] 390/fr/light/#/features 文字入口字号一致
+[PASS] 390/fr/light/#/features 文字入口 inline padding 一致
+[PASS] 390/fr/light/#/features 三层 gap 一致
+[PASS] 390/fr/light/#/features 按钮盒无额外等宽留白
+[PASS] 390/fr/light/#/features 相邻文字边缘距一致
+[PASS] 390/fr/light/#/features 文字边缘距等于 gap+padding
+[PASS] 390/fr/light/#/features 全部文字单行且不裁切
+[PASS] 390/fr/light/#/features 文字入口互不重叠
+[PASS] 390/fr/light/#/features 文字入口不遮挡图标控件
+[PASS] 390/fr/light/#/features 主动作完整位于可视区
+[PASS] 390/fr/light/#/features 窄屏沿用下载按钮隐藏规则
+[PASS] 390/fr/light/#/features 路由保留独立滚动区
+[PASS] 390/ar/light/#/features 路由与动作分组存在
+[PASS] 390/ar/light/#/features 可见文字入口数量正确
+[PASS] 390/ar/light/#/features 页面无横向溢出
+[PASS] 390/ar/light/#/features 导航与品牌高度稳定
+[PASS] 390/ar/light/#/features 链接区自身不溢出
+[PASS] 390/ar/light/#/features 文字入口字号一致
+[PASS] 390/ar/light/#/features 文字入口 inline padding 一致
+[PASS] 390/ar/light/#/features 三层 gap 一致
+[PASS] 390/ar/light/#/features 按钮盒无额外等宽留白
+[PASS] 390/ar/light/#/features 相邻文字边缘距一致
+[PASS] 390/ar/light/#/features 文字边缘距等于 gap+padding
+[PASS] 390/ar/light/#/features 全部文字单行且不裁切
+[PASS] 390/ar/light/#/features 文字入口互不重叠
+[PASS] 390/ar/light/#/features 文字入口不遮挡图标控件
+[PASS] 390/ar/light/#/features 主动作完整位于可视区
+[PASS] 390/ar/light/#/features 窄屏沿用下载按钮隐藏规则
+[PASS] 390/ar/light/#/features 路由保留独立滚动区
+[PASS] 641/zh/light/#/features 路由与动作分组存在
+[PASS] 641/zh/light/#/features 可见文字入口数量正确
+[PASS] 641/zh/light/#/features 页面无横向溢出
+[PASS] 641/zh/light/#/features 导航与品牌高度稳定
+[PASS] 641/zh/light/#/features 链接区自身不溢出
+[PASS] 641/zh/light/#/features 文字入口字号一致
+[PASS] 641/zh/light/#/features 文字入口 inline padding 一致
+[PASS] 641/zh/light/#/features 三层 gap 一致
+[PASS] 641/zh/light/#/features 按钮盒无额外等宽留白
+[PASS] 641/zh/light/#/features 相邻文字边缘距一致
+[PASS] 641/zh/light/#/features 文字边缘距等于 gap+padding
+[PASS] 641/zh/light/#/features 全部文字单行且不裁切
+[PASS] 641/zh/light/#/features 文字入口互不重叠
+[PASS] 641/zh/light/#/features 文字入口不遮挡图标控件
+[PASS] 641/zh/light/#/features 主动作完整位于可视区
+[PASS] 641/zh/light/#/features 三个主动作可见
+[PASS] 641/zh/light/#/features 路由保留独立滚动区
+[PASS] 641/fr/light/#/features 路由与动作分组存在
+[PASS] 641/fr/light/#/features 可见文字入口数量正确
+[PASS] 641/fr/light/#/features 页面无横向溢出
+[PASS] 641/fr/light/#/features 导航与品牌高度稳定
+[PASS] 641/fr/light/#/features 链接区自身不溢出
+[PASS] 641/fr/light/#/features 文字入口字号一致
+[PASS] 641/fr/light/#/features 文字入口 inline padding 一致
+[PASS] 641/fr/light/#/features 三层 gap 一致
+[PASS] 641/fr/light/#/features 按钮盒无额外等宽留白
+[PASS] 641/fr/light/#/features 相邻文字边缘距一致
+[PASS] 641/fr/light/#/features 文字边缘距等于 gap+padding
+[PASS] 641/fr/light/#/features 全部文字单行且不裁切
+[PASS] 641/fr/light/#/features 文字入口互不重叠
+[PASS] 641/fr/light/#/features 文字入口不遮挡图标控件
+[PASS] 641/fr/light/#/features 主动作完整位于可视区
+[PASS] 641/fr/light/#/features 三个主动作可见
+[PASS] 641/fr/light/#/features 路由保留独立滚动区
+[PASS] 641/ar/light/#/features 路由与动作分组存在
+[PASS] 641/ar/light/#/features 可见文字入口数量正确
+[PASS] 641/ar/light/#/features 页面无横向溢出
+[PASS] 641/ar/light/#/features 导航与品牌高度稳定
+[PASS] 641/ar/light/#/features 链接区自身不溢出
+[PASS] 641/ar/light/#/features 文字入口字号一致
+[PASS] 641/ar/light/#/features 文字入口 inline padding 一致
+[PASS] 641/ar/light/#/features 三层 gap 一致
+[PASS] 641/ar/light/#/features 按钮盒无额外等宽留白
+[PASS] 641/ar/light/#/features 相邻文字边缘距一致
+[PASS] 641/ar/light/#/features 文字边缘距等于 gap+padding
+[PASS] 641/ar/light/#/features 全部文字单行且不裁切
+[PASS] 641/ar/light/#/features 文字入口互不重叠
+[PASS] 641/ar/light/#/features 文字入口不遮挡图标控件
+[PASS] 641/ar/light/#/features 主动作完整位于可视区
+[PASS] 641/ar/light/#/features 三个主动作可见
+[PASS] 641/ar/light/#/features 路由保留独立滚动区
+[PASS] 1440/zh/light/#/features 路由与动作分组存在
+[PASS] 1440/zh/light/#/features 可见文字入口数量正确
+[PASS] 1440/zh/light/#/features 页面无横向溢出
+[PASS] 1440/zh/light/#/features 导航与品牌高度稳定
+[PASS] 1440/zh/light/#/features 链接区自身不溢出
+[PASS] 1440/zh/light/#/features 文字入口字号一致
+[PASS] 1440/zh/light/#/features 文字入口 inline padding 一致
+[PASS] 1440/zh/light/#/features 三层 gap 一致
+[PASS] 1440/zh/light/#/features 按钮盒无额外等宽留白
+[PASS] 1440/zh/light/#/features 相邻文字边缘距一致
+[PASS] 1440/zh/light/#/features 文字边缘距等于 gap+padding
+[PASS] 1440/zh/light/#/features 全部文字单行且不裁切
+[PASS] 1440/zh/light/#/features 文字入口互不重叠
+[PASS] 1440/zh/light/#/features 文字入口不遮挡图标控件
+[PASS] 1440/zh/light/#/features 主动作完整位于可视区
+[PASS] 1440/zh/light/#/features 三个主动作可见
+[PASS] 1440/zh/light/#/features 路由保留独立滚动区
+[PASS] 1440/fr/light/#/features 路由与动作分组存在
+[PASS] 1440/fr/light/#/features 可见文字入口数量正确
+[PASS] 1440/fr/light/#/features 页面无横向溢出
+[PASS] 1440/fr/light/#/features 导航与品牌高度稳定
+[PASS] 1440/fr/light/#/features 链接区自身不溢出
+[PASS] 1440/fr/light/#/features 文字入口字号一致
+[PASS] 1440/fr/light/#/features 文字入口 inline padding 一致
+[PASS] 1440/fr/light/#/features 三层 gap 一致
+[PASS] 1440/fr/light/#/features 按钮盒无额外等宽留白
+[PASS] 1440/fr/light/#/features 相邻文字边缘距一致
+[PASS] 1440/fr/light/#/features 文字边缘距等于 gap+padding
+[PASS] 1440/fr/light/#/features 全部文字单行且不裁切
+[PASS] 1440/fr/light/#/features 文字入口互不重叠
+[PASS] 1440/fr/light/#/features 文字入口不遮挡图标控件
+[PASS] 1440/fr/light/#/features 主动作完整位于可视区
+[PASS] 1440/fr/light/#/features 三个主动作可见
+[PASS] 1440/fr/light/#/features 路由保留独立滚动区
+[PASS] 1440/ar/light/#/features 路由与动作分组存在
+[PASS] 1440/ar/light/#/features 可见文字入口数量正确
+[PASS] 1440/ar/light/#/features 页面无横向溢出
+[PASS] 1440/ar/light/#/features 导航与品牌高度稳定
+[PASS] 1440/ar/light/#/features 链接区自身不溢出
+[PASS] 1440/ar/light/#/features 文字入口字号一致
+[PASS] 1440/ar/light/#/features 文字入口 inline padding 一致
+[PASS] 1440/ar/light/#/features 三层 gap 一致
+[PASS] 1440/ar/light/#/features 按钮盒无额外等宽留白
+[PASS] 1440/ar/light/#/features 相邻文字边缘距一致
+[PASS] 1440/ar/light/#/features 文字边缘距等于 gap+padding
+[PASS] 1440/ar/light/#/features 全部文字单行且不裁切
+[PASS] 1440/ar/light/#/features 文字入口互不重叠
+[PASS] 1440/ar/light/#/features 文字入口不遮挡图标控件
+[PASS] 1440/ar/light/#/features 主动作完整位于可视区
+[PASS] 1440/ar/light/#/features 三个主动作可见
+[PASS] 1440/ar/light/#/features 路由保留独立滚动区
+[PASS] 390/zh/light/#/resonance 路由与动作分组存在
+[PASS] 390/zh/light/#/resonance 可见文字入口数量正确
+[PASS] 390/zh/light/#/resonance 页面无横向溢出
+[PASS] 390/zh/light/#/resonance 导航与品牌高度稳定
+[PASS] 390/zh/light/#/resonance 链接区自身不溢出
+[PASS] 390/zh/light/#/resonance 文字入口字号一致
+[PASS] 390/zh/light/#/resonance 文字入口 inline padding 一致
+[PASS] 390/zh/light/#/resonance 三层 gap 一致
+[PASS] 390/zh/light/#/resonance 按钮盒无额外等宽留白
+[PASS] 390/zh/light/#/resonance 相邻文字边缘距一致
+[PASS] 390/zh/light/#/resonance 文字边缘距等于 gap+padding
+[PASS] 390/zh/light/#/resonance 全部文字单行且不裁切
+[PASS] 390/zh/light/#/resonance 文字入口互不重叠
+[PASS] 390/zh/light/#/resonance 文字入口不遮挡图标控件
+[PASS] 390/zh/light/#/resonance 主动作完整位于可视区
+[PASS] 390/zh/light/#/resonance 窄屏沿用下载按钮隐藏规则
+[PASS] 390/zh/light/#/resonance 路由保留独立滚动区
+[PASS] 390/fr/light/#/resonance 路由与动作分组存在
+[PASS] 390/fr/light/#/resonance 可见文字入口数量正确
+[PASS] 390/fr/light/#/resonance 页面无横向溢出
+[PASS] 390/fr/light/#/resonance 导航与品牌高度稳定
+[PASS] 390/fr/light/#/resonance 链接区自身不溢出
+[PASS] 390/fr/light/#/resonance 文字入口字号一致
+[PASS] 390/fr/light/#/resonance 文字入口 inline padding 一致
+[PASS] 390/fr/light/#/resonance 三层 gap 一致
+[PASS] 390/fr/light/#/resonance 按钮盒无额外等宽留白
+[PASS] 390/fr/light/#/resonance 相邻文字边缘距一致
+[PASS] 390/fr/light/#/resonance 文字边缘距等于 gap+padding
+[PASS] 390/fr/light/#/resonance 全部文字单行且不裁切
+[PASS] 390/fr/light/#/resonance 文字入口互不重叠
+[PASS] 390/fr/light/#/resonance 文字入口不遮挡图标控件
+[PASS] 390/fr/light/#/resonance 主动作完整位于可视区
+[PASS] 390/fr/light/#/resonance 窄屏沿用下载按钮隐藏规则
+[PASS] 390/fr/light/#/resonance 路由保留独立滚动区
+[PASS] 390/ar/light/#/resonance 路由与动作分组存在
+[PASS] 390/ar/light/#/resonance 可见文字入口数量正确
+[PASS] 390/ar/light/#/resonance 页面无横向溢出
+[PASS] 390/ar/light/#/resonance 导航与品牌高度稳定
+[PASS] 390/ar/light/#/resonance 链接区自身不溢出
+[PASS] 390/ar/light/#/resonance 文字入口字号一致
+[PASS] 390/ar/light/#/resonance 文字入口 inline padding 一致
+[PASS] 390/ar/light/#/resonance 三层 gap 一致
+[PASS] 390/ar/light/#/resonance 按钮盒无额外等宽留白
+[PASS] 390/ar/light/#/resonance 相邻文字边缘距一致
+[PASS] 390/ar/light/#/resonance 文字边缘距等于 gap+padding
+[PASS] 390/ar/light/#/resonance 全部文字单行且不裁切
+[PASS] 390/ar/light/#/resonance 文字入口互不重叠
+[PASS] 390/ar/light/#/resonance 文字入口不遮挡图标控件
+[PASS] 390/ar/light/#/resonance 主动作完整位于可视区
+[PASS] 390/ar/light/#/resonance 窄屏沿用下载按钮隐藏规则
+[PASS] 390/ar/light/#/resonance 路由保留独立滚动区
+[PASS] 641/zh/light/#/resonance 路由与动作分组存在
+[PASS] 641/zh/light/#/resonance 可见文字入口数量正确
+[PASS] 641/zh/light/#/resonance 页面无横向溢出
+[PASS] 641/zh/light/#/resonance 导航与品牌高度稳定
+[PASS] 641/zh/light/#/resonance 链接区自身不溢出
+[PASS] 641/zh/light/#/resonance 文字入口字号一致
+[PASS] 641/zh/light/#/resonance 文字入口 inline padding 一致
+[PASS] 641/zh/light/#/resonance 三层 gap 一致
+[PASS] 641/zh/light/#/resonance 按钮盒无额外等宽留白
+[PASS] 641/zh/light/#/resonance 相邻文字边缘距一致
+[PASS] 641/zh/light/#/resonance 文字边缘距等于 gap+padding
+[PASS] 641/zh/light/#/resonance 全部文字单行且不裁切
+[PASS] 641/zh/light/#/resonance 文字入口互不重叠
+[PASS] 641/zh/light/#/resonance 文字入口不遮挡图标控件
+[PASS] 641/zh/light/#/resonance 主动作完整位于可视区
+[PASS] 641/zh/light/#/resonance 三个主动作可见
+[PASS] 641/zh/light/#/resonance 路由保留独立滚动区
+[PASS] 641/fr/light/#/resonance 路由与动作分组存在
+[PASS] 641/fr/light/#/resonance 可见文字入口数量正确
+[PASS] 641/fr/light/#/resonance 页面无横向溢出
+[PASS] 641/fr/light/#/resonance 导航与品牌高度稳定
+[PASS] 641/fr/light/#/resonance 链接区自身不溢出
+[PASS] 641/fr/light/#/resonance 文字入口字号一致
+[PASS] 641/fr/light/#/resonance 文字入口 inline padding 一致
+[PASS] 641/fr/light/#/resonance 三层 gap 一致
+[PASS] 641/fr/light/#/resonance 按钮盒无额外等宽留白
+[PASS] 641/fr/light/#/resonance 相邻文字边缘距一致
+[PASS] 641/fr/light/#/resonance 文字边缘距等于 gap+padding
+[PASS] 641/fr/light/#/resonance 全部文字单行且不裁切
+[PASS] 641/fr/light/#/resonance 文字入口互不重叠
+[PASS] 641/fr/light/#/resonance 文字入口不遮挡图标控件
+[PASS] 641/fr/light/#/resonance 主动作完整位于可视区
+[PASS] 641/fr/light/#/resonance 三个主动作可见
+[PASS] 641/fr/light/#/resonance 路由保留独立滚动区
+[PASS] 641/ar/light/#/resonance 路由与动作分组存在
+[PASS] 641/ar/light/#/resonance 可见文字入口数量正确
+[PASS] 641/ar/light/#/resonance 页面无横向溢出
+[PASS] 641/ar/light/#/resonance 导航与品牌高度稳定
+[PASS] 641/ar/light/#/resonance 链接区自身不溢出
+[PASS] 641/ar/light/#/resonance 文字入口字号一致
+[PASS] 641/ar/light/#/resonance 文字入口 inline padding 一致
+[PASS] 641/ar/light/#/resonance 三层 gap 一致
+[PASS] 641/ar/light/#/resonance 按钮盒无额外等宽留白
+[PASS] 641/ar/light/#/resonance 相邻文字边缘距一致
+[PASS] 641/ar/light/#/resonance 文字边缘距等于 gap+padding
+[PASS] 641/ar/light/#/resonance 全部文字单行且不裁切
+[PASS] 641/ar/light/#/resonance 文字入口互不重叠
+[PASS] 641/ar/light/#/resonance 文字入口不遮挡图标控件
+[PASS] 641/ar/light/#/resonance 主动作完整位于可视区
+[PASS] 641/ar/light/#/resonance 三个主动作可见
+[PASS] 641/ar/light/#/resonance 路由保留独立滚动区
+[PASS] 1440/zh/light/#/resonance 路由与动作分组存在
+[PASS] 1440/zh/light/#/resonance 可见文字入口数量正确
+[PASS] 1440/zh/light/#/resonance 页面无横向溢出
+[PASS] 1440/zh/light/#/resonance 导航与品牌高度稳定
+[PASS] 1440/zh/light/#/resonance 链接区自身不溢出
+[PASS] 1440/zh/light/#/resonance 文字入口字号一致
+[PASS] 1440/zh/light/#/resonance 文字入口 inline padding 一致
+[PASS] 1440/zh/light/#/resonance 三层 gap 一致
+[PASS] 1440/zh/light/#/resonance 按钮盒无额外等宽留白
+[PASS] 1440/zh/light/#/resonance 相邻文字边缘距一致
+[PASS] 1440/zh/light/#/resonance 文字边缘距等于 gap+padding
+[PASS] 1440/zh/light/#/resonance 全部文字单行且不裁切
+[PASS] 1440/zh/light/#/resonance 文字入口互不重叠
+[PASS] 1440/zh/light/#/resonance 文字入口不遮挡图标控件
+[PASS] 1440/zh/light/#/resonance 主动作完整位于可视区
+[PASS] 1440/zh/light/#/resonance 三个主动作可见
+[PASS] 1440/zh/light/#/resonance 路由保留独立滚动区
+[PASS] 1440/fr/light/#/resonance 路由与动作分组存在
+[PASS] 1440/fr/light/#/resonance 可见文字入口数量正确
+[PASS] 1440/fr/light/#/resonance 页面无横向溢出
+[PASS] 1440/fr/light/#/resonance 导航与品牌高度稳定
+[PASS] 1440/fr/light/#/resonance 链接区自身不溢出
+[PASS] 1440/fr/light/#/resonance 文字入口字号一致
+[PASS] 1440/fr/light/#/resonance 文字入口 inline padding 一致
+[PASS] 1440/fr/light/#/resonance 三层 gap 一致
+[PASS] 1440/fr/light/#/resonance 按钮盒无额外等宽留白
+[PASS] 1440/fr/light/#/resonance 相邻文字边缘距一致
+[PASS] 1440/fr/light/#/resonance 文字边缘距等于 gap+padding
+[PASS] 1440/fr/light/#/resonance 全部文字单行且不裁切
+[PASS] 1440/fr/light/#/resonance 文字入口互不重叠
+[PASS] 1440/fr/light/#/resonance 文字入口不遮挡图标控件
+[PASS] 1440/fr/light/#/resonance 主动作完整位于可视区
+[PASS] 1440/fr/light/#/resonance 三个主动作可见
+[PASS] 1440/fr/light/#/resonance 路由保留独立滚动区
+[PASS] 1440/ar/light/#/resonance 路由与动作分组存在
+[PASS] 1440/ar/light/#/resonance 可见文字入口数量正确
+[PASS] 1440/ar/light/#/resonance 页面无横向溢出
+[PASS] 1440/ar/light/#/resonance 导航与品牌高度稳定
+[PASS] 1440/ar/light/#/resonance 链接区自身不溢出
+[PASS] 1440/ar/light/#/resonance 文字入口字号一致
+[PASS] 1440/ar/light/#/resonance 文字入口 inline padding 一致
+[PASS] 1440/ar/light/#/resonance 三层 gap 一致
+[PASS] 1440/ar/light/#/resonance 按钮盒无额外等宽留白
+[PASS] 1440/ar/light/#/resonance 相邻文字边缘距一致
+[PASS] 1440/ar/light/#/resonance 文字边缘距等于 gap+padding
+[PASS] 1440/ar/light/#/resonance 全部文字单行且不裁切
+[PASS] 1440/ar/light/#/resonance 文字入口互不重叠
+[PASS] 1440/ar/light/#/resonance 文字入口不遮挡图标控件
+[PASS] 1440/ar/light/#/resonance 主动作完整位于可视区
+[PASS] 1440/ar/light/#/resonance 三个主动作可见
+[PASS] 1440/ar/light/#/resonance 路由保留独立滚动区
+[PASS] 390/zh/light/#/privacy 路由与动作分组存在
+[PASS] 390/zh/light/#/privacy 可见文字入口数量正确
+[PASS] 390/zh/light/#/privacy 页面无横向溢出
+[PASS] 390/zh/light/#/privacy 导航与品牌高度稳定
+[PASS] 390/zh/light/#/privacy 链接区自身不溢出
+[PASS] 390/zh/light/#/privacy 文字入口字号一致
+[PASS] 390/zh/light/#/privacy 文字入口 inline padding 一致
+[PASS] 390/zh/light/#/privacy 三层 gap 一致
+[PASS] 390/zh/light/#/privacy 按钮盒无额外等宽留白
+[PASS] 390/zh/light/#/privacy 相邻文字边缘距一致
+[PASS] 390/zh/light/#/privacy 文字边缘距等于 gap+padding
+[PASS] 390/zh/light/#/privacy 全部文字单行且不裁切
+[PASS] 390/zh/light/#/privacy 文字入口互不重叠
+[PASS] 390/zh/light/#/privacy 文字入口不遮挡图标控件
+[PASS] 390/zh/light/#/privacy 主动作完整位于可视区
+[PASS] 390/zh/light/#/privacy 窄屏沿用下载按钮隐藏规则
+[PASS] 390/zh/light/#/privacy 路由保留独立滚动区
+[PASS] 390/fr/light/#/privacy 路由与动作分组存在
+[PASS] 390/fr/light/#/privacy 可见文字入口数量正确
+[PASS] 390/fr/light/#/privacy 页面无横向溢出
+[PASS] 390/fr/light/#/privacy 导航与品牌高度稳定
+[PASS] 390/fr/light/#/privacy 链接区自身不溢出
+[PASS] 390/fr/light/#/privacy 文字入口字号一致
+[PASS] 390/fr/light/#/privacy 文字入口 inline padding 一致
+[PASS] 390/fr/light/#/privacy 三层 gap 一致
+[PASS] 390/fr/light/#/privacy 按钮盒无额外等宽留白
+[PASS] 390/fr/light/#/privacy 相邻文字边缘距一致
+[PASS] 390/fr/light/#/privacy 文字边缘距等于 gap+padding
+[PASS] 390/fr/light/#/privacy 全部文字单行且不裁切
+[PASS] 390/fr/light/#/privacy 文字入口互不重叠
+[PASS] 390/fr/light/#/privacy 文字入口不遮挡图标控件
+[PASS] 390/fr/light/#/privacy 主动作完整位于可视区
+[PASS] 390/fr/light/#/privacy 窄屏沿用下载按钮隐藏规则
+[PASS] 390/fr/light/#/privacy 路由保留独立滚动区
+[PASS] 390/ar/light/#/privacy 路由与动作分组存在
+[PASS] 390/ar/light/#/privacy 可见文字入口数量正确
+[PASS] 390/ar/light/#/privacy 页面无横向溢出
+[PASS] 390/ar/light/#/privacy 导航与品牌高度稳定
+[PASS] 390/ar/light/#/privacy 链接区自身不溢出
+[PASS] 390/ar/light/#/privacy 文字入口字号一致
+[PASS] 390/ar/light/#/privacy 文字入口 inline padding 一致
+[PASS] 390/ar/light/#/privacy 三层 gap 一致
+[PASS] 390/ar/light/#/privacy 按钮盒无额外等宽留白
+[PASS] 390/ar/light/#/privacy 相邻文字边缘距一致
+[PASS] 390/ar/light/#/privacy 文字边缘距等于 gap+padding
+[PASS] 390/ar/light/#/privacy 全部文字单行且不裁切
+[PASS] 390/ar/light/#/privacy 文字入口互不重叠
+[PASS] 390/ar/light/#/privacy 文字入口不遮挡图标控件
+[PASS] 390/ar/light/#/privacy 主动作完整位于可视区
+[PASS] 390/ar/light/#/privacy 窄屏沿用下载按钮隐藏规则
+[PASS] 390/ar/light/#/privacy 路由保留独立滚动区
+[PASS] 641/zh/light/#/privacy 路由与动作分组存在
+[PASS] 641/zh/light/#/privacy 可见文字入口数量正确
+[PASS] 641/zh/light/#/privacy 页面无横向溢出
+[PASS] 641/zh/light/#/privacy 导航与品牌高度稳定
+[PASS] 641/zh/light/#/privacy 链接区自身不溢出
+[PASS] 641/zh/light/#/privacy 文字入口字号一致
+[PASS] 641/zh/light/#/privacy 文字入口 inline padding 一致
+[PASS] 641/zh/light/#/privacy 三层 gap 一致
+[PASS] 641/zh/light/#/privacy 按钮盒无额外等宽留白
+[PASS] 641/zh/light/#/privacy 相邻文字边缘距一致
+[PASS] 641/zh/light/#/privacy 文字边缘距等于 gap+padding
+[PASS] 641/zh/light/#/privacy 全部文字单行且不裁切
+[PASS] 641/zh/light/#/privacy 文字入口互不重叠
+[PASS] 641/zh/light/#/privacy 文字入口不遮挡图标控件
+[PASS] 641/zh/light/#/privacy 主动作完整位于可视区
+[PASS] 641/zh/light/#/privacy 三个主动作可见
+[PASS] 641/zh/light/#/privacy 路由保留独立滚动区
+[PASS] 641/fr/light/#/privacy 路由与动作分组存在
+[PASS] 641/fr/light/#/privacy 可见文字入口数量正确
+[PASS] 641/fr/light/#/privacy 页面无横向溢出
+[PASS] 641/fr/light/#/privacy 导航与品牌高度稳定
+[PASS] 641/fr/light/#/privacy 链接区自身不溢出
+[PASS] 641/fr/light/#/privacy 文字入口字号一致
+[PASS] 641/fr/light/#/privacy 文字入口 inline padding 一致
+[PASS] 641/fr/light/#/privacy 三层 gap 一致
+[PASS] 641/fr/light/#/privacy 按钮盒无额外等宽留白
+[PASS] 641/fr/light/#/privacy 相邻文字边缘距一致
+[PASS] 641/fr/light/#/privacy 文字边缘距等于 gap+padding
+[PASS] 641/fr/light/#/privacy 全部文字单行且不裁切
+[PASS] 641/fr/light/#/privacy 文字入口互不重叠
+[PASS] 641/fr/light/#/privacy 文字入口不遮挡图标控件
+[PASS] 641/fr/light/#/privacy 主动作完整位于可视区
+[PASS] 641/fr/light/#/privacy 三个主动作可见
+[PASS] 641/fr/light/#/privacy 路由保留独立滚动区
+[PASS] 641/ar/light/#/privacy 路由与动作分组存在
+[PASS] 641/ar/light/#/privacy 可见文字入口数量正确
+[PASS] 641/ar/light/#/privacy 页面无横向溢出
+[PASS] 641/ar/light/#/privacy 导航与品牌高度稳定
+[PASS] 641/ar/light/#/privacy 链接区自身不溢出
+[PASS] 641/ar/light/#/privacy 文字入口字号一致
+[PASS] 641/ar/light/#/privacy 文字入口 inline padding 一致
+[PASS] 641/ar/light/#/privacy 三层 gap 一致
+[PASS] 641/ar/light/#/privacy 按钮盒无额外等宽留白
+[PASS] 641/ar/light/#/privacy 相邻文字边缘距一致
+[PASS] 641/ar/light/#/privacy 文字边缘距等于 gap+padding
+[PASS] 641/ar/light/#/privacy 全部文字单行且不裁切
+[PASS] 641/ar/light/#/privacy 文字入口互不重叠
+[PASS] 641/ar/light/#/privacy 文字入口不遮挡图标控件
+[PASS] 641/ar/light/#/privacy 主动作完整位于可视区
+[PASS] 641/ar/light/#/privacy 三个主动作可见
+[PASS] 641/ar/light/#/privacy 路由保留独立滚动区
+[PASS] 1440/zh/light/#/privacy 路由与动作分组存在
+[PASS] 1440/zh/light/#/privacy 可见文字入口数量正确
+[PASS] 1440/zh/light/#/privacy 页面无横向溢出
+[PASS] 1440/zh/light/#/privacy 导航与品牌高度稳定
+[PASS] 1440/zh/light/#/privacy 链接区自身不溢出
+[PASS] 1440/zh/light/#/privacy 文字入口字号一致
+[PASS] 1440/zh/light/#/privacy 文字入口 inline padding 一致
+[PASS] 1440/zh/light/#/privacy 三层 gap 一致
+[PASS] 1440/zh/light/#/privacy 按钮盒无额外等宽留白
+[PASS] 1440/zh/light/#/privacy 相邻文字边缘距一致
+[PASS] 1440/zh/light/#/privacy 文字边缘距等于 gap+padding
+[PASS] 1440/zh/light/#/privacy 全部文字单行且不裁切
+[PASS] 1440/zh/light/#/privacy 文字入口互不重叠
+[PASS] 1440/zh/light/#/privacy 文字入口不遮挡图标控件
+[PASS] 1440/zh/light/#/privacy 主动作完整位于可视区
+[PASS] 1440/zh/light/#/privacy 三个主动作可见
+[PASS] 1440/zh/light/#/privacy 路由保留独立滚动区
+[PASS] 1440/fr/light/#/privacy 路由与动作分组存在
+[PASS] 1440/fr/light/#/privacy 可见文字入口数量正确
+[PASS] 1440/fr/light/#/privacy 页面无横向溢出
+[PASS] 1440/fr/light/#/privacy 导航与品牌高度稳定
+[PASS] 1440/fr/light/#/privacy 链接区自身不溢出
+[PASS] 1440/fr/light/#/privacy 文字入口字号一致
+[PASS] 1440/fr/light/#/privacy 文字入口 inline padding 一致
+[PASS] 1440/fr/light/#/privacy 三层 gap 一致
+[PASS] 1440/fr/light/#/privacy 按钮盒无额外等宽留白
+[PASS] 1440/fr/light/#/privacy 相邻文字边缘距一致
+[PASS] 1440/fr/light/#/privacy 文字边缘距等于 gap+padding
+[PASS] 1440/fr/light/#/privacy 全部文字单行且不裁切
+[PASS] 1440/fr/light/#/privacy 文字入口互不重叠
+[PASS] 1440/fr/light/#/privacy 文字入口不遮挡图标控件
+[PASS] 1440/fr/light/#/privacy 主动作完整位于可视区
+[PASS] 1440/fr/light/#/privacy 三个主动作可见
+[PASS] 1440/fr/light/#/privacy 路由保留独立滚动区
+[PASS] 1440/ar/light/#/privacy 路由与动作分组存在
+[PASS] 1440/ar/light/#/privacy 可见文字入口数量正确
+[PASS] 1440/ar/light/#/privacy 页面无横向溢出
+[PASS] 1440/ar/light/#/privacy 导航与品牌高度稳定
+[PASS] 1440/ar/light/#/privacy 链接区自身不溢出
+[PASS] 1440/ar/light/#/privacy 文字入口字号一致
+[PASS] 1440/ar/light/#/privacy 文字入口 inline padding 一致
+[PASS] 1440/ar/light/#/privacy 三层 gap 一致
+[PASS] 1440/ar/light/#/privacy 按钮盒无额外等宽留白
+[PASS] 1440/ar/light/#/privacy 相邻文字边缘距一致
+[PASS] 1440/ar/light/#/privacy 文字边缘距等于 gap+padding
+[PASS] 1440/ar/light/#/privacy 全部文字单行且不裁切
+[PASS] 1440/ar/light/#/privacy 文字入口互不重叠
+[PASS] 1440/ar/light/#/privacy 文字入口不遮挡图标控件
+[PASS] 1440/ar/light/#/privacy 主动作完整位于可视区
+[PASS] 1440/ar/light/#/privacy 三个主动作可见
+[PASS] 1440/ar/light/#/privacy 路由保留独立滚动区
+[PASS] 390/zh/light/#/download 路由与动作分组存在
+[PASS] 390/zh/light/#/download 可见文字入口数量正确
+[PASS] 390/zh/light/#/download 页面无横向溢出
+[PASS] 390/zh/light/#/download 导航与品牌高度稳定
+[PASS] 390/zh/light/#/download 链接区自身不溢出
+[PASS] 390/zh/light/#/download 文字入口字号一致
+[PASS] 390/zh/light/#/download 文字入口 inline padding 一致
+[PASS] 390/zh/light/#/download 三层 gap 一致
+[PASS] 390/zh/light/#/download 按钮盒无额外等宽留白
+[PASS] 390/zh/light/#/download 相邻文字边缘距一致
+[PASS] 390/zh/light/#/download 文字边缘距等于 gap+padding
+[PASS] 390/zh/light/#/download 全部文字单行且不裁切
+[PASS] 390/zh/light/#/download 文字入口互不重叠
+[PASS] 390/zh/light/#/download 文字入口不遮挡图标控件
+[PASS] 390/zh/light/#/download 主动作完整位于可视区
+[PASS] 390/zh/light/#/download 窄屏沿用下载按钮隐藏规则
+[PASS] 390/zh/light/#/download 路由保留独立滚动区
+[PASS] 390/fr/light/#/download 路由与动作分组存在
+[PASS] 390/fr/light/#/download 可见文字入口数量正确
+[PASS] 390/fr/light/#/download 页面无横向溢出
+[PASS] 390/fr/light/#/download 导航与品牌高度稳定
+[PASS] 390/fr/light/#/download 链接区自身不溢出
+[PASS] 390/fr/light/#/download 文字入口字号一致
+[PASS] 390/fr/light/#/download 文字入口 inline padding 一致
+[PASS] 390/fr/light/#/download 三层 gap 一致
+[PASS] 390/fr/light/#/download 按钮盒无额外等宽留白
+[PASS] 390/fr/light/#/download 相邻文字边缘距一致
+[PASS] 390/fr/light/#/download 文字边缘距等于 gap+padding
+[PASS] 390/fr/light/#/download 全部文字单行且不裁切
+[PASS] 390/fr/light/#/download 文字入口互不重叠
+[PASS] 390/fr/light/#/download 文字入口不遮挡图标控件
+[PASS] 390/fr/light/#/download 主动作完整位于可视区
+[PASS] 390/fr/light/#/download 窄屏沿用下载按钮隐藏规则
+[PASS] 390/fr/light/#/download 路由保留独立滚动区
+[PASS] 390/ar/light/#/download 路由与动作分组存在
+[PASS] 390/ar/light/#/download 可见文字入口数量正确
+[PASS] 390/ar/light/#/download 页面无横向溢出
+[PASS] 390/ar/light/#/download 导航与品牌高度稳定
+[PASS] 390/ar/light/#/download 链接区自身不溢出
+[PASS] 390/ar/light/#/download 文字入口字号一致
+[PASS] 390/ar/light/#/download 文字入口 inline padding 一致
+[PASS] 390/ar/light/#/download 三层 gap 一致
+[PASS] 390/ar/light/#/download 按钮盒无额外等宽留白
+[PASS] 390/ar/light/#/download 相邻文字边缘距一致
+[PASS] 390/ar/light/#/download 文字边缘距等于 gap+padding
+[PASS] 390/ar/light/#/download 全部文字单行且不裁切
+[PASS] 390/ar/light/#/download 文字入口互不重叠
+[PASS] 390/ar/light/#/download 文字入口不遮挡图标控件
+[PASS] 390/ar/light/#/download 主动作完整位于可视区
+[PASS] 390/ar/light/#/download 窄屏沿用下载按钮隐藏规则
+[PASS] 390/ar/light/#/download 路由保留独立滚动区
+[PASS] 641/zh/light/#/download 路由与动作分组存在
+[PASS] 641/zh/light/#/download 可见文字入口数量正确
+[PASS] 641/zh/light/#/download 页面无横向溢出
+[PASS] 641/zh/light/#/download 导航与品牌高度稳定
+[PASS] 641/zh/light/#/download 链接区自身不溢出
+[PASS] 641/zh/light/#/download 文字入口字号一致
+[PASS] 641/zh/light/#/download 文字入口 inline padding 一致
+[PASS] 641/zh/light/#/download 三层 gap 一致
+[PASS] 641/zh/light/#/download 按钮盒无额外等宽留白
+[PASS] 641/zh/light/#/download 相邻文字边缘距一致
+[PASS] 641/zh/light/#/download 文字边缘距等于 gap+padding
+[PASS] 641/zh/light/#/download 全部文字单行且不裁切
+[PASS] 641/zh/light/#/download 文字入口互不重叠
+[PASS] 641/zh/light/#/download 文字入口不遮挡图标控件
+[PASS] 641/zh/light/#/download 主动作完整位于可视区
+[PASS] 641/zh/light/#/download 三个主动作可见
+[PASS] 641/zh/light/#/download 路由保留独立滚动区
+[PASS] 641/fr/light/#/download 路由与动作分组存在
+[PASS] 641/fr/light/#/download 可见文字入口数量正确
+[PASS] 641/fr/light/#/download 页面无横向溢出
+[PASS] 641/fr/light/#/download 导航与品牌高度稳定
+[PASS] 641/fr/light/#/download 链接区自身不溢出
+[PASS] 641/fr/light/#/download 文字入口字号一致
+[PASS] 641/fr/light/#/download 文字入口 inline padding 一致
+[PASS] 641/fr/light/#/download 三层 gap 一致
+[PASS] 641/fr/light/#/download 按钮盒无额外等宽留白
+[PASS] 641/fr/light/#/download 相邻文字边缘距一致
+[PASS] 641/fr/light/#/download 文字边缘距等于 gap+padding
+[PASS] 641/fr/light/#/download 全部文字单行且不裁切
+[PASS] 641/fr/light/#/download 文字入口互不重叠
+[PASS] 641/fr/light/#/download 文字入口不遮挡图标控件
+[PASS] 641/fr/light/#/download 主动作完整位于可视区
+[PASS] 641/fr/light/#/download 三个主动作可见
+[PASS] 641/fr/light/#/download 路由保留独立滚动区
+[PASS] 641/ar/light/#/download 路由与动作分组存在
+[PASS] 641/ar/light/#/download 可见文字入口数量正确
+[PASS] 641/ar/light/#/download 页面无横向溢出
+[PASS] 641/ar/light/#/download 导航与品牌高度稳定
+[PASS] 641/ar/light/#/download 链接区自身不溢出
+[PASS] 641/ar/light/#/download 文字入口字号一致
+[PASS] 641/ar/light/#/download 文字入口 inline padding 一致
+[PASS] 641/ar/light/#/download 三层 gap 一致
+[PASS] 641/ar/light/#/download 按钮盒无额外等宽留白
+[PASS] 641/ar/light/#/download 相邻文字边缘距一致
+[PASS] 641/ar/light/#/download 文字边缘距等于 gap+padding
+[PASS] 641/ar/light/#/download 全部文字单行且不裁切
+[PASS] 641/ar/light/#/download 文字入口互不重叠
+[PASS] 641/ar/light/#/download 文字入口不遮挡图标控件
+[PASS] 641/ar/light/#/download 主动作完整位于可视区
+[PASS] 641/ar/light/#/download 三个主动作可见
+[PASS] 641/ar/light/#/download 路由保留独立滚动区
+[PASS] 1440/zh/light/#/download 路由与动作分组存在
+[PASS] 1440/zh/light/#/download 可见文字入口数量正确
+[PASS] 1440/zh/light/#/download 页面无横向溢出
+[PASS] 1440/zh/light/#/download 导航与品牌高度稳定
+[PASS] 1440/zh/light/#/download 链接区自身不溢出
+[PASS] 1440/zh/light/#/download 文字入口字号一致
+[PASS] 1440/zh/light/#/download 文字入口 inline padding 一致
+[PASS] 1440/zh/light/#/download 三层 gap 一致
+[PASS] 1440/zh/light/#/download 按钮盒无额外等宽留白
+[PASS] 1440/zh/light/#/download 相邻文字边缘距一致
+[PASS] 1440/zh/light/#/download 文字边缘距等于 gap+padding
+[PASS] 1440/zh/light/#/download 全部文字单行且不裁切
+[PASS] 1440/zh/light/#/download 文字入口互不重叠
+[PASS] 1440/zh/light/#/download 文字入口不遮挡图标控件
+[PASS] 1440/zh/light/#/download 主动作完整位于可视区
+[PASS] 1440/zh/light/#/download 三个主动作可见
+[PASS] 1440/zh/light/#/download 路由保留独立滚动区
+[PASS] 1440/fr/light/#/download 路由与动作分组存在
+[PASS] 1440/fr/light/#/download 可见文字入口数量正确
+[PASS] 1440/fr/light/#/download 页面无横向溢出
+[PASS] 1440/fr/light/#/download 导航与品牌高度稳定
+[PASS] 1440/fr/light/#/download 链接区自身不溢出
+[PASS] 1440/fr/light/#/download 文字入口字号一致
+[PASS] 1440/fr/light/#/download 文字入口 inline padding 一致
+[PASS] 1440/fr/light/#/download 三层 gap 一致
+[PASS] 1440/fr/light/#/download 按钮盒无额外等宽留白
+[PASS] 1440/fr/light/#/download 相邻文字边缘距一致
+[PASS] 1440/fr/light/#/download 文字边缘距等于 gap+padding
+[PASS] 1440/fr/light/#/download 全部文字单行且不裁切
+[PASS] 1440/fr/light/#/download 文字入口互不重叠
+[PASS] 1440/fr/light/#/download 文字入口不遮挡图标控件
+[PASS] 1440/fr/light/#/download 主动作完整位于可视区
+[PASS] 1440/fr/light/#/download 三个主动作可见
+[PASS] 1440/fr/light/#/download 路由保留独立滚动区
+[PASS] 1440/ar/light/#/download 路由与动作分组存在
+[PASS] 1440/ar/light/#/download 可见文字入口数量正确
+[PASS] 1440/ar/light/#/download 页面无横向溢出
+[PASS] 1440/ar/light/#/download 导航与品牌高度稳定
+[PASS] 1440/ar/light/#/download 链接区自身不溢出
+[PASS] 1440/ar/light/#/download 文字入口字号一致
+[PASS] 1440/ar/light/#/download 文字入口 inline padding 一致
+[PASS] 1440/ar/light/#/download 三层 gap 一致
+[PASS] 1440/ar/light/#/download 按钮盒无额外等宽留白
+[PASS] 1440/ar/light/#/download 相邻文字边缘距一致
+[PASS] 1440/ar/light/#/download 文字边缘距等于 gap+padding
+[PASS] 1440/ar/light/#/download 全部文字单行且不裁切
+[PASS] 1440/ar/light/#/download 文字入口互不重叠
+[PASS] 1440/ar/light/#/download 文字入口不遮挡图标控件
+[PASS] 1440/ar/light/#/download 主动作完整位于可视区
+[PASS] 1440/ar/light/#/download 三个主动作可见
+[PASS] 1440/ar/light/#/download 路由保留独立滚动区
+[PASS] 390/zh/light/#/download/start 路由与动作分组存在
+[PASS] 390/zh/light/#/download/start 可见文字入口数量正确
+[PASS] 390/zh/light/#/download/start 页面无横向溢出
+[PASS] 390/zh/light/#/download/start 导航与品牌高度稳定
+[PASS] 390/zh/light/#/download/start 链接区自身不溢出
+[PASS] 390/zh/light/#/download/start 文字入口字号一致
+[PASS] 390/zh/light/#/download/start 文字入口 inline padding 一致
+[PASS] 390/zh/light/#/download/start 三层 gap 一致
+[PASS] 390/zh/light/#/download/start 按钮盒无额外等宽留白
+[PASS] 390/zh/light/#/download/start 相邻文字边缘距一致
+[PASS] 390/zh/light/#/download/start 文字边缘距等于 gap+padding
+[PASS] 390/zh/light/#/download/start 全部文字单行且不裁切
+[PASS] 390/zh/light/#/download/start 文字入口互不重叠
+[PASS] 390/zh/light/#/download/start 文字入口不遮挡图标控件
+[PASS] 390/zh/light/#/download/start 主动作完整位于可视区
+[PASS] 390/zh/light/#/download/start 窄屏沿用下载按钮隐藏规则
+[PASS] 390/zh/light/#/download/start 路由保留独立滚动区
+[PASS] 390/fr/light/#/download/start 路由与动作分组存在
+[PASS] 390/fr/light/#/download/start 可见文字入口数量正确
+[PASS] 390/fr/light/#/download/start 页面无横向溢出
+[PASS] 390/fr/light/#/download/start 导航与品牌高度稳定
+[PASS] 390/fr/light/#/download/start 链接区自身不溢出
+[PASS] 390/fr/light/#/download/start 文字入口字号一致
+[PASS] 390/fr/light/#/download/start 文字入口 inline padding 一致
+[PASS] 390/fr/light/#/download/start 三层 gap 一致
+[PASS] 390/fr/light/#/download/start 按钮盒无额外等宽留白
+[PASS] 390/fr/light/#/download/start 相邻文字边缘距一致
+[PASS] 390/fr/light/#/download/start 文字边缘距等于 gap+padding
+[PASS] 390/fr/light/#/download/start 全部文字单行且不裁切
+[PASS] 390/fr/light/#/download/start 文字入口互不重叠
+[PASS] 390/fr/light/#/download/start 文字入口不遮挡图标控件
+[PASS] 390/fr/light/#/download/start 主动作完整位于可视区
+[PASS] 390/fr/light/#/download/start 窄屏沿用下载按钮隐藏规则
+[PASS] 390/fr/light/#/download/start 路由保留独立滚动区
+[PASS] 390/ar/light/#/download/start 路由与动作分组存在
+[PASS] 390/ar/light/#/download/start 可见文字入口数量正确
+[PASS] 390/ar/light/#/download/start 页面无横向溢出
+[PASS] 390/ar/light/#/download/start 导航与品牌高度稳定
+[PASS] 390/ar/light/#/download/start 链接区自身不溢出
+[PASS] 390/ar/light/#/download/start 文字入口字号一致
+[PASS] 390/ar/light/#/download/start 文字入口 inline padding 一致
+[PASS] 390/ar/light/#/download/start 三层 gap 一致
+[PASS] 390/ar/light/#/download/start 按钮盒无额外等宽留白
+[PASS] 390/ar/light/#/download/start 相邻文字边缘距一致
+[PASS] 390/ar/light/#/download/start 文字边缘距等于 gap+padding
+[PASS] 390/ar/light/#/download/start 全部文字单行且不裁切
+[PASS] 390/ar/light/#/download/start 文字入口互不重叠
+[PASS] 390/ar/light/#/download/start 文字入口不遮挡图标控件
+[PASS] 390/ar/light/#/download/start 主动作完整位于可视区
+[PASS] 390/ar/light/#/download/start 窄屏沿用下载按钮隐藏规则
+[PASS] 390/ar/light/#/download/start 路由保留独立滚动区
+[PASS] 641/zh/light/#/download/start 路由与动作分组存在
+[PASS] 641/zh/light/#/download/start 可见文字入口数量正确
+[PASS] 641/zh/light/#/download/start 页面无横向溢出
+[PASS] 641/zh/light/#/download/start 导航与品牌高度稳定
+[PASS] 641/zh/light/#/download/start 链接区自身不溢出
+[PASS] 641/zh/light/#/download/start 文字入口字号一致
+[PASS] 641/zh/light/#/download/start 文字入口 inline padding 一致
+[PASS] 641/zh/light/#/download/start 三层 gap 一致
+[PASS] 641/zh/light/#/download/start 按钮盒无额外等宽留白
+[PASS] 641/zh/light/#/download/start 相邻文字边缘距一致
+[PASS] 641/zh/light/#/download/start 文字边缘距等于 gap+padding
+[PASS] 641/zh/light/#/download/start 全部文字单行且不裁切
+[PASS] 641/zh/light/#/download/start 文字入口互不重叠
+[PASS] 641/zh/light/#/download/start 文字入口不遮挡图标控件
+[PASS] 641/zh/light/#/download/start 主动作完整位于可视区
+[PASS] 641/zh/light/#/download/start 三个主动作可见
+[PASS] 641/zh/light/#/download/start 路由保留独立滚动区
+[PASS] 641/fr/light/#/download/start 路由与动作分组存在
+[PASS] 641/fr/light/#/download/start 可见文字入口数量正确
+[PASS] 641/fr/light/#/download/start 页面无横向溢出
+[PASS] 641/fr/light/#/download/start 导航与品牌高度稳定
+[PASS] 641/fr/light/#/download/start 链接区自身不溢出
+[PASS] 641/fr/light/#/download/start 文字入口字号一致
+[PASS] 641/fr/light/#/download/start 文字入口 inline padding 一致
+[PASS] 641/fr/light/#/download/start 三层 gap 一致
+[PASS] 641/fr/light/#/download/start 按钮盒无额外等宽留白
+[PASS] 641/fr/light/#/download/start 相邻文字边缘距一致
+[PASS] 641/fr/light/#/download/start 文字边缘距等于 gap+padding
+[PASS] 641/fr/light/#/download/start 全部文字单行且不裁切
+[PASS] 641/fr/light/#/download/start 文字入口互不重叠
+[PASS] 641/fr/light/#/download/start 文字入口不遮挡图标控件
+[PASS] 641/fr/light/#/download/start 主动作完整位于可视区
+[PASS] 641/fr/light/#/download/start 三个主动作可见
+[PASS] 641/fr/light/#/download/start 路由保留独立滚动区
+[PASS] 641/ar/light/#/download/start 路由与动作分组存在
+[PASS] 641/ar/light/#/download/start 可见文字入口数量正确
+[PASS] 641/ar/light/#/download/start 页面无横向溢出
+[PASS] 641/ar/light/#/download/start 导航与品牌高度稳定
+[PASS] 641/ar/light/#/download/start 链接区自身不溢出
+[PASS] 641/ar/light/#/download/start 文字入口字号一致
+[PASS] 641/ar/light/#/download/start 文字入口 inline padding 一致
+[PASS] 641/ar/light/#/download/start 三层 gap 一致
+[PASS] 641/ar/light/#/download/start 按钮盒无额外等宽留白
+[PASS] 641/ar/light/#/download/start 相邻文字边缘距一致
+[PASS] 641/ar/light/#/download/start 文字边缘距等于 gap+padding
+[PASS] 641/ar/light/#/download/start 全部文字单行且不裁切
+[PASS] 641/ar/light/#/download/start 文字入口互不重叠
+[PASS] 641/ar/light/#/download/start 文字入口不遮挡图标控件
+[PASS] 641/ar/light/#/download/start 主动作完整位于可视区
+[PASS] 641/ar/light/#/download/start 三个主动作可见
+[PASS] 641/ar/light/#/download/start 路由保留独立滚动区
+[PASS] 1440/zh/light/#/download/start 路由与动作分组存在
+[PASS] 1440/zh/light/#/download/start 可见文字入口数量正确
+[PASS] 1440/zh/light/#/download/start 页面无横向溢出
+[PASS] 1440/zh/light/#/download/start 导航与品牌高度稳定
+[PASS] 1440/zh/light/#/download/start 链接区自身不溢出
+[PASS] 1440/zh/light/#/download/start 文字入口字号一致
+[PASS] 1440/zh/light/#/download/start 文字入口 inline padding 一致
+[PASS] 1440/zh/light/#/download/start 三层 gap 一致
+[PASS] 1440/zh/light/#/download/start 按钮盒无额外等宽留白
+[PASS] 1440/zh/light/#/download/start 相邻文字边缘距一致
+[PASS] 1440/zh/light/#/download/start 文字边缘距等于 gap+padding
+[PASS] 1440/zh/light/#/download/start 全部文字单行且不裁切
+[PASS] 1440/zh/light/#/download/start 文字入口互不重叠
+[PASS] 1440/zh/light/#/download/start 文字入口不遮挡图标控件
+[PASS] 1440/zh/light/#/download/start 主动作完整位于可视区
+[PASS] 1440/zh/light/#/download/start 三个主动作可见
+[PASS] 1440/zh/light/#/download/start 路由保留独立滚动区
+[PASS] 1440/fr/light/#/download/start 路由与动作分组存在
+[PASS] 1440/fr/light/#/download/start 可见文字入口数量正确
+[PASS] 1440/fr/light/#/download/start 页面无横向溢出
+[PASS] 1440/fr/light/#/download/start 导航与品牌高度稳定
+[PASS] 1440/fr/light/#/download/start 链接区自身不溢出
+[PASS] 1440/fr/light/#/download/start 文字入口字号一致
+[PASS] 1440/fr/light/#/download/start 文字入口 inline padding 一致
+[PASS] 1440/fr/light/#/download/start 三层 gap 一致
+[PASS] 1440/fr/light/#/download/start 按钮盒无额外等宽留白
+[PASS] 1440/fr/light/#/download/start 相邻文字边缘距一致
+[PASS] 1440/fr/light/#/download/start 文字边缘距等于 gap+padding
+[PASS] 1440/fr/light/#/download/start 全部文字单行且不裁切
+[PASS] 1440/fr/light/#/download/start 文字入口互不重叠
+[PASS] 1440/fr/light/#/download/start 文字入口不遮挡图标控件
+[PASS] 1440/fr/light/#/download/start 主动作完整位于可视区
+[PASS] 1440/fr/light/#/download/start 三个主动作可见
+[PASS] 1440/fr/light/#/download/start 路由保留独立滚动区
+[PASS] 1440/ar/light/#/download/start 路由与动作分组存在
+[PASS] 1440/ar/light/#/download/start 可见文字入口数量正确
+[PASS] 1440/ar/light/#/download/start 页面无横向溢出
+[PASS] 1440/ar/light/#/download/start 导航与品牌高度稳定
+[PASS] 1440/ar/light/#/download/start 链接区自身不溢出
+[PASS] 1440/ar/light/#/download/start 文字入口字号一致
+[PASS] 1440/ar/light/#/download/start 文字入口 inline padding 一致
+[PASS] 1440/ar/light/#/download/start 三层 gap 一致
+[PASS] 1440/ar/light/#/download/start 按钮盒无额外等宽留白
+[PASS] 1440/ar/light/#/download/start 相邻文字边缘距一致
+[PASS] 1440/ar/light/#/download/start 文字边缘距等于 gap+padding
+[PASS] 1440/ar/light/#/download/start 全部文字单行且不裁切
+[PASS] 1440/ar/light/#/download/start 文字入口互不重叠
+[PASS] 1440/ar/light/#/download/start 文字入口不遮挡图标控件
+[PASS] 1440/ar/light/#/download/start 主动作完整位于可视区
+[PASS] 1440/ar/light/#/download/start 三个主动作可见
+[PASS] 1440/ar/light/#/download/start 路由保留独立滚动区
+[PASS] 进入仍进入身份选择页
+[PASS] 下载按钮仍打开资源下载面板
+[PASS] 关于按钮仍滚动到关于板块
+[PASS] GitHub 入口属性不变
+[PASS] 语言菜单仍可打开
+[PASS] 语言菜单仍可 Escape 关闭
+[PASS] 全程 console/pageerror/requestfailed 零报错
+
+合计 2580 项：PASS 2580 / FAIL 0

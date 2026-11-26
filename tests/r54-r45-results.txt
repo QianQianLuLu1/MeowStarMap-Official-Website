@@ -1,0 +1,73 @@
+
+（JS 块共 24 个）
+
+==============================================================================
+R45 landing 暗底舞台色彩作用域收口
+==============================================================================
+  PASS  A1 R45 注释对成对
+  PASS  A2 HTML 注释内无连续双连字符
+  PASS  A3 外链 link 恒 0（data: 内联豁免）
+  PASS  A4 图标 link 仍恰 2 枚且均 data:
+  PASS  A5 零 script src / iframe / url(http) / 外链 img
+  PASS  A6 @font-face 恒 2
+  PASS  A7 两条巨型数据行未被触碰
+  PASS  A8 全部 24 个 JS 块 node 编译通过（不执行）
+  PASS  A9 R45 层未重指派 landing 墨口与强调色族
+  PASS  A10 --card/--bg 改写仅限 #lp-nav 与 #look-menu 隔离作用域
+  PASS  A11 R45 层改写面恰为 tx/mut/bd/card/bg + 新墨口 lp-ac-ink
+  PASS  G1 html5lib strict 原件 0 错误
+  PASS  B1 slim/light/neutral 令牌未泄漏
+  PASS  B2 slim/light/neutral 卡面未被动
+  PASS  C1 slim/light/neutral .lp-dl-btn 色值未动
+  PASS  D1 slim/dark R45 保持惰性
+  PASS  D2 slim/plain 未被 R45 覆写
+  PASS  D3 slim/plain 色点仍隐藏（R38 L1972 未被推翻）
+  PASS  B1 spectrum/light/neutral 令牌未泄漏
+  PASS  B2 spectrum/light/neutral 卡面未被动
+  PASS  C1 spectrum/light/neutral .lp-dl-btn 色值未动
+  PASS  D1 spectrum/dark R45 保持惰性
+  PASS  D2 spectrum/plain 未被 R45 覆写
+  PASS  D3 spectrum/plain 色点仍隐藏（R38 L1972 未被推翻）
+  PASS  B1 energy/light/neutral 舞台墨色已翻转
+  PASS  B2 energy/light/neutral 卡面转暗玻璃
+  PASS  C1 energy/light/neutral .lp-dl-btn 色值未动
+  PASS  D1 energy/dark R45 保持惰性
+  PASS  D2 energy/plain 未被 R45 覆写
+  PASS  D3 energy/plain 色点仍隐藏（R38 L1972 未被推翻）
+  PASS  B1 deep/light/neutral 舞台墨色已翻转
+  PASS  B2 deep/light/neutral 卡面转暗玻璃
+  PASS  C1 deep/light/neutral .lp-dl-btn 色值未动
+  PASS  D1 deep/dark R45 保持惰性
+  PASS  D2 deep/plain 未被 R45 覆写
+  PASS  D3 deep/plain 色点仍隐藏（R38 L1972 未被推翻）
+  PASS  F1 触发器可见性 @1440px
+  PASS  F1 触发器可见性 @900px
+  PASS  F2 @900px 色点仍为同批 4 枚且无重复 data-lp-theme
+  PASS  F3 @900px 点击开合 + aria-expanded 同步
+  PASS  F8 @900px 浮层未被裁且四枚色点完整可见于导航下方
+  PASS  F4 @900px 浮层内选色即关闭并持久化
+  PASS  F5 @900px Escape 关闭且焦点归还
+  PASS  F6 @900px hashchange 关闭
+  PASS  F7 @900px plain 下不显示配色入口
+  PASS  F1 触发器可见性 @820px
+  PASS  F2 @820px 色点仍为同批 4 枚且无重复 data-lp-theme
+  PASS  F3 @820px 点击开合 + aria-expanded 同步
+  PASS  F8 @820px 浮层未被裁且四枚色点完整可见于导航下方
+  PASS  F4 @820px 浮层内选色即关闭并持久化
+  PASS  F5 @820px Escape 关闭且焦点归还
+  PASS  F6 @820px hashchange 关闭
+  PASS  F7 @820px plain 下不显示配色入口
+  PASS  F1 触发器可见性 @769px
+  PASS  F2 @769px 色点仍为同批 4 枚且无重复 data-lp-theme
+  PASS  F3 @769px 点击开合 + aria-expanded 同步
+  PASS  F8 @769px 浮层未被裁且四枚色点完整可见于导航下方
+  PASS  F4 @769px 浮层内选色即关闭并持久化
+  PASS  F5 @769px Escape 关闭且焦点归还
+  PASS  F6 @769px hashchange 关闭
+  PASS  F7 @769px plain 下不显示配色入口
+  PASS  F1 触发器可见性 @768px
+  PASS  F1 触发器可见性 @390px
+  PASS  H1 console 零 error/warning
+  PASS  H2 requestfailed 恒 0
+------------------------------------------------------------------------------
+合计 65 | PASS 65 | FAIL 0 | NOT-RUN 0

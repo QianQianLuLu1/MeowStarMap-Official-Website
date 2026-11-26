@@ -1,0 +1,34 @@
+
+==============================================================================
+R43 软件图标层专项探针
+==============================================================================
+  PASS  A1 旧软件图标字形 📷 已全部替换
+  PASS  A2 全文件 <link> 恰 2 枚（favicon + apple-touch-icon）
+  PASS  A3 零外链不变量：无任何 href 非 data: 的 link
+  PASS  A4 两枚图标 link 均声明 data:image 且 rel 正确
+  PASS  A5 三段 base64 载荷解码成功且魔数正确
+  PASS  A6 母图 base64 全文仅内联一次（单点消费，无重复载荷）
+  PASS  A7 R43 注释对成对平衡（CSS 层 + head link 对）
+  PASS  A8 HTML 注释内无连续双连字符（W3C；R43-ICON 注释须避开 --app-icon 写法）
+  PASS  A9 六处槽位标记逐字在位且各一处（含 !DEV 兜底分支那处）
+  PASS  A12 旧字形未被局部漏换：📷 计数 0 且 app-ic 消费点 >= 6
+  PASS  A10 两条巨型数据行仍在位且未被触碰
+  PASS  A11 零外链旁证：@font-face 仍 2 处、无 script src / iframe / url(http
+  PASS  B1 一级导航 .lp-brand-mark 渲染且占位 = 1em
+  PASS  B1 顶栏 Logo .lg-emoji 渲染且占位 = 1em
+  PASS  B1 侧栏 .sb-all 内嵌 渲染且占位 = 1em
+  PASS  B1 快捷卡 .q-emoji 瓦片内 渲染且占位 = 1em
+  NOT-RUN  B1 开发者工作台 .alllink 内嵌 渲染且占位 = 1em
+        跳过: renderDev 的 !DEV 兜底分支，本构建 dev-data 在位故不渲染；由 A12 源码级覆盖
+  PASS  B1 身份门 .gate-emoji 瓦片内 渲染且占位 = 1em
+  PASS  B2 身份门瓦片圆角/底色/描边保留（background-image 长写不吞简写）
+  PASS  B2b 快捷卡瓦片圆角/底色保留
+  PASS  B3 --app-icon 母图在真实浏览器中解码成功
+  PASS  B4 两枚图标 link 的 DOM href 均为 data: 内联
+  NOT-RUN  B5 四断点 × 双主题 × 三态零横向溢出
+        跳过: --skip-slow
+  PASS  B6 data-look=plain 时图标灰度化（与社交图标同口径）
+  PASS  B7 控制台零报错 + 零请求失败（无资源缺失/引用错误）
+  PASS  B8 禁用 JS 时两处静态图标样式仍生效（CSS 层路径，不破 R8b）
+------------------------------------------------------------------------------
+合计 26 | PASS 24 | FAIL 0 | NOT-RUN 2
