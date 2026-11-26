@@ -9,7 +9,8 @@
 ```
 Meow Star Map 官网.html ← 唯一源文件（5,742 行 / 25,213,498 B / CRLF；R55 基线），含全部 HTML / CSS / JS / 教程与开发者数据 / 六语词典 / 字体子集 / 图标
 site/                     ← 多文件线上版（perf/tools/build_site.py 生成，已入库）
-  index.html                单页应用 shell：CSS/JS/字体/图标内联（1,418,802 B / 1.35 MiB）
+  index.html                单页应用 shell：JS / 六语词典内联，样式表外链（535,186 B；R56 起 CSS 拆出）
+  assets/site.css           全站样式（883,647 B；字体子集与图标仍以 data: 内联在此文件）
   data/tutorial.js          window.__TUT__  教程数据（截图改为相对路径）
   data/dev-docs.js          window.__DEV__  开发者文档
   assets/shots/*.webp       48 张 1400×900 无损 WebP 截图（15,991,294 B）
@@ -41,6 +42,18 @@ AGENTS.md / README.md / CONTRIBUTING.md / SECURITY.md / CODE_OF_CONDUCT.md / LIC
 ```
 
 **已不存在于本工作树的旧工具链（历史口径，勿再引用）**：`package.json`（npm scripts `setup/doctor/smoke/vreg`）、`Makefile`、根 `requirements.txt`、`tests/` 下的 r14–r31 探针与 `gui-audit.js` / `insert-*.mjs` / `env_check.py` / `smoke.mjs`、`backups/`、`gui-test-screenshots/`、`archive-r15/` 等归档目录。这些属于父仓库工具链或早期历史产物；本工作树的一律口径以本节与「环境装配与工具链」为准。
+
+## 「构建器」的定位（防误解·20261126）
+
+**站点本体没有构建**：`Meow Star Map 官网.html` 是可双击运行的单文件站点，无打包、无框架、无运行时依赖；`site/` 只是它的网页优化形态。
+
+`perf/tools/`（11 个脚本 / 约 1,800 行）容易被读成「自研构建引擎」，实际是：
+
+- **来源**：2026-11-16 提交 `d9b0ccb`（R50）一次性落地 10 个，2026-11-17 `e7242ae`（R51）补 `build_i18n.py`。不来自任何框架，也不是逐轮长出的通用基础设施。
+- **性质**：以单文件为唯一源的**一次性转换器**。`build_site.py`（约 400 行）的 11 步里，除「抽数据」与「拆 CSS」外，全是对源文件做字符串锚点替换（数据外置、`DEV_SB` 惰性化、render/搜索守卫改写、封面正则、占位与预取注入……），每步自带 `FAIL: xxx 未匹配` 守卫——源文件结构一变就必须同步改脚本。它**没有**增量构建、任务图、插件体系、监听热更新、CI 流水线，也没有 `package.json` / lock 文件。
+- **依赖**：Python 仅标准库 + Pillow（`perf/requirements.txt`）；Node 仅用于 Playwright 取证脚本与 `node --check`，零 npm 依赖。
+- **存在理由**：交付形态要求「离线双击的 25 MB 单文件」，线上又需要多文件版；不维护两份源，就只能写转换器。所以这层是**单文件形态的补偿层，不是架构选择**——若站点本身按多文件组织，大半脚本不需要存在。
+- **维护口径**：改内容只改 `Meow Star Map 官网.html`，再重跑脚本；**不要手改 `site/` 产物**（下次重建覆盖）。改生成逻辑就改脚本，然后 `python perf/tools/build_site.py` 复现。`perf/reports/*.json` 只是产物元数据，不是构建缓存。
 
 ## 环境装配与工具链（20261126 实况）
 

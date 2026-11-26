@@ -9,6 +9,7 @@
 
 产物：
   site/index.html
+  site/assets/site.css        （R56：内联 <style> 拆为独立样式表）
   site/data/tutorial.js
   site/data/dev-docs.js
   site/assets/shots/*.webp
@@ -17,6 +18,11 @@
   site/README.md
 
 用法：python perf/tools/build_site.py
+
+定位（勿误解）：本脚本不是构建框架，而是「把 25 MB 单文件转换成多文件站点」的转换器。
+除「抽数据」与「拆 CSS」外，其余步骤都是对源文件的字符串锚点替换，每步自带 FAIL 守卫；
+它没有增量构建 / 任务图 / 插件体系 / 监听热更新 / CI 流水线，也没有 package.json。
+源文件结构一变，这里必须同步改——所以不要手改 site/ 产物，改完脚本重跑即可。
 """
 
 from __future__ import annotations
@@ -309,6 +315,19 @@ function ensureDev(){
     shell = shell.replace(m_dev.group(0), "")
     shell = shell.replace("<!--DEV-DATA:BEGIN-->", "").replace("<!--DEV-DATA:END-->", "")
 
+    # 11) 拆 CSS：内联 <style> 整块 -> assets/site.css + <link rel="stylesheet">
+    #     CSS 占 index.html 的 62%（883,647 / 1,418,846 B）。拆出后 HTML 只剩约 535 KB，
+    #     HTML 解析更快、样式表可被浏览器独立缓存；字体与图标仍内联在 CSS（data:），
+    #     所以部署依旧零外部域名依赖。CSS 里的 url(#id) 是对当前文档的片段引用，
+    #     迁入外部样式表后按规范仍解析到同一文档（Chrome/Firefox 实测一致）。
+    m_css = re.search(r"<style\b[^>]*>(.*?)</style>", shell, re.S)
+    if not m_css:
+        print("FAIL: 未找到内联 <style> 块，无法拆分 CSS")
+        return 1
+    css_text = m_css.group(1)
+    (SITE / "assets" / "site.css").write_bytes(css_text.encode("utf-8"))
+    shell = shell.replace(m_css.group(0), '<link rel="stylesheet" href="assets/site.css">', 1)
+
     (SITE / "index.html").write_bytes(shell.encode("utf-8"))
     (SITE / ".nojekyll").write_bytes(b"")
 
@@ -316,6 +335,17 @@ function ensureDev(){
     problems = []
     if 'id="tut-data"' in shell or 'id="dev-data"' in shell:
         problems.append("index.html 仍含内联数据块")
+    if "<style" in shell:
+        problems.append("index.html 仍含内联 <style> 块")
+    if 'href="assets/site.css"' not in shell:
+        problems.append("index.html 未引用 assets/site.css")
+    css_size = (SITE / "assets" / "site.css").stat().st_size
+    if css_size < 100000:
+        problems.append(f"assets/site.css 体积异常：{css_size} B")
+    if "@font-face" not in css_text:
+        problems.append("assets/site.css 缺失 @font-face（字体被误删）")
+    if 'url("data:font/woff2' not in css_text and "url(data:font/woff2" not in css_text:
+        problems.append("assets/site.css 缺失内联 woff2 字体")
     big_inline = [m for m in WEBP_RE.finditer(shell) if len(m.group(1)) > 10000]
     if big_inline:
         problems.append(f"index.html 仍有 {len(big_inline)} 张截图内联（>10KB）")
@@ -339,14 +369,16 @@ function ensureDev(){
 
     sizes = {
         "index.html": (SITE / "index.html").stat().st_size,
+        "assets/site.css": css_size,
         "data/tutorial.js": (DATA / "tutorial.js").stat().st_size,
         "data/dev-docs.js": (DATA / "dev-docs.js").stat().st_size,
         "assets/shots/*.webp": sum(p.stat().st_size for p in SHOTS.glob("*.webp")),
         "assets/about-wx.jpg": (SITE / "assets" / "about-wx.jpg").stat().st_size,
     }
     print(json.dumps(sizes, ensure_ascii=False, indent=2))
-    print(f"截图 {len(list(SHOTS.glob('*.webp')))} 张，落地页首载 = index.html = "
-          f"{sizes['index.html']:,} B ({sizes['index.html'] / 1048576:.2f} MiB)")
+    print(f"截图 {len(list(SHOTS.glob('*.webp')))} 张，落地页首载 = index.html "
+          f"{sizes['index.html']:,} B + assets/site.css {css_size:,} B = "
+          f"{sizes['index.html'] + css_size:,} B ({(sizes['index.html'] + css_size) / 1048576:.2f} MiB)")
     for p in problems:
         print("FAIL", p)
 
