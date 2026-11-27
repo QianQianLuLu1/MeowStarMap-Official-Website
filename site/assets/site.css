@@ -1302,7 +1302,7 @@ html[data-theme="dark"] body[data-view="landing"] #lp-nav{background:rgba(16,20,
 @media (max-width:560px){
   .lp-dl{gap:14px;padding:18px 14px 4px}
 }
-/* R19.1 网盘图标贴片（图形源自 Arcticons，CC BY-SA 4.0，源副本 tests/icons/；回滚 = 删除至 R19:END 前的新增段） */
+/* R19.1 网盘图标贴片（图形源自 Arcticons，CC BY-SA 4.0；授权见 README.md；回滚 = 删除至 R19:END 前的新增段） */
 .lp-tile{width:44px;height:44px;border-radius:12px;display:flex;align-items:center;justify-content:center;flex:none;color:#fff;box-shadow:inset 0 1px 0 rgba(255,255,255,.22)}
 .lp-tile svg{width:26px;height:26px;display:block}
 .lp-tile.ic-xl{background:#0b9bff}

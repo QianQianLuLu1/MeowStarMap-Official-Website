@@ -37,7 +37,7 @@
  "dev.nextCat": "下一个板块 →",
  "dev.nextGrp": "下一个子分类 →",
  "dev.noData": "开发者文档库数据未构建 🚧",
- "dev.noDataSub": "未检测到 dev-data 数据块。请先运行构建管线：python tools/extract_docs.py 与 python tools/build_dev_data.py（均在项目根目录执行）。",
+ "dev.noDataSub": "未检测到 dev-data 数据块。请使用包含开发者文档库的完整站点文件。",
  "dev.prevCat": "← 上一个板块",
  "dev.prevGrp": "← 上一个子分类",
  "dev.q1d": "面向最终用户的 36 页图文教程",

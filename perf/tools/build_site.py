@@ -2,7 +2,7 @@
 """从「无损 WebP 单文件版」生成多文件站点 site/。
 
 设计目标（网络加载速度）：
-  - 落地页只下载 shell（HTML/CSS/JS/字体/图标），不再为 30.9 MB 教程数据付费；
+  - 落地页只下载 shell（HTML/CSS/JS/字体/图标），不再为约 24.04 MiB 的单文件源付费；
   - 教程截图改为独立 .webp 文件：按页、按需、可缓存，`#/all` 也真正惰性加载；
   - 教程 / 开发文档数据改为 external classic script，按路由加载并自动重渲；
   - 入口 hover 预取 + 空闲预取，切换路由近零等待。
@@ -15,7 +15,6 @@
   site/assets/shots/*.webp
   site/assets/about-wx.jpg
   site/.nojekyll
-  site/README.md
 
 用法：python perf/tools/build_site.py
 

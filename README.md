@@ -2,26 +2,26 @@
 
 「喵星图（Meow Star Map）」的官方网站：产品介绍 + 全流程使用教程 + 开发者文档，三合一的**单文件静态站点**。喵星图是一款面向《无限暖暖》的桌面媒体管理工具，软件本体见 [QianQianLuLu1/MeowStarMap](https://github.com/QianQianLuLu1/MeowStarMap)。
 
-> **当前基线 R57（20261126）**：在保留单文件自包含交付的同时，提供多文件线上版与六语国际化。
+> **当前基线 R59（20261127）**：在保留单文件自包含交付的同时，提供多文件线上版与六语国际化。
 >
-> - **单文件版** `Meow Star Map 官网.html`：**25,214,383 B（24.05 MiB）**。48 张教程截图为**无损 WebP**（逐像素等同原 PNG），另内嵌六语词典与 i18next 23.16.8 运行时（MIT）。
-> - **多文件版** [`site/`](site/)：落地页 **1,419,718 B（1.35 MiB）**（`index.html` 535,326 + `assets/site.css` 884,392），教程数据、开发者文档、48 张截图按需加载。
+> - **单文件版** `Meow Star Map 官网.html`：**25,219,808 B（24.05 MiB）**。48 张教程截图为**无损 WebP**（逐像素等同原 PNG），另内嵌六语词典与 i18next 23.16.8 运行时（MIT）。
+> - **多文件版** [`site/`](site/)：落地页 **1,425,182 B（1.36 MiB）**（`index.html` 534,863 + `assets/site.css` 890,319），教程数据、开发者文档、48 张截图按需加载。
 > - **六语 i18n**（zh / en / fr / es / ru / ar）：译文唯一编辑入口是 [`locales/`](locales/README.md)，由 `perf/tools/build_i18n.py` 单向注入。
 >
-> 逐轮变更与验收记录见 [AGENTS.md](AGENTS.md)。
+> 当前开发约束、源码锚点与验证状态见 [AGENTS.md](AGENTS.md)。
 
-- 本仓库：<https://github.com/QianQianLuLu1/MeowStarMap-Official-Website>（已推送，`main` 与 `origin/main` 一致）
+- 本仓库：<https://github.com/QianQianLuLu1/MeowStarMap-Official-Website>。已提交 HEAD 与 `origin/main` 同步；工作树可能有未提交文档改动，完整状态以 `git status` 为准。
 - 线上地址：尚未公开部署地址；本地 HTML 文件即完整站点（`site/` 已按 GitHub Pages 就绪，含 `.nojekyll`）
 - 软件仓库：<https://github.com/QianQianLuLu1/MeowStarMap>
 - 软件下载：软件仓库 [Releases](https://github.com/QianQianLuLu1/MeowStarMap/releases)，或站内「资源下载」面板（迅雷 / 百度 / 移动云盘）
 
 ## 项目是什么
 
-整个站点只有一个源文件 `Meow Star Map 官网.html`（25,214,383 B / 5,750 行 / CRLF），包含全部 HTML / CSS / JS，以及内联的教程与开发者文档数据、六语词典、字体子集、图标与封面图。**无构建工具、无框架、零外部资源请求**——所有资源以 `data:` 内联，离线双击即可完整运行。
+站点本体唯一源文件是 `Meow Star Map 官网.html`，包含全部 HTML/CSS/JS、教程与开发者数据、六语词典、字体子集、图标和截图。站点本体无前端构建工具或框架；构建与测试工具链见下文。单文件版资源以 `data:` 内联，零外部资源请求。当前为 **25,219,808 B / 5,842 个 CRLF 换行**。
 
-`site/` 是同一份站点的**多文件线上版**（由 `perf/tools/build_site.py` 生成）：外壳 1.35 MiB，教程数据、48 张截图、开发者文档拆成独立文件按需加载。它放弃「单文件」形态，换取首屏传输从 24.05 MiB 降到 1.42 MiB（含空闲预取的教程数据）；单文件版仍保留作为离线交付。
+`site/` 是同一份站点的**多文件线上版**（由 `perf/tools/build_site.py` 生成）：外壳 1.36 MiB（index + site.css），教程数据、48 张截图、开发者文档拆成独立文件按需加载。它放弃「单文件」形态，换取首屏传输从 24.05 MiB 降到 1.43 MiB（含空闲预取的教程数据）；单文件版仍保留作为离线交付。
 
-站点通过 hash 路由组织五级界面（详见 [AGENTS.md](AGENTS.md)「五级界面架构」与「路由速查」）：
+站点通过 hash 路由组织五级界面（详见 [AGENTS.md](AGENTS.md)「当前路由与界面架构」）：
 
 | 入口 | 内容 |
 |------|------|
@@ -31,14 +31,14 @@
 | `#/tutorial`、`#/mX`、`#/mX/mYpZ`、`#/all` | 用户教程：首页 / 模块 / 详情 / 连续阅读 |
 | `#/dev`、`#/dev/...` | 开发者工作台与文档 |
 
-当前基线为 R55：明暗主题 × 三态外观（中性黑白 / 彩色氛围 / 极简全白）× landing 四套配色主题，Bento Grid 布局，全套动效支持 `prefers-reduced-motion` 降级，禁 JS 不破版；R52 起营销侧提供六语，工作区侧提供中英双语。逐轮变更与验收记录见 [AGENTS.md](AGENTS.md)。
+当前基线为 R59：明暗主题 × 三态外观（中性黑白 / 彩色氛围 / 极简全白）× landing 四套配色主题，Bento Grid 布局，全套动效支持 `prefers-reduced-motion` 降级，禁 JS 不破版；营销侧提供六语，工作区侧提供中英双语。当前开发约束、源码锚点与验证状态见 [AGENTS.md](AGENTS.md)。
 
 ## 本地运行
 
 无需安装任何依赖、无需构建：
 
 1. 直接用浏览器打开 `Meow Star Map 官网.html` 即可（`file://` 协议完整可用，这是项目的验收契约之一）。
-2. 线上部署请用多文件版 `site/`（落地页 1.35 MiB，教程图片按需加载）：
+2. 线上部署请用多文件版 `site/`（落地页 1.36 MiB，教程图片按需加载）：
    `python perf/tools/build_site.py` 重新生成，或直接部署已入库的 `site/`。
 3. 如需 HTTP 方式访问单文件版，在本目录任选一种静态服务器即可，例如：
 
@@ -52,14 +52,14 @@
 
 ## 测试（回归探针）
 
-`tests/` 内是常驻回归探针，Python + Playwright 驱动，`file://` 直开、无端口自起。环境要求：Python ≥ 3.8、Node（探针内用 `node --check` 编译校验 JS 块）。装配：
+`tests/` 内是常驻回归探针，Python + Playwright 驱动，`file://` 直开、无端口自起。Python 3.12 为当前实测基线；`perf/` 类型注解要求 Python 3.10+；`r51_i18n_check.py` 的 `Path.read_text(newline=...)` 直跑需要 Python 3.13+，3.12 下使用等价的 `Path.open(newline='')` 兼容包装。Node 用于 `node --check`。装配：
 
 ```bash
 pip install playwright html5lib
 playwright install chromium
 ```
 
-> 版本锁定口径：根目录 `requirements.txt` 属于父仓库工具链，本工作树未纳入；以上两个包即探针的全部第三方依赖。工具链自带的第三方依赖只有 `perf/requirements.txt`（Pillow，用于无损 WebP 与截图处理）。
+> 本仓库无根 `requirements.txt`、`package.json` 或锁文件；以上两个包即 Python 探针的第三方依赖。构建脚本依赖见 `perf/requirements.txt`（Pillow）。
 
 运行（在本目录直跑，**不建 venv**，与 AGENTS.md 既有口径一致）：
 
@@ -77,24 +77,26 @@ playwright install chromium
 
 各探针的完整用法与口径见脚本头部注释；未跑项显式记 NOT-RUN，不当作通过。`tests/i18n_pin.py` 是探针共用的语言钉住辅助模块（把 `__i18nPin` 钉为 zh，保证确定性）。`tests/r37-baseline.json`、`tests/r39-baseline.json` 等基线 JSON 与 `tests/*-shots/` 截图归档是有意纳入版本管理的验收证据，勿删。
 
-> AGENTS.md 中描述的 `npm run setup/doctor/smoke/vreg`、Makefile 入口与 r14–r31 历史探针属于**父仓库工具链**，本工作树不存在这些文件，相应命令在此不可用。
+> 本仓库无 `package.json`、Makefile 或 npm scripts；不要使用此类入口。
 
 ## 性能与构建工具链
 
-`perf/` 收录全部构建与取证脚本（第三方依赖仅 Pillow，见 `perf/requirements.txt`）：
+`perf/` 收录构建与取证脚本。Python 构建脚本第三方依赖仅 Pillow；4 个 `.mjs` 另需本机 Playwright：
 
 | 脚本 | 用途 |
 |---|---|
 | `perf/tools/build_i18n.py` | 六语 i18n：`--extract` 抽键表快照 → `--check` 校验 parity / 零外链 / 占位 → `--write` 注入单文件 |
 | `perf/tools/build_site.py` | 由单文件生成多文件版 `site/`（数据外置、按需加载、懒加载、预取） |
-| `perf/tools/extract_shots.py` | 从 `#tut-data` 提取 48 张 PNG 原图 → `perf/assets/shots` |
-| `perf/tools/convert_shots.py` | PNG → WebP lossless（`method=6, exact`）+ 逐像素复核 |
-| `perf/tools/build_lossless.py` | 无损 WebP 重建单文件（默认写 `dist/`，`--in-place` 覆盖源文件） |
+| `perf/tools/extract_shots.py` | 历史 PNG 输入工具；当前 `#tut-data` 已是 WebP，不能从当前源提取 PNG |
+| `perf/tools/convert_shots.py` | PNG → 无损 WebP（`method=6, exact`）+ 逐像素复核 |
+| `perf/tools/build_lossless.py` | 历史 PNG→WebP 重建工具；当前 WebP 源不适用，禁止对当前源使用 `--in-place` |
 | `perf/tools/compare_shots.py` | 三份截图逐像素对比（orig / lossless / site） |
 | `perf/tools/smoke_site.mjs` | 10 路由功能签名对比（原文件 vs `site/`，`file://`） |
 | `perf/tools/interact_site.mjs` | `site/` 真实点击交互 + 390 移动端溢出 |
 | `perf/tools/measure_network.mjs` | 传输字节 / FCP / DCL 实测（需本地 HTTP 服务） |
 | `perf/tools/shoot_compare.mjs` | 8 个场景截图取证（图片加载完成后） |
+
+> 4 个 `.mjs` 是本机取证脚本，写死 `C:/Users/henji/.../playwright`，不可直接移植；“无已声明 npm 依赖”不表示这些脚本零第三方运行依赖。
 
 重建顺序（先 i18n、后建站，否则 `site/` 会缺词典）：
 
@@ -113,9 +115,9 @@ python perf/tools/build_site.py            # 再生 site/
 
 - **单文件自包含**：不新增外部资源文件与外链资源（`<link>`（非 `data:`）/ `<script src>` / 外链 img / `iframe` / `url(http)` 恒为 0，探针守护）。
 - **零外链不变量**：同上；图标 link 恰 2 枚且均 `data:`，`@font-face{` 恰 2 处且均 `data:`（注意裸词 `@font-face` 全文会出现 3 次——第 3 次在 R36 注释文本里，探针按 `@font-face{` 计数）。
-- **两条巨型数据行严禁随意触碰**：`#tut-data`（行 L2723，21,358,276 字符）/ `#dev-data`（行 L2724，1,545,974 字符）内嵌教程与开发者文档 JSON，路由内链与数据解耦。R50 只对 `#tut-data` 做图片载荷的等位置换（PNG → 无损 WebP），JSON 结构与其余字符不变；R52 起另新增 `#i18n-*` 词典块（`#i18n-en/fr/es/ru/ar` + `#i18n-tut-en`），由 `build_i18n.py` 维护、勿手改。
-- **注释对回滚机制**：各轮改动以 `RNN:BEGIN/END` 注释对组织，可独立回滚；定位一律用 grep 锚点，行号随轮次漂移。
-- **中文字体子集**：内嵌 Noto Sans SC 按站点字符子集化，**新增可见中文文案须再子集化**（流程见 AGENTS.md「R36 勘误」）；新增西文/西里尔/阿拉伯文超出 Inter 子集（381 码位）时按字形回落系统字体。
+- **两条巨型数据行严禁随意触碰**：`#tut-data`（21,358,276 字符）/ `#dev-data`（1,545,974 字符）内嵌教程与开发者文档 JSON，路由内链与数据解耦。`#tut-data` 内 48 张截图为无损 WebP；`#i18n-*` 词典块由 `build_i18n.py` 维护、勿手改。
+- **注释对回滚机制**：活动 CSS/JS 层尽量按 `RNN:BEGIN/END` 注释对组织；载荷型改动无独立注释对。定位一律用 grep 锚点，具体还原要求见 AGENTS.md 当前回滚表。
+- **中文字体子集**：内嵌 Noto Sans SC 按站点字符子集化，**新增可见中文文案须再子集化**（见 AGENTS.md「源码导航与硬契约」）；新增西文/西里尔/阿拉伯文超出 Inter 子集（381 码位）时按字形回落系统字体。
 - **主题与偏好存于浏览器 `localStorage`**（`nikki_theme` / `nikki_look` / `nikki_lp_theme` / `nikki_role` / `nikki_lang`），站点不收集、不上传任何用户数据。
 
 ## 目录结构
@@ -126,7 +128,7 @@ site/                     多文件线上版（build_site.py 生成：外壳 + �
 locales/                  六语译文（唯一编辑入口：ui.{en,fr,es,ru,ar}.json + tutorial.en.json + ui.zh.json 键表快照）
 perf/                     性能与构建工具链（build_i18n / build_site / 无损 WebP / 取证脚本）+ reports/
 tests/                    常驻回归探针（r37–r54）+ 基线 JSON + 截图归档 + 校验报告
-AGENTS.md                 常驻开发者文档：章节索引、逐轮勘误、开发约定、回滚方式
+AGENTS.md                 常驻开发者文档：当前约束、源码导航、路由、回滚与验证状态
 README.md                 本文件
 LICENSE                   授权（MIT）
 CONTRIBUTING.md           贡献指引（提炼自 AGENTS.md 既有约定）

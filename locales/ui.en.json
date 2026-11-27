@@ -37,7 +37,7 @@
  "dev.nextCat": "Next section →",
  "dev.nextGrp": "Next sub-group →",
  "dev.noData": "Developer docs are not built yet 🚧",
- "dev.noDataSub": "No dev-data block found. Run the build pipeline first: python tools/extract_docs.py and python tools/build_dev_data.py (from the project root).",
+ "dev.noDataSub": "No dev-data block found. Use the complete site file that includes the developer documentation library.",
  "dev.prevCat": "← Previous section",
  "dev.prevGrp": "← Previous sub-group",
  "dev.q1d": "36 illustrated pages for end users",
