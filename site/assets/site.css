@@ -2674,7 +2674,7 @@ html[data-lang="ar"] body[data-view="landing"] #app .lp-root:has(.lpx-stats) :is
    紫罗兰 --color-stage-2 #7F50F3（rgba 透明度为派生值，不新增 hex）。
    plain 态整体关闭；reduced-motion 关掉动画只留静态；
    z-index:-1 与 body::before/::after 同层，永在内容之下。 */
-#r58-flow{position:fixed;inset:-18%;z-index:-1;pointer-events:none;opacity:1;will-change:transform}
+#r58-flow{display:none;position:fixed;inset:-18%;z-index:-1;pointer-events:none;opacity:1;will-change:transform}
 #r58-flow::before{content:"";position:absolute;inset:0;
   background:radial-gradient(34% 26% at 22% 24%,rgba(129,196,253,.45),transparent 68%),
              radial-gradient(30% 24% at 76% 30%,rgba(196,136,200,.42),transparent 70%),
@@ -2700,3 +2700,63 @@ html[data-look="plain"] #r58-flow{display:none}
 @media (prefers-reduced-motion:reduce){
   #r58-flow::before{animation:none;transform:none}
   #r58-flow::after{animation:none;background-position:50% 0}}
+html[data-look="color"] #r58-flow{display:block}
+/* ═══════ R61:BEGIN 卡片材质（仅 data-look=color）═══════ */
+/* 中性黑白与极简全白保持原样（纯白卡 + --bd 描边），只有「彩色氛围」才换成
+   半透明玻璃感卡面：背景透明 + 白渐变 + 半透明白边 + 内高光 + 紫调柔影。
+   圆角不动（R37 的 --r-bento 按卡尺寸动态给）。 */
+html[data-look="color"] .ms-card,
+html[data-look="color"] .mod-card,
+html[data-look="color"] .pagecard,
+html[data-look="color"] .quick,
+html[data-look="color"] .lpx-stat,
+html[data-look="color"] .lpx-card,
+html[data-look="color"] .pg-card{
+  background-color:transparent;
+  background-image:linear-gradient(180deg,rgba(255,255,255,.34),rgba(255,255,255,.18));
+  border-color:rgba(255,255,255,.55);
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.9),0 10px 30px -12px rgba(127,80,243,.18)}
+html[data-look="color"] .ms-card:hover,
+html[data-look="color"] .mod-card:hover,
+html[data-look="color"] .pagecard:hover,
+html[data-look="color"] .quick:hover,
+html[data-look="color"] .lpx-stat:hover,
+html[data-look="color"] .lpx-card:hover,
+html[data-look="color"] .pg-card:hover{
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.95),0 18px 40px -14px rgba(127,80,243,.26)}
+/* 玻璃底上 --mut 只有 4.3:1，浅色下压到 #525b68（6.1:1）；暗色保持原 --mut */
+html:not([data-theme="dark"])[data-look="color"] .ms-card,
+html:not([data-theme="dark"])[data-look="color"] .mod-card,
+html:not([data-theme="dark"])[data-look="color"] .pagecard,
+html:not([data-theme="dark"])[data-look="color"] .quick,
+html:not([data-theme="dark"])[data-look="color"] .lpx-stat,
+html:not([data-theme="dark"])[data-look="color"] .lpx-card,
+html:not([data-theme="dark"])[data-look="color"] .pg-card{--mut:#525b68}
+html[data-theme="dark"][data-look="color"] .ms-card,
+html[data-theme="dark"][data-look="color"] .mod-card,
+html[data-theme="dark"][data-look="color"] .pagecard,
+html[data-theme="dark"][data-look="color"] .quick,
+html[data-theme="dark"][data-look="color"] .lpx-stat,
+html[data-theme="dark"][data-look="color"] .lpx-card,
+html[data-theme="dark"][data-look="color"] .pg-card{
+  background-color:transparent;
+  background-image:linear-gradient(180deg,rgba(30,30,34,.42),rgba(12,12,14,.30));
+  border-color:rgba(255,255,255,.13);
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.07),0 12px 34px -16px rgba(0,0,0,.7)}
+/* ═══════ R61:END ═══════ */
+/* ═══════ R62:BEGIN 卡片玻璃化（仅 data-look=color）═══════ */
+/* 卡片已设为透明底，这里只补 backdrop-filter；三重门控缺一即退回 R61 的渐变：
+   支持 backdrop-filter + 没开减少透明度 + ≥768px（小屏逐卡模糊太贵）。 */
+@supports ((backdrop-filter:blur(1px)) or (-webkit-backdrop-filter:blur(1px))){
+  @media (prefers-reduced-transparency:no-preference) and (min-width:768px){
+    html[data-look="color"] .ms-card,
+    html[data-look="color"] .mod-card,
+    html[data-look="color"] .pagecard,
+    html[data-look="color"] .quick,
+    html[data-look="color"] .lpx-stat,
+    html[data-look="color"] .lpx-card,
+    html[data-look="color"] .pg-card{
+      -webkit-backdrop-filter:blur(14px) saturate(1.45);
+      backdrop-filter:blur(14px) saturate(1.45)}}
+}
+/* ═══════ R62:END ═══════ */
