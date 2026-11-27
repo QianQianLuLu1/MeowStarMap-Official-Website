@@ -7,7 +7,7 @@
 **本工作树的真实目录（20261126 实测）**：
 
 ```
-Meow Star Map 官网.html ← 唯一源文件（5,742 行 / 25,213,498 B / CRLF；R55 基线），含全部 HTML / CSS / JS / 教程与开发者数据 / 六语词典 / 字体子集 / 图标
+Meow Star Map 官网.html ← 唯一源文件（5,750 行 / 25,214,383 B / CRLF；R57 基线），含全部 HTML / CSS / JS / 教程与开发者数据 / 六语词典 / 字体子集 / 图标
 site/                     ← 多文件线上版（perf/tools/build_site.py 生成，已入库）
   index.html                单页应用 shell：JS / 六语词典内联，样式表外链（535,186 B；R56 起 CSS 拆出）
   assets/site.css           全站样式（883,647 B；字体子集与图标仍以 data: 内联在此文件）
@@ -111,7 +111,7 @@ AGENTS.md / README.md / CONTRIBUTING.md / SECURITY.md / CODE_OF_CONDUCT.md / LIC
 
 ## HTML 文件章节结构索引
 
-`Meow Star Map 官网.html`（**5,742 行 / 25,213,498 B / CRLF**）的完整章节地图，标注注释标记与行号范围，便于快速定位编辑目标。（**当前基线 = R55**；下方「总览」与「CSS 样式分区」表已于 20261126 刷新为 R55 锚点口径；CSS 分区表与「可回滚注释对标记汇总」一律以 grep 锚点（`R55:BEGIN` 等）为准；行号随轮次漂移；**grep 巨型数据行务必 `cut -c` 截断输出**）
+`Meow Star Map 官网.html`（**5,750 行 / 25,214,383 B / CRLF**）的完整章节地图，标注注释标记与行号范围，便于快速定位编辑目标。（**当前基线 = R57**；下方「总览」与「CSS 样式分区」表已于 20261126 刷新为 R55 锚点口径；CSS 分区表与「可回滚注释对标记汇总」一律以 grep 锚点（`R55:BEGIN` 等）为准；行号随轮次漂移；**grep 巨型数据行务必 `cut -c` 截断输出**）
 
 > **R32–R35 勘误（20261025）**：当前文件 = R31 基线 + **R32** GitHub 同步层（`R32:BEGIN/END`，关于板块社交图标配色对齐 MeowStarMap README）+ **R33** 品牌更名轮（20261024，全文件 209 处软件名替换为 Meow Star Map/喵星图 系，数据块 SHA 冻结基线失效；localStorage 键 `nikki_*`、NikkiPhotos_* 目录、`gongeo.us-nikki-tracker`、《无限暖暖》、"Nikki" 角色引用有意保留）+ **R34** 一级界面 Apple 发布会风格层（`R34:BEGIN/END`：Inter v4.1 base64 内嵌 @font-face＝全站唯一 1 处、`--lp-font` 重定义（仅 .lp-* 消费）、九组 `--color-*` 语义 token、`.text-gradient` @supports 纯色兜底、`.lp-hero::before` 超大背景字、四可选主题类 `.lp-theme-slim/-spectrum/-energy/-deep`（模板默认挂 slim）；仅作用 `body[data-view="landing"]`/`.lp-*`/`.lp-root .about-*`；回滚＝删注释对 + 还原 lpView() 两处 class）+ **R35** 全站 Apple 视觉延伸层（20261025，`</style>` 前 R34:END 之后：body 字体栈升级 Inter+Noto Sans SC/思源黑体+苹方/雅黑系统兜底（级联覆写 P1 的 MiSans body 栈，中文不内嵌 Web 字体）、新增 `--r-card:24px` 覆写 `.ms-card/.mod-card/.pagecard/.quick`（不动全局 --r-md）、`.gate h1`/`.hero h1` clamp() 流式字号 + 字距收紧、`.gate-sub`/`.hero-sub` 300 细体、≤960px 紧凑口径微升至 25/26px、print 回落 30px；**零 JS/模板/色彩/动画改动**，暗色零新增规则；回滚＝删 R35 注释对，或整文件还原 `Meow Star Map 官网.backup-r35-20261025.html` 快照）。探针待办：r31_links_check 口径显式更新（Inter data: 巨型行经 >100000 字符剥离逻辑天然不计）、父仓库 `npm run vreg`、r25/r26/r29/r31 探针回归（R35 未触碰按钮/面板几何与色值）。本工作树无父仓库工具链，R35 校验以本机 html5lib strict 解析（0 错误）+ 零外链计数核查 + IAB 六视图截图/控制台遍历替代。
 
@@ -272,7 +272,7 @@ AGENTS.md / README.md / CONTRIBUTING.md / SECURITY.md / CODE_OF_CONDUCT.md / LIC
 | `<!-- R40-UI -->` 块 | `R40-UI:BEGIN/END`（L5382–5402） | 二级页导航高亮 `syncNav()`（L5388） |
 | `<!-- R41-UI -->` 块 | `R41-UI:BEGIN/END`（L5403–5681） | landing 卡片行尾整行详情面板 |
 | `<!-- R45-UI -->` 块 | `R45-UI:BEGIN/END`（L5682–5739） | 769–900px 档配色入口折叠圆钮 |
-| `</body></html>` | L5740–5741 | 文件结尾（总 5,742 行，末行为空行；CRLF 5,741） |
+| `</body></html>` | L5748–5749 | 文件结尾（总 5,750 行，末行为空行；CRLF 5,749） |
 
 > **R22-UI / R22 高级动效层 / R23 深化不在当前基线**：R22/R23 改动已退出（仅作历史记录，见下方「精修区域标识 · R22/R23」），故上表不含 R22-UI 块；R25–R55 为 CSS 增量层，定位见「CSS 样式分区」表的 `R25:BEGIN`–`R55:BEGIN` 锚点。
 
@@ -790,7 +790,15 @@ R54 结构与行为自动恢复。专项探针若需回退到 R54 口径，应�
 
 ---
 
-## 文档清单与维护口径（20261126）
+## R56–R57 勘误（20261126）
+
+**R56 · site/ 样式表外置**（只改构建产物，源站 HTML 未动）：`perf/tools/build_site.py` 新增第 11 步，把单文件内联 `<style>`（883,647 B，占当时 `index.html` 的 62%）整块写成 `site/assets/site.css`，正文换成 `<link rel="stylesheet" href="assets/site.css">`；字体子集与图标仍以 `data:` 留在 CSS 里，部署依旧零外部域名。`site/index.html` 1,418,846 → 535,186 B，`site.css` 883,647 B，首屏阻塞总量不变、多 1 个并行请求。验证：改前/改后 3 路由 × 8 节点计算样式与几何逐位一致；`smoke_site.mjs` 10 路由签名与原单文件版一致；`interact_site.mjs` 15 项全 ok、390 零溢出。提交 `2b36d0f`，PR #4。另见上文「「构建器」的定位（防误解）」章节。
+
+**R57 · 页脚备案号**：`lpFooterView()` 的 `.lp-footnote` 增加 `晋ICP备2025053470号-4`，指向 `https://beian.miit.gov.cn/`（`target="_blank" rel="noopener noreferrer"`）。该 href 是**出站链接**而非外部资源，不破零外链不变量（`<link 非 data:>` / `<script src>` / `<iframe>` / `url(http` 仍为 0）。`</style>` 前新增 `/* ═══════ R57:BEGIN … R57:END ═══════ */` 纯 CSS 层（10 行：`white-space:nowrap`、`:hover`、`:focus-visible`、`≤520px` 断行），零新 hex（走 `--mut` / `--ac`）。备案号属法定信息，**不参与 i18n**，六语下均显示中文原号（实测 en / ar 不变）。`晋` 不在 R36 Noto 子集内 → 逐字回落系统字体，与 R36「缺字由栈内系统字体兜底」同口径。**回滚** = 删 R57 CSS 注释对 + 把该行还原为 `+'<p class="lp-footnote">'+T('foot.note','Meow Star Map · 开发者：纤璐不会玩摄影')+'</p>'`，再重跑 `build_site.py`。
+
+验证（20261126）：22 项浏览器断言全 PASS —— 源站与 `site/index.html` 各 11 项（文案、href、`target`/`rel`、可见且不折行、可键盘聚焦、1440 与 390 零横向溢出、console 与 requestfailed 双零、en/ar 不翻译）；`build_i18n.py --check` keys=359 通过；`site/index.html` 535,326 B、`site/assets/site.css` 884,392 B（含本轮增量 +140 / +745 B）。
+
+
 
 本仓库的 `.md` 文档共 11 份，维护口径如下：
 
