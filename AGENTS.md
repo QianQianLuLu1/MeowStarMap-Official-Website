@@ -42,10 +42,10 @@
 
 ## 当前基线与仓库边界
 
-- 当前基线：**R55**。站点本体为原生 HTML/CSS/JavaScript，无框架、无包管理器入口；Python/Node 仅用于构建、i18n 与验收工具链。
+- 当前基线：**R59**。R56 起 `site/` 的样式表外置为 `assets/site.css`；R57 页脚备案号；R58–R59 的彩色视觉（背景流光 `#r58-flow` + 玻璃卡）只挂 `html[data-look="color"]`，中性/极简保持原样。站点本体为原生 HTML/CSS/JavaScript，无框架、无包管理器入口；Python/Node 仅用于构建、i18n 与验收工具链。
 - 仓库根：`MeowStarMap-Official-Website/`。当前 `main` 的已提交 HEAD 与 `origin/main` 同步；工作树可能有未提交文档改动，以 `git status` 为准。
-- 单文件源：`Meow Star Map 官网.html`，当前 **25,212,947 B / 5,739 个 CRLF 换行**，内嵌全部 HTML/CSS/JS、教程与开发者数据、六语词典、字体子集、图标和 48 张无损 WebP 截图。
-- 多文件线上版：`site/index.html`，当前 **1,418,290 B（1.35 MiB）**，由 `perf/tools/build_site.py` 从单文件源生成；教程/开发者数据与截图按路由加载。
+- 单文件源：`Meow Star Map 官网.html`，当前 **25,219,808 B / 5,842 个 CRLF 换行**，内嵌全部 HTML/CSS/JS、教程与开发者数据、六语词典、字体子集、图标和 48 张无损 WebP 截图。
+- 多文件线上版：`site/index.html` **534,863 B（522.3 KiB）** + `site/assets/site.css` **890,319 B（869.5 KiB）**，由 `perf/tools/build_site.py` 从单文件源生成；教程/开发者数据与截图按路由加载。
 - 教程数据：9 模块、36 页、48 张图；开发者文档：12 板块、12 子分类、104 篇。
 - i18n：359 键（MKT 272 / BI 87）；营销侧 zh/en/fr/es/ru/ar，工作区侧 zh/en，开发者文档正文永久不译。
 - 本仓库现有 `.md` 共 **10 份**；临时计划、逐轮报告和一次性取证产物不入库。
@@ -55,7 +55,8 @@
 ```text
 Meow Star Map 官网.html  单文件站点源
 site/                    多文件线上版（build_site.py 生成）
-  index.html              应用 shell；CSS/JS/字体/图标/词典内联
+  index.html              应用 shell；CSS 外链 assets/site.css，JS/字体/图标/词典内联
+  assets/site.css         全站样式（字体子集与图标仍以 data: 内联在此文件）
   data/tutorial.js        教程数据（截图为相对路径）
   data/dev-docs.js        开发者文档数据
   assets/shots/*.webp     48 张 1400×900 无损 WebP

@@ -2683,9 +2683,112 @@ html[data-lang="ar"] body[data-view="landing"] #app .lp-root:has(.lpx-stats) :is
   #lp-nav .lp-actions>:is(a,button){font-size:12.5px}
 }
 /* ═══════ R55:END ═══════ */
+/* ═══════ R57:BEGIN 页脚备案号（ICP）═══════ */
+/* 备案号是法定信息，不参与 i18n（六语下均显示中文原号）；与开发者说明同一行，
+   ≤520px 断行到第二行。颜色走既有 --mut / --ac 令牌，零新 hex，零外链资源。 */
+.lp-footnote .lp-foot-icp{margin-left:10px;color:var(--mut);text-decoration:none;white-space:nowrap;border-bottom:1px solid currentColor}
+.lp-footnote .lp-foot-icp:hover{color:var(--ac)}
+.lp-footnote .lp-foot-icp:focus-visible{outline:2px solid var(--ac);outline-offset:2px;border-radius:3px}
+@media (max-width:520px){.lp-footnote .lp-foot-icp{display:block;margin:6px 0 0}}
+/* ═══════ R58:BEGIN 背景流光 ═══════ */
+/* 纯 CSS 装饰层：body 首个子元素 #r58-flow + 两个伪元素。
+   ::before = 缓慢漂移的极光色团（filter:blur 软化，translate3d 走合成层）；
+   ::after  = 周期性斜扫的高光带（soft-light 混合，只移动 background-position）。
+   配色取《无限暖暖》粉彩系，逐色对位站内既有令牌：蜜桃 --color-siri-1 #FD9F59、
+   玫瑰 --color-siri-2 #F487A3、丁香 --color-siri-3 #C488C8、天青 --color-siri-4 #81C4FD、
+   紫罗兰 --color-stage-2 #7F50F3（rgba 透明度为派生值，不新增 hex）。
+   plain 态整体关闭；reduced-motion 关掉动画只留静态；
+   z-index:-1 与 body::before/::after 同层，永在内容之下。 */
+#r58-flow{display:none;position:fixed;inset:-18%;z-index:-1;pointer-events:none;opacity:1;will-change:transform}
+#r58-flow::before{content:"";position:absolute;inset:0;
+  background:radial-gradient(34% 26% at 22% 24%,rgba(129,196,253,.45),transparent 68%),
+             radial-gradient(30% 24% at 76% 30%,rgba(196,136,200,.42),transparent 70%),
+             radial-gradient(38% 28% at 60% 80%,rgba(244,135,163,.36),transparent 72%),
+             radial-gradient(30% 24% at 12% 84%,rgba(253,159,89,.30),transparent 72%);
+  filter:blur(30px) saturate(1.6);
+  animation:r58-aurora 12s ease-in-out infinite alternate}
+#r58-flow::after{content:"";position:absolute;inset:0;
+  background:linear-gradient(104deg,transparent 30%,rgba(129,196,253,.45) 38%,rgba(196,136,200,.44) 46%,rgba(244,135,163,.42) 54%,rgba(253,159,89,.34) 62%,transparent 72%);
+  background-size:280% 100%;background-position:120% 0;
+  mix-blend-mode:multiply;
+  animation:r58-sheen 5s cubic-bezier(.45,0,.55,1) infinite}
+@keyframes r58-aurora{
+  0%{transform:translate3d(-9%,6%,0) scale(1.04)}
+  50%{transform:translate3d(9%,-6%,0) scale(1.12)}
+  100%{transform:translate3d(-3%,7%,0) scale(1.06)}}
+@keyframes r58-sheen{0%{background-position:120% 0}55%,100%{background-position:-40% 0}}
+html[data-theme="dark"] #r58-flow{opacity:.92}
+html[data-theme="dark"] #r58-flow::after{
+  background:linear-gradient(104deg,transparent 30%,rgba(151,206,255,.52) 38%,rgba(214,163,220,.50) 46%,rgba(255,170,193,.46) 54%,rgba(255,205,150,.34) 62%,transparent 72%);
+  mix-blend-mode:screen}
+html[data-look="plain"] #r58-flow{display:none}
+@media (prefers-reduced-motion:reduce){
+  #r58-flow::before{animation:none;transform:none}
+  #r58-flow::after{animation:none;background-position:50% 0}}
+html[data-look="color"] #r58-flow{display:block}
+/* ═══════ R61:BEGIN 卡片材质（仅 data-look=color）═══════ */
+/* 中性黑白与极简全白保持原样（纯白卡 + --bd 描边），只有「彩色氛围」才换成
+   半透明玻璃感卡面：背景透明 + 白渐变 + 半透明白边 + 内高光 + 紫调柔影。
+   圆角不动（R37 的 --r-bento 按卡尺寸动态给）。 */
+html[data-look="color"] .ms-card,
+html[data-look="color"] .mod-card,
+html[data-look="color"] .pagecard,
+html[data-look="color"] .quick,
+html[data-look="color"] .lpx-stat,
+html[data-look="color"] .lpx-card,
+html[data-look="color"] .pg-card{
+  background-color:transparent;
+  background-image:linear-gradient(180deg,rgba(255,255,255,.34),rgba(255,255,255,.18));
+  border-color:rgba(255,255,255,.55);
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.9),0 10px 30px -12px rgba(127,80,243,.18)}
+html[data-look="color"] .ms-card:hover,
+html[data-look="color"] .mod-card:hover,
+html[data-look="color"] .pagecard:hover,
+html[data-look="color"] .quick:hover,
+html[data-look="color"] .lpx-stat:hover,
+html[data-look="color"] .lpx-card:hover,
+html[data-look="color"] .pg-card:hover{
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.95),0 18px 40px -14px rgba(127,80,243,.26)}
+/* 玻璃底上 --mut 只有 4.3:1，浅色下压到 #525b68（6.1:1）；暗色保持原 --mut */
+html:not([data-theme="dark"])[data-look="color"] .ms-card,
+html:not([data-theme="dark"])[data-look="color"] .mod-card,
+html:not([data-theme="dark"])[data-look="color"] .pagecard,
+html:not([data-theme="dark"])[data-look="color"] .quick,
+html:not([data-theme="dark"])[data-look="color"] .lpx-stat,
+html:not([data-theme="dark"])[data-look="color"] .lpx-card,
+html:not([data-theme="dark"])[data-look="color"] .pg-card{--mut:#525b68}
+html[data-theme="dark"][data-look="color"] .ms-card,
+html[data-theme="dark"][data-look="color"] .mod-card,
+html[data-theme="dark"][data-look="color"] .pagecard,
+html[data-theme="dark"][data-look="color"] .quick,
+html[data-theme="dark"][data-look="color"] .lpx-stat,
+html[data-theme="dark"][data-look="color"] .lpx-card,
+html[data-theme="dark"][data-look="color"] .pg-card{
+  background-color:transparent;
+  background-image:linear-gradient(180deg,rgba(30,30,34,.42),rgba(12,12,14,.30));
+  border-color:rgba(255,255,255,.13);
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.07),0 12px 34px -16px rgba(0,0,0,.7)}
+/* ═══════ R61:END ═══════ */
+/* ═══════ R62:BEGIN 卡片玻璃化（仅 data-look=color）═══════ */
+/* 卡片已设为透明底，这里只补 backdrop-filter；三重门控缺一即退回 R61 的渐变：
+   支持 backdrop-filter + 没开减少透明度 + ≥768px（小屏逐卡模糊太贵）。 */
+@supports ((backdrop-filter:blur(1px)) or (-webkit-backdrop-filter:blur(1px))){
+  @media (prefers-reduced-transparency:no-preference) and (min-width:768px){
+    html[data-look="color"] .ms-card,
+    html[data-look="color"] .mod-card,
+    html[data-look="color"] .pagecard,
+    html[data-look="color"] .quick,
+    html[data-look="color"] .lpx-stat,
+    html[data-look="color"] .lpx-card,
+    html[data-look="color"] .pg-card{
+      -webkit-backdrop-filter:blur(14px) saturate(1.45);
+      backdrop-filter:blur(14px) saturate(1.45)}}
+}
+/* ═══════ R62:END ═══════ */
 </style>
 </head>
 <body data-view="home">
+<div id="r58-flow" aria-hidden="true"></div>
 <!-- LP-NAV:BEGIN（R18 一级首页导航：仅 landing 视图显示的毛玻璃导航；回滚 = 删除本注释对之间内容） -->
 <nav id="lp-nav" aria-label="Meow Star Map 首页导航" data-i18n-aria="nav.aria|Meow Star Map 首页导航">
   <a class="lp-brand" href="#/"><span class="lp-brand-mark app-ic" aria-hidden="true"></span><span>Meow Star Map</span></a>
@@ -3538,7 +3641,7 @@ function lpFooterView(){
     +'<section><h3>'+T('foot.support','支持')+'</h3><a href="#/download">'+T('foot.download','下载与支持')+'</a><a href="#/privacy">'+T('foot.privacy','隐私与本地数据')+'</a></section>'
     +'<section><h3>'+T('foot.resources','资源')+'</h3><a href="https://github.com/QianQianLuLu1/MeowStarMap/releases" target="_blank" rel="noopener noreferrer">GitHub Releases</a><a href="#/tutorial">'+T('foot.tutorial','使用教程')+'</a></section>'
     +'</div>'
-    +'<p class="lp-footnote">'+T('foot.note','Meow Star Map · 开发者：纤璐不会玩摄影')+'</p>'
+    +'<p class="lp-footnote"><span>'+T('foot.note','Meow Star Map · 开发者：纤璐不会玩摄影')+'</span><a class="lp-foot-icp" href="https://beian.miit.gov.cn/" target="_blank" rel="noopener noreferrer">晋ICP备2025053470号-4</a></p>'
     +'</footer>';
 }
 /* R40-VIEW:END */

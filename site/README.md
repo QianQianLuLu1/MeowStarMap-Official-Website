@@ -1,7 +1,7 @@
 # site/ — Meow Star Map 多文件版站点
 
 `perf/tools/build_site.py` 从根目录的 `Meow Star Map 官网.html`（无损 WebP + 六语词典版）生成。
-用于**线上部署**：落地页只加载约 1.35 MiB 的 shell，教程图片与开发者文档按需加载。
+用于**线上部署**：落地页只加载约 1.36 MiB 的 shell（`index.html` + `assets/site.css`），教程图片与开发者文档按需加载。
 
 > 根目录的单文件版仍保留为「离线双击」交付形态；`site/` 是同一份站点的网络优化版。
 
@@ -9,14 +9,15 @@
 
 | 文件 | 原始 | gzip -9 | brotli q11 | 加载时机 |
 |---|---|---|---|---|
-| `index.html` | 1,418,290 B（1.35 MiB） | 748,144 | 699,107 | 首屏，唯一阻塞资源 |
+| `index.html` | 534,863 B（522.3 KiB） | 185,446 | 160,363 | 首屏阻塞 |
+| `assets/site.css` | 890,319 B（869.5 KiB） | 564,908 | 540,881 | 首屏阻塞（与 index 并行，可独立缓存） |
 | `data/tutorial.js` | 69,450 B | 17,069 | 14,434 | 教程路由（空闲/悬停时预取） |
 | `data/dev-docs.js` | 2,088,814 B | 479,752 | 330,422 | 首次进入 `#/dev` |
 | `assets/shots/*.webp`（48 张） | 15,991,294 B | — | — | 每页 1–3 张，`loading="lazy"` |
 | `assets/about-wx.jpg` | 238,007 B | 199,337 | 194,831 | 打开「关于 → 微信」时懒加载 |
 
-首屏传输（本地 HTTP、无压缩）：`index.html` + 空闲预取的 `tutorial.js` = **1,487,740 B（1.42 MiB）**；
-原单文件版是 **25,212,947 B（24.04 MiB）**，相差约 **17×**。若只算首屏阻塞资源，则为 1.35 MiB。
+首屏传输（本地 HTTP、无压缩）：`index.html` + `assets/site.css` + 空闲预取的 `tutorial.js` = **1,494,632 B（1.43 MiB）**；
+原单文件版是 **25,219,808 B（24.05 MiB）**，相差约 **17×**。若只算首屏阻塞资源，则为 1,425,182 B（1.36 MiB）。
 单文件版压缩后 gzip-9 为 17,619,361 B、brotli q11 为 17,177,073 B（base64 + WebP 熵高，收益有限）。
 
 ## 运行
@@ -34,7 +35,7 @@ python -m http.server 8080
 
 ## 部署建议
 
-- 开 gzip 或 brotli（`index.html` 1.35 MiB → 约 0.71/0.67 MiB；`dev-docs.js` 2.09 MB → 0.32–0.45 MB）。
+- 开 gzip 或 brotli（`index.html`+`site.css` 1.36 MiB → 约 0.72/0.67 MiB；`dev-docs.js` 2.09 MB → 0.32–0.45 MB）。
 - 缓存：`assets/*` 内容随图片更新才变，建议 `Cache-Control: public, max-age=604800`；
   `index.html` 与 `data/*` 建议较短缓存或 `no-cache`（文件名未带内容哈希）。
 - 服务器需要能返回 `.woff2`、`.webp` 的正确 MIME（`font/woff2`、`image/webp`）；
